@@ -42,7 +42,7 @@ function page(cb) {
 
       <section class="section image-section">
         <div class="content">
-          <img src="https://i.imgur.com/qSit4E1.jpeg" alt="Swap and Play Portland example">
+          <img src="./assets/playground.jpg" alt="Swap and Play Portland example">
           <p class="caption">
             Example of the original Swap & Play concept in Portland, Oregon.
             <strong>This is not the Wharfedale location.</strong>
@@ -52,7 +52,7 @@ function page(cb) {
 
       <section class="section image-section">
         <div class="content">
-          <img src="https://i.imgur.com/4kCujL3.jpeg" alt="Toy and clothes swap example">
+          <img src="./assets/swap.jpg" alt="Toy and clothes swap example">
           <p class="caption">
             Example swap area from the original concept in Portland.
           </p>
@@ -81,7 +81,7 @@ function page(cb) {
             <!-- New local scenery images -->
       <section class="section image-section">
         <div class="content">
-          <img src="https://i.imgur.com/L3lbyay.jpeg" alt="Ilkley Moor landscape">
+          <img src="./assets/bench.jpg" alt="Ilkley Moor landscape">
           <p class="caption">
             Local scenery from Ilkley Moor
           </p>
@@ -125,7 +125,7 @@ function page(cb) {
 
       <section class="section image-section">
         <div class="content">
-          <img src="https://i.imgur.com/xkedUFD.jpeg" alt="Wharfedale village vibes">
+          <img src="./assets/village.jpg" alt="Wharfedale village vibes">
           <p class="caption">
             Beatiful Burley in Wharfedale
           </p>
