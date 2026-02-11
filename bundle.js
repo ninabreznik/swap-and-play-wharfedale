@@ -57,6 +57,7 @@ function page(cb) {
         </div>
       </section>
 
+
       <section class="section light">
         <div class="content">
           <h2>What is Swap & Play?</h2>
@@ -78,7 +79,17 @@ function page(cb) {
 
       <section class="section image-section">
         <div class="content">
-          <img src="./assets/playground.jpg" alt="Swap and Play Portland example">
+          <img src="./assets/parents.jpg" alt="Parents and children playing in the playroom">
+          <p class="caption">
+            Example of the original Swap & Play concept in Portland, Oregon.
+            <strong>This is not the Wharfedale location.</strong>
+          </p>
+        </div>
+      </section>
+    
+      <section class="section image-section">
+        <div class="content">
+          <img src="./assets/child.jpg" alt="Child playing in the playroom">
           <p class="caption">
             Example of the original Swap & Play concept in Portland, Oregon.
             <strong>This is not the Wharfedale location.</strong>
