@@ -40,9 +40,15 @@ function page(cb) {
   const el = document.createElement('div')
   const shadow = el.attachShadow({ mode: 'closed' })
 
+  // Register button
   const register = document.createElement('button')
   register.innerText = 'Register interest'
-  register.onclick = () => register_interest()
+  register.onclick = register_interest
+
+  // Donate button
+  const donateBtn = document.createElement('button')
+  donateBtn.innerText = 'Support the fundraiser'
+  donateBtn.onclick = donate
 
   shadow.innerHTML = `
     <div class="page">
@@ -56,7 +62,6 @@ function page(cb) {
           <register></register>
         </div>
       </section>
-
 
       <section class="section light">
         <div class="content">
@@ -125,7 +130,6 @@ function page(cb) {
         </div>
       </section>
 
-            <!-- New local scenery images -->
       <section class="section image-section">
         <div class="content">
           <img src="./assets/bench.jpg" alt="Ilkley Moor landscape">
@@ -169,7 +173,6 @@ function page(cb) {
         </div>
       </section>
 
-
       <section class="section image-section">
         <div class="content">
           <img src="./assets/village.jpg" alt="Wharfedale village vibes">
@@ -179,6 +182,33 @@ function page(cb) {
         </div>
       </section>
 
+      <!-- ⭐ FUNDRAISER SECTION -->
+      <section class="section soft">
+        <div class="content center">
+          <h2>Help bring Swap & Play to life</h2>
+          <p>
+            Thanks to the incredible response from local families, we have now
+            launched a small community fundraiser to secure our first space and
+            basic equipment.
+          </p>
+          <p>
+            Over 50 families have already registered interest in using,
+            volunteering or supporting the project — showing how much this is
+            needed locally.
+          </p>
+          <p>
+            If you would like to help make this space possible, even a small
+            donation makes a real difference.
+          </p>
+
+          <donate></donate>
+
+          <p class="caption">
+            If donating isn’t possible right now, simply sharing the project or
+            registering interest helps us enormously.
+          </p>
+        </div>
+      </section>
 
       <section class="section cta-section">
         <div class="content center">
@@ -195,11 +225,20 @@ function page(cb) {
     </div>
   `
 
-shadow.querySelectorAll('register').forEach(node => {
-  const btn = register.cloneNode(true)
-  btn.onclick = register_interest  // reattach event listener
-  node.replaceWith(btn)
-})
+  // Replace register placeholders
+  shadow.querySelectorAll('register').forEach(node => {
+    const btn = register.cloneNode(true)
+    btn.onclick = register_interest
+    node.replaceWith(btn)
+  })
+
+  // Replace donate placeholders
+  shadow.querySelectorAll('donate').forEach(node => {
+    const btn = donateBtn.cloneNode(true)
+    btn.onclick = donate
+    node.replaceWith(btn)
+  })
+
   const style = document.createElement('style')
   style.textContent = get_theme()
   shadow.append(style)
@@ -207,10 +246,13 @@ shadow.querySelectorAll('register').forEach(node => {
   if (cb) cb()
   return el
 
-function register_interest() {
-  window.open('https://docs.google.com/forms/d/e/1FAIpQLSeFu8CQyIAWTMzz8aAmtvDZVeKvED1oy5MFNYrJya9DF3FrnQ/viewform', '_blank')
-}
+  function register_interest() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSeFu8CQyIAWTMzz8aAmtvDZVeKvED1oy5MFNYrJya9DF3FrnQ/viewform', '_blank')
+  }
 
+  function donate() {
+    window.open('https://www.justgiving.com/crowdfunding/swap-and-play-wharfedale', '_blank')
+  }
 }
 
 function get_theme() {
@@ -223,7 +265,7 @@ function get_theme() {
       --terracotta: #d57a66;
       --sun: #f2c14e;
       --cream: #fbfaf6;
-      --heather: #a68eb2; /* new hero color */
+      --heather: #a68eb2;
     }
 
     .page {
@@ -232,22 +274,9 @@ function get_theme() {
       line-height: 1.7;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin: 0 0 1rem 0;
-      font-weight: 600;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--sage);
-    }
-
-    p {
-      font-size: 1.15rem;
-      margin-bottom: 1rem;
-    }
+    h1 { font-size: 3rem; margin: 0 0 1rem 0; font-weight: 600; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--sage); }
+    p { font-size: 1.15rem; margin-bottom: 1rem; }
 
     .hero {
       background: var(--heather);
@@ -256,10 +285,7 @@ function get_theme() {
       color: white;
     }
 
-    .tagline {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-    }
+    .tagline { font-size: 1.3rem; margin-bottom: 2rem; }
 
     button {
       padding: 0.9rem 2rem;
@@ -269,7 +295,7 @@ function get_theme() {
       background: var(--sun);
       color: var(--forest);
       cursor: pointer;
-      transition: all 0.4s ease; /* smoother hover */
+      transition: all 0.4s ease;
     }
 
     button:hover {
@@ -277,26 +303,11 @@ function get_theme() {
       color: white;
     }
 
-    .section {
-      padding: 4rem 1.5rem;
-    }
-
-    .light {
-      background: var(--sand);
-    }
-
-    .soft {
-      background: #eef5ef;
-    }
-
-    .content {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .center {
-      text-align: center;
-    }
+    .section { padding: 4rem 1.5rem; }
+    .light { background: var(--sand); }
+    .soft { background: #eef5ef; }
+    .content { max-width: 820px; margin: 0 auto; }
+    .center { text-align: center; }
 
     .image-section img {
       width: 100%;
@@ -310,19 +321,12 @@ function get_theme() {
       opacity: 0.8;
     }
 
-    .cta-section {
-      background: var(--sand);
-    }
+    .cta-section { background: var(--sand); }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.6rem;
-      }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
     }
   `
 }
-
 },{}]},{},[1]);
