@@ -52,7 +52,14 @@ function page(cb) {
 
   shadow.innerHTML = `
     <div class="page">
-
+      <head>
+        <!-- Open Graph / Social Preview -->
+        <meta property="og:title" content="Swap & Play Wharfedale">
+        <meta property="og:description" content="A community play-and-swap space for families with young children in Wharfedale.">
+        <meta property="og:image" content="https://swapandplaywharfedale.co.uk/assets/parents.jpg">
+        <meta property="og:url" content="https://swapandplaywharfedale.co.uk/">
+        <meta property="og:type" content="website">
+      </head>
       <section class="hero">
         <div class="hero-inner">
           <h1>Swap & Play Wharfedale</h1>
