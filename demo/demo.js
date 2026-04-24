@@ -5,12 +5,23 @@ function demo (cb) {
   document.fonts.add(font)
   font.load()
 
+  document.head.inneHTML = `
+    <meta property="og:title" content="Swap & Play Wharfedale">
+    <meta property="og:description" content="Flexible family play space in Ilkley. No booking slots. Stay as long as you like. Bring your own food.">
+    <meta property="og:image" content="https://swapandplaywharfedale.co.uk/assets/parents.jpg">
+    <meta property="og:url" content="https://swapandplaywharfedale.co.uk/">
+    <meta property="og:type" content="website">
+  `
+
   const favicon = document.createElement('link')
   favicon.setAttribute('rel', 'icon')
-  favicon.setAttribute('type', 'imagine/png')
-  favicon.setAttribute('href', './assets/Wizard-Amigos---Stickers---WIZARD-BALL---TRANSPARENT---2022.png')
+  favicon.setAttribute('type', 'imagine/jpeg')
+  favicon.setAttribute('href', 'assets/logo-icon.jpg')
+  // favicon.setAttribute('href', 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><text y="26" font-size="26">👶</text></svg>')
   
+
   document.head.append(favicon)
+  document.title = 'Swap & Play Wharfedale'
   const codecamp = page(cb)
   return codecamp
 }
@@ -29,5 +40,3 @@ const el = demo(async () => {
   `
   document.body.append(style, el)
 })
-
-
