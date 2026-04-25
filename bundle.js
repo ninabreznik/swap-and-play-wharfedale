@@ -168,6 +168,11 @@ function page(cb) {
               <p>Exchange clothes and toys. Save waste, money and time.</p>
             </div>
 
+            <div class="bubble bubble-h">
+              <h3>No Early Closures</h3>
+              <p>While most local kids’ spaces close mid-afternoon, we stay open into the evening. </p>
+            </div>
+
           </div>
 
         </div>
@@ -603,6 +608,10 @@ function get_theme() {
       border-color: var(--pale-green);
     }
     .bubble-g { border-radius: 60% 40% 50% 50% / 44% 58% 42% 56%; }
+    .bubble-h {
+      border-radius: 40% 60% 52% 48% / 56% 44% 56% 44%;
+      border-color: var(--pale-green);
+    }
 
     .card {
       background: #ffffff;
