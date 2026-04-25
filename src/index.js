@@ -294,21 +294,19 @@ function get_theme() {
       --beige: #e9e6e1;
       --soft: #eef5ef;
 
-      /* NEW: better UI neutrals */
       --ink: #2f4f4f;
       --muted: #6f8079;
       --surface: #ffffff;
       --surface-alt: #f6f3ee;
     }
+
     .page {
       background: var(--cream);
       color: var(--ink);
       line-height: 1.7;
     }
 
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
+    h1, h2, h3, p { margin-top: 0; }
 
     h1 {
       font-size: 3rem;
@@ -364,9 +362,10 @@ function get_theme() {
 
     .photo-strip {
       background-color: var(--sand);
-      .photo {
-        margin: 0 auto;
-      }
+    }
+
+    .photo-strip .photo {
+      margin: 0 auto;
     }
 
     .hero-photo {
@@ -416,7 +415,6 @@ function get_theme() {
       transform: translateY(-3px);
     }
 
-    /* HERO — softened so logo feels natural */
     .hero {
       background: var(--pale-blue);
       padding: 2rem 1.5rem 0rem;
@@ -430,10 +428,10 @@ function get_theme() {
       align-items: center;
       gap: 2rem;
     }
+
     .logo img {
       height: 360px;
       margin-bottom: 1.5rem;
-      /* subtle lift so black/white logo doesn't feel "flat" */
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
     }
 
@@ -443,7 +441,6 @@ function get_theme() {
       margin-bottom: 1.5rem;
     }
 
-    /* BUTTON — calmer, less “sun heavy” */
     button {
       margin: 1rem;
       padding: 0.95rem 2rem;
@@ -494,9 +491,7 @@ function get_theme() {
       margin: 0 auto;
     }
 
-    .center {
-      text-align: center;
-    }
+    .center { text-align: center; }
 
     .center p {
       max-width: 640px;
@@ -547,46 +542,22 @@ function get_theme() {
       line-height: 1.5;
     }
 
-    /* irregular shapes */
-    .bubble-a {
-      border-radius: 58% 42% 48% 52% / 44% 54% 46% 56%;
-    }
-
+    .bubble-a { border-radius: 58% 42% 48% 52% / 44% 54% 46% 56%; }
     .bubble-b {
       border-radius: 46% 54% 60% 40% / 52% 38% 62% 48%;
       border-color: var(--pale-pink);
     }
-
-    .bubble-c {
-      border-radius: 63% 37% 45% 55% / 40% 60% 40% 60%;
-    }
-
+    .bubble-c { border-radius: 63% 37% 45% 55% / 40% 60% 40% 60%; }
     .bubble-d {
       border-radius: 42% 58% 55% 45% / 60% 42% 58% 40%;
       border-color: var(--pale-blue);
     }
-
-    .bubble-e {
-      border-radius: 55% 45% 40% 60% / 48% 62% 38% 52%;
-    }
-
+    .bubble-e { border-radius: 55% 45% 40% 60% / 48% 62% 38% 52%; }
     .bubble-f {
       border-radius: 40% 60% 52% 48% / 56% 44% 56% 44%;
       border-color: var(--pale-green);
     }
-
-    .bubble-g {
-      border-radius: 60% 40% 50% 50% / 44% 58% 42% 56%;
-    }
-
-    @media (max-width: 768px) {
-      .bubble {
-        width: 100%;
-        max-width: 360px;
-        min-height: auto;
-        padding: 1.8rem 1.4rem;
-      }
-}
+    .bubble-g { border-radius: 60% 40% 50% 50% / 44% 58% 42% 56%; }
 
     .card {
       background: #ffffff;
@@ -596,7 +567,6 @@ function get_theme() {
       transition: transform 0.2s ease;
     }
 
-    /* PRICING */
     .pricing {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -684,23 +654,195 @@ function get_theme() {
       text-align: center;
     }
 
+    /* ===============================
+       TABLET
+    =============================== */
     @media (max-width: 900px) {
       .pricing {
         grid-template-columns: 1fr;
       }
+
+      .featured {
+        transform: none;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-strip {
+        overflow: hidden;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .photo-strip .photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
     }
 
+    /* ===============================
+       MOBILE
+    =============================== */
     @media (max-width: 768px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.6rem; }
-      p { font-size: 1rem; }
-    }
 
-    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      h2 { font-size: 1.55rem; }
+      h3 { font-size: 1.15rem; }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .section,
+      .hero,
+      .photo-story {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .logo img {
+        width: 180px;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .hero-photo {
+        max-width: 100%;
+        padding: 12px;
+        border-width: 10px;
+      }
+
+      .hero-photo .photo {
+        height: auto;
+        aspect-ratio: 4 / 5;
+      }
+
+      .photo,
+      .story-photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+
       .photo {
-        height: 260px;
-        border-radius: 20px;
-        margin: 1.2rem auto;
+        aspect-ratio: 4 / 3;
+        margin: 1rem auto;
+        border-width: 10px;
+      }
+
+      .story-photo {
+        aspect-ratio: 4 / 5;
+        border-width: 6px;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .bubble {
+        width: 100%;
+        max-width: 360px;
+        min-height: auto;
+        padding: 1.6rem 1.3rem;
+      }
+
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        width: 100%;
+        max-width: 320px;
+        display: block;
+        margin: 1rem auto;
+      }
+
+      .wave {
+        height: 72px;
+      }
+
+      .photo-strip {
+        overflow: hidden;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .photo-strip .photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+    }
+
+    /* ===============================
+       SMALL PHONES
+    =============================== */
+    @media (max-width: 480px) {
+
+      h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.35rem; }
+
+      .logo img {
+        width: 150px;
+      }
+
+      .photo,
+      .story-photo,
+      .hero-photo .photo {
+        aspect-ratio: auto;
+      }
+
+      .price {
+        font-size: 1.7rem;
+      }
+
+      .bubble {
+        padding: 1.3rem 1rem;
+      }
+
+      .wave {
+        height: 56px;
+      }
+        
+      .photo-strip {
+        overflow: hidden;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+
+      .photo-strip .photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
       }
     }
   `
