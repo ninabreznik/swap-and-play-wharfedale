@@ -178,6 +178,55 @@ function page(cb) {
         </div>
       </section>
 
+      <section class="section included-section">
+        <div class="content center">
+          <h2>What’s included when you visit</h2>
+          <p class="included-intro">
+            More than just play time — a flexible family base you can actually use.
+          </p>
+
+          <div class="included-grid">
+
+            <div class="included-card">
+              <div class="icon">🧸</div>
+              <h3>Indoor Play Space</h3>
+              <p>Toys, play zones and calm indoor fun for little ones.</p>
+            </div>
+
+            <div class="included-card">
+              <div class="icon">⏰</div>
+              <h3>No Time Slots</h3>
+              <p>Come when it suits you. Stay as long as you like.</p>
+            </div>
+
+            <div class="included-card">
+              <div class="icon">🥪</div>
+              <h3>Bring Your Own Food</h3>
+              <p>No pressure café spend. Bring snacks that actually work.</p>
+            </div>
+
+            <div class="included-card">
+              <div class="icon">☕</div>
+              <h3>Tea & Coffee</h3>
+              <p>Free hot drinks for grown-ups to make days easier.</p>
+            </div>
+
+            <div class="included-card">
+              <div class="icon">👨‍👩‍👧‍👦</div>
+              <h3>Community Feel</h3>
+              <p>Meet other local parents, grandparents and carers.</p>
+            </div>
+
+            <div class="included-card">
+              <div class="icon">♻️</div>
+              <h3>Swap Room (Members)</h3>
+              <p>Children’s clothes, toys and useful items shared locally.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section class="section soft">
         <div class="content content-wide center">
           <h2>Choose how your family wants to play</h2>
@@ -199,7 +248,7 @@ function page(cb) {
             <div class="price-card featured">
               <div class="label popular">Most Popular</div>
               <h3>5 Visit Pack</h3>
-              <div class="price">£49</div>
+              <div class="price">£45</div>
               <p class="small">Ideal for families who want flexibility without full membership.</p>
               <ul>
                 <li>5 flexible visits</li>
@@ -611,6 +660,70 @@ function get_theme() {
     .bubble-h {
       border-radius: 40% 60% 52% 48% / 56% 44% 56% 44%;
       border-color: var(--pale-green);
+    }
+
+    .included-section {
+      background: #eef7ff;
+    }
+
+    .included-intro {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .included-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1.6rem;
+      border: 6px solid var(--pale-green);
+      text-align: center;
+    }
+
+    .included-card:nth-child(2n) {
+      border-color: var(--pale-pink);
+    }
+
+    .included-card:nth-child(3n) {
+      border-color: var(--pale-blue);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .included-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .included-card p {
+      font-size: 0.98rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .included-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .included-card {
+        padding: 1.35rem;
+      }
     }
 
     .card {
