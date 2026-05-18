@@ -50,7 +50,7 @@ function page(cb) {
   const shadow = el.attachShadow({ mode: 'closed' })
 
   const register = document.createElement('button')
-  register.innerText = 'Join the Founding Families Waitlist'
+  register.innerText = 'Become a Founding Family'
   register.onclick = register_interest
 
   shadow.innerHTML = `
@@ -58,19 +58,18 @@ function page(cb) {
 
       <section class="hero">
         <div class="hero-inner">
-          <div class="logo">
-            <img src="./assets/logo.jpg" alt="Swap & Play Wharfedale logo">
-            <h1>Swap & Play Wharfedale!</h1>
-            <p class="content">
-              A flexible family base in Ilkley — play, pause, connect, swap.
-            <br>
-              No booking slots. Stay as long as you like. Bring your own food.
+          <div class="logo hero-copy">
+            <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
+            <p class="eyebrow">Opening soon in Ilkley</p>
+            <h1>A calmer way to do family life</h1>
+            <p class="hero-subtitle">
+              A small, members-only family space where children can play and parents can breathe.
+            </p>
             <register></register>
           </div>
           <div class="hero-photo">
-            <img src="./assets/children-playing.jpg" alt="Parent and child enjoying Swap & Play" class="photo">
+            <img src="./assets/woman-work.jpg" alt="Parent and child enjoying Swap & Play" class="photo">
           </div>
-
         </div>
       </section>
 
@@ -83,40 +82,32 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section light">
+      <section class="section light intro-section">
         <div class="content center">
-          <h2>What is Swap & Play?</h2>
+          <p class="eyebrow dark">Not soft play. Something calmer.</p>
+          <h2>Your family third place in Ilkley</h2>
           <p>
-            Swap & Play is a calm indoor family space designed around real life with young children.
-            A place to play, rest, meet others, reset during the day, and enjoy more flexibility.
-          </p>
-          <p>Just 10 minute walk from the playground and Riverside, just behind Booths on Leeds Road</p>
-          <p>
-            We are creating something different from standard play cafés:
-            no rushed 90-minute slots, no pressure to buy food, no strict schedules.
+            Swap & Play Wharfedale is a calm, members-only family club designed around real life with young children.
           </p>
           <p>
-            Come when it suits your family. Stay as long as you like during opening hours.
+            No booking. No rushing. No hosting. No extra spending. Just arrive.
+          </p>
+          <p class="location-line">
+            Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
           </p>
         </div>
       </section>
 
       <section class="photo-story">
         <div class="content content-xl">
-
           <div class="photo-grid">
-
             <img src="./assets/child.jpg" alt="Child playing happily" class="story-photo">
-
-            <img src="./assets/parents.jpg" alt="Parents chatting while children play" class="story-photo">
-
-            <img src="./assets/swap.jpg" alt="Parent doing light laptop work while child plays nearby" class="story-photo">
-
+            <img src="./assets/children-playing.jpg" alt="Parents chatting while children play" class="story-photo">
+            <img src="./assets/parents.jpg" alt="Parent doing light laptop work while child plays nearby" class="story-photo">
           </div>
-
         </div>
       </section>
-                  
+
       <div class="wave" style="background:#f4efe6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
@@ -126,201 +117,290 @@ function page(cb) {
         </svg>
       </div>
 
+      <section class="section small-purpose">
+        <div class="content content-split">
+          <div>
+            <p class="eyebrow dark">Small by design</p>
+            <h2>Calm needs space</h2>
+          </div>
+          <div>
+            <p>
+              Swap & Play is intentionally designed for a low-density experience — because we are building the opposite of a hectic play centre.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <div class="wave" style="background:#fbfaf6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#d1ece6;">
+          </path>
+        </svg>
+      </div>
+
+      <section class="section soft relief-section">
+        <div class="content center">
+          <p class="eyebrow dark">The feeling we are building for</p>
+          <h2>Less planning. Less pressure. More ease.</h2>
+          <p>
+            Family life already has enough logistics. 
+          </p>
+        </div>
+      </section>
+
+      <div class="wave" style="background:#d1ece6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#fbfaf6;">
+          </path>
+        </svg>
+      </div>      
+
       <section class="section">
         <div class="content content-wide center">
+          <p class="eyebrow dark">Why families join</p>
+          <h2>A membership built around real life</h2>
 
-          <h2>Why families may love it</h2>
-
-          <div class="benefits-cloud">
+          <div class="benefits-cloud calm-grid">
 
             <div class="bubble bubble-a">
-              <h3>Freedom</h3>
-              <p>Come around naps, moods, weather and real life.</p>
+              <h3>No booking slots</h3>
+              <p>Come around naps, moods, weather and real family life.</p>
             </div>
 
             <div class="bubble bubble-b">
-              <h3>Stay Longer</h3>
-              <p>Need 30 minutes? Need all morning? Use it your way.</p>
+              <h3>No rushing out</h3>
+              <p>Stay longer when your child is finally settled and happy.</p>
             </div>
 
             <div class="bubble bubble-c">
-              <h3>Bring Your Own Food</h3>
-              <p>Snacks your child actually eats. No forced café spend.</p>
+              <h3>No extra spend</h3>
+              <p>Bring your own food and drinks. Tea and coffee are included.</p>
             </div>
 
             <div class="bubble bubble-d">
-              <h3>Your Town Base</h3>
-              <p>Pop in before, after or between plans.</p>
+              <h3>No hosting at home</h3>
+              <p>Meet friends somewhere easy without tidying before or after.</p>
             </div>
 
             <div class="bubble bubble-e">
-              <h3>A Little Time Back</h3>
-              <p>Reply to messages or do light laptop catch-up nearby.</p>
+              <h3>Space for parents too</h3>
+              <p>Sit, read, chat, do light laptop catch-up or simply pause.</p>
             </div>
 
             <div class="bubble bubble-f">
-              <h3>Community</h3>
-              <p>Meet local parents, grandparents and carers.</p>
+              <h3>Community without pressure</h3>
+              <p>Familiar local families, grandparents and carers over time.</p>
             </div>
 
             <div class="bubble bubble-g">
-              <h3>Swap & Reuse</h3>
-              <p>Exchange clothes and toys. Save waste, money and time.</p>
+              <h3>Swap instead of rebuying</h3>
+              <p>Children’s clothes and shoes shared locally as they grow.</p>
             </div>
 
             <div class="bubble bubble-h">
-              <h3>No Early Closures</h3>
-              <p>While most local kids’ spaces close mid-afternoon, we stay open into the evening. </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <section class="section included-section">
-        <div class="content center">
-          <h2>What’s included when you visit</h2>
-          <p class="included-intro">
-            More than just play time — a flexible family base you can actually use.
-          </p>
-
-          <div class="included-grid">
-
-            <div class="included-card">
-              <div class="icon">🧸</div>
-              <h3>Indoor Play Space</h3>
-              <p>Toys, play zones and calm indoor fun for little ones.</p>
-            </div>
-
-            <div class="included-card">
-              <div class="icon">⏰</div>
-              <h3>No Time Slots</h3>
-              <p>Come when it suits you. Stay as long as you like.</p>
-            </div>
-
-            <div class="included-card">
-              <div class="icon">🥪</div>
-              <h3>Bring Your Own Food</h3>
-              <p>No pressure café spend. Bring snacks that actually work.</p>
-            </div>
-
-            <div class="included-card">
-              <div class="icon">☕</div>
-              <h3>Tea & Coffee</h3>
-              <p>Free hot drinks for grown-ups to make days easier.</p>
-            </div>
-
-            <div class="included-card">
-              <div class="icon">👨‍👩‍👧‍👦</div>
-              <h3>Community Feel</h3>
-              <p>Meet other local parents, grandparents and carers.</p>
-            </div>
-
-            <div class="included-card">
-              <div class="icon">♻️</div>
-              <h3>Swap Room (Members)</h3>
-              <p>Children’s clothes, toys and useful items shared locally.</p>
+              <h3>Open when life happens</h3>
+              <p>Every day, including weekends, holidays, mornings and evenings.</p>
             </div>
 
           </div>
         </div>
       </section>
 
-      <section class="section soft">
-        <div class="content content-wide center">
-          <h2>Choose how your family wants to play</h2>
-
-          <div class="pricing">
-
-            <div class="price-card">
-              <div class="label">Flexible</div>
-              <h3>Drop-In Visit</h3>
-              <div class="price">£10.50</div>
-              <p class="small">Perfect for occasional visits.</p>
-              <ul>
-              <li>Come anytime</li>
-              <li>Stay as long as you like</li>
-              <li>Indoor play & family space</li>
-              </ul>
-            </div>
-
-            <div class="price-card featured">
-              <div class="label popular">Most Popular</div>
-              <h3>5 Visit Pack</h3>
-              <div class="price">£45</div>
-              <p class="small">Ideal for families who want flexibility without full membership.</p>
-              <ul>
-                <li>5 flexible visits</li>
-                <li>Better value than drop-in</li>
-                <li>Use over time</li>
-              </ul>
-            </div>
-
-            <div class="price-card premium">
-              <div class="label premium-label">Best Value</div>
-              <h3>Monthly Membership</h3>
-              <div class="price">£129</div>
-              <p class="small">For families who’d genuinely use this as part of weekly life.</p>
-              <ul>
-                <li>Unlimited visits</li>
-                <li>Swap room access</li>
-                <li>Great for regular family routines</li>
-                <li>Useful for light laptop catch-up</li>
-                <li>Priority future perks</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="section light">
+      <section class="section founding-section">
         <div class="content center">
-          <h2>Imagine the day</h2>
+          <p class="eyebrow dark">Founding Families</p>
+          <h2>Become one of the families shaping a calmer way to live locally</h2>
           <p>
-            Playground first. Child gets hungry. Weather changes.
-            You don’t want to go home yet.
+            We are opening with a small founding group of local families who believe family life can feel easier, calmer and more connected.
           </p>
           <p>
-            Instead, pop into Swap & Play:
-            snack, toilet stop, indoor toys, meet a friend,
-            reset, then continue your day.
-          </p>
-          <p>
-            It’s more than a playroom — it’s a helpful family base in town.
-          </p>
-        </div>
-      </section>
-
-      <section class="photo-strip">
-        <img src="./assets/playground.jpg" alt="Local atmosphere" class="photo">
-      </section>
-
-      <div class="wave" style="background:#f4efe6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section">
-        <div class="content center">
-          <h2>Founding Families</h2>
-          <p>
-            Join the first families shaping a calmer way to spend time in Ilkley.
-          </p>
-          <p>
-            Join the waitlist to hear first about launch dates,
-            early access and opening offers.
+            Founding Families receive early access and keep their founding membership price for as long as they remain members.
           </p>
           <register></register>
         </div>
       </section>
 
-      <div class="wave" style="background:#fbfaf6;">
+     <section class="section light faq-section">
+        <div class="content center">
+          <p class="eyebrow dark">Good to know</p>
+          <h2>A few important details.</h2>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Is this soft play?</h3>
+              <p>No. Swap & Play is a calm members-only family space designed for low numbers, flexible access and a gentler atmosphere.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Do I need to book?</h3>
+              <p>No. Members can come during opening hours without booking a slot.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Can I bring food?</h3>
+              <p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p>
+            </div>
+            <div class="faq-item">
+              <h3>What if it gets busy?</h3>
+              <p>We will use gentle occupancy updates so families can make informed choices and the space can stay calm.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Can parents work there?</h3>
+              <p>This is not a coworking office, but parents can occasionally reply to messages, read, do light laptop catch-up or simply sit while children play nearby.</p>
+            </div>
+          </div>
+        </div>
+      </section>      
+
+      <div class="wave" style="background:#f4efe6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#eef7ff;">
+          </path>
+        </svg>
+      </div>      
+
+      <section class="section included-section">
+        <div class="content center">
+          <p class="eyebrow dark">What membership gives you</p>
+          <h2>Everything you need for an easier family rhythm</h2>
+          <p class="included-intro">
+            More than play access — a calm, flexible base you can use as part of everyday life.
+          </p>
+
+          <div class="included-grid calm-cards">
+
+            <div class="included-card">
+              <h3>Unlimited access</h3>
+              <p>Use the space regularly without thinking about each visit as a separate cost.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Smart-lock entry</h3>
+              <p>Come and go more freely during opening hours, without waiting for a session.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Shoe-free and clean</h3>
+              <p>A calmer, cleaner environment for small children and crawling babies.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Tea and coffee included</h3>
+              <p>No pressure to buy something every time you visit.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Bring your own food</h3>
+              <p>Pack the snacks your child actually eats and stay longer if the day is going well.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Gentle occupancy updates</h3>
+              <p>Know when the space is busier so the atmosphere can stay calm.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section light swap-section">
+        <div class="content content-split">
+          <div>
+            <p class="eyebrow dark">Swap, share, reuse</p>
+            <h2>A clothing swap room for growing children</h2>
+          </div>
+          <div>
+              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
+          </div>
+        </div>
+      </section>
+
+      <section class="section day-section">
+        <div class="content center">
+          <p class="eyebrow dark">For the days that need somewhere else</p>
+          <h2>Not another activity. A place to land</h2>
+          <p>
+            Some days everyone needs a change of scene.
+          </p>
+          <p>
+            Somewhere children can play. Somewhere parents can sit. Somewhere familiar, flexible and easy.
+          </p>
+        </div>
+      </section>
+
+      <section class="photo-strip">
+        <img src="./assets/parent-work.jpg" alt="Local atmosphere" class="photo">
+      </section>
+
+      <div class="wave" style="background:#e9e6e1;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#d1ece6;">
+          </path>
+        </svg>
+      </div>
+
+      <section class="section soft pricing-section">
+        <div class="content content-wide center">
+          <p class="eyebrow dark">Membership</p>
+          <h2>Not pay-per-play. A membership for everyday family life.</h2>
+
+          <div class="pricing membership-pricing">
+
+            <div class="price-card featured membership-card">
+              <div class="label popular">Founding Families</div>
+              <h3>Founding Membership</h3>
+              <div class="price">£89<span>/month</span></div>
+              <p class="small">For the first families helping shape a new kind of local family space.</p>
+              <ul>
+                <li>Unlimited access</li>
+                <li>Open every day</li>
+                <li>No booking slots</li>
+                <li>Tea and coffee included</li>
+                <li>Bring your own food</li>
+                <li>Swap room access</li>
+                <li>Keep your founding price while you remain a member</li>
+              </ul>
+            </div>
+
+            <div class="price-card premium membership-card">
+              <div class="label premium-label">Standard</div>
+              <h3>Standard Membership</h3>
+              <div class="price">£129<span>/month</span></div>
+              <p class="small">For families joining after the founding places are filled.</p>
+              <ul>
+                <li>Unlimited access</li>
+                <li>Everyday family club use</li>
+                <li>Smart-lock entry during opening hours</li>
+                <li>Tea and coffee included</li>
+                <li>Clothing swap room</li>
+                <li>Gentle occupancy updates</li>
+              </ul>
+            </div>
+
+            <div class="price-card quiet-card">
+              <div class="label">Additional Child</div>
+              <h3>Sibling Add-On</h3>
+              <div class="price">+£10<span>/month</span></div>
+              <p class="small">For families with more than one child using the space regularly.</p>
+              <ul>
+                <li>Simple monthly add-on</li>
+                <li>Designed for family use</li>
+                <li>No per-session calculation</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="wave" style="background:#d1ece6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -331,13 +411,10 @@ function page(cb) {
 
       <section class="section cta-section">
         <div class="content center">
-          <h2>Help shape it</h2>
+          <p class="eyebrow light-text">Opening soon</p>
+          <h2>Become one of the founding families.</h2>
           <p>
-            We’re listening closely to local families in Ilkley, Burley, Otley
-            and surrounding villages.
-          </p>
-          <p>
-            If you'd use this, join the waitlist and help bring it to life.
+            If you want a calmer, easier, more flexible way to spend time locally with young children, join the waitlist and hear first about launch dates and founding membership access.
           </p>
           <register></register>
         </div>
@@ -360,10 +437,10 @@ function page(cb) {
   return el
 
   function register_interest() {
-    window.open(
-      'https://docs.google.com/forms/d/e/1FAIpQLSeFu8CQyIAWTMzz8aAmtvDZVeKvED1oy5MFNYrJya9DF3FrnQ/viewform',
-      '_blank'
-    )
+    shadow.querySelector('.pricing-section').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
   }
 }
 
@@ -408,34 +485,58 @@ function get_theme() {
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      font-size: 3rem;
-      margin: 0 0 1rem 0;
-      font-weight: 700;
-      color: var(--sand);
+      font-size: clamp(2.35rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      margin: 0 0 1.25rem 0;
+      font-weight: 750;
+      color: var(--cream);
+      letter-spacing: -0.06em;
+      max-width: 720px;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
       margin-bottom: 1.25rem;
       margin-top: 0;
+      letter-spacing: -0.045em;
     }
 
     h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.3rem;
+      margin: 0 0 0.55rem 0;
+      font-size: 1.22rem;
+      line-height: 1.18;
       color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
     p {
-      font-size: 1.1rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.75;
+      font-size: 1.08rem;
+      margin-bottom: 1.15rem;
+      line-height: 1.72;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 800;
+      font-size: 0.76rem;
+      margin-bottom: 0.9rem;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .eyebrow.dark {
+      color: var(--heather-dark);
+    }
+
+    .eyebrow.light-text {
+      color: rgba(255,255,255,0.9);
     }
 
     .wave {
       display: block;
       width: 100%;
-      height: 130px;
+      height: 118px;
       line-height: 0;
       margin: -1px 0;
     }
@@ -452,31 +553,36 @@ function get_theme() {
       height: 560px;
       object-fit: cover;
       object-position: center;
-      border-radius: 22px;
+      border-radius: 28px;
       display: block;
       margin: 2rem auto;
       object-position: center 30%;
-      border: 16px solid var(--pale-blue);
+      border: 14px solid rgba(255,255,255,0.72);
+      box-shadow: 0 24px 70px rgba(47,79,79,0.12);
     }
 
     .photo-strip {
-      background-color: var(--sand);
+      background-color: var(--beige);
+      padding: 0 1.5rem 4rem;
     }
 
     .photo-strip .photo {
       margin: 0 auto;
+      border-color: var(--cream);
     }
 
     .hero-photo {
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
       overflow: hidden;
-      border-radius: 58% 42% 55% 45% / 42% 58% 38% 62%;
-      transform: rotate(-2deg);
-      border: 16px solid var(--cream);
+      border-radius: 44px;
+      transform: rotate(-1deg);
+      border: 14px solid rgba(255,255,255,0.75);
       box-sizing: border-box;
-      padding: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 28px 80px rgba(47,79,79,0.16);
     }
 
     .hero-photo .photo {
@@ -486,28 +592,31 @@ function get_theme() {
       display: block;
       margin: 0;
       max-width: none;
-      border-radius: 0;
+      border-radius: 28px;
+      border: none;
+      box-shadow: none;
     }
 
     .photo-story {
-      padding: 1rem 1.5rem 3rem;
+      padding: 1rem 1.5rem 3.5rem;
       background: var(--sand);
     }
 
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .story-photo {
       width: 100%;
-      height: 450px;
+      height: 420px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 26px;
       display: block;
       transition: transform 0.25s ease;
-      border: 8px solid var(--pale-pink);
+      border: 8px solid rgba(255,255,255,0.7);
+      box-shadow: 0 18px 50px rgba(47,79,79,0.1);
     }
 
     .story-photo:hover {
@@ -516,41 +625,92 @@ function get_theme() {
 
     .hero {
       background: var(--pale-blue);
-      padding: 2rem 1.5rem 0rem;
-      text-align: center;
+      padding: 3rem 1.5rem 0rem;
+      text-align: left;
     }
 
     .hero-inner {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: minmax(0, 680px) minmax(320px, 540px);
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      gap: 4rem;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .hero-copy {
+      padding: 2rem 0 4rem;
     }
 
     .logo img {
-      height: 360px;
-      margin-bottom: 1.5rem;
+      height: 300px;
+      margin-bottom: 2rem;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
     }
 
-    .location {
-      font-size: 1rem;
+    .hero-subtitle {
+      color: var(--cream);
+      font-size: clamp(1.18rem, 2vw, 1.5rem);
+      line-height: 1.45;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-relief {
+      color: rgba(255,255,255,0.96);
+      font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 1.6;
+      max-width: 560px;
+      margin-bottom: 1rem;
+    }
+
+    .founding-note {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      max-width: 540px;
+    }
+
+    .micro-proof {
+      opacity: .82;
+      font-size: .92rem;
+      color: rgba(255,255,255,.92);
+      margin-top: 1rem;
+    }
+
+    .social-proof {
+      margin-top: 1rem;
+      font-size: .96rem;
+      color: rgba(255,255,255,.92);
+      max-width: 580px;
+      line-height: 1.6;
+    }
+
+    .dark-note {
       color: var(--muted);
-      margin-bottom: 1.5rem;
+    }
+
+    .location-line {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 1.4rem;
     }
 
     button {
-      margin: 1rem;
-      padding: 0.95rem 2rem;
+      margin: 1rem 0;
+      padding: 1rem 2.1rem;
       border: none;
-      border-radius: 40px;
+      border-radius: 999px;
       background: var(--pale-pink);
       color: white;
       cursor: pointer;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 800;
       transition: 0.25s ease;
+      box-shadow: 0 14px 35px rgba(143,100,164,0.22);
     }
 
     button:hover {
@@ -559,7 +719,7 @@ function get_theme() {
     }
 
     .section {
-      padding: 4rem 1.5rem;
+      padding: 5rem 1.5rem;
     }
 
     .section h2 {
@@ -568,16 +728,17 @@ function get_theme() {
 
     .light { background: var(--sand); }
     .soft { background: var(--pale-green); }
-    .cta-section { background: var(--pale-blue); }
+    .cta-section { background: var(--pale-blue); color: var(--cream); }
+    .cta-section h2, .cta-section p { color: var(--cream); }
 
     .content {
       max-width: 960px;
       margin: 0 auto;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.1px;
     }
 
     .content p + p {
-      margin-top: -0.4rem;
+      margin-top: -0.35rem;
     }
 
     .content-wide {
@@ -590,76 +751,94 @@ function get_theme() {
       margin: 0 auto;
     }
 
+    .content-split {
+      max-width: 1180px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
     .center { text-align: center; }
 
     .center p {
-      max-width: 640px;
+      max-width: 720px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .grid.two {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-      margin-top: 2rem;
+    .intro-section p {
+      font-size: 1.15rem;
+    }
+
+    .small-purpose {
+      background: var(--cream);
+    }
+
+    .relief-section {
+      background: var(--pale-green);
+    }
+
+    .relief-section p {
+      font-size: 1.2rem;
+      max-width: 820px;
     }
 
     .benefits-cloud {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2.2rem;
+      gap: 1.35rem;
       margin-top: 3rem;
     }
 
     .bubble {
       width: 280px;
-      min-height: 220px;
-      padding: 2rem 1.8rem;
+      min-height: 205px;
+      padding: 1.65rem 1.45rem;
       background: #ffffff;
-      text-align: center;
+      text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: 8px solid var(--heather);
-      transition: transform 0.2s ease;
+      border: 1px solid rgba(47,79,79,0.1);
+      border-radius: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 16px 44px rgba(47,79,79,0.075);
     }
 
     .bubble:hover {
       transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(47,79,79,0.11);
     }
 
     .bubble h3 {
-      margin: 0 0 1rem 0;
-      font-size: 1.25rem;
+      margin: 0 0 0.75rem 0;
+      font-size: 1.18rem;
     }
 
     .bubble p {
       margin: 0;
-      font-size: 1rem;
-      line-height: 1.5;
+      font-size: 0.98rem;
+      line-height: 1.52;
+      color: var(--muted);
     }
 
-    .bubble-a { border-radius: 58% 42% 48% 52% / 44% 54% 46% 56%; }
-    .bubble-b {
-      border-radius: 46% 54% 60% 40% / 52% 38% 62% 48%;
-      border-color: var(--pale-pink);
+    .bubble-a,
+    .bubble-c,
+    .bubble-e,
+    .bubble-g {
+      border-top: 7px solid var(--heather);
     }
-    .bubble-c { border-radius: 63% 37% 45% 55% / 40% 60% 40% 60%; }
-    .bubble-d {
-      border-radius: 42% 58% 55% 45% / 60% 42% 58% 40%;
-      border-color: var(--pale-blue);
-    }
-    .bubble-e { border-radius: 55% 45% 40% 60% / 48% 62% 38% 52%; }
+
+    .bubble-b,
     .bubble-f {
-      border-radius: 40% 60% 52% 48% / 56% 44% 56% 44%;
-      border-color: var(--pale-green);
+      border-top: 7px solid var(--pale-pink);
     }
-    .bubble-g { border-radius: 60% 40% 50% 50% / 44% 58% 42% 56%; }
+
+    .bubble-d,
     .bubble-h {
-      border-radius: 40% 60% 52% 48% / 56% 44% 56% 44%;
-      border-color: var(--pale-green);
+      border-top: 7px solid var(--pale-blue);
     }
 
     .included-section {
@@ -667,7 +846,7 @@ function get_theme() {
     }
 
     .included-intro {
-      max-width: 620px;
+      max-width: 700px;
       margin: 0 auto 2rem;
     }
 
@@ -680,58 +859,44 @@ function get_theme() {
 
     .included-card {
       background: #ffffff;
-      border-radius: 22px;
-      padding: 1.6rem;
-      border: 6px solid var(--pale-green);
-      text-align: center;
-    }
-
-    .included-card:nth-child(2n) {
-      border-color: var(--pale-pink);
-    }
-
-    .included-card:nth-child(3n) {
-      border-color: var(--pale-blue);
-    }
-
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
+      border-radius: 24px;
+      padding: 1.65rem;
+      border: 1px solid rgba(47,79,79,0.1);
+      text-align: left;
+      box-shadow: 0 16px 44px rgba(47,79,79,0.075);
     }
 
     .included-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.12rem;
+      margin-bottom: 0.65rem;
     }
 
     .included-card p {
       font-size: 0.98rem;
-      line-height: 1.55;
+      line-height: 1.58;
       margin: 0;
+      color: var(--muted);
     }
 
-    @media (max-width: 900px) {
-      .included-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .swap-section {
+      background: var(--sand);
     }
 
-    @media (max-width: 768px) {
-      .included-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .included-card {
-        padding: 1.35rem;
-      }
+    .day-section {
+      background: var(--beige);
     }
 
-    .card {
-      background: #ffffff;
-      padding: 1.55rem;
-      border-radius: 20px;
-      border: 8px solid var(--sun);
-      transition: transform 0.2s ease;
+    .founding-section {
+      background: var(--pale-blue);
+    }
+
+    .founding-price {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -0.06em;
+      margin: 1.5rem 0 0.75rem;
     }
 
     .pricing {
@@ -739,39 +904,49 @@ function get_theme() {
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       margin-top: 2rem;
+      align-items: stretch;
     }
 
     .price-card {
       background: var(--surface);
-      border-radius: 20px;
-      padding: 1.6rem;
+      border-radius: 26px;
+      padding: 1.8rem;
       position: relative;
-      border: 8px solid var(--soft);
+      border: 1px solid rgba(47,79,79,0.1);
       font-size: 1rem;
+      text-align: left;
+      box-shadow: 0 20px 55px rgba(47,79,79,0.09);
     }
 
     .price-card h3 {
-      font-size: 1.25rem;
+      font-size: 1.32rem;
       margin: 0.5rem 0 0.75rem;
     }
 
     .featured {
-      transform: scale(1.03);
-      border: 8px solid var(--pale-pink);
+      transform: scale(1.035);
+      border: 3px solid var(--pale-pink);
     }
 
     .premium {
-      border: 8px solid var(--pale-blue);
+      border-top: 7px solid var(--pale-blue);
+    }
+
+    .quiet-card {
+      opacity: 0.92;
     }
 
     .label {
       display: inline-block;
-      font-size: 0.8rem;
-      padding: 0.3rem 0.7rem;
+      font-size: 0.76rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 999px;
       margin-bottom: 1rem;
       background: var(--soft);
-      color: var(--pale-pink);
+      color: var(--heather-dark);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
     }
 
     .popular {
@@ -785,25 +960,35 @@ function get_theme() {
     }
 
     .price {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 2.35rem;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
       color: var(--ink);
+      letter-spacing: -0.04em;
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: var(--muted);
     }
 
     .price-card ul {
       list-style: none;
       padding: 0;
-      margin: 1rem 0 0 0;
+      margin: 1.15rem 0 0 0;
       text-align: left;
     }
 
     .price-card li {
       position: relative;
       padding-left: 1.4rem;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.65rem;
       line-height: 1.5;
       color: var(--ink);
+      font-size: 0.98rem;
     }
 
     .price-card li::before {
@@ -811,22 +996,69 @@ function get_theme() {
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--pale-blue);
+      color: var(--pale-pink);
       font-weight: bold;
     }
 
     .small {
-      font-size: 0.95rem;
-      padding: 0.2rem;
-      text-align: center;
+      font-size: 0.98rem;
+      padding: 0;
+      text-align: left;
+      color: var(--muted);
+      line-height: 1.55;
     }
 
-    /* ===============================
-       TABLET
-    =============================== */
-    @media (max-width: 900px) {
+    .faq-list {
+      max-width: 850px;
+      margin: 2.4rem auto 0;
+      display: grid;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .faq-item {
+      background: var(--cream);
+      border-radius: 22px;
+      padding: 1.45rem 1.6rem;
+      border: 1px solid rgba(47,79,79,0.08);
+    }
+
+    .faq-item p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-inner,
+      .content-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-copy {
+        padding-bottom: 1rem;
+      }
+
+      h1,
+      .hero-subtitle,
+      .hero-relief,
+      .founding-note,
+      .social-proof {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .pricing {
         grid-template-columns: 1fr;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .featured {
@@ -836,42 +1068,17 @@ function get_theme() {
       .photo-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .photo-strip {
-        overflow: hidden;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      .photo-strip .photo {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-        box-sizing: border-box;
+    @media (max-width: 900px) {
+      .included-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    /* ===============================
-       MOBILE
-    =============================== */
     @media (max-width: 768px) {
-
-      h1 {
-        font-size: 2rem;
-        line-height: 1.15;
-      }
-
-      h2 { font-size: 1.55rem; }
-      h3 { font-size: 1.15rem; }
-
-      p {
-        font-size: 1rem;
-        line-height: 1.6;
+      .included-grid {
+        grid-template-columns: 1fr;
       }
 
       .section,
@@ -882,30 +1089,27 @@ function get_theme() {
       }
 
       .section {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
       }
 
       .logo img {
-        width: 180px;
+        width: 100px;
         height: auto;
         max-width: 100%;
       }
 
       .hero-photo {
         max-width: 100%;
-        padding: 12px;
-        border-width: 10px;
+        padding: 10px;
+        border-width: 9px;
+        border-radius: 30px;
       }
 
       .hero-photo .photo {
         height: auto;
         aspect-ratio: 4 / 5;
+        border-radius: 22px;
       }
 
       .photo,
@@ -918,7 +1122,7 @@ function get_theme() {
       .photo {
         aspect-ratio: 4 / 3;
         margin: 1rem auto;
-        border-width: 10px;
+        border-width: 9px;
       }
 
       .story-photo {
@@ -933,18 +1137,14 @@ function get_theme() {
 
       .bubble {
         width: 100%;
-        max-width: 360px;
+        max-width: 420px;
         min-height: auto;
-        padding: 1.6rem 1.3rem;
-      }
-
-      .pricing {
-        grid-template-columns: 1fr;
+        padding: 1.5rem 1.25rem;
       }
 
       button {
         width: 100%;
-        max-width: 320px;
+        max-width: 340px;
         display: block;
         margin: 1rem auto;
       }
@@ -968,16 +1168,9 @@ function get_theme() {
       }
     }
 
-    /* ===============================
-       SMALL PHONES
-    =============================== */
     @media (max-width: 480px) {
-
-      h1 { font-size: 1.7rem; }
-      h2 { font-size: 1.35rem; }
-
       .logo img {
-        width: 150px;
+        width: 90px;
       }
 
       .photo,
@@ -987,7 +1180,7 @@ function get_theme() {
       }
 
       .price {
-        font-size: 1.7rem;
+        font-size: 2rem;
       }
 
       .bubble {
@@ -1014,4 +1207,5 @@ function get_theme() {
     }
   `
 }
+
 },{}]},{},[1]);
