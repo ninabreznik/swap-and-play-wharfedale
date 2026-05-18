@@ -15,10 +15,10 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Opening soon in Ilkley</p>
+            <p class="eyebrow">Opening June 2026 in Ilkley</p>
             <h1>A calmer way to do family life</h1>
             <p class="hero-subtitle">
-              A small, members-only family space where children can play and parents can breathe.
+              A small, membership-only family space where children can play and parents can breathe.
             </p>
             <register></register>
           </div>
@@ -58,7 +58,7 @@ function page(cb) {
           <div class="photo-grid">
             <img src="./assets/child.jpg" alt="Child playing happily" class="story-photo">
             <img src="./assets/children-playing.jpg" alt="Parents chatting while children play" class="story-photo">
-            <img src="./assets/parents.jpg" alt="Parent doing light laptop work while child plays nearby" class="story-photo">
+            <img src="./assets/child-sitting.jpg" alt="Parent doing light laptop work while child plays nearby" class="story-photo">
           </div>
         </div>
       </section>
@@ -353,6 +353,20 @@ function page(cb) {
 
           </div>
         </div>
+        <div class="community-card">
+          <h3>Community Contribution Memberships</h3>
+          <p>
+          We are exploring a small number of reduced Community Contribution Memberships for families who would love to be part of Swap & Play and are happy to occasionally help with small tasks that keep the space thriving.
+          </p>
+
+          <p>
+          Things like helping organise toys, sorting donated clothes and children's items, sharing ideas, helping with communication, or supporting the community in small ways.
+          </p>
+
+          <p>
+          If this sounds like a good fit, we'd love to hear from you. Please get in touch at nina@swapandplaywharfedale.co.uk
+          </p>
+      </div>
       </section>
 
       <div class="wave" style="background:#d1ece6;">
@@ -374,6 +388,27 @@ function page(cb) {
           <register></register>
         </div>
       </section>
+
+      <footer class="footer">
+        <div class="content center">
+
+          <img
+            src="./assets/logo.png"
+            class="footer-logo"
+            alt="Swap & Play">
+
+          <p>
+            Swap & Play Wharfedale<br>
+            A calm family club for Ilkley and the wider Wharfedale area
+          </p>
+
+          <p>
+            Questions or ideas?<br>
+            nina@swapandplaywharfedale.co.uk
+          </p>
+
+        </div>
+      </footer>
 
     </div>
   `
@@ -714,6 +749,21 @@ function get_theme() {
       align-items: start;
     }
 
+    .community-card{
+      max-width:760px;
+      margin:3rem auto 0;
+      padding:2rem;
+      background:#fbfaf6;
+      border-radius:24px;
+      border:1px solid rgba(47,79,79,.08);
+      box-shadow:0 16px 44px rgba(47,79,79,.05);
+      text-align:left;
+    }
+
+    .community-card h3{
+      margin-bottom:1rem;
+    }
+
     .center { text-align: center; }
 
     .center p {
@@ -985,6 +1035,32 @@ function get_theme() {
       line-height: 1.58;
     }
 
+    .footer {
+        background: var(--pale-green);
+        padding:4rem 1.5rem;
+        color: black;
+      }
+
+      .footer p{
+        opacity:.88;
+        margin-bottom:.8rem;
+        font-size:.95rem;
+      }
+
+      .footer-small{
+        opacity:.55;
+        font-size:.85rem;
+      }
+
+      .footer-logo{
+        display:block;
+        height:88px;
+        width:auto;
+        max-width:260px;
+        object-fit:contain;
+        margin:-14px auto 1.2rem auto;
+      }
+
     @media (max-width: 1000px) {
       .hero-inner,
       .content-split {
@@ -1121,6 +1197,7 @@ function get_theme() {
         margin: 0 auto;
         box-sizing: border-box;
       }
+      
     }
 
     @media (max-width: 480px) {
