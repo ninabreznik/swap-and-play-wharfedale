@@ -15,8 +15,9 @@ function demo (cb) {
 
   const favicon = document.createElement('link')
   favicon.setAttribute('rel', 'icon')
-  favicon.setAttribute('type', 'imagine/jpeg')
-  favicon.setAttribute('href', 'assets/logo-icon.jpg')
+  favicon.setAttribute('type', 'image/x-icon')
+  favicon.setAttribute('href', './assets/favicon.ico?v=2')
+  
   // favicon.setAttribute('href', 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><text y="26" font-size="26">👶</text></svg>')
   
 

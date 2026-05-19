@@ -16,8 +16,9 @@ function demo (cb) {
 
   const favicon = document.createElement('link')
   favicon.setAttribute('rel', 'icon')
-  favicon.setAttribute('type', 'imagine/jpeg')
-  favicon.setAttribute('href', 'assets/logo-icon.jpg')
+  favicon.setAttribute('type', 'image/x-icon')
+  favicon.setAttribute('href', './assets/favicon.ico?v=2')
+  
   // favicon.setAttribute('href', 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><text y="26" font-size="26">👶</text></svg>')
   
 
@@ -68,7 +69,7 @@ function page(cb) {
             <register></register>
           </div>
           <div class="hero-photo">
-            <img src="./assets/woman-work.jpg" alt="Parent and child enjoying Swap & Play" class="photo">
+            <img src="./assets/hero.png" alt="Parent relaxing while children play nearby" class="photo">
           </div>
         </div>
       </section>
@@ -101,9 +102,9 @@ function page(cb) {
       <section class="photo-story">
         <div class="content content-xl">
           <div class="photo-grid">
-            <img src="./assets/child.jpg" alt="Child playing happily" class="story-photo">
-            <img src="./assets/children-playing.jpg" alt="Parents chatting while children play" class="story-photo">
-            <img src="./assets/child-sitting.jpg" alt="Parent doing light laptop work while child plays nearby" class="story-photo">
+            <img src="./assets/baby-reading.jpg" alt="Child placing animal pieces into a shape sorter"class="story-photo">
+            <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
+            <img src="./assets/child-sitting.jpg" alt="Child quietly exploring books and textures" class="story-photo">
           </div>
         </div>
       </section>
@@ -334,7 +335,7 @@ function page(cb) {
       </section>
 
       <section class="photo-strip">
-        <img src="./assets/parent-work.jpg" alt="Local atmosphere" class="photo">
+        <img src="./assets/parents.jpg" alt="Parents drawing with their children" class="photo">
       </section>
 
       <div class="wave" style="background:#e9e6e1;">
@@ -663,6 +664,14 @@ function get_theme() {
       padding: 3rem 1.5rem 0rem;
       text-align: left;
     }
+    .hero .logo img{
+      filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 2px 10px rgba(0,0,0,.08));
+
+      opacity:.96;
+    }
 
     .hero-inner {
       display: grid;
@@ -679,7 +688,7 @@ function get_theme() {
     }
 
     .logo img {
-      height: 300px;
+      height: 340px;
       margin-bottom: 2rem;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
     }
@@ -1106,182 +1115,333 @@ function get_theme() {
         margin:-14px auto 1.2rem auto;
       }
 
-    @media (max-width: 1000px) {
-      .hero-inner,
-      .content-split {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+@media (max-width: 1000px) {
+  .hero-inner,
+  .content-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-      .hero {
-        text-align: center;
-      }
+  .hero {
+    text-align: center;
+    padding: 2.5rem 1.25rem 0;
+  }
 
-      .hero-copy {
-        padding-bottom: 1rem;
-      }
+  .hero-copy {
+    padding: 1rem 0 2rem;
+  }
 
-      h1,
-      .hero-subtitle,
-      .hero-relief,
-      .founding-note,
-      .social-proof {
-        margin-left: auto;
-        margin-right: auto;
-      }
+  h1,
+  .hero-subtitle,
+  .hero-relief,
+  .founding-note,
+  .social-proof {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-      .pricing {
-        grid-template-columns: 1fr;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+  .pricing {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-      .featured {
-        transform: none;
-      }
+  .featured {
+    transform: none;
+  }
 
-      .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    @media (max-width: 900px) {
-      .included-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+  .content-split {
+    text-align: center;
+  }
 
-    @media (max-width: 768px) {
-      .included-grid {
-        grid-template-columns: 1fr;
-      }
+  .content-split p,
+  .content-split div {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
-      .section,
-      .hero,
-      .photo-story {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
+@media (max-width: 900px) {
+  .included-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-      .section {
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
-      }
+  .footer-logo {
+    height: 78px;
+    max-width: 240px;
+    margin: -12px auto 1.3rem auto;
+  }
+}
 
-      .logo img {
-        width: 100px;
-        height: auto;
-        max-width: 100%;
-      }
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2.15rem, 11vw, 3.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
 
-      .hero-photo {
-        max-width: 100%;
-        padding: 10px;
-        border-width: 9px;
-        border-radius: 30px;
-      }
+  h2 {
+    font-size: clamp(1.8rem, 8vw, 2.45rem);
+    line-height: 1.08;
+  }
 
-      .hero-photo .photo {
-        height: auto;
-        aspect-ratio: 4 / 5;
-        border-radius: 22px;
-      }
+  h3 {
+    font-size: 1.12rem;
+  }
 
-      .photo,
-      .story-photo {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-      }
+  p {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
 
-      .photo {
-        aspect-ratio: 4 / 3;
-        margin: 1rem auto;
-        border-width: 9px;
-      }
+  .included-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .story-photo {
-        aspect-ratio: 4 / 5;
-        border-width: 6px;
-      }
+  .section,
+  .hero,
+  .photo-story {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-      .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+  .section {
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+  }
 
-      .bubble {
-        width: 100%;
-        max-width: 420px;
-        min-height: auto;
-        padding: 1.5rem 1.25rem;
-      }
+  .hero-inner {
+    gap: 1.25rem;
+  }
 
-      button {
-        width: 100%;
-        max-width: 340px;
-        display: block;
-        margin: 1rem auto;
-      }
+  .logo img {
+    width:240px;
+    max-width:78vw;
+    height:auto;
 
-      .wave {
-        height: 72px;
-      }
+    margin:0 auto 1.8rem auto;
+    display:block;
+  }
 
-      .photo-strip {
-        overflow: hidden;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
+  .hero-subtitle {
+    font-size: 1.12rem;
+    line-height: 1.5;
+  }
 
-      .photo-strip .photo {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-        box-sizing: border-box;
-      }
-      
-    }
+  .hero-photo {
+    max-width: 100%;
+    padding: 10px;
+    border-width: 9px;
+    border-radius: 30px;
+    transform: none;
+  }
 
-    @media (max-width: 480px) {
-      .logo img {
-        width: 90px;
-      }
+  .hero-photo .photo {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 22px;
+    object-fit: cover;
+  }
 
-      .photo,
-      .story-photo,
-      .hero-photo .photo {
-        aspect-ratio: auto;
-      }
+  .photo,
+  .story-photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 
-      .price {
-        font-size: 2rem;
-      }
+  .photo {
+    aspect-ratio: 4 / 3;
+    margin: 1rem auto;
+    border-width: 9px;
+  }
 
-      .bubble {
-        padding: 1.3rem 1rem;
-      }
+  .story-photo {
+    aspect-ratio: 4 / 5;
+    border-width: 6px;
+  }
 
-      .wave {
-        height: 56px;
-      }
-        
-      .photo-strip {
-        overflow: hidden;
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-      }
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-      .photo-strip .photo {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-        box-sizing: border-box;
-      }
-    }
+  .benefits-cloud {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .bubble {
+    width: 100%;
+    max-width: 420px;
+    min-height: auto;
+    padding: 1.45rem 1.2rem;
+  }
+
+  .included-card,
+  .price-card,
+  .faq-item,
+  .community-card {
+    border-radius: 22px;
+    padding: 1.35rem;
+  }
+
+  .community-card {
+    width: auto;
+    margin: 2rem 1rem 0;
+    box-sizing: border-box;
+  }
+
+  .community-card p,
+  .footer p {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  button {
+    width: 100%;
+    max-width: 340px;
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .wave {
+    height: 72px;
+    overflow: hidden;
+  }
+
+  .wave svg {
+    width: 160%;
+    margin-left: -30%;
+  }
+
+  .photo-strip {
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .photo-strip .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    background: #e8eee8;
+    color: var(--ink);
+    padding: 3.5rem 1rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: block;
+    height: 78px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    margin: -12px auto 1.4rem auto;
+  }
+
+  .footer p {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(47,79,79,.84);
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  .eyebrow {
+    font-size: .68rem;
+    letter-spacing: .12em;
+  }
+
+  .logo img {
+    width:220px;
+    max-width:82vw;
+    height:auto;
+
+    margin:0 auto 1.5rem auto;
+  }
+
+  .photo,
+  .story-photo,
+  .hero-photo .photo {
+    aspect-ratio: auto;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+
+  .bubble {
+    padding: 1.25rem 1rem;
+  }
+
+  .wave {
+    height: 54px;
+  }
+
+  .wave svg {
+    width: 190%;
+    margin-left: -45%;
+  }
+
+  .photo-strip {
+    overflow: hidden;
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+
+  .photo-strip .photo {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .community-card {
+    margin: 1.5rem .75rem 0;
+    padding: 1.25rem;
+  }
+
+  .footer {
+    background: #e8eee8;
+    padding: 3rem 1rem;
+  }
+
+  .footer-logo {
+    height: 72px;
+    max-width: 220px;
+    margin: -10px auto 1.3rem auto;
+  }
+
+  .footer p {
+    max-width: 300px;
+    font-size: .92rem;
+  }
+}
   `
 }
 
