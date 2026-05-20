@@ -62,7 +62,7 @@ function page(cb) {
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
             <p class="eyebrow">Opening June 2026 in Ilkley</p>
-            <h1>A calmer way to do family life</h1>
+            <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
               A small, membership-only family space where children can play and parents can breathe.
             </p>
@@ -86,9 +86,9 @@ function page(cb) {
       <section class="section light intro-section">
         <div class="content center">
           <p class="eyebrow dark">Not soft play. Something calmer.</p>
-          <h2>Your family third place in Ilkley</h2>
+          <h2>Your flexible base in Ilkley</h2>
           <p>
-            Swap & Play Wharfedale is a calm, members-only family club designed around real life with young children.
+            Swap & Play Wharfedale is a calm, members-only family play space designed around real life with young children.
           </p>
           <p>
             No booking. No rushing. No hosting. No extra spending. Just arrive.
@@ -147,7 +147,7 @@ function page(cb) {
           <p class="eyebrow dark">The feeling we are building for</p>
           <h2>Less planning. Less pressure. More ease.</h2>
           <p>
-            Family life already has enough logistics. 
+            Family life already has enough logistics. Join us if you want a calmer, easier, more flexible way to spend time locally with young children.
           </p>
         </div>
       </section>
@@ -156,10 +156,23 @@ function page(cb) {
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
+            style="fill:#f4efe6;">
           </path>
         </svg>
       </div>      
+
+
+      <section class="section light swap-section">
+        <div class="content content-split">
+          <div>
+            <p class="eyebrow dark">Swap, share, reuse</p>
+            <h2>A clothing swap room for growing children</h2>
+          </div>
+          <div>
+              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
+          </div>
+        </div>
+      </section>
 
       <section class="section">
         <div class="content content-wide center">
@@ -215,16 +228,14 @@ function page(cb) {
       <section class="section founding-section">
         <div class="content center">
           <p class="eyebrow dark">Founding Families</p>
-          <h2>Become one of the families shaping a calmer way to live locally</h2>
+          <h2>Become one of the families shaping a new way to share and meet locally</h2>
           <p>
-            We are opening with a small founding group of local families who believe family life can feel easier, calmer and more connected.
-          </p>
-          <p>
-            Founding Families receive early access and keep their founding membership price for as long as they remain members.
+            We are opening with a small founding group of local families will receive early access and keep their founding membership price for as long as they remain members.
           </p>
           <register></register>
         </div>
       </section>
+      
 
      <section class="section light faq-section">
         <div class="content center">
@@ -305,18 +316,6 @@ function page(cb) {
               <p>Know when the space is busier so the atmosphere can stay calm.</p>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      <section class="section light swap-section">
-        <div class="content content-split">
-          <div>
-            <p class="eyebrow dark">Swap, share, reuse</p>
-            <h2>A clothing swap room for growing children</h2>
-          </div>
-          <div>
-              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
           </div>
         </div>
       </section>
@@ -423,17 +422,6 @@ function page(cb) {
           </path>
         </svg>
       </div>
-
-      <section class="section cta-section">
-        <div class="content center">
-          <p class="eyebrow light-text">Opening soon</p>
-          <h2>Become one of the founding families.</h2>
-          <p>
-            If you want a calmer, easier, more flexible way to spend time locally with young children, join the waitlist and hear first about launch dates and founding membership access.
-          </p>
-          <register></register>
-        </div>
-      </section>
 
       <footer class="footer">
         <div class="content center">
@@ -1090,9 +1078,9 @@ function get_theme() {
     }
 
     .footer {
-        background: var(--pale-green);
+        background: var(--pale-blue);
         padding:4rem 1.5rem;
-        color: black;
+        color: white;
       }
 
       .footer p{
