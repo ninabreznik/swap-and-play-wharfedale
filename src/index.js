@@ -38,14 +38,24 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section light swap-section">
-        <div class="content content-split">
-          <div>
+      <section class="section soft swap-preview-section">
+        <div class="content content-split swap-preview">
+          <div class="swap-preview-copy">
             <p class="eyebrow dark">Swap, share, reuse</p>
-            <h2>With a swap room</h2>
+            <h2>With a Swap Room</h2>
           </div>
-          <div>
+
+          <div class="swap-preview-body">
+            <p>
               Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
+            </p>
+
+            <div class="swap-mini-card">
+              <img
+                src="./assets/swap-mini.png"
+                alt="Children’s clothes, books and toys being shared and reused"
+              >
+            </div>
           </div>
         </div>
       </section>
@@ -61,22 +71,41 @@ function page(cb) {
       </div>
 
 
-      <section class="section light intro-section">
-        <div class="content center">
-          <p class="eyebrow dark">Not soft play. Something calmer.</p>
-          <h2>Your flexible base in Ilkley</h2>
-          <p>
-            Swap & Play Wharfedale is a calm, members-only family play space designed around real life with young children.
-          </p>
-          <p>
-            No booking. No rushing. No hosting. No extra spending. Just arrive.
-          </p>
-          <img src="./assets/map.png" alt="How to get to Swap & Play" class="photo">
-          <p class="location-line">
-          Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
-          </p>
+    <section class="section light location-section">
+      <div class="content content-wide center">
+        <p class="eyebrow dark">Not soft play. Something calmer.</p>
+        <h2>Your flexible base in Ilkley</h2>
+
+        <p class="location-intro">
+          Swap & Play Wharfedale is a calm, members-only family play space designed around real life with young children.
+        </p>
+
+        <p class="location-tagline">
+          No booking. No rushing. No hosting. No extra spending.<br>
+          Just arrive.
+        </p>
+
+        <div class="location-visuals">
+          <div class="location-card building-card">
+            <img
+              src="./assets/building.png"
+              alt="Swap & Play entrance on Leeds Road"
+            >
+          </div>
+
+          <div class="location-card map-card">
+            <img
+              src="./assets/map.png"
+              alt="Map showing the pedestrian path from Booths car park to Swap & Play"
+            >
+          </div>
         </div>
-      </section>
+
+        <p class="location-line">
+          Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
+        </p>
+      </div>
+    </section>
 
 
       <div class="wave" style="background:#f4efe6;">
@@ -495,6 +524,7 @@ function get_theme() {
       --muted: #6f8079;
       --surface: #ffffff;
       --surface-alt: #f6f3ee;
+
       --shadow-soft: 0 18px 48px rgba(47,79,79,0.10);
       --shadow-card: 0 16px 44px rgba(47,79,79,0.075);
       --line-soft: rgba(47,79,79,0.10);
@@ -557,6 +587,37 @@ function get_theme() {
       color: rgba(255,255,255,0.9);
     }
 
+    a {
+      color: var(--heather-dark);
+      text-underline-offset: 0.18em;
+    }
+
+    button,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0;
+      padding: 1rem 2.1rem;
+      border: none;
+      border-radius: 999px;
+      background: var(--pale-pink);
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-decoration: none;
+      transition: 0.25s ease;
+      box-shadow: 0 14px 35px rgba(143,100,164,0.22);
+    }
+
+    button:hover,
+    .button:hover {
+      background: var(--heather-dark);
+      transform: translateY(-1px);
+    }
+
     .wave {
       display: block;
       width: 100%;
@@ -569,6 +630,57 @@ function get_theme() {
       display: block;
       width: 100%;
       height: 100%;
+    }
+
+    .section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .light { background: var(--sand); }
+    .soft { background: var(--pale-green); }
+    .cta-section { background: var(--pale-blue); color: var(--cream); }
+    .cta-section h2, .cta-section p { color: var(--cream); }
+
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      letter-spacing: 0.1px;
+    }
+
+    .content p + p {
+      margin-top: -0.35rem;
+    }
+
+    .content-wide {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .content-xl {
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+
+    .content-split {
+      max-width: 1180px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center p {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .photo {
@@ -600,61 +712,9 @@ function get_theme() {
       width: auto;
     }
 
-    .hero-photo {
-      width: 100%;
-      max-width: 540px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 44px;
-      transform: rotate(-1deg);
-      border: 14px solid rgba(255,255,255,0.75);
-      box-sizing: border-box;
-      padding: 16px;
-      background: rgba(255,255,255,0.2);
-      box-shadow: 0 28px 80px rgba(47,79,79,0.16);
-    }
-
-    .hero-photo .photo {
-      width: 100%;
-      height: 560px;
-      object-fit: cover;
-      display: block;
-      margin: 0;
-      max-width: none;
-      border-radius: 28px;
-      border: none;
-      box-shadow: none;
-    }
-
-    .photo-story {
-      padding: 1rem 1.5rem 3.5rem;
-      background: var(--cream);
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .story-photo {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 26px;
-      display: block;
-      transition: transform 0.25s ease;
-      border: 8px solid rgba(255,255,255,0.7);
-      box-shadow: 0 18px 50px rgba(47,79,79,0.1);
-    }
-
-    .story-photo:hover {
-      transform: translateY(-3px);
-    }
-
     .hero {
       background: var(--pale-blue);
-      padding: 3rem 1.5rem 0rem;
+      padding: 3rem 1.5rem 1rem;
       text-align: left;
     }
 
@@ -730,92 +790,56 @@ function get_theme() {
       color: var(--muted);
     }
 
-    .location-line {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-top: 1.4rem;
+    .hero-photo {
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 44px;
+      transform: rotate(-1deg);
+      border: 14px solid rgba(255,255,255,0.75);
+      box-sizing: border-box;
+      padding: 16px;
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 28px 80px rgba(47,79,79,0.16);
     }
 
-    a {
-      color: var(--heather-dark);
-      text-underline-offset: 0.18em;
-    }
-
-    button,
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 1rem 0;
-      padding: 1rem 2.1rem;
+    .hero-photo .photo {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+      max-width: none;
+      border-radius: 28px;
       border: none;
-      border-radius: 999px;
-      background: var(--pale-pink);
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.1;
-      text-decoration: none;
-      transition: 0.25s ease;
-      box-shadow: 0 14px 35px rgba(143,100,164,0.22);
+      box-shadow: none;
     }
 
-    button:hover,
-    .button:hover {
-      background: var(--heather-dark);
-      transform: translateY(-1px);
+    .photo-story {
+      padding: 1rem 1.5rem 3.5rem;
+      background: var(--cream);
     }
 
-    .section {
-      padding: 5rem 1.5rem;
-    }
-
-    .section h2 {
-      margin-bottom: 1.5rem;
-    }
-
-    .light { background: var(--sand); }
-    .soft { background: var(--pale-green); }
-    .cta-section { background: var(--pale-blue); color: var(--cream); }
-    .cta-section h2, .cta-section p { color: var(--cream); }
-
-    .content {
-      max-width: 960px;
-      margin: 0 auto;
-      letter-spacing: 0.1px;
-    }
-
-    .content p + p {
-      margin-top: -0.35rem;
-    }
-
-    .content-wide {
-      max-width: 1320px;
-      margin: 0 auto;
-    }
-
-    .content-xl {
-      max-width: 1480px;
-      margin: 0 auto;
-    }
-
-    .content-split {
-      max-width: 1180px;
+    .photo-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
-    .center {
-      text-align: center;
+    .story-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 26px;
+      display: block;
+      transition: transform 0.25s ease;
+      border: 8px solid rgba(255,255,255,0.7);
+      box-shadow: 0 18px 50px rgba(47,79,79,0.1);
     }
 
-    .center p {
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
+    .story-photo:hover {
+      transform: translateY(-3px);
     }
 
     .intro-section p {
@@ -929,6 +953,47 @@ function get_theme() {
       color: var(--muted);
     }
 
+    /* Swap preview section */
+
+    .swap-preview-section {
+      background: var(--pale-green);
+    }
+
+    .swap-preview {
+      align-items: center;
+    }
+
+    .swap-preview-copy h2 {
+      max-width: 420px;
+    }
+
+    .swap-preview-body p {
+      font-size: 1.45rem;
+      line-height: 1.55;
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    .swap-mini-card {
+      width: min(100%, 560px);
+      aspect-ratio: 4 / 3;
+      background: #d1ece6;
+      border: 14px solid rgba(255,255,255,0.72);
+      border-radius: 30px;
+      box-shadow: 0 20px 55px rgba(47,79,79,0.09);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swap-mini-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .swap-section {
       background: var(--pale-green);
     }
@@ -948,6 +1013,74 @@ function get_theme() {
       color: var(--ink);
       letter-spacing: -0.06em;
       margin: 1.5rem 0 0.75rem;
+    }
+
+    /* Location section */
+
+    .location-section {
+      background: var(--sand);
+    }
+
+    .location-section h2 {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .location-intro {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      font-size: 1.18rem;
+    }
+
+    .location-tagline {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      font-size: 1.18rem;
+      font-weight: 500;
+    }
+
+    .location-visuals {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+      gap: 2rem;
+      align-items: stretch;
+      max-width: 1040px;
+      margin: 0 auto 2.25rem;
+    }
+
+    .location-card {
+      background: #f8f2e8;
+      border: 10px solid rgba(255,255,255,0.82);
+      border-radius: 28px;
+      box-shadow: 0 20px 55px rgba(47,79,79,0.09);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      aspect-ratio: 4 / 3;
+    }
+
+    .location-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .building-card,
+    .map-card {
+      padding: 0;
+      background: #f8f2e8;
+    }
+
+    .location-line {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.12rem;
     }
 
     /* Pricing section */
@@ -973,6 +1106,7 @@ function get_theme() {
       border: 3px solid var(--pale-pink);
       box-shadow: var(--shadow-soft);
       text-align: left;
+      box-sizing: border-box;
     }
 
     .trial-card h3 {
@@ -1251,20 +1385,6 @@ function get_theme() {
         margin-right: auto;
       }
 
-      .trial-card {
-        grid-template-columns: 1fr;
-        max-width: 620px;
-        text-align: center;
-      }
-
-      .trial-card ul {
-        display: inline-block;
-      }
-
-      .trial-card .button {
-        white-space: normal;
-      }
-
       .pricing {
         grid-template-columns: 1fr;
         max-width: 620px;
@@ -1290,11 +1410,40 @@ function get_theme() {
         margin-left: auto;
         margin-right: auto;
       }
+
+      .swap-preview {
+        text-align: center;
+      }
+
+      .swap-preview-copy h2,
+      .swap-preview-body p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .swap-mini-card {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     @media (max-width: 900px) {
       .included-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .location-visuals {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+      }
+
+      .location-card {
+        min-height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .map-card {
+        aspect-ratio: 4 / 5;
       }
 
       .footer-logo {
@@ -1529,6 +1678,28 @@ function get_theme() {
 
       .bubble {
         padding: 1.25rem 1rem;
+      }
+
+      .swap-preview-body p {
+        font-size: 1.12rem;
+      }
+
+      .swap-mini-card {
+        border-width: 9px;
+        border-radius: 22px;
+      }
+
+      .location-tagline {
+        margin-bottom: 2rem;
+      }
+
+      .location-visuals {
+        gap: 1rem;
+      }
+
+      .location-card {
+        border-width: 9px;
+        border-radius: 22px;
       }
 
       .wave {
