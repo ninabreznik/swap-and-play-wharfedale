@@ -51,7 +51,7 @@ function page(cb) {
   const shadow = el.attachShadow({ mode: 'closed' })
 
   const register = document.createElement('button')
-  register.innerText = 'Become a Founding Family'
+  register.innerText = 'Register for a Free Trial Week'
   register.onclick = register_interest
 
   shadow.innerHTML = `
@@ -73,8 +73,31 @@ function page(cb) {
           </div>
         </div>
       </section>
+      
 
       <div class="wave" style="background:#6fa8dc;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#d1ece6;">
+          </path>
+        </svg>
+      </div>
+
+      <section class="section light swap-section">
+        <div class="content content-split">
+          <div>
+            <p class="eyebrow dark">Swap, share, reuse</p>
+            <h2>With a swap room</h2>
+          </div>
+          <div>
+              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
+          </div>
+        </div>
+      </section>
+
+
+      <div class="wave" style="background:#d1ece6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -82,6 +105,7 @@ function page(cb) {
           </path>
         </svg>
       </div>
+
 
       <section class="section light intro-section">
         <div class="content center">
@@ -93,21 +117,13 @@ function page(cb) {
           <p>
             No booking. No rushing. No hosting. No extra spending. Just arrive.
           </p>
+          <img src="./assets/map.png" alt="How to get to Swap & Play" class="photo">
           <p class="location-line">
-            Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
+          Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
           </p>
         </div>
       </section>
 
-      <section class="photo-story">
-        <div class="content content-xl">
-          <div class="photo-grid">
-            <img src="./assets/baby-reading.jpg" alt="Child placing animal pieces into a shape sorter"class="story-photo">
-            <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
-            <img src="./assets/child-sitting.jpg" alt="Child quietly exploring books and textures" class="story-photo">
-          </div>
-        </div>
-      </section>
 
       <div class="wave" style="background:#f4efe6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -128,10 +144,25 @@ function page(cb) {
             <p>
               Swap & Play is intentionally designed for a low-density experience — because we are building the opposite of a hectic play centre.
             </p>
+            <p>
+              The space has two rooms. The main room is calm and open, with areas for Duplo, magnetic blocks, puzzles, role play, reading, art and other focused play.
+            </p>
+            <p>
+              The second room is a smaller movement room, with a sensory wall, a wooden climbing frame with a slide and soft mats for children who need to move their bodies.
+            </p>
           </div>
         </div>
       </section>
 
+      <section class="photo-story">
+        <div class="content content-xl">
+          <div class="photo-grid">
+            <img src="./assets/baby-reading.jpg" alt="Child placing animal pieces into a shape sorter" class="story-photo">
+            <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
+            <img src="./assets/child-sitting.jpg" alt="Child quietly exploring books and textures" class="story-photo">
+          </div>
+        </div>
+      </section>
 
       <div class="wave" style="background:#fbfaf6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -142,14 +173,32 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft relief-section">
-        <div class="content center">
-          <p class="eyebrow dark">The feeling we are building for</p>
-          <h2>Less planning. Less pressure. More ease.</h2>
-          <p>
-            Family life already has enough logistics. Join us if you want a calmer, easier, more flexible way to spend time locally with young children.
-          </p>
-        </div>
+      <section class="section soft relief-section swap-section">
+      <div class="content center">
+        <p class="eyebrow dark">Simple and sustainable</p>
+        <h2>Give what you can. Take what you need.</h2>
+
+        <p>
+          When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
+          You can also browse the Swap Room and take what your family can use.
+          It is not a one-for-one system — simply give when you can, and take when something is useful.
+        </p>
+
+        <img
+          src="./assets/swap.png"
+          alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
+          class="photo"
+        >
+
+        <p>
+          Donations can be placed in the designated bins, and a volunteer will sort and shelve them later.
+          Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
+        </p>
+
+        <p>
+          We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
+        </p>
+      </div>
       </section>
 
       <div class="wave" style="background:#d1ece6;">
@@ -159,88 +208,192 @@ function page(cb) {
             style="fill:#f4efe6;">
           </path>
         </svg>
-      </div>      
+      </div>
 
 
-      <section class="section light swap-section">
-        <div class="content content-split">
-          <div>
-            <p class="eyebrow dark">Swap, share, reuse</p>
-            <h2>A clothing swap room for growing children</h2>
-          </div>
-          <div>
-              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
-          </div>
-        </div>
-      </section>
+      <section class="section included-section">
+        <div class="content center">
+          <p class="eyebrow dark">A membership built around real life</p>
+          <h2>Everything you need for an easier family rhythm</h2>
+          <p class="included-intro">
+            More than play access — a calm, flexible base you can use as part of everyday life.
+          </p>
 
-      <section class="section">
-        <div class="content content-wide center">
-          <p class="eyebrow dark">Why families join</p>
-          <h2>A membership built around real life</h2>
+          <div class="included-grid calm-cards">
 
-          <div class="benefits-cloud calm-grid">
-
-            <div class="bubble bubble-a">
-              <h3>No booking slots</h3>
-              <p>Come around naps, moods, weather and real family life.</p>
+            <div class="included-card">
+              <h3>Unlimited access</h3>
+              <p>Use the space regularly without thinking about each visit as a separate cost.</p>
             </div>
 
-            <div class="bubble bubble-b">
-              <h3>No rushing out</h3>
-              <p>Stay longer when your child is finally settled and happy.</p>
+            <div class="included-card">
+              <h3>Self check-in</h3>
+              <p>Come and go more freely during opening hours, without waiting for a session.</p>
             </div>
 
-            <div class="bubble bubble-c">
-              <h3>No extra spend</h3>
-              <p>Bring your own food and drinks. Tea and coffee are included.</p>
+            <div class="included-card">
+              <h3>Open every day</h3>
+              <p>Open 365 days a year, from 6am to 9pm.</p>
             </div>
 
-            <div class="bubble bubble-d">
-              <h3>No hosting at home</h3>
-              <p>Meet friends somewhere easy without tidying before or after.</p>
+            <div class="included-card">
+              <h3>Shoe-free and clean</h3>
+              <p>A calmer, cleaner environment for small children and crawling babies.</p>
             </div>
 
-            <div class="bubble bubble-e">
+            <div class="included-card">
+              <h3>Tea and coffee included</h3>
+              <p>No pressure to buy something every time you visit.</p>
+            </div>
+
+            <div class="included-card">
+              <h3>Bring your own food</h3>
+              <p>Pack the snacks your child actually eats and stay longer if the day is going well.</p>
+            </div>
+
+            <div class="included-card">
               <h3>Space for parents too</h3>
               <p>Sit, read, chat, do light laptop catch-up or simply pause.</p>
             </div>
 
-            <div class="bubble bubble-f">
-              <h3>Community without pressure</h3>
-              <p>Familiar local families, grandparents and carers over time.</p>
-            </div>
-
-            <div class="bubble bubble-g">
+            <div class="included-card">
               <h3>Swap instead of rebuying</h3>
-              <p>Children’s clothes and shoes shared locally as they grow.</p>
+              <p>Children’s clothes and shoes shared between members.</p>
             </div>
 
-            <div class="bubble bubble-h">
-              <h3>Open when life happens</h3>
-              <p>Every day, including weekends, holidays, mornings and evenings.</p>
+            <div class="included-card">
+              <h3>Gentle occupancy updates</h3>
+              <p>Know when the space is busier so the atmosphere can stay calm.</p>
             </div>
 
           </div>
         </div>
       </section>
 
-      <section class="section founding-section">
-        <div class="content center">
-          <p class="eyebrow dark">Founding Families</p>
-          <h2>Become one of the families shaping a new way to share and meet locally</h2>
-          <p>
-            We are opening with a small founding group of local families will receive early access and keep their founding membership price for as long as they remain members.
+      <div class="wave" style="background:#f4efe6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#d1ece6;">
+          </path>
+        </svg>
+      </div>
+
+    <section class="section soft pricing-section">
+      <div class="content content-wide center">
+        <p class="eyebrow dark">Membership</p>
+        <h2>Try it for a week. Then decide if it fits your family.</h2>
+        <p class="section-intro">
+          Swap & Play is not pay-per-play. It is designed as an everyday family base —
+          somewhere you can pop into before, after or between plans.
+        </p>
+
+        <div class="trial-card price-card trial membership-card">
+          <div class="label">Try it first</div>
+          <h3>Free Trial Week</h3>
+          <div class="price">£0</div>
+
+          <p class="small">
+            Come and use the space for a week before deciding if membership is right for your family.
           </p>
-          <register></register>
+
+          <ul>
+            <li>Unlimited visits for one week</li>
+            <li>Explore the play rooms and Swap Room</li>
+            <li>No pressure to join afterwards</li>
+          </ul>
+
+          <p class="small-note">
+            One free trial week per family. Registration required.
+          </p>
+
+          <a class="button" href=https://docs.google.com/forms/d/e/1FAIpQLSe3HZA6pof7I7m4diGGWerDKkNo0uKZVCql5Szl741bPu2aIg/viewform?usp=header">
+            Register for a Free Trial Week
+          </a>
         </div>
-      </section>
-      
+
+        <div class="pricing membership-pricing">
+
+          <div class="price-card featured membership-card">
+            <div class="label popular">Founding Families</div>
+            <h3>Founding Membership</h3>
+            <div class="price">£89<span>/month</span></div>
+            <p class="small">
+              For the first families helping shape a new kind of local family space.
+            </p>
+            <ul>
+              <li>Unlimited access</li>
+              <li>Open every day, 6am to 9pm</li>
+              <li>No booking slots</li>
+              <li>Tea and coffee included</li>
+              <li>Bring your own food</li>
+              <li>Swap Room access</li>
+              <li>Keep your founding price while you remain a member</li>
+            </ul>
+          </div>
+
+          <div class="price-card premium membership-card">
+            <div class="label premium-label">Standard</div>
+            <h3>Standard Membership</h3>
+            <div class="price">£129<span>/month</span></div>
+            <p class="small">
+              For families joining after the founding places are filled.
+            </p>
+            <ul>
+              <li>Unlimited access</li>
+              <li>Open every day, 6am to 9pm</li>
+              <li>No booking slots</li>
+              <li>Smart-lock entry during opening hours</li>
+              <li>Tea and coffee included</li>
+              <li>Bring your own food</li>
+              <li>Swap Room access</li>
+              <li>Gentle occupancy updates</li>
+            </ul>
+          </div>
+
+          <div class="price-card quiet-card membership-card">
+            <div class="label">Additional Child</div>
+            <h3>Sibling Add-On</h3>
+            <div class="price">+£10<span>/month</span></div>
+            <p class="small">
+              For families with more than one child using the space regularly.
+            </p>
+            <ul>
+              <li>Simple monthly add-on</li>
+              <li>Designed for family use</li>
+              <li>No per-session calculation</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="community-note">
+          <h3>Community Contribution Memberships</h3>
+          <p>
+            We are exploring a small number of reduced memberships for families who would love to be part of Swap & Play and are happy to occasionally help with small practical tasks, such as organising toys, sorting donated items or supporting the community.
+          </p>
+          <p>
+            Interested? Email
+            <a href="mailto:nina@swapandplaywharfedale.co.uk">nina@swapandplaywharfedale.co.uk</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+      <div class="wave" style="background:#d1ece6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#f4efe6;">
+          </path>
+        </svg>
+      </div>
+
 
      <section class="section light faq-section">
         <div class="content center">
           <p class="eyebrow dark">Good to know</p>
-          <h2>A few important details.</h2>
+          <h2>A few useful details</h2>
 
           <div class="faq-list">
             <div class="faq-item">
@@ -260,65 +413,21 @@ function page(cb) {
               <p>We will use gentle occupancy updates so families can make informed choices and the space can stay calm.</p>
             </div>
             <div class="faq-item">
-              <h3>Can parents work there?</h3>
+              <h3>Can parents use a laptop there?</h3>
               <p>This is not a coworking office, but parents can occasionally reply to messages, read, do light laptop catch-up or simply sit while children play nearby.</p>
             </div>
           </div>
         </div>
       </section>      
-
+      
       <div class="wave" style="background:#f4efe6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#eef7ff;">
+            style="fill:#e9e6e1;">
           </path>
         </svg>
-      </div>      
-
-      <section class="section included-section">
-        <div class="content center">
-          <p class="eyebrow dark">What membership gives you</p>
-          <h2>Everything you need for an easier family rhythm</h2>
-          <p class="included-intro">
-            More than play access — a calm, flexible base you can use as part of everyday life.
-          </p>
-
-          <div class="included-grid calm-cards">
-
-            <div class="included-card">
-              <h3>Unlimited access</h3>
-              <p>Use the space regularly without thinking about each visit as a separate cost.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Smart-lock entry</h3>
-              <p>Come and go more freely during opening hours, without waiting for a session.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Shoe-free and clean</h3>
-              <p>A calmer, cleaner environment for small children and crawling babies.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Tea and coffee included</h3>
-              <p>No pressure to buy something every time you visit.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Bring your own food</h3>
-              <p>Pack the snacks your child actually eats and stay longer if the day is going well.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Gentle occupancy updates</h3>
-              <p>Know when the space is busier so the atmosphere can stay calm.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      </div>
 
       <section class="section day-section">
         <div class="content center">
@@ -341,87 +450,21 @@ function page(cb) {
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#d1ece6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section soft pricing-section">
-        <div class="content content-wide center">
-          <p class="eyebrow dark">Membership</p>
-          <h2>Not pay-per-play. A membership for everyday family life.</h2>
-
-          <div class="pricing membership-pricing">
-
-            <div class="price-card featured membership-card">
-              <div class="label popular">Founding Families</div>
-              <h3>Founding Membership</h3>
-              <div class="price">£89<span>/month</span></div>
-              <p class="small">For the first families helping shape a new kind of local family space.</p>
-              <ul>
-                <li>Unlimited access</li>
-                <li>Open every day</li>
-                <li>No booking slots</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food</li>
-                <li>Swap room access</li>
-                <li>Keep your founding price while you remain a member</li>
-              </ul>
-            </div>
-
-            <div class="price-card premium membership-card">
-              <div class="label premium-label">Standard</div>
-              <h3>Standard Membership</h3>
-              <div class="price">£129<span>/month</span></div>
-              <p class="small">For families joining after the founding places are filled.</p>
-              <ul>
-                <li>Unlimited access</li>
-                <li>Everyday family club use</li>
-                <li>Smart-lock entry during opening hours</li>
-                <li>Tea and coffee included</li>
-                <li>Clothing swap room</li>
-                <li>Gentle occupancy updates</li>
-              </ul>
-            </div>
-
-            <div class="price-card quiet-card">
-              <div class="label">Additional Child</div>
-              <h3>Sibling Add-On</h3>
-              <div class="price">+£10<span>/month</span></div>
-              <p class="small">For families with more than one child using the space regularly.</p>
-              <ul>
-                <li>Simple monthly add-on</li>
-                <li>Designed for family use</li>
-                <li>No per-session calculation</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-        <div class="community-card">
-          <h3>Community Contribution Memberships</h3>
-          <p>
-          We are exploring a small number of reduced Community Contribution Memberships for families who would love to be part of Swap & Play and are happy to occasionally help with small tasks that keep the space thriving.
-          </p>
-
-          <p>
-          Things like helping organise toys, sorting donated clothes and children's items, sharing ideas, helping with communication, or supporting the community in small ways.
-          </p>
-
-          <p>
-          If this sounds like a good fit, we'd love to hear from you. Please get in touch at nina@swapandplaywharfedale.co.uk
-          </p>
-      </div>
-      </section>
-
-      <div class="wave" style="background:#d1ece6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
             style="fill:#6fa8dc;">
           </path>
         </svg>
       </div>
+
+      <section class="section cta-section">
+        <div class="content center">
+          <p class="eyebrow light-text">Opening soon</p>
+          <h2>Try Swap & Play for a week.</h2>
+          <p>
+            Register for a free trial week and see whether a calmer, more flexible family space fits your everyday rhythm.
+          </p>
+          <register></register>
+        </div>
+      </section>
 
       <footer class="footer">
         <div class="content center">
@@ -498,6 +541,9 @@ function get_theme() {
       --muted: #6f8079;
       --surface: #ffffff;
       --surface-alt: #f6f3ee;
+      --shadow-soft: 0 18px 48px rgba(47,79,79,0.10);
+      --shadow-card: 0 16px 44px rgba(47,79,79,0.075);
+      --line-soft: rgba(47,79,79,0.10);
     }
 
     .page {
@@ -576,11 +622,10 @@ function get_theme() {
       max-width: 820px;
       height: 560px;
       object-fit: cover;
-      object-position: center;
+      object-position: center 30%;
       border-radius: 28px;
       display: block;
       margin: 2rem auto;
-      object-position: center 30%;
       border: 14px solid rgba(255,255,255,0.72);
       box-shadow: 0 24px 70px rgba(47,79,79,0.12);
     }
@@ -593,6 +638,12 @@ function get_theme() {
     .photo-strip .photo {
       margin: 0 auto;
       border-color: var(--cream);
+    }
+
+    .intro-section .photo,
+    .swap-section .photo {
+      object-fit: contain;
+      width: auto;
     }
 
     .hero-photo {
@@ -623,7 +674,7 @@ function get_theme() {
 
     .photo-story {
       padding: 1rem 1.5rem 3.5rem;
-      background: var(--sand);
+      background: var(--cream);
     }
 
     .photo-grid {
@@ -652,13 +703,13 @@ function get_theme() {
       padding: 3rem 1.5rem 0rem;
       text-align: left;
     }
-    .hero .logo img{
+
+    .hero .logo img {
       filter:
         brightness(0)
         invert(1)
         drop-shadow(0 2px 10px rgba(0,0,0,.08));
-
-      opacity:.96;
+      opacity: .96;
     }
 
     .hero-inner {
@@ -731,7 +782,16 @@ function get_theme() {
       margin-top: 1.4rem;
     }
 
-    button {
+    a {
+      color: var(--heather-dark);
+      text-underline-offset: 0.18em;
+    }
+
+    button,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin: 1rem 0;
       padding: 1rem 2.1rem;
       border: none;
@@ -741,11 +801,14 @@ function get_theme() {
       cursor: pointer;
       font-size: 1rem;
       font-weight: 800;
+      line-height: 1.1;
+      text-decoration: none;
       transition: 0.25s ease;
       box-shadow: 0 14px 35px rgba(143,100,164,0.22);
     }
 
-    button:hover {
+    button:hover,
+    .button:hover {
       background: var(--heather-dark);
       transform: translateY(-1px);
     }
@@ -791,22 +854,9 @@ function get_theme() {
       align-items: start;
     }
 
-    .community-card{
-      max-width:760px;
-      margin:3rem auto 0;
-      padding:2rem;
-      background:#fbfaf6;
-      border-radius:24px;
-      border:1px solid rgba(47,79,79,.08);
-      box-shadow:0 16px 44px rgba(47,79,79,.05);
-      text-align:left;
+    .center {
+      text-align: center;
     }
-
-    .community-card h3{
-      margin-bottom:1rem;
-    }
-
-    .center { text-align: center; }
 
     .center p {
       max-width: 720px;
@@ -851,7 +901,7 @@ function get_theme() {
       border: 1px solid rgba(47,79,79,0.1);
       border-radius: 24px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 16px 44px rgba(47,79,79,0.075);
+      box-shadow: var(--shadow-card);
     }
 
     .bubble:hover {
@@ -889,7 +939,7 @@ function get_theme() {
     }
 
     .included-section {
-      background: #eef7ff;
+      background: var(--sand);
     }
 
     .included-intro {
@@ -910,7 +960,7 @@ function get_theme() {
       padding: 1.65rem;
       border: 1px solid rgba(47,79,79,0.1);
       text-align: left;
-      box-shadow: 0 16px 44px rgba(47,79,79,0.075);
+      box-shadow: var(--shadow-card);
     }
 
     .included-card h3 {
@@ -926,7 +976,7 @@ function get_theme() {
     }
 
     .swap-section {
-      background: var(--sand);
+      background: var(--pale-green);
     }
 
     .day-section {
@@ -946,23 +996,104 @@ function get_theme() {
       margin: 1.5rem 0 0.75rem;
     }
 
+    /* Pricing section */
+
+    .pricing-section {
+      background: var(--pale-green);
+    }
+
+    .pricing-section .section-intro {
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.62;
+      color: var(--ink);
+    }
+
+    .trial-card {
+      max-width: 620px;
+      margin: 2rem auto 2.65rem;
+      padding: 2rem;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.95);
+      border: 3px solid var(--pale-pink);
+      box-shadow: var(--shadow-soft);
+      text-align: left;
+    }
+
+    .trial-card h3 {
+      font-size: 1.65rem;
+      line-height: 1.08;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .trial-card .price {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .trial-card .small {
+      max-width: none;
+      margin: 0 0 1rem 0;
+    }
+
+    .trial-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.15rem 0 0 0;
+      text-align: left;
+    }
+
+    .trial-card li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.65rem;
+      line-height: 1.5;
+      color: var(--ink);
+      font-size: 0.98rem;
+    }
+
+    .trial-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pale-pink);
+      font-weight: bold;
+    }
+
+    .trial-card .small-note {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .trial-card .button {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0.5rem 0 0;
+    }
+
     .pricing {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.25rem;
-      margin-top: 2rem;
+      margin: 0 auto;
       align-items: stretch;
+      max-width: 1040px;
     }
 
     .price-card {
-      background: var(--surface);
+      background: rgba(255,255,255,0.94);
       border-radius: 26px;
       padding: 1.8rem;
       position: relative;
-      border: 1px solid rgba(47,79,79,0.1);
+      border: 1px solid var(--line-soft);
       font-size: 1rem;
       text-align: left;
-      box-shadow: 0 20px 55px rgba(47,79,79,0.09);
+      box-shadow: var(--shadow-card);
+      height: 100%;
+      box-sizing: border-box;
     }
 
     .price-card h3 {
@@ -971,8 +1102,9 @@ function get_theme() {
     }
 
     .featured {
-      transform: scale(1.035);
+      transform: none;
       border: 3px solid var(--pale-pink);
+      box-shadow: 0 22px 58px rgba(244,166,192,0.18);
     }
 
     .premium {
@@ -980,20 +1112,21 @@ function get_theme() {
     }
 
     .quiet-card {
-      opacity: 0.92;
+      opacity: 1;
+      background: rgba(255,255,255,0.82);
     }
 
     .label {
       display: inline-block;
-      font-size: 0.76rem;
-      padding: 0.35rem 0.75rem;
+      font-size: 0.72rem;
+      padding: 0.34rem 0.72rem;
       border-radius: 999px;
       margin-bottom: 1rem;
       background: var(--soft);
       color: var(--heather-dark);
       text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-weight: 850;
+      letter-spacing: 0.09em;
     }
 
     .popular {
@@ -1009,7 +1142,7 @@ function get_theme() {
     .price {
       font-size: 2.35rem;
       line-height: 1;
-      font-weight: 800;
+      font-weight: 850;
       margin-bottom: 0.75rem;
       color: var(--ink);
       letter-spacing: -0.04em;
@@ -1017,7 +1150,7 @@ function get_theme() {
 
     .price span {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 750;
       letter-spacing: 0;
       color: var(--muted);
     }
@@ -1055,6 +1188,42 @@ function get_theme() {
       line-height: 1.55;
     }
 
+    .small-note {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0.9rem 0 0;
+    }
+
+    .community-card,
+    .community-note {
+      max-width: 760px;
+      margin: 3rem auto 0;
+      padding: 1.65rem 1.85rem;
+      background: rgba(255,255,255,0.78);
+      border-radius: 24px;
+      border: 1px solid rgba(47,79,79,.08);
+      box-shadow: 0 16px 44px rgba(47,79,79,.055);
+      text-align: left;
+    }
+
+    .community-card h3,
+    .community-note h3 {
+      margin-bottom: 0.8rem;
+    }
+
+    .community-card p,
+    .community-note p {
+      font-size: 1rem;
+      line-height: 1.62;
+      color: var(--ink);
+    }
+
+    .community-card p:last-child,
+    .community-note p:last-child {
+      margin-bottom: 0;
+    }
+
     .faq-list {
       max-width: 850px;
       margin: 2.4rem auto 0;
@@ -1078,359 +1247,381 @@ function get_theme() {
     }
 
     .footer {
-        background: var(--pale-blue);
-        padding:4rem 1.5rem;
-        color: white;
+      background: var(--pale-blue);
+      padding: 4rem 1.5rem;
+      color: white;
+    }
+
+    .footer p {
+      opacity: .88;
+      margin-bottom: .8rem;
+      font-size: .95rem;
+    }
+
+    .footer-small {
+      opacity: .55;
+      font-size: .85rem;
+    }
+
+    .footer-logo {
+      display: block;
+      height: 88px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      margin: -14px auto 1.2rem auto;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-inner,
+      .content-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .footer p{
-        opacity:.88;
-        margin-bottom:.8rem;
-        font-size:.95rem;
+      .hero {
+        text-align: center;
+        padding: 2.5rem 1.25rem 0;
       }
 
-      .footer-small{
-        opacity:.55;
-        font-size:.85rem;
+      .hero-copy {
+        padding: 1rem 0 2rem;
       }
 
-      .footer-logo{
-        display:block;
-        height:88px;
-        width:auto;
-        max-width:260px;
-        object-fit:contain;
-        margin:-14px auto 1.2rem auto;
+      h1,
+      .hero-subtitle,
+      .hero-relief,
+      .founding-note,
+      .social-proof {
+        margin-left: auto;
+        margin-right: auto;
       }
 
-@media (max-width: 1000px) {
-  .hero-inner,
-  .content-split {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+      .trial-card {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        text-align: center;
+      }
 
-  .hero {
-    text-align: center;
-    padding: 2.5rem 1.25rem 0;
-  }
+      .trial-card ul {
+        display: inline-block;
+      }
 
-  .hero-copy {
-    padding: 1rem 0 2rem;
-  }
+      .trial-card .button {
+        white-space: normal;
+      }
 
-  h1,
-  .hero-subtitle,
-  .hero-relief,
-  .founding-note,
-  .social-proof {
-    margin-left: auto;
-    margin-right: auto;
-  }
+      .pricing {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-  .pricing {
-    grid-template-columns: 1fr;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      .featured {
+        transform: none;
+      }
 
-  .featured {
-    transform: none;
-  }
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+      .content-split {
+        text-align: center;
+      }
 
-  .content-split {
-    text-align: center;
-  }
+      .content-split p,
+      .content-split div {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
 
-  .content-split p,
-  .content-split div {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+    @media (max-width: 900px) {
+      .included-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-@media (max-width: 900px) {
-  .included-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+      .footer-logo {
+        height: 78px;
+        max-width: 240px;
+        margin: -12px auto 1.3rem auto;
+      }
+    }
 
-  .footer-logo {
-    height: 78px;
-    max-width: 240px;
-    margin: -12px auto 1.3rem auto;
-  }
-}
+    @media (max-width: 768px) {
+      h1 {
+        font-size: clamp(2.15rem, 11vw, 3.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+      }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: clamp(2.15rem, 11vw, 3.2rem);
-    line-height: 1.02;
-    letter-spacing: -0.055em;
-  }
+      h2 {
+        font-size: clamp(1.8rem, 8vw, 2.45rem);
+        line-height: 1.08;
+      }
 
-  h2 {
-    font-size: clamp(1.8rem, 8vw, 2.45rem);
-    line-height: 1.08;
-  }
+      h3 {
+        font-size: 1.12rem;
+      }
 
-  h3 {
-    font-size: 1.12rem;
-  }
+      p {
+        font-size: 1rem;
+        line-height: 1.62;
+      }
 
-  p {
-    font-size: 1rem;
-    line-height: 1.62;
-  }
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .included-grid {
-    grid-template-columns: 1fr;
-  }
+      .section,
+      .hero,
+      .photo-story {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
 
-  .section,
-  .hero,
-  .photo-story {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+      .section {
+        padding-top: 3.2rem;
+        padding-bottom: 3.2rem;
+      }
 
-  .section {
-    padding-top: 3.2rem;
-    padding-bottom: 3.2rem;
-  }
+      .hero-inner {
+        gap: 1.25rem;
+      }
 
-  .hero-inner {
-    gap: 1.25rem;
-  }
+      .logo img {
+        width: 240px;
+        max-width: 78vw;
+        height: auto;
+        margin: 0 auto 1.8rem auto;
+        display: block;
+      }
 
-  .logo img {
-    width:240px;
-    max-width:78vw;
-    height:auto;
+      .hero-subtitle {
+        font-size: 1.12rem;
+        line-height: 1.5;
+      }
 
-    margin:0 auto 1.8rem auto;
-    display:block;
-  }
+      .hero-photo {
+        max-width: 100%;
+        padding: 10px;
+        border-width: 9px;
+        border-radius: 30px;
+        transform: none;
+      }
 
-  .hero-subtitle {
-    font-size: 1.12rem;
-    line-height: 1.5;
-  }
+      .hero-photo .photo {
+        height: auto;
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        object-fit: cover;
+      }
 
-  .hero-photo {
-    max-width: 100%;
-    padding: 10px;
-    border-width: 9px;
-    border-radius: 30px;
-    transform: none;
-  }
+      .photo,
+      .story-photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
 
-  .hero-photo .photo {
-    height: auto;
-    aspect-ratio: 4 / 5;
-    border-radius: 22px;
-    object-fit: cover;
-  }
+      .photo {
+        aspect-ratio: 4 / 3;
+        margin: 1rem auto;
+        border-width: 9px;
+      }
 
-  .photo,
-  .story-photo {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
+      .story-photo {
+        aspect-ratio: 4 / 5;
+        border-width: 6px;
+      }
 
-  .photo {
-    aspect-ratio: 4 / 3;
-    margin: 1rem auto;
-    border-width: 9px;
-  }
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
 
-  .story-photo {
-    aspect-ratio: 4 / 5;
-    border-width: 6px;
-  }
+      .benefits-cloud {
+        gap: 1rem;
+        margin-top: 2rem;
+      }
 
-  .photo-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+      .bubble {
+        width: 100%;
+        max-width: 420px;
+        min-height: auto;
+        padding: 1.45rem 1.2rem;
+      }
 
-  .benefits-cloud {
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+      .included-card,
+      .price-card,
+      .trial-card,
+      .faq-item,
+      .community-card,
+      .community-note {
+        border-radius: 22px;
+        padding: 1.35rem;
+      }
 
-  .bubble {
-    width: 100%;
-    max-width: 420px;
-    min-height: auto;
-    padding: 1.45rem 1.2rem;
-  }
+      .community-card,
+      .community-note {
+        width: auto;
+        margin: 2rem 1rem 0;
+        box-sizing: border-box;
+      }
 
-  .included-card,
-  .price-card,
-  .faq-item,
-  .community-card {
-    border-radius: 22px;
-    padding: 1.35rem;
-  }
+      .community-card p,
+      .community-note p,
+      .footer p {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
 
-  .community-card {
-    width: auto;
-    margin: 2rem 1rem 0;
-    box-sizing: border-box;
-  }
+      button,
+      .button {
+        width: 100%;
+        max-width: 340px;
+        display: flex;
+        margin: 1rem auto;
+        box-sizing: border-box;
+      }
 
-  .community-card p,
-  .footer p {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
+      .wave {
+        height: 72px;
+        overflow: hidden;
+      }
 
-  button {
-    width: 100%;
-    max-width: 340px;
-    display: block;
-    margin: 1rem auto;
-  }
+      .wave svg {
+        width: 160%;
+        margin-left: -30%;
+      }
 
-  .wave {
-    height: 72px;
-    overflow: hidden;
-  }
+      .photo-strip {
+        overflow: hidden;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 3rem;
+      }
 
-  .wave svg {
-    width: 160%;
-    margin-left: -30%;
-  }
+      .photo-strip .photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
 
-  .photo-strip {
-    overflow: hidden;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 3rem;
-  }
+      .footer {
+        background: #e8eee8;
+        color: var(--ink);
+        padding: 3.5rem 1rem;
+        text-align: center;
+      }
 
-  .photo-strip .photo {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+      .footer-logo {
+        display: block;
+        height: 78px;
+        width: auto;
+        max-width: 240px;
+        object-fit: contain;
+        margin: -12px auto 1.4rem auto;
+      }
 
-  .footer {
-    background: #e8eee8;
-    color: var(--ink);
-    padding: 3.5rem 1rem;
-    text-align: center;
-  }
+      .footer p {
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgba(47,79,79,.84);
+        font-size: .95rem;
+        line-height: 1.55;
+      }
+    }
 
-  .footer-logo {
-    display: block;
-    height: 78px;
-    width: auto;
-    max-width: 240px;
-    object-fit: contain;
-    margin: -12px auto 1.4rem auto;
-  }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.25rem;
+      }
 
-  .footer p {
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    color: rgba(47,79,79,.84);
-    font-size: .95rem;
-    line-height: 1.55;
-  }
-}
+      h2 {
+        font-size: 1.9rem;
+      }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2.25rem;
-  }
+      .eyebrow {
+        font-size: .68rem;
+        letter-spacing: .12em;
+      }
 
-  h2 {
-    font-size: 1.9rem;
-  }
+      .logo img {
+        width: 220px;
+        max-width: 82vw;
+        height: auto;
+        margin: 0 auto 1.5rem auto;
+      }
 
-  .eyebrow {
-    font-size: .68rem;
-    letter-spacing: .12em;
-  }
+      .photo,
+      .story-photo,
+      .hero-photo .photo {
+        aspect-ratio: auto;
+      }
 
-  .logo img {
-    width:220px;
-    max-width:82vw;
-    height:auto;
+      .price {
+        font-size: 2rem;
+      }
 
-    margin:0 auto 1.5rem auto;
-  }
+      .trial-card .price {
+        font-size: 2.5rem;
+      }
 
-  .photo,
-  .story-photo,
-  .hero-photo .photo {
-    aspect-ratio: auto;
-  }
+      .bubble {
+        padding: 1.25rem 1rem;
+      }
 
-  .price {
-    font-size: 2rem;
-  }
+      .wave {
+        height: 54px;
+      }
 
-  .bubble {
-    padding: 1.25rem 1rem;
-  }
+      .wave svg {
+        width: 190%;
+        margin-left: -45%;
+      }
 
-  .wave {
-    height: 54px;
-  }
+      .photo-strip {
+        overflow: hidden;
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
 
-  .wave svg {
-    width: 190%;
-    margin-left: -45%;
-  }
+      .photo-strip .photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
 
-  .photo-strip {
-    overflow: hidden;
-    padding-left: .75rem;
-    padding-right: .75rem;
-  }
+      .community-card,
+      .community-note {
+        margin: 1.5rem .75rem 0;
+        padding: 1.25rem;
+      }
 
-  .photo-strip .photo {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
+      .footer {
+        background: #e8eee8;
+        padding: 3rem 1rem;
+      }
 
-  .community-card {
-    margin: 1.5rem .75rem 0;
-    padding: 1.25rem;
-  }
+      .footer-logo {
+        height: 72px;
+        max-width: 220px;
+        margin: -10px auto 1.3rem auto;
+      }
 
-  .footer {
-    background: #e8eee8;
-    padding: 3rem 1rem;
-  }
-
-  .footer-logo {
-    height: 72px;
-    max-width: 220px;
-    margin: -10px auto 1.3rem auto;
-  }
-
-  .footer p {
-    max-width: 300px;
-    font-size: .92rem;
-  }
-}
+      .footer p {
+        max-width: 300px;
+        font-size: .92rem;
+      }
+    }
   `
 }
-
 },{}]},{},[1]);
