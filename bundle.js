@@ -79,38 +79,6 @@ function page(cb) {
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#d1ece6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section soft swap-preview-section">
-        <div class="content content-split swap-preview">
-          <div class="swap-preview-copy">
-            <p class="eyebrow dark">Swap, share, reuse</p>
-            <h2>With a Swap Room</h2>
-          </div>
-
-          <div class="swap-preview-body">
-            <p>
-              Because children grow quickly, families already have enough stuff, and community works better when useful things keep circulating.
-            </p>
-
-            <div class="swap-mini-card">
-              <img
-                src="./assets/swap-mini.png"
-                alt="Children’s clothes, books and toys being shared and reused"
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <div class="wave" style="background:#d1ece6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
             style="fill:#f4efe6;">
           </path>
         </svg>
@@ -204,7 +172,7 @@ function page(cb) {
 
       <section class="section soft relief-section swap-section">
       <div class="content center">
-        <p class="eyebrow dark">Simple and sustainable</p>
+        <p class="eyebrow dark">Swap room</p>
         <h2>Give what you can. Take what you need.</h2>
 
         <p>
