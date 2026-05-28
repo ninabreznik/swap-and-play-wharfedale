@@ -81,7 +81,7 @@ function page(cb) {
             <p class="eyebrow">Opening June 2026 in Ilkley</p>
             <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
-              A small, membership-only family space where children can play and parents can breathe.
+              A small, membership-only community space where children can play and parents can breathe.
             </p>
             <register></register>
           </div>
@@ -106,7 +106,7 @@ function page(cb) {
           <h2>Your flexible base in Ilkley</h2>
 
           <p class="location-intro">
-            Swap & Play Wharfedale is a calm, members-only family play space designed around real life with young children.
+            Swap & Play Wharfedale is a calm, members-only community play space designed around real life with young children.
           </p>
 
           <p class="location-tagline">
@@ -149,14 +149,14 @@ function page(cb) {
         <div class="content content-split">
           <div>
             <p class="eyebrow dark">Small by design</p>
-            <h2>Calm needs space</h2>
+            <h2>Calm needs a place</h2>
           </div>
           <div>
             <p>
               Swap & Play is intentionally designed for a low-density experience — because we are building the opposite of a hectic play centre.
             </p>
             <p>
-              The space has two rooms. The main room is calm and open, with areas for Duplo, magnetic blocks, puzzles, role play, reading, art and other focused play.
+              The play area has two rooms. The main room is calm and open, with areas for Duplo, magnetic blocks, puzzles, role play, reading, art and other focused play.
             </p>
             <p>
               The second room is a smaller movement room, with a sensory wall, a wooden climbing frame with a slide and soft mats for children who need to move their bodies.
@@ -202,7 +202,7 @@ function page(cb) {
           >
 
           <p>
-            Donations can be placed in the designated bins, and a volunteer will sort and shelve them later.
+            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
             Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
           </p>
 
@@ -295,7 +295,7 @@ function page(cb) {
           <h2>Try it for a week. Then decide if it fits your family.</h2>
 
           <p class="section-intro">
-            Swap & Play is not pay-per-play. It is designed as an everyday family base —
+            Swap & Play is not pay-per-play. It is designed as an everyday community space —
             somewhere you can pop into before, after or between plans.
           </p>
 
@@ -331,7 +331,7 @@ function page(cb) {
               <div class="price">from £89<span>/month</span></div>
 
               <p class="small">
-                For the first families helping shape a new kind of local family space.
+                For the first families helping shape a new kind of local community space.
               </p>
 
               <ul>
@@ -468,7 +468,7 @@ function page(cb) {
           <div class="faq-list">
             <div class="faq-item">
               <h3>Is this soft play?</h3>
-              <p>No. Swap & Play is a calm members-only family space designed for low numbers, flexible access and a gentler atmosphere.</p>
+              <p>No. Swap & Play is a calm members-only community space designed for low numbers, flexible access and a gentler atmosphere.</p>
             </div>
             <div class="faq-item">
               <h3>Do I need to book?</h3>
@@ -530,7 +530,7 @@ function page(cb) {
           <p class="eyebrow light-text">Opening soon</p>
           <h2>Try Swap & Play for a week.</h2>
           <p>
-            Register for a free trial week and see whether a calmer, more flexible family space fits your everyday rhythm.
+            Register for a free trial week and see whether a calmer, more flexible community space fits your everyday rhythm.
           </p>
           <register></register>
         </div>
@@ -546,7 +546,7 @@ function page(cb) {
 
           <p>
             Swap & Play Wharfedale<br>
-            A calm family club for Ilkley and the wider Wharfedale area
+            A calm community play space for Ilkley and the wider Wharfedale area
           </p>
 
           <p>
