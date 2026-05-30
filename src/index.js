@@ -32,7 +32,7 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Opening June 2026 in Ilkley</p>
+            <p class="eyebrow">Opening 15 June 2026 in Ilkley</p>
             <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
               A small, membership-only community space where children can play and parents can breathe.
@@ -85,7 +85,7 @@ function page(cb) {
           </div>
 
           <p class="location-line">
-            Just behind Booths on Leeds Road — a short walk from the playground and Riverside.
+            Just behind Booths on Leeds Road — easy to reach from Booths car park, the playground and Riverside.
           </p>
         </div>
       </section>
@@ -865,7 +865,7 @@ function get_theme() {
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
       gap: 2rem;
-      align-items: stretch;
+      align-items: center;
       max-width: 1040px;
       margin: 0 auto 2.25rem;
     }
@@ -895,6 +895,15 @@ function get_theme() {
     .map-card {
       padding: 0;
       background: #f8f2e8;
+    }
+
+    .map-card {
+      aspect-ratio: 4 / 5;
+    }
+
+    .map-card img {
+      object-fit: contain;
+      object-position: center;
     }
 
     .location-line {
@@ -1595,6 +1604,10 @@ function get_theme() {
       .location-card {
         border-width: 9px;
         border-radius: 22px;
+      }
+
+      .map-card {
+        aspect-ratio: 4 / 5;
       }
 
       .wave {
