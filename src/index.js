@@ -17,12 +17,16 @@ function page(cb) {
       5: { price: 129, link: 'https://pay.gocardless.com/BRT01KSKDP4EMBYBENPNZWZ3HQRY1' }
     },
     standard: {
-      1: { price: 129, link: 'https://pay.gocardless.com/BRT01KSKCWKQFK0E1GQ0W3TR0477D' },
-      2: { price: 139, link: 'https://pay.gocardless.com/BRT01KSKDHQQ62SR821VJG3P17HFT' },
-      3: { price: 149, link: 'https://pay.gocardless.com/BRT01KSKDRFQSN9WS8CM1BB6EN5JN' },
-      4: { price: 159, link: 'https://pay.gocardless.com/BRT01KSKDSBM4MTY7G8QK2MX7HYHT' },
-      5: { price: 169, link: 'https://pay.gocardless.com/BRT01KSKDTFYDXPCYCBZ09FHPMHYW' }
+      1: { price: 129 },
+      2: { price: 139 },
+      3: { price: 149 },
+      4: { price: 159 },
+      5: { price: 169 }
     }
+  }
+
+  function weekly_equivalent(price) {
+    return Math.round((price * 12) / 52)
   }
 
   shadow.innerHTML = `
@@ -242,15 +246,13 @@ function page(cb) {
           </path>
         </svg>
       </div>
-
-      <section class="section soft pricing-section">
+            <section class="section soft pricing-section">
         <div class="content content-wide center">
           <p class="eyebrow dark">Membership</p>
           <h2>Try it for a week. Then decide if it fits your family.</h2>
 
           <p class="section-intro">
-            Swap & Play is not pay-per-play. It is designed as an everyday community space —
-            somewhere you can pop into before, after or between plans.
+            Start with a free trial week. If Swap & Play fits your family, you can then become a member.
           </p>
 
           <div class="trial-card price-card trial membership-card">
@@ -277,123 +279,68 @@ function page(cb) {
             </a>
           </div>
 
-          <div class="pricing membership-pricing">
+          <div class="monthly-membership-card price-card featured membership-card">
+            <div class="label popular">Unlimited access</div>
+            <h3>Monthly Membership</h3>
 
-            <div class="price-card featured membership-card">
-              <div class="label popular">Founding Families</div>
-              <h3>Founding Membership</h3>
-              <div class="price">from £89<span>/month</span></div>
+            <ul class="membership-benefits-list">
+              <li>Unlimited access</li>
+              <li>Open every day, 6am to 9pm</li>
+              <li>No booking slots</li>
+              <li>Tea and coffee included</li>
+              <li>Bring your own food</li>
+              <li>Swap Room access</li>
+              <li>Founding families keep their reduced price while they remain members</li>
+            </ul>
 
-              <p class="small">
-                For the first families helping shape a new kind of local community space.
-              </p>
+            <div class="membership-actions" data-plan="founding">
+              <div class="cart-summary">
+                <h4>Founding family pricing</h4>
+                <p class="cart-note">Available for the first 20 families.</p>
 
-              <ul>
-                <li>Unlimited access</li>
-                <li>Open every day, 6am to 9pm</li>
-                <li>No booking slots</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food</li>
-                <li>Swap Room access</li>
-                <li>Keep your founding price while you remain a member</li>
-              </ul>
+                <div class="cart-row">
+                  <span>Standard membership</span>
+                  <strong><span class="base-monthly-total">£129/month</span></strong>
+                </div>
 
-              <div class="membership-actions" data-plan="founding">
-                <label class="membership-label membership-row">
-                  <span>Children</span>
-                  <input
-                    class="membership-child-input"
-                    type="number"
-                    min="1"
-                    max="5"
-                    step="1"
-                    value="1"
-                    inputmode="numeric"
-                  >
-                </label>
+                <div class="cart-row cart-row-with-stepper">
+                  <span>Children using the space</span>
 
-                <p class="membership-total">
-                  Total: <strong>£89/month</strong>
-                </p>
+                  <div class="child-cart-line">
+                    <div class="child-stepper" aria-label="Children using the space">
+                      <button class="child-stepper-button child-minus" type="button" aria-label="Remove one child">−</button>
+                      <span class="child-count">1</span>
+                      <button class="child-stepper-button child-plus" type="button" aria-label="Add one child">+</button>
+                    </div>
 
-                <a class="button subscribe-button" href="FOUNDING_1_CHILD_LINK">
-                  Subscribe
-                </a>
+                    <strong><span class="children-monthly-total">£0/month</span></strong>
+                  </div>
+                </div>
 
-                <p class="small-note">
-                  You will be taken to GoCardless to set up your monthly payment.
-                </p>
+                <div class="cart-row discount-row">
+                  <span>Founding family discount</span>
+                  <strong><span class="discount-monthly-total">−£40/month</span></strong>
+                </div>
               </div>
-            </div>
 
-            <div class="price-card premium membership-card">
-              <div class="label premium-label">Standard</div>
-              <h3>Standard Membership</h3>
-              <div class="price">from £129<span>/month</span></div>
-
-              <p class="small">
-                For families joining after the founding places are filled.
-              </p>
-
-              <ul>
-                <li>Unlimited access</li>
-                <li>Open every day, 6am to 9pm</li>
-                <li>No booking slots</li>
-                <li>Smart-lock entry during opening hours</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food</li>
-                <li>Swap Room access</li>
-                <li>Gentle occupancy updates</li>
-              </ul>
-
-              <div class="membership-actions" data-plan="standard">
-                <label class="membership-label membership-row">
-                  <span>Children</span>
-                  <input
-                    class="membership-child-input"
-                    type="number"
-                    min="1"
-                    max="5"
-                    step="1"
-                    value="1"
-                    inputmode="numeric"
-                  >
-                </label>
-
-                <p class="membership-total">
-                  Total: <strong>£129/month</strong>
-                </p>
-
-                <a class="button subscribe-button" href="STANDARD_1_CHILD_LINK">
-                  Subscribe
-                </a>
-
-                <p class="small-note">
-                  You will be taken to GoCardless to set up your monthly payment.
-                </p>
+              <div class="membership-total">
+                <span>Founding member price</span>
+                <strong><span class="founding-weekly-total">£21/week</span></strong>
+                <small><span class="founding-monthly-total">£89/month by Direct Debit</span></small>
               </div>
-            </div>
 
-            <div class="price-card quiet-card membership-card">
-              <div class="label">Family pricing</div>
-              <h3>Additional children</h3>
-              <div class="price">+£10<span>/month</span></div>
+              <a class="button subscribe-button" href="FOUNDING_1_CHILD_LINK">
+                Set up founding membership
+              </a>
 
-              <p class="small">
-                Membership includes one child. Each additional child is £10/month.
+              <p class="small-note">
+                You will be taken to GoCardless to set up your monthly Direct Debit.
               </p>
-
-              <ul>
-                <li>Enter the number of children before subscribing</li>
-                <li>Sibling pricing applies to children using the space regularly</li>
-                <li>Email us if your family setup changes later</li>
-              </ul>
             </div>
-
           </div>
 
           <div class="community-note">
-            <h3>Community Contribution Memberships</h3>
+            <h3>Community Contribution Membership</h3>
             <p>
               We are exploring a small number of reduced memberships for families who would love to be part of Swap & Play and are happy to occasionally help with small practical tasks, such as organising toys, sorting donated items or supporting the community.
             </p>
@@ -521,27 +468,50 @@ function page(cb) {
   })
 
   shadow.querySelectorAll('.membership-actions').forEach(actions => {
-    const plan = actions.dataset.plan
-    const input = actions.querySelector('.membership-child-input')
+    let children = 1
+
     const button = actions.querySelector('.subscribe-button')
-    const total = actions.querySelector('.membership-total strong')
+    const minus = actions.querySelector('.child-minus')
+    const plus = actions.querySelector('.child-plus')
+    const child_count = actions.querySelector('.child-count')
+    const card = actions.closest('.membership-card')
+
+    const children_monthly_total = card.querySelector('.children-monthly-total')
+    const discount_monthly_total = card.querySelector('.discount-monthly-total')
+    const founding_weekly_total = card.querySelector('.founding-weekly-total')
+    const founding_monthly_total = card.querySelector('.founding-monthly-total')
 
     function update_subscription() {
-      let children = Number(input.value)
-
-      if (!Number.isInteger(children) || children < 1) children = 1
+      if (children < 1) children = 1
       if (children > 5) children = 5
 
-      input.value = children
+      const founding_option = membership_options.founding[children]
+      const child_price = (children - 1) * 10
+      const discount_price = 40
 
-      const option = membership_options[plan][children]
+      child_count.innerText = `${children}`
+      minus.disabled = children <= 1
+      plus.disabled = children >= 5
 
-      total.innerText = `£${option.price}/month`
-      button.href = option.link
+      children_monthly_total.innerText = `£${child_price}/month`
+      discount_monthly_total.innerText = `−£${discount_price}/month`
+
+      founding_weekly_total.innerText = `£${weekly_equivalent(founding_option.price)}/week`
+      founding_monthly_total.innerText = `£${founding_option.price}/month by Direct Debit`
+
+      button.href = founding_option.link
     }
 
-    input.addEventListener('input', update_subscription)
-    input.addEventListener('change', update_subscription)
+    minus.addEventListener('click', () => {
+      children -= 1
+      update_subscription()
+    })
+
+    plus.addEventListener('click', () => {
+      children += 1
+      update_subscription()
+    })
+
     update_subscription()
   })
 
@@ -586,10 +556,15 @@ function get_theme() {
       --shadow-card: 0 16px 44px rgba(47,79,79,0.075);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     .page {
       background: var(--cream);
       color: var(--ink);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
     h1,
@@ -629,8 +604,7 @@ function get_theme() {
       margin-bottom: 1.15rem;
       line-height: 1.72;
     }
-
-    a {
+          a {
       color: var(--heather-dark);
       text-underline-offset: 0.18em;
     }
@@ -1002,15 +976,6 @@ function get_theme() {
       color: var(--ink);
     }
 
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin: 0 auto;
-      align-items: stretch;
-      max-width: 1040px;
-    }
-
     .price-card {
       background: rgba(255,255,255,0.94);
       border-radius: 26px;
@@ -1020,7 +985,6 @@ function get_theme() {
       font-size: 1rem;
       text-align: left;
       box-shadow: var(--shadow-card);
-      height: 100%;
       box-sizing: border-box;
     }
 
@@ -1034,27 +998,24 @@ function get_theme() {
       box-shadow: 0 22px 58px rgba(244,166,192,0.18);
     }
 
-    .premium {
-      border-top: 7px solid var(--pale-blue);
-    }
-
-    .quiet-card {
-      background: rgba(255,255,255,0.82);
-    }
-
-    .trial-card {
+    .trial-card,
+    .monthly-membership-card {
       max-width: 620px;
-      margin: 2rem auto 2.65rem;
+      margin: 2rem auto 2rem;
       padding: 2rem;
       border-radius: 30px;
       background: rgba(255,255,255,0.95);
       border: 3px solid var(--pale-pink);
       box-shadow: var(--shadow-soft);
       text-align: left;
-      box-sizing: border-box;
     }
 
-    .trial-card h3 {
+    .monthly-membership-card {
+      margin-top: 0;
+    }
+
+    .trial-card h3,
+    .monthly-membership-card h3 {
       font-size: 1.65rem;
       line-height: 1.08;
       margin: 0.5rem 0 0.75rem;
@@ -1082,27 +1043,187 @@ function get_theme() {
       margin: 0.5rem 0 0;
     }
 
+    .cart-summary {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 20px;
+      background: rgba(209,236,230,0.62);
+      border: 1px solid rgba(209,236,230,0.62);
+    }
+
+    .cart-summary h4 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+      line-height: 1.2;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .cart-note {
+      margin: 0 0 0.85rem;
+      font-size: 0.88rem;
+      line-height: 1.4;
+      color: var(--muted);
+      font-weight: 150;
+    }
+
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.62rem 0;
+      border-top: 1px solid rgba(47,79,79,0.08);
+      font-size: 0.94rem;
+      line-height: 1.35;
+      min-width: 0;
+    }
+
+    .cart-row:first-of-type {
+      border-top: none;
+    }
+
+    .cart-row span:first-child,
+    .cart-row-with-stepper > span {
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .cart-row strong {
+      text-align: right;
+      color: var(--ink);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .cart-row-with-stepper {
+      display: block;
+    }
+
+    .cart-row-with-stepper > span {
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    .child-cart-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .child-cart-line strong {
+      display: block;
+      margin: 0;
+      text-align: left;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+          .child-stepper {
+      display: grid;
+      grid-template-columns: 1.55rem 1fr 1.55rem;
+      align-items: center;
+      width: 6.9rem;
+      flex: 0 0 6.9rem;
+      padding: 0.25rem;
+      border-radius: 999px;
+      background: rgba(244,239,230,0.68);
+      border: 1px solid rgba(47,79,79,0.08);
+      box-sizing: border-box;
+    }
+
+    .child-stepper-button {
+      width: 1.55rem;
+      height: 1.55rem;
+      min-width: 1.55rem;
+      padding: 0;
+      margin: 0;
+      border-radius: 999px;
+      box-shadow: none;
+      font-size: 0.95rem;
+      line-height: 1;
+      font-weight: 850;
+    }
+
+    .child-stepper-button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+      background: rgba(47,79,79,0.18);
+    }
+
+    .child-count {
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 850;
+      color: var(--ink);
+    }
+
+    .discount-row strong {
+      color: var(--heather-dark);
+    }
+
+    .membership-total {
+      margin: 1rem 0 0;
+      padding: 1.25rem;
+      border-radius: 22px;
+      background: var(--cream);
+      border: 1px solid rgba(47,79,79,0.08);
+      text-align: center;
+    }
+
+    .membership-total > span {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.1;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .membership-total strong {
+      display: block;
+      color: var(--ink);
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+
+    .membership-total small {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.35;
+      font-weight: 750;
+    }
+
+    .membership-benefits-list {
+      margin-top: 1.25rem;
+      color: var(--muted);
+    }
+
     .label {
       display: inline-block;
       font-size: 0.72rem;
       padding: 0.34rem 0.72rem;
       border-radius: 999px;
       margin-bottom: 1rem;
-      background: var(--soft);
-      color: var(--heather-dark);
+      background: var(--pale-pink);
+      color: var(--cream);
       text-transform: uppercase;
       font-weight: 850;
       letter-spacing: 0.09em;
     }
 
     .popular {
-      background: var(--pale-pink);
-      color: var(--cream);
-    }
-
-    .premium-label {
-      background: var(--pale-blue);
-      color: var(--cream);
+      background: rgba(209,236,230,0.62);
+      color: var(--heather-dark);
     }
 
     .price {
@@ -1166,55 +1287,6 @@ function get_theme() {
 
     .membership-actions {
       margin-top: 1.15rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    .membership-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .membership-label {
-      font-size: 0.92rem;
-      font-weight: 800;
-      line-height: 1.35;
-      color: var(--ink);
-    }
-
-    .membership-child-input {
-      width: 5rem;
-      padding: 0.65rem 0.7rem;
-      border: 1px solid var(--line-soft);
-      border-radius: 14px;
-      background: white;
-      color: var(--ink);
-      font: inherit;
-      font-size: 1rem;
-      font-weight: 750;
-      text-align: center;
-      box-sizing: border-box;
-    }
-
-    .membership-child-input:focus {
-      outline: 3px solid rgba(244,166,192,0.35);
-      border-color: var(--pale-pink);
-    }
-
-    .membership-total {
-      margin: 0.8rem 0 0;
-      padding: 0.75rem 0.9rem;
-      border-radius: 14px;
-      background: rgba(244,239,230,0.7);
-      color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.3;
-    }
-
-    .membership-total strong {
-      font-weight: 850;
     }
 
     .subscribe-button {
@@ -1330,13 +1402,6 @@ function get_theme() {
 
       h1,
       .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .pricing {
-        grid-template-columns: 1fr;
-        max-width: 620px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -1478,10 +1543,15 @@ function get_theme() {
       .included-card,
       .price-card,
       .trial-card,
+      .monthly-membership-card,
       .faq-item,
       .community-note {
         border-radius: 22px;
         padding: 1.35rem;
+      }
+
+      .monthly-membership-card {
+        max-width: 620px;
       }
 
       .community-note {
@@ -1589,7 +1659,8 @@ function get_theme() {
         font-size: 2rem;
       }
 
-      .trial-card .price {
+      .trial-card .price,
+      .membership-total strong {
         font-size: 2.5rem;
       }
 
@@ -1631,6 +1702,53 @@ function get_theme() {
         height: auto;
         margin: 0 auto;
         box-sizing: border-box;
+      }
+
+      .cart-row {
+        gap: 0.65rem;
+      }
+
+      .cart-row strong {
+        text-align: right;
+      }
+
+      .cart-row-with-stepper {
+        display: block;
+      }
+
+      .cart-row-with-stepper > span {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .child-cart-line {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.55rem;
+        max-width: 100%;
+      }
+
+      .child-cart-line strong {
+        text-align: left;
+      }
+
+      .child-stepper {
+        width: 6.5rem;
+        flex-basis: 6.5rem;
+        grid-template-columns: 1.45rem 1fr 1.45rem;
+        padding: 0.22rem;
+      }
+
+      .child-stepper-button {
+        width: 1.45rem;
+        height: 1.45rem;
+        min-width: 1.45rem;
+        font-size: 0.9rem;
+      }
+
+      .child-count {
+        font-size: 0.88rem;
       }
 
       .community-note {
