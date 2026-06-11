@@ -452,7 +452,18 @@ function page(cb) {
 
           <p>
             Questions or ideas?<br>
-            nina@swapandplaywharfedale.co.uk
+            <a href="mailto:nina@swapandplaywharfedale.co.uk">nina@swapandplaywharfedale.co.uk</a>
+          </p>
+
+          <p class="footer-social">
+            Follow us on Instagram<br>
+            <a
+              href="https://www.instagram.com/swap_and_play_wharfedale/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @YOUR_INSTAGRAM_HANDLE
+            </a>
           </p>
 
         </div>
