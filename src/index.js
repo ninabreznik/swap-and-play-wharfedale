@@ -10,18 +10,11 @@ function page(cb) {
 
   const membership_options = {
     founding: {
-      1: { price: 89, link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR' },
-      2: { price: 99, link: 'https://pay.gocardless.com/BRT01KSKDGWCSWE2VAXD6DWZXXKDZ' },
-      3: { price: 109, link: 'https://pay.gocardless.com/BRT01KSKDKN0WRJ70HVCPFN3QYCWP' },
-      4: { price: 119, link: 'https://pay.gocardless.com/BRT01KSKDN2QZ40Q908FSVGFEM2KH' },
-      5: { price: 129, link: 'https://pay.gocardless.com/BRT01KSKDP4EMBYBENPNZWZ3HQRY1' }
+      price: 89,
+      link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR'
     },
     standard: {
-      1: { price: 129 },
-      2: { price: 139 },
-      3: { price: 149 },
-      4: { price: 159 },
-      5: { price: 169 }
+      price: 129
     }
   }
 
@@ -126,9 +119,9 @@ function page(cb) {
       <section class="photo-story">
         <div class="content content-xl">
           <div class="photo-grid">
-            <img src="./assets/baby-reading.jpg" alt="Child placing animal pieces into a shape sorter" class="story-photo">
+            <img src="./assets/overview.jpg" alt="Child placing animal pieces into a shape sorter" class="story-photo">
             <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
-            <img src="./assets/child-sitting.jpg" alt="Child quietly exploring books and textures" class="story-photo">
+            <img src="./assets/kallax.jpg" alt="Child quietly exploring books and textures" class="story-photo">
           </div>
         </div>
       </section>
@@ -249,10 +242,10 @@ function page(cb) {
             <section class="section soft pricing-section">
         <div class="content content-wide center">
           <p class="eyebrow dark">Membership</p>
-          <h2>Try it for a week. Then decide if it fits your family.</h2>
+          <h2>Apply to try Swap & Play during our opening weeks.</h2>
 
           <p class="section-intro">
-            Start with a free trial week. If Swap & Play fits your family, you can then become a member.
+            We’re opening gradually with a small number of local families, so the space can stay calm and easy to settle into. You can apply for a free trial week below, and we’ll contact you when we have a suitable opening.
           </p>
 
           <div class="trial-card price-card trial membership-card">
@@ -261,21 +254,22 @@ function page(cb) {
             <div class="price">£0</div>
 
             <p class="small">
-              Come and use the space for a week before deciding if membership is right for your family.
+              We’re currently opening in small batches so the space stays calm, safe and easy to settle into.
+              You can apply for a free trial week, and we’ll contact you when we have a suitable opening for your family.            
             </p>
-
             <ul>
-              <li>Unlimited visits for one week</li>
+              <li>Use the space for one trial week</li>
               <li>Explore the play rooms and Swap Room</li>
+              <li>See whether the membership model fits your family</li>
               <li>No pressure to join afterwards</li>
             </ul>
 
             <p class="small-note">
-              One free trial week per family. Registration required.
+              One free trial week per family. Application required. Places are limited during our opening weeks.
             </p>
 
             <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSe3HZA6pof7I7m4diGGWerDKkNo0uKZVCql5Szl741bPu2aIg/viewform?usp=header">
-              Register for a Free Trial Week
+              Apply for a Free Trial Week
             </a>
           </div>
 
@@ -286,6 +280,7 @@ function page(cb) {
             <ul class="membership-benefits-list">
               <li>Unlimited access</li>
               <li>Open every day, 6am to 9pm</li>
+              <li>One family price, with siblings included</li>
               <li>No booking slots</li>
               <li>Tea and coffee included</li>
               <li>Bring your own food</li>
@@ -301,20 +296,6 @@ function page(cb) {
                 <div class="cart-row">
                   <span>Standard membership</span>
                   <strong><span class="base-monthly-total">£129/month</span></strong>
-                </div>
-
-                <div class="cart-row cart-row-with-stepper">
-                  <span>Children using the space</span>
-
-                  <div class="child-cart-line">
-                    <div class="child-stepper" aria-label="Children using the space">
-                      <button class="child-stepper-button child-minus" type="button" aria-label="Remove one child">−</button>
-                      <span class="child-count">1</span>
-                      <button class="child-stepper-button child-plus" type="button" aria-label="Add one child">+</button>
-                    </div>
-
-                    <strong><span class="children-monthly-total">£0/month</span></strong>
-                  </div>
                 </div>
 
                 <div class="cart-row discount-row">
@@ -414,7 +395,7 @@ function page(cb) {
       </section>
 
       <section class="photo-strip">
-        <img src="./assets/parents.jpg" alt="Parents drawing with their children" class="photo">
+        <img src="./assets/children-playing.jpg" alt="Parents drawing with their children" class="photo">
       </section>
 
       <div class="wave" style="background:#e9e6e1;">
@@ -479,51 +460,20 @@ function page(cb) {
   })
 
   shadow.querySelectorAll('.membership-actions').forEach(actions => {
-    let children = 1
-
     const button = actions.querySelector('.subscribe-button')
-    const minus = actions.querySelector('.child-minus')
-    const plus = actions.querySelector('.child-plus')
-    const child_count = actions.querySelector('.child-count')
     const card = actions.closest('.membership-card')
 
-    const children_monthly_total = card.querySelector('.children-monthly-total')
     const discount_monthly_total = card.querySelector('.discount-monthly-total')
     const founding_weekly_total = card.querySelector('.founding-weekly-total')
     const founding_monthly_total = card.querySelector('.founding-monthly-total')
 
-    function update_subscription() {
-      if (children < 1) children = 1
-      if (children > 5) children = 5
+    const founding_option = membership_options.founding
+    const discount_price = membership_options.standard.price - membership_options.founding.price
 
-      const founding_option = membership_options.founding[children]
-      const child_price = (children - 1) * 10
-      const discount_price = 40
-
-      child_count.innerText = `${children}`
-      minus.disabled = children <= 1
-      plus.disabled = children >= 5
-
-      children_monthly_total.innerText = `£${child_price}/month`
-      discount_monthly_total.innerText = `−£${discount_price}/month`
-
-      founding_weekly_total.innerText = `£${weekly_equivalent(founding_option.price)}/week`
-      founding_monthly_total.innerText = `£${founding_option.price}/month by Direct Debit`
-
-      button.href = founding_option.link
-    }
-
-    minus.addEventListener('click', () => {
-      children -= 1
-      update_subscription()
-    })
-
-    plus.addEventListener('click', () => {
-      children += 1
-      update_subscription()
-    })
-
-    update_subscription()
+    discount_monthly_total.innerText = `−£${discount_price}/month`
+    founding_weekly_total.innerText = `£${weekly_equivalent(founding_option.price)}/week`
+    founding_monthly_total.innerText = `£${founding_option.price}/month by Direct Debit`
+    button.href = founding_option.link
   })
 
   const style = document.createElement('style')
@@ -1105,15 +1055,6 @@ function get_theme() {
       color: var(--ink);
       font-weight: 850;
       white-space: nowrap;
-    }
-
-    .cart-row-with-stepper {
-      display: block;
-    }
-
-    .cart-row-with-stepper > span {
-      display: block;
-      margin-bottom: 0.55rem;
     }
 
     .child-cart-line {
@@ -1721,15 +1662,6 @@ function get_theme() {
 
       .cart-row strong {
         text-align: right;
-      }
-
-      .cart-row-with-stepper {
-        display: block;
-      }
-
-      .cart-row-with-stepper > span {
-        display: block;
-        margin-bottom: 0.5rem;
       }
 
       .child-cart-line {
