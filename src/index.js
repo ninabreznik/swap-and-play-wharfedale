@@ -29,7 +29,7 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Opening 15 June 2026 in Ilkley</p>
+            <p class="eyebrow">Opened on 15 June 2026 in Ilkley</p>
             <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
               A small, membership-only community space where children can play and parents can breathe.
