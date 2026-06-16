@@ -165,9 +165,9 @@ function page(cb) {
       <section class="photo-story">
         <div class="content content-xl">
           <div class="photo-grid">
-            <img src="./assets/overview.jpg" alt="Child placing animal pieces into a shape sorter" class="story-photo">
+            <img src="./assets/room.jpg" alt="Photo of the main room with toy library, art corner and wall art" class="story-photo">
             <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
-            <img src="./assets/kallax.jpg" alt="Child quietly exploring books and textures" class="story-photo">
+            <img src="./assets/climbing.jpg" alt="Child climbing the wooden frame" class="story-photo">
           </div>
         </div>
       </section>
@@ -441,7 +441,7 @@ function page(cb) {
       </section>
 
       <section class="photo-strip">
-        <img src="./assets/children-playing.jpg" alt="Parents drawing with their children" class="photo">
+        <img src="./assets/parents.jpg" alt="Parents drawing with their children" class="photo">
       </section>
 
       <div class="wave" style="background:#e9e6e1;">
