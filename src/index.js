@@ -29,7 +29,7 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Opened on 15 June 2026 in Ilkley</p>
+            <p class="eyebrow">Now open in Ilkley</p>
             <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
               A small, membership-only community space where children can play and parents can breathe.
@@ -82,7 +82,14 @@ function page(cb) {
           </div>
 
           <p class="location-line">
-            Just behind Booths on Leeds Road — easy to reach from Booths car park, the playground and Riverside.
+            Just behind Booths on Leeds Road — easy to reach from Booths car park, the playground and Riverside.<br>
+            <a
+              href="https://maps.app.goo.gl/xPGPfSGdbXFYjEog6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open in Google Maps
+            </a>
           </p>
         </div>
       </section>
@@ -409,7 +416,7 @@ function page(cb) {
 
       <section class="section cta-section">
         <div class="content center">
-          <p class="eyebrow light-text">Opening soon</p>
+          <p class="eyebrow light-text">Now open</p>
           <h2>Try Swap & Play for a week.</h2>
           <p>
             Register for a free trial week and see whether a calmer, more flexible community space fits your everyday rhythm.
@@ -443,7 +450,19 @@ function page(cb) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              @YOUR_INSTAGRAM_HANDLE
+              @swap_and_play_wharfedale
+            </a>
+          </p>
+
+
+          <p>
+            Find us:<br>
+            <a
+              href="https://maps.app.goo.gl/xPGPfSGdbXFYjEog6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Swap & Play Wharfedale on Google Maps
             </a>
           </p>
 
@@ -1327,6 +1346,18 @@ function get_theme() {
       font-size: .95rem;
     }
 
+    .footer a {
+      font-weight: 800;
+    }
+
+    .footer-social {
+      margin-top: 1.4rem;
+    }
+
+    .footer-social a {
+      font-weight: 800;
+    }
+      
     .footer-logo {
       display: block;
       height: 88px;
@@ -1516,6 +1547,10 @@ function get_theme() {
       .footer p {
         overflow-wrap: anywhere;
         word-break: break-word;
+      }
+
+      .community-note p a {
+        color: var(--cream);
       }
 
       button,
