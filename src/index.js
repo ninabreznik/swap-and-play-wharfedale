@@ -278,6 +278,16 @@ function page(cb) {
       <div class="membership-total-topline">
         <span class="membership-total-label">Founding family price</span>
 
+        <ul class="membership-benefits-list">
+          <li>Unlimited access for your household</li>
+          <li>Open every day, 6am to 9pm</li>
+          <li>No booking slots</li>
+          <li>Tea and coffee included</li>
+          <li>Bring your own snacks</li>
+          <li>Swap Room access</li>
+          <li>Founding families keep this price while they remain members</li>
+        </ul>
+        
         <small class="membership-total-note">
           Membership includes one child. Additional children are +£10/month each.
           Newborns in arms are included at no extra cost.
@@ -310,15 +320,6 @@ function page(cb) {
         </p>
       </form>
 
-      <ul class="membership-benefits-list">
-        <li>Unlimited access for your household</li>
-        <li>Open every day, 6am to 9pm</li>
-        <li>No booking slots</li>
-        <li>Tea and coffee included</li>
-        <li>Bring your own snacks</li>
-        <li>Swap Room access</li>
-        <li>Founding families keep this price while they remain members</li>
-      </ul>
     </div>
   </div>
 </section>
