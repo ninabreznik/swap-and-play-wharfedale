@@ -278,6 +278,10 @@ function page(cb) {
       <div class="membership-total-topline">
         <span class="membership-total-label">Founding family price</span>
 
+        <small class="membership-total-note">
+          Membership includes one child. Additional children are +£10/month each.
+          Babies in arms are included at no extra cost.
+        </small>
         <select class="child-count-select membership-total-select" id="founding-child-count">
           <option value="1">1 child</option>
           <option value="2">2 children</option>
@@ -1256,9 +1260,8 @@ function get_theme() {
       display: block;
       margin-top: 0.45rem;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.35;
-      font-weight: 750;
+      font-size: 0.86rem;
+      line-height: 1.45;
     }
 
     .membership-benefits-list {
