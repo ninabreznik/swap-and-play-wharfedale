@@ -280,7 +280,7 @@ function page(cb) {
 
         <small class="membership-total-note">
           Membership includes one child. Additional children are +£10/month each.
-          Babies in arms are included at no extra cost.
+          Newborns in arms are included at no extra cost.
         </small>
         <select class="child-count-select membership-total-select" id="founding-child-count">
           <option value="1">1 child</option>
