@@ -348,7 +348,7 @@ function page(cb) {
         </select>
       </div>
 
-      <strong class="membership-total-price">£89/month</strong>
+      <strong class="membership-total-price">£79/month</strong>
     </div>
 
       <form class="membership-actions">
@@ -510,12 +510,12 @@ function page(cb) {
 
   shadow.querySelectorAll('.membership-actions').forEach(actions => {
     const founding_memberships = {
-      1: { price: 89, link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR' },
-      2: { price: 99, link: 'https://pay.gocardless.com/BRT01KW5EDSP3ERCE27Q1QTEDXPJ5' },
-      3: { price: 109, link: 'https://pay.gocardless.com/BRT01KW5S13X7KM9RCQ28JTBBH0Q6' },
-      4: { price: 119, link: 'https://pay.gocardless.com/BRT01KW5S297T3Q8G6W9M8HAXZ2Q0' },
-      5: { price: 129, link: 'https://pay.gocardless.com/BRT01KW5S32TKC7KASJMAZ2P076QR' },
-      6: { price: 139, link: 'https://pay.gocardless.com/BRT01KW5S3Y20TMASKFJA5F299KTX' }
+      1: { price: 79, link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR' },
+      2: { price: 89, link: 'https://pay.gocardless.com/BRT01KW5EDSP3ERCE27Q1QTEDXPJ5' },
+      3: { price: 99, link: 'https://pay.gocardless.com/BRT01KW5S13X7KM9RCQ28JTBBH0Q6' },
+      4: { price: 109, link: 'https://pay.gocardless.com/BRT01KW5S297T3Q8G6W9M8HAXZ2Q0' },
+      5: { price: 119, link: 'https://pay.gocardless.com/BRT01KW5S32TKC7KASJMAZ2P076QR' },
+      6: { price: 129, link: 'https://pay.gocardless.com/BRT01KW5S3Y20TMASKFJA5F299KTX' }
     }
 
     const card = actions.closest('.membership-card')
