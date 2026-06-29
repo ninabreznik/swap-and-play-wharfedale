@@ -519,8 +519,12 @@ function page(cb) {
   style.textContent = get_theme()
   shadow.append(style)
 
-  scroll_to_hash_target()
   window.addEventListener('hashchange', scroll_to_hash_target)
+  window.addEventListener('load', scroll_to_hash_target)
+
+  requestAnimationFrame(scroll_to_hash_target)
+  setTimeout(scroll_to_hash_target, 100)
+  setTimeout(scroll_to_hash_target, 600)
 
   if (cb) cb()
   return el
@@ -528,14 +532,12 @@ function page(cb) {
   function scroll_to_hash_target() {
     if (window.location.hash !== '#membership') return
 
-    requestAnimationFrame(() => {
-      const target = shadow.querySelector('#membership')
-      if (!target) return
+    const target = shadow.querySelector('#membership')
+    if (!target) return
 
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     })
   }
 
