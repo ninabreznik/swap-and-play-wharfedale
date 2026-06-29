@@ -266,7 +266,7 @@ function page(cb) {
       </a>
     </div>
 
-    <div class="monthly-membership-card price-card featured membership-card">
+    <div class="monthly-membership-card price-card featured membership-card" id="membership">
       <div class="label popular">Founding family membership</div>
       <h3>Founding Membership</h3>
 
@@ -519,8 +519,25 @@ function page(cb) {
   style.textContent = get_theme()
   shadow.append(style)
 
+  scroll_to_hash_target()
+  window.addEventListener('hashchange', scroll_to_hash_target)
+
   if (cb) cb()
   return el
+
+  function scroll_to_hash_target() {
+    if (window.location.hash !== '#membership') return
+
+    requestAnimationFrame(() => {
+      const target = shadow.querySelector('#membership')
+      if (!target) return
+
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    })
+  }
 
   function register_interest() {
     shadow.querySelector('.pricing-section').scrollIntoView({
@@ -1012,7 +1029,13 @@ function get_theme() {
 
     .monthly-membership-card {
       margin-top: 0;
+    }    
+      
+    #membership {
+      scroll-margin-top: 2rem;
     }
+
+
 
     .membership-total-label {
       color: var(--ink);
