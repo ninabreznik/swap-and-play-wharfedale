@@ -130,14 +130,13 @@ function page(cb) {
               <div class="label quiet-label">Lower-commitment visit</div>
               <h3>Wednesday Open Play</h3>
               <p>
-                Join us on Wednesdays, 10am–12pm, if you would like to see the rooms, ask questions and get a feel for the space before applying for a trial or membership.
+                Join us on Wednesdays, 10am–12pm, to see the space before applying for a trial or membership.
               </p>
               <ul>
-                <li>Visit before deciding about a trial or membership</li>
+                <li>See the Play Rooms and Swap Room</li>
                 <li>Meet other local families</li>
-                <li>See how the play rooms and Swap Room work</li>
-                <li>Useful if you are curious but unsure</li>
-                <li>Want to join? Send us a message at <a href="mailto:nina@swapandplaywharfedale.co.uk">nina@swapandplaywharfedale.co.uk</a></li>
+                <li>Ask questions before applying</li>
+                <li>Want to join? Send us a message at nina@swapandplaywharfedale.co.uk</li>
               </ul>
             </div>
           </div>
@@ -1751,6 +1750,97 @@ function get_theme() {
         max-width: 620px;
       }
 
+      .visit-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .visit-section .content-wide {
+        max-width: 100%;
+      }
+
+      .visit-header {
+        text-align: left;
+        max-width: 100%;
+      }
+
+      .visit-header h2,
+      .visit-header p,
+      .visit-header .eyebrow {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .visit-header .section-intro {
+        max-width: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .visit-grid {
+        display: block;
+        max-width: 100%;
+        margin-top: 1.5rem;
+      }
+
+      .visit-card {
+        width: 100%;
+        margin: 0 0 1rem 0;
+        padding: 1.25rem;
+        border-radius: 22px;
+      }
+
+      .visit-card.primary {
+        border-width: 2px;
+      }
+
+      .visit-card .label {
+        font-size: 0.64rem;
+        line-height: 1.1;
+        padding: 0.34rem 0.62rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .visit-card h3 {
+        font-size: 1.28rem;
+        line-height: 1.15;
+        margin-bottom: 0.65rem;
+      }
+
+      .visit-card p {
+        font-size: 0.96rem;
+        line-height: 1.55;
+        margin-bottom: 0.9rem;
+      }
+
+      .visit-card ul {
+        margin: 0.9rem 0 0;
+      }
+
+      .visit-card li {
+        font-size: 0.94rem;
+        line-height: 1.45;
+        padding-left: 1.15rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .visit-card li::before {
+        top: 0;
+      }
+
+      .visit-card a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .visit-card .button {
+        width: 100%;
+        max-width: none;
+        margin: 1rem 0 0;
+        padding: 0.95rem 1rem;
+        font-size: 0.96rem;
+      }
+
       .footer p {
         overflow-wrap: anywhere;
         word-break: break-word;
@@ -1899,6 +1989,25 @@ function get_theme() {
         height: auto;
         margin: 0 auto;
         box-sizing: border-box;
+      }
+
+    .visit-section {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .visit-card {
+        padding: 1.1rem;
+        border-radius: 20px;
+      }
+
+      .visit-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .visit-card p,
+      .visit-card li {
+        font-size: 0.92rem;
       }
 
       .footer {
