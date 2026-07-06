@@ -336,7 +336,7 @@ function page(cb) {
             Apply for a free 14-day trial and use the space properly before deciding. After your trial, you can continue with a flexible Monthly Family Pass.
           </p>
 
-          <div class="trial-card price-card trial membership-card">
+          <div class="trial-card price-card trial membership-card" id="trial">
             <div class="label">Start free</div>
             <h3>Free 14-Day Trial</h3>
             <div class="membership-total">
@@ -513,29 +513,10 @@ function page(cb) {
             <p class="eyebrow dark">How to visit</p>
             <h2>Two ways to try Swap & Play</h2>
             <p class="section-intro">
-              If you are ready to experience the space properly, apply for a free 14-day trial. If you would rather see the space first, come to Wednesday Open Play, 10am–12pm.            
+              If you are ready to experience the space properly,
+              <a href="#trial" data-scroll-to-trial>apply for a free 14-day trial</a>.
+              If you would rather see the space first, come to Wednesday Open Play, 10am–12pm.
             </p>
-          </div>
-          <div class="visit-card primary" id="trial">
-            <div class="label">Try it out</div>
-            <h3>Free 14-Day Trial</h3>
-            <p>
-              Your personal access code starts your free 14-day trial from the first time you use it. During those 14 days, you can visit as often as you like during opening hours.
-            </p>
-            <ul>
-              <li>Experience self check-in like a pass holder</li>
-              <li>Come more than once and test your real routine</li>
-              <li>See whether the rhythm works for your family</li>
-              <li>No pressure to continue afterwards</li>
-            </ul>
-            <a
-              class="button"
-              href="${TRIAL_FORM_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apply for a Free 14-Day Trial
-            </a>
           </div>
 
           <div class="visit-card secondary" id="open-play">
@@ -616,6 +597,13 @@ function page(cb) {
     node.replaceWith(btn)
   })
 
+  shadow.querySelectorAll('[data-scroll-to-trial]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault()
+      scroll_to_trial()
+    })
+  })
+
   shadow.querySelectorAll('.membership-actions').forEach(actions => {
     const founding_memberships = {
       1: { price: 79, link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR' },
@@ -662,7 +650,7 @@ function page(cb) {
         button.href = selected.link
         button.classList.remove('setup-link-disabled')
         button.removeAttribute('aria-disabled')
-        link_note.innerText = 'You will be taken to GoCardless to set up your monthly Direct Debit.'
+        link_note.innerText = 'You will be taken to GoCardless to set up your monthly Direct Debit. You can cancel anytime'
       } else {
         button.href = '#'
         button.classList.add('setup-link-disabled')
