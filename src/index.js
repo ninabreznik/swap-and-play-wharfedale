@@ -297,10 +297,6 @@ function page(cb) {
               <div class="price">£0</div>
             </div>
 
-            <p class="small">
-              Your personal access code starts your free 14-day trial from the first time you use it. There is no need to choose a fixed start date in advance.
-            </p>
-
             <ul>
               <li>Use the space for 14 days</li>
               <li>Come more than once and test your real routine</li>
@@ -309,7 +305,10 @@ function page(cb) {
             </ul>
 
             <p class="small-note">
-              One free trial per household. Valid only for the household named in the application. Application required. Places are limited during our opening weeks.
+              One free trial only per household. 
+              Your household access code starts your free 14-day trial from the first time you use it. There is no need to choose a fixed start date in advance.
+              Places are limited during our opening weeks.
+
             </p>
 
             <a
