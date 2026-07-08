@@ -1,14 +1,14 @@
 module.exports = page
 
-const TRIAL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe3HZA6pof7I7m4diGGWerDKkNo0uKZVCql5Szl741bPu2aIg/viewform?usp=header'
+const SUMMER_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
 
 function page(cb) {
   const el = document.createElement('div')
   const shadow = el.attachShadow({ mode: 'closed' })
 
-  const register = document.createElement('button')
-  register.innerText = 'Apply for a Free 14-Day Trial'
-  register.onclick = scroll_to_trial
+  const buy = document.createElement('button')
+  buy.innerText = 'Buy Summer Flexi Week Pass'
+  buy.onclick = scroll_to_summer_pass
 
   shadow.innerHTML = `
     <div class="page">
@@ -17,13 +17,13 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Now open in Ilkley</p>
+            <p class="eyebrow">Summer passes now available</p>
             <h1>A calmer way to do play time</h1>
             <p class="hero-subtitle">
               A small members-style community space where children can play and parents can breathe.
             </p>
             <div class="hero-actions">
-              <register></register>
+              <buy-pass></buy-pass>
             </div>
           </div>
           <div class="hero-photo">
@@ -257,9 +257,9 @@ function page(cb) {
 
             <div class="review-card">
               <p>
-                “Brilliant if you want to socialise without having to host. Really clean and tidy.”
+               “I loved the toys, the space is clean and fresh, and you have thought of nearly everything. We brought the girls dinner and had a play session before bed — it was brilliant.”
               </p>
-              <span>Julia N</span>
+              <span>Nancy M</span>
             </div>
 
             <div class="review-card">
@@ -281,104 +281,68 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft pricing-section">
+      <section class="section soft pricing-section summer-pricing-section">
         <div class="content content-wide center">
-          <p class="eyebrow dark">Pricing</p>
-          <h2>Start free. Continue only if it fits.</h2>
+          <p class="eyebrow dark">Summer offer</p>
+          <h2>Summer Flexi Week Pass</h2>
 
           <p class="section-intro">
-            Apply for a free 14-day trial and use the space properly before deciding. After your trial, you can continue with a flexible Monthly Family Pass.
+            Until the start of school, Swap & Play is available through a simple summer pass:
+            one week of flexible access, whenever it fits around your family.
           </p>
 
-          <div class="trial-card price-card trial membership-card" id="trial">
-            <div class="label">Start free</div>
-            <h3>Free 14-Day Trial</h3>
-            <div class="membership-total">
-              <div class="price">£0</div>
-            </div>
+          <div class="summer-offer-card price-card featured membership-card" id="summer-pass">
+            <span class="summer-shape summer-sun" aria-hidden="true"></span>
+            <span class="summer-shape summer-strawberry-one" aria-hidden="true"></span>
+            <span class="summer-shape summer-strawberry-two" aria-hidden="true"></span>
 
-            <ul>
-              <li>Use the space for 14 days</li>
-              <li>Come more than once and test your real routine</li>
-              <li>Explore the play rooms and Swap Room</li>
-              <li>No pressure to continue afterwards</li>
-            </ul>
+            <div class="label popular">Summer offer</div>
+            <h3>Summer Flexi Week Pass</h3>
 
-            <p class="small-note">
-              One free trial only per household. 
-              Your household access code starts your free 14-day trial from the first time you use it. There is no need to choose a fixed start date in advance.
-              Places are limited during our opening weeks.
-
+            <p class="small summer-card-intro">
+              A flexible 7-day pass for families who want a calm place to land during the summer holidays.
             </p>
 
-            <a
-              class="button"
-              href="${TRIAL_FORM_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apply for a Free 14-Day Trial
-            </a>
-          </div>
-
-          <div class="monthly-membership-card price-card featured membership-card" id="membership">
-            <div class="label popular">Founding family price</div>
-            <h3>Monthly Family Pass</h3>
-
-            <p class="small">
-              A flexible monthly pass for families who want Swap & Play to become a regular place to land — without a long contract.
-            </p>
-
-            <div class="membership-total">
-              <span class="membership-total-label">Monthly pass</span>
-              <strong class="membership-total-price">£79/month</strong>
-              <div class="membership-weekly-price">about £18 a week</div>
+            <div class="membership-total summer-total">
+              <span class="membership-total-label">Per household</span>
+              <strong class="membership-total-price">£15</strong>
+              <div class="membership-weekly-price">7 days of unlimited visits</div>
               <p class="membership-cancel-note">
-                No long contract. Cancel anytime before your next monthly payment.
+                Buy now. Activate anytime.
               </p>
             </div>
 
-            <div class="membership-child-control">
-              <label class="membership-child-label" for="founding-child-count">
-                Choose your family size
-              </label>
-
-              <select class="child-count-select membership-total-select" id="founding-child-count">
-                <option value="1">1 child</option>
-                <option value="2">2 children</option>
-                <option value="3">3 children or more</option>
-              </select>
-
-              <small class="membership-total-note">
-                The base pass includes one child. Additional children are +£10/month each.
-                Newborns in arms are included at no extra cost.
-              </small>
-            </div>
-
             <ul class="membership-benefits-list">
-              <li>Daily access for your family, 6am to 9pm</li>
+              <li>Unlimited visits for your household for 7 days</li>
               <li>No booking slots</li>
               <li>Use of the play rooms and Swap Room</li>
               <li>Tea and coffee included</li>
               <li>Bring your own snacks</li>
-              <li>Founding families keep this price while they remain active pass holders</li>
+              <li>Your 7 days start when you first visit</li>
             </ul>
 
-            <form class="membership-actions">
-              <a
-                class="button subscribe-button"
-                href="https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Set up Monthly Family Pass
-              </a>
+            <p class="small-note summer-activation-note">
+              Passes can be activated from the day after purchase and no later than 31 August 2026.
+              After your first visit, your pass is valid for 7 consecutive days.
+            </p>
 
-              <p class="small-note membership-link-note">
-                You will be taken to GoCardless to set up your monthly Direct Debit.
-              </p>
-            </form>
+            <a
+              class="button summer-button"
+              href="${SUMMER_PASS_PAYMENT_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy Summer Flexi Week Pass
+            </a>
+
+            <p class="small-note membership-link-note">
+              You will be taken to Stripe to pay securely by card.
+            </p>
           </div>
+
+          <p class="summer-after-note">
+            Available until the start of school. Autumn membership options will be announced later.
+          </p>
         </div>
       </section>
 
@@ -398,16 +362,20 @@ function page(cb) {
 
           <div class="faq-list">
             <div class="faq-item">
+              <h3>How does the Summer Flexi Week Pass work?</h3>
+              <p>Buy your pass online. It can be activated from the next day onwards, and your 7 days start when you first visit.</p>
+            </div>
+            <div class="faq-item">
               <h3>Is this soft play?</h3>
               <p>No. Swap & Play is a calm members-style community space designed for low numbers, flexible access and a gentler atmosphere.</p>
             </div>
             <div class="faq-item">
               <h3>Do I need to book?</h3>
-              <p>Monthly Family Pass holders do not need to book. During a free 14-day trial, you can also come during opening hours without booking a slot.</p>
+              <p>No. Summer Flexi Week Pass holders can come during opening hours without booking a slot.</p>
             </div>
             <div class="faq-item">
-              <h3>Can I visit before applying?</h3>
-              <p>Yes. Wednesday Open Play is there for families who would like to see the space before applying for a trial or membership.</p>
+              <h3>Can I visit before buying a pass?</h3>
+              <p>Yes. Wednesday Open Play is there for families who would like to see the space before buying a summer pass.</p>
             </div>
             <div class="faq-item">
               <h3>Can I bring food?</h3>
@@ -420,6 +388,10 @@ function page(cb) {
             <div class="faq-item">
               <h3>Can parents use a laptop there?</h3>
               <p>This is not a coworking space, but parents can bring their laptop and reply to messages, read or do light catch-up while children play nearby.</p>
+            </div>
+            <div class="faq-item">
+              <h3>What happens after summer?</h3>
+              <p>The Summer Flexi Week Pass is a seasonal offer available until the start of school. Autumn membership options will be announced later.</p>
             </div>
           </div>
         </div>
@@ -464,10 +436,10 @@ function page(cb) {
         <div class="content content-wide">
           <div class="visit-header center">
             <p class="eyebrow dark">How to visit</p>
-            <h2>Two ways to try Swap & Play</h2>
+            <h2>Two ways to visit this summer</h2>
             <p class="section-intro">
-              If you are ready to experience the space properly,
-              <a href="#trial" data-scroll-to-trial>apply for a free 14-day trial</a>.
+              If you are ready to use the space properly,
+              <a href="#summer-pass" data-scroll-to-summer-pass>buy a Summer Flexi Week Pass</a>.
               If you would rather see the space first, come to Wednesday Open Play, 10am–12pm.
             </p>
           </div>
@@ -486,7 +458,6 @@ function page(cb) {
             </ul>
           </div>
 
-          </div>
         </div>
       </section>
 
@@ -544,73 +515,17 @@ function page(cb) {
     </div>
   `
 
-  shadow.querySelectorAll('register').forEach(node => {
-    const btn = register.cloneNode(true)
-    btn.onclick = scroll_to_trial
+  shadow.querySelectorAll('buy-pass').forEach(node => {
+    const btn = buy.cloneNode(true)
+    btn.onclick = scroll_to_summer_pass
     node.replaceWith(btn)
   })
 
-  shadow.querySelectorAll('[data-scroll-to-trial]').forEach(link => {
+  shadow.querySelectorAll('[data-scroll-to-summer-pass]').forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault()
-      scroll_to_trial()
+      scroll_to_summer_pass()
     })
-  })
-
-  shadow.querySelectorAll('.membership-actions').forEach(actions => {
-    const founding_memberships = {
-      1: { price: 79, link: 'https://pay.gocardless.com/BRT01KSKC6XZ1364BWEAE4CESXAKR' },
-      2: { price: 89, link: 'https://pay.gocardless.com/BRT01KW5EDSP3ERCE27Q1QTEDXPJ5' },
-      3: { price: 99, link: 'https://pay.gocardless.com/BRT01KW5S13X7KM9RCQ28JTBBH0Q6' },
-      4: { price: 109, link: 'https://pay.gocardless.com/BRT01KW5S297T3Q8G6W9M8HAXZ2Q0' },
-      5: { price: 119, link: 'https://pay.gocardless.com/BRT01KW5S32TKC7KASJMAZ2P076QR' },
-      6: { price: 129, link: 'https://pay.gocardless.com/BRT01KW5S3Y20TMASKFJA5F299KTX' }
-    }
-
-    const card = actions.closest('.membership-card')
-    if (!card) return
-
-    const select = card.querySelector('.child-count-select')
-    const button = actions.querySelector('.subscribe-button')
-    const total_price = card.querySelector('.membership-total-price')
-    const weekly_price = card.querySelector('.membership-weekly-price')
-    const link_note = actions.querySelector('.membership-link-note')
-
-    if (!select || !button || !total_price || !weekly_price || !link_note) return
-
-    select.addEventListener('change', update_membership_option)
-
-    button.addEventListener('click', event => {
-      const selected = founding_memberships[select.value]
-      const has_link = selected && selected.link && selected.link.startsWith('http')
-
-      if (!has_link) event.preventDefault()
-    })
-
-    update_membership_option()
-
-    function update_membership_option() {
-      const child_count = Number(select.value)
-      const selected = founding_memberships[child_count]
-      const has_link = selected && selected.link && selected.link.startsWith('http')
-
-      if (!selected) return
-
-      total_price.innerText = `£${selected.price}/month`
-      weekly_price.innerText = `about £${Math.round(selected.price * 12 / 52)} a week`
-
-      if (has_link) {
-        button.href = selected.link
-        button.classList.remove('setup-link-disabled')
-        button.removeAttribute('aria-disabled')
-        link_note.innerText = 'You will be taken to GoCardless to set up your monthly Direct Debit. You can cancel anytime'
-      } else {
-        button.href = '#'
-        button.classList.add('setup-link-disabled')
-        button.setAttribute('aria-disabled', 'true')
-        link_note.innerText = `Add the GoCardless link for ${child_count} ${child_count === 1 ? 'child' : 'children'} in page.js before publishing this option.`
-      }
-    }
   })
 
   const style = document.createElement('style')
@@ -631,24 +546,27 @@ function page(cb) {
     const path = window.location.pathname.replace(/\/$/, '')
     const hash = window.location.hash
 
-    if (path.endsWith('/trial') || hash === '#trial' || hash === '#apply') {
-      scroll_to_target('#trial')
+    if (
+      path.endsWith('/trial') ||
+      path.endsWith('/summer') ||
+      hash === '#trial' ||
+      hash === '#apply' ||
+      hash === '#membership' ||
+      hash === '#pricing' ||
+      hash === '#summer-pass'
+    ) {
+      scroll_to_target('#summer-pass')
       return
     }
 
     if (hash === '#open-play' || hash === '#visit') {
       scroll_to_target('#open-play')
-      return
-    }
-
-    if (hash === '#membership') {
-      scroll_to_target('#membership')
     }
   }
 
-  function scroll_to_trial() {
-    history.replaceState(null, '', '#trial')
-    scroll_to_target('#trial')
+  function scroll_to_summer_pass() {
+    history.replaceState(null, '', '#summer-pass')
+    scroll_to_target('#summer-pass')
   }
 
   function scroll_to_target(selector) {
@@ -679,6 +597,11 @@ function get_theme() {
       --soft: #eef5ef;
 
       --heather-dark: #8f64a4;
+
+      --summer-yellow: #f7d879;
+      --summer-peach: #f7b68e;
+      --summer-strawberry: #e85f73;
+      --summer-leaf: #7fbf8f;
 
       --ink: #2f4f4f;
       --muted: #6f8079;
@@ -1086,6 +1009,9 @@ function get_theme() {
     }
 
     .visit-card.secondary {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
       background: rgba(244,239,230,0.68);
       border: 1px solid rgba(47,79,79,0.08);
     }
@@ -1180,7 +1106,7 @@ function get_theme() {
       background: var(--pale-green);
     }
 
-    relief-section p:not(.eyebrow) {
+    .relief-section p:not(.eyebrow) {
       font-size: 1.2rem;
       max-width: 820px;
     }
@@ -1227,7 +1153,6 @@ function get_theme() {
       color: white;
     }
 
-
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1265,8 +1190,15 @@ function get_theme() {
       background: var(--pale-green);
     }
 
+    .summer-pricing-section {
+      background:
+        radial-gradient(circle at 14% 10%, rgba(247,216,121,0.40) 0, rgba(247,216,121,0.40) 110px, transparent 112px),
+        radial-gradient(circle at 87% 18%, rgba(244,166,192,0.28) 0, rgba(244,166,192,0.28) 96px, transparent 98px),
+        linear-gradient(180deg, var(--pale-green), #dff3ee);
+    }
+
     .pricing-section .section-intro {
-      max-width: 620px;
+      max-width: 660px;
       margin: 0 auto 2rem;
       font-size: 1.05rem;
       line-height: 1.62;
@@ -1295,27 +1227,136 @@ function get_theme() {
       box-shadow: 0 22px 58px rgba(244,166,192,0.18);
     }
 
-    .trial-card,
-    .monthly-membership-card {
-      max-width: 620px;
-      margin: 2rem auto 2rem;
-      padding: 2rem;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.95);
-      border: 3px solid var(--pale-pink);
-      box-shadow: var(--shadow-soft);
+    .summer-offer-card {
+      max-width: 660px;
+      margin: 2rem auto 1.2rem;
+      padding: 2.15rem;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(251,250,246,0.96)),
+        var(--cream);
+      border: 3px solid rgba(244,166,192,0.82);
+      box-shadow: 0 26px 68px rgba(47,79,79,0.13);
       text-align: left;
+      overflow: hidden;
+      isolation: isolate;
     }
 
-    .monthly-membership-card {
-      margin-top: 0;
+    .summer-offer-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(247,216,121,0.22) 0, rgba(247,216,121,0.22) 84px, transparent 86px),
+        radial-gradient(circle at 88% 82%, rgba(209,236,230,0.55) 0, rgba(209,236,230,0.55) 120px, transparent 122px);
+      z-index: -1;
     }
 
-    #membership,
-    #trial,
-    #open-play,
-    #visit {
-      scroll-margin-top: 2rem;
+    .summer-offer-card h3 {
+      font-size: 1.82rem;
+      line-height: 1.06;
+      margin: 0.5rem 0 0.75rem;
+    }
+
+    .summer-card-intro {
+      max-width: none;
+      margin: 0 0 1rem 0;
+      color: var(--muted);
+    }
+
+    .summer-total {
+      margin: 1rem 0 0;
+      padding: 1.35rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(47,79,79,0.08);
+      text-align: center;
+    }
+
+    .summer-activation-note {
+      margin-top: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .summer-button {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0.75rem 0 0;
+      background: var(--summer-strawberry);
+      box-shadow: 0 15px 38px rgba(232,95,115,0.24);
+    }
+
+    .summer-button:hover {
+      background: var(--heather-dark);
+    }
+
+    .summer-after-note {
+      max-width: 620px;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .summer-shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .summer-sun {
+      top: 1.1rem;
+      right: 1.1rem;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--summer-yellow);
+      box-shadow: 0 0 0 12px rgba(247,216,121,0.23);
+      opacity: 0.78;
+    }
+
+    .summer-strawberry-one,
+    .summer-strawberry-two {
+      width: 28px;
+      height: 34px;
+      background: var(--summer-strawberry);
+      border-radius: 55% 55% 60% 60%;
+      transform: rotate(-16deg);
+      opacity: 0.78;
+    }
+
+    .summer-strawberry-one::before,
+    .summer-strawberry-two::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 7px;
+      width: 14px;
+      height: 10px;
+      background: var(--summer-leaf);
+      border-radius: 60% 60% 30% 30%;
+    }
+
+    .summer-strawberry-one::after,
+    .summer-strawberry-two::after {
+      content: "";
+      position: absolute;
+      inset: 7px 8px;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.65) 0 1.2px, transparent 1.4px);
+      background-size: 8px 8px;
+    }
+
+    .summer-strawberry-one {
+      left: 1.25rem;
+      bottom: 1.5rem;
+    }
+
+    .summer-strawberry-two {
+      right: 5.8rem;
+      bottom: 2.2rem;
+      transform: rotate(14deg) scale(0.82);
+      opacity: 0.58;
     }
 
     .membership-total {
@@ -1325,15 +1366,6 @@ function get_theme() {
       background: var(--cream);
       border: 1px solid rgba(47,79,79,0.08);
       text-align: center;
-    }
-
-    .membership-total-topline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      margin-bottom: 0.65rem;
-      flex-wrap: wrap;
     }
 
     .membership-total-label {
@@ -1350,7 +1382,7 @@ function get_theme() {
     .membership-total-price {
       display: block;
       color: var(--ink);
-      font-size: 3rem;
+      font-size: 3.4rem;
       line-height: 1;
       font-weight: 850;
       letter-spacing: -0.04em;
@@ -1377,101 +1409,6 @@ function get_theme() {
       font-weight: 750;
     }
 
-    .membership-child-control {
-      margin: 1rem 0 0;
-      padding: 1rem;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.62);
-      border: 1px solid rgba(47,79,79,0.08);
-      text-align: left;
-    }
-
-    .membership-child-label {
-      display: block;
-      margin-bottom: 0.55rem;
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.1;
-      font-weight: 850;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .membership-total-select {
-      width: auto;
-      min-width: 7.9rem;
-      max-width: 10.5rem;
-      margin: 0;
-      padding: 0.48rem 2rem 0.48rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(47,79,79,0.12);
-      background-color: rgba(255,255,255,0.78);
-      color: var(--ink);
-      font-size: 0.92rem;
-      font-weight: 850;
-      line-height: 1.1;
-      cursor: pointer;
-
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-
-      background-image:
-        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-      background-position:
-        calc(100% - 1.08rem) 50%,
-        calc(100% - 0.82rem) 50%;
-      background-size:
-        0.28rem 0.28rem,
-        0.28rem 0.28rem;
-      background-repeat: no-repeat;
-    }
-
-    .membership-total-select:focus {
-      outline: none;
-      border-color: var(--pale-pink);
-      box-shadow: 0 0 0 4px rgba(244,166,192,0.18);
-    }
-
-    .membership-total small,
-    .membership-total-note {
-      display: block;
-      margin-top: 0.65rem;
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .trial-card h3,
-    .monthly-membership-card h3 {
-      font-size: 1.65rem;
-      line-height: 1.08;
-      margin: 0.5rem 0 0.75rem;
-    }
-
-    .trial-card .price {
-      font-size: 3rem;
-      line-height: 1;
-      margin-bottom: 0.85rem;
-    }
-
-    .trial-card .small {
-      max-width: none;
-      margin: 0 0 1rem 0;
-    }
-
-    .trial-card .small-note {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .trial-card .button {
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0.5rem 0 0;
-    }
-
     .membership-benefits-list {
       margin-top: 1.25rem;
       color: var(--muted);
@@ -1492,7 +1429,7 @@ function get_theme() {
 
     .quiet-label,
     .popular {
-      background: rgba(209,236,230,0.82);
+      background: rgba(247,216,121,0.72);
       color: var(--heather-dark);
     }
 
@@ -1512,16 +1449,14 @@ function get_theme() {
       color: var(--muted);
     }
 
-    .price-card ul,
-    .trial-card ul {
+    .price-card ul {
       list-style: none;
       padding: 0;
       margin: 1.15rem 0 0 0;
       text-align: left;
     }
 
-    .price-card li,
-    .trial-card li {
+    .price-card li {
       position: relative;
       padding-left: 1.4rem;
       margin-bottom: 0.65rem;
@@ -1530,13 +1465,12 @@ function get_theme() {
       font-size: 0.98rem;
     }
 
-    .price-card li::before,
-    .trial-card li::before {
+    .price-card li::before {
       content: "•";
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--pale-pink);
+      color: var(--summer-strawberry);
       font-weight: bold;
     }
 
@@ -1555,17 +1489,7 @@ function get_theme() {
       margin: 0.9rem 0 0;
     }
 
-    .membership-actions {
-      margin-top: 1.15rem;
-    }
-
-    .subscribe-button {
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0.85rem 0 0;
-    }
-
-    .membership-actions .small-note {
+    .membership-link-note {
       margin-top: 0.65rem;
       margin-bottom: 0;
       font-size: 0.86rem;
@@ -1573,56 +1497,10 @@ function get_theme() {
       text-align: center;
     }
 
-    .child-count-select {
-      width: 100%;
-      padding: 0.95rem 3rem 0.95rem 1rem;
-      border-radius: 18px;
-      border: 1px solid rgba(47,79,79,0.14);
-      background-color: var(--cream);
-      color: var(--ink);
-      font-size: 1rem;
-      font-weight: 750;
-      line-height: 1.2;
-      cursor: pointer;
-
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-
-      background-image:
-        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-      background-position:
-        calc(100% - 1.35rem) 50%,
-        calc(100% - 1.05rem) 50%;
-      background-size:
-        0.32rem 0.32rem,
-        0.32rem 0.32rem;
-      background-repeat: no-repeat;
-    }
-
-    .child-count-select:hover {
-      border-color: rgba(143,100,164,0.32);
-    }
-
-    .child-count-select:focus {
-      outline: none;
-      border-color: var(--pale-pink);
-      box-shadow: 0 0 0 4px rgba(244,166,192,0.22);
-    }
-
-    .child-count-select:focus-visible {
-      outline: none;
-    }
-
-    .setup-link-disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-
-    .setup-link-disabled:hover {
-      background: var(--pale-pink);
-      transform: none;
+    #summer-pass,
+    #open-play,
+    #visit {
+      scroll-margin-top: 2rem;
     }
 
     .faq-list {
@@ -1862,8 +1740,7 @@ function get_theme() {
 
       .included-card,
       .price-card,
-      .trial-card,
-      .monthly-membership-card,
+      .summer-offer-card,
       .visit-card,
       .faq-item,
       .review-card {
@@ -1871,7 +1748,7 @@ function get_theme() {
         padding: 1.35rem;
       }
 
-      .monthly-membership-card {
+      .summer-offer-card {
         max-width: 620px;
       }
 
@@ -1991,7 +1868,7 @@ function get_theme() {
       }
 
       .membership-total-price {
-        font-size: 2.25rem;
+        font-size: 2.45rem;
         text-align: center;
       }
 
@@ -2005,20 +1882,6 @@ function get_theme() {
         line-height: 1.42;
         text-align: center;
         padding: 0.8rem 0.85rem;
-      }
-
-      .membership-child-control {
-        padding: 0.9rem;
-        border-radius: 18px;
-      }
-
-      .membership-child-label {
-        font-size: 0.74rem;
-      }
-
-      .membership-total-note {
-        font-size: 0.84rem;
-        line-height: 1.42;
       }
 
       .membership-benefits-list {
@@ -2049,11 +1912,22 @@ function get_theme() {
         gap: 0;
       }
 
-      .subscribe-button,
-      .visit-card .button,
-      .trial-card .button {
+      .summer-button,
+      .visit-card .button {
         max-width: none;
         margin: 0.85rem 0 0;
+      }
+
+      .summer-sun {
+        width: 48px;
+        height: 48px;
+        right: 1rem;
+        top: 1rem;
+      }
+
+      .summer-strawberry-one,
+      .summer-strawberry-two {
+        display: none;
       }
 
       .wave {
@@ -2132,9 +2006,8 @@ function get_theme() {
         font-size: 2rem;
       }
 
-      .trial-card .price,
       .membership-total-price {
-        font-size: 2.25rem;
+        font-size: 2.35rem;
       }
 
       .location-tagline {
@@ -2206,6 +2079,15 @@ function get_theme() {
         font-size: 0.74rem;
       }
 
+      .summer-offer-card {
+        padding: 1.2rem;
+        border-radius: 22px;
+      }
+
+      .summer-offer-card h3 {
+        font-size: 1.45rem;
+      }
+
       .membership-total {
         padding: 0.95rem;
         border-radius: 18px;
@@ -2218,14 +2100,6 @@ function get_theme() {
       .membership-cancel-note {
         font-size: 0.88rem;
         padding: 0.75rem;
-      }
-
-      .membership-child-control {
-        padding: 0.85rem;
-      }
-
-      .membership-child-label {
-        font-size: 0.7rem;
       }
 
       .membership-benefits-list li {
