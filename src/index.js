@@ -1,6 +1,8 @@
 module.exports = page
 
 const SUMMER_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
+const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
+const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 
 function page(cb) {
   const el = document.createElement('div')
@@ -301,6 +303,42 @@ function page(cb) {
                 “The flexibility and the fact that you don’t have to pre-book make it so convenient to use. Our little ones love it here and always ask to come back.”
               </p>
               <span>Julia R</span>
+            </div>
+          </div>
+          <div class="press-mentions">
+            <p class="press-eyebrow">Featured in the local press</p>
+
+            <p class="press-intro">
+              Local newspapers described Swap & Play as a flexible alternative
+              to traditional playgroups and organised activities.
+            </p>
+
+            <div class="press-links">
+              <a
+                class="press-link"
+                href="${ILKLEY_GAZETTE_ARTICLE_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="press-publication">Ilkley Gazette</span>
+                <span class="press-title">
+                  Read about the opening of Swap & Play Wharfedale
+                </span>
+                <span class="press-read">Read the article →</span>
+              </a>
+
+              <a
+                class="press-link"
+                href="${WHARFEDALE_OBSERVER_ARTICLE_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="press-publication">Wharfedale Observer</span>
+                <span class="press-title">
+                  Read about our new flexible play-and-swap space
+                </span>
+                <span class="press-read">Read the article →</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1233,6 +1271,84 @@ function get_theme() {
       letter-spacing: 0.08em;
     }
 
+    .press-mentions {
+      max-width: 920px;
+      margin: 3.5rem auto 0;
+      padding-top: 2.75rem;
+      border-top: 1px solid rgba(255,255,255,0.32);
+    }
+
+    .press-eyebrow {
+      margin-bottom: 0.7rem;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .press-intro {
+      max-width: 690px;
+      margin: 0 auto 1.75rem;
+      color: white;
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .press-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .press-link {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 190px;
+      padding: 1.65rem;
+      border: 1px solid rgba(47,79,79,0.1);
+      border-radius: 24px;
+      background: var(--sand);
+      box-shadow: var(--shadow-card);
+      color: var(--ink);
+      text-align: left;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .press-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 52px rgba(47,79,79,0.14);
+    }
+
+    .press-publication {
+      display: block;
+      margin-bottom: 0.8rem;
+      color: var(--heather-dark);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .press-title {
+      display: block;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+      font-size: 1.18rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .press-read {
+      display: block;
+      margin-top: auto;
+      color: var(--heather-dark);
+      font-size: 0.94rem;
+      font-weight: 800;
+    }
+
     .pricing-section {
       background: var(--pale-green);
     }
@@ -1793,6 +1909,33 @@ function get_theme() {
       .review-card {
         border-radius: 22px;
         padding: 1.35rem;
+      }
+
+      .press-mentions {
+        margin-top: 2.5rem;
+        padding-top: 2.25rem;
+        text-align: left;
+      }
+
+      .press-eyebrow,
+      .press-intro {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+      }
+
+      .press-links {
+        grid-template-columns: 1fr;
+      }
+
+      .press-link {
+        min-height: 0;
+        padding: 1.35rem;
+        border-radius: 22px;
+      }
+
+      .press-title {
+        font-size: 1.08rem;
       }
 
       .summer-offer-card {
