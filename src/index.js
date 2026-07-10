@@ -43,18 +43,23 @@ function page(cb) {
 
       <section class="section light location-section">
         <div class="content content-wide center">
-          <p class="eyebrow dark">Not soft play. Something calmer.</p>
-          <h2>Your flexible base in Ilkley</h2>
+          <p class="eyebrow dark">Built around real family life</p>
+            <h2>A place that works around your day</h2>
 
-          <p class="location-intro">
-            Swap & Play Wharfedale is a calm, members-style community play space designed around real life with young children.
-          </p>
+            <p class="location-intro">
+              Most children’s activities happen at a fixed time. Young children often do not.
+              Naps shift, meals run late, the weather changes, and some days simply do not go to plan.
+            </p>
 
-          <p class="location-tagline">
-            No booking. No rushing. No hosting. No extra spending.<br>
-            Just arrive.
-          </p>
+            <p class="location-intro">
+              Swap & Play works differently. Once you have access, you can come when your child is ready,
+              without booking a session or rushing to arrive on time.
+            </p>
 
+            <p class="location-tagline">
+              Come for 30 minutes or stay for three hours.<br>
+              No booking. No rushing. Just arrive.
+            </p>
           <div class="location-visuals">
             <div class="location-card building-card">
               <img
@@ -96,21 +101,31 @@ function page(cb) {
       <section class="section small-purpose">
         <div class="content content-split">
           <div>
-            <p class="eyebrow dark">Small by design</p>
-            <h2>Calm needs a place</h2>
+            <p class="eyebrow dark">More than a playroom</p>
+            <h2>A shared resource for local families</h2>
           </div>
+
           <div>
             <p>
-              Swap & Play is intentionally designed for a low-density experience — because we are building the opposite of a hectic play centre.
+              Swap & Play is somewhere children can play, but it is also a place where families
+              can meet, share useful things and gradually become familiar faces.
             </p>
+
             <p>
-              The space has two main play rooms. One room is set up for pretend play, with a play kitchen, shop, restaurant and role-play toys.
+              Low numbers help it feel calmer than a conventional play centre.
+              Children can move between pretend play, books, focused toys and movement,
+              while adults supervise, sit, talk or make a drink.
             </p>
+
             <p>
-              The other room is for focused play, books, toys and movement, with space for building, reading, quieter activities and physical play.
+              There is also a Swap Room for passing on children’s clothes, books and useful items,
+              plus a changing space, kitchenette, toilets and a parent table for eating,
+              feeding or light work.
             </p>
+
             <p>
-              There is also a Swap Room, changing space, kitchenette, toilets and a parent table for eating, feeding or light work.
+              The aim is not to fill every visit with organised entertainment.
+              It is to give local families a comfortable place they can use as part of ordinary life.
             </p>
           </div>
         </div>
@@ -174,56 +189,75 @@ function page(cb) {
 
       <section class="section included-section">
         <div class="content center">
-          <p class="eyebrow dark">A pass built around real life</p>
-          <h2>Everything you need for an easier family rhythm</h2>
-          <p class="included-intro">
-            More than play access — a calm, flexible base you can use as part of everyday life.
-          </p>
+        <p class="eyebrow dark">A pass built around real life</p>
+        <h2>Flexible access, without another timetable</h2>
+
+        <p class="included-intro">
+          A calm play-and-swap space you can use as part of ordinary family life.
+        </p>
 
           <div class="included-grid calm-cards">
             <div class="included-card">
-              <h3>Unlimited access</h3>
-              <p>Use the space regularly without thinking about each visit as a separate cost.</p>
+              <h3>No fixed sessions</h3>
+              <p>
+                Come during opening hours without planning your day around a timetable.
+              </p>
             </div>
 
             <div class="included-card">
-              <h3>Self check-in</h3>
-              <p>Come and go more freely during opening hours, without waiting for a session.</p>
+              <h3>Stay as long as it works</h3>
+              <p>
+                Pop in for 30 minutes or settle in for a longer morning or afternoon.
+              </p>
             </div>
 
             <div class="included-card">
               <h3>Open every day</h3>
-              <p>Open 365 days a year, from 6am to 9pm.</p>
+              <p>
+                Available from 6am to 9pm, 365 days a year.
+              </p>
             </div>
 
             <div class="included-card">
-              <h3>Shoe-free and clean</h3>
-              <p>A calmer, cleaner environment for small children and crawling babies.</p>
+              <h3>Unlimited visits</h3>
+              <p>
+                Use the space regularly without treating every visit as a separate purchase.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Self check-in</h3>
+              <p>
+                Come and go independently once you have access.
+              </p>
             </div>
 
             <div class="included-card">
               <h3>Tea and coffee included</h3>
-              <p>No pressure to buy something every time you visit.</p>
+              <p>
+                Make a drink without needing to buy something every time you visit.
+              </p>
             </div>
 
             <div class="included-card">
               <h3>Bring your own food</h3>
-              <p>Pack the snacks your child actually eats and stay longer if the day is going well.</p>
+              <p>
+                Pack what your child actually eats and stay while the day is going well.
+              </p>
             </div>
 
             <div class="included-card">
-              <h3>Space for parents too</h3>
-              <p>Sit, read, chat, do light laptop catch-up or simply pause.</p>
+              <h3>Space for adults too</h3>
+              <p>
+                Sit, talk, read, feed your child or do a little light laptop catch-up.
+              </p>
             </div>
 
             <div class="included-card">
-              <h3>Swap instead of rebuying</h3>
-              <p>Children’s clothes and shoes shared between local families.</p>
-            </div>
-
-            <div class="included-card">
-              <h3>Gentle occupancy updates</h3>
-              <p>Know when the space is busier so the atmosphere can stay calm.</p>
+              <h3>A familiar local space</h3>
+              <p>
+                Visit regularly and begin to recognise other families without joining another formal class.
+              </p>
             </div>
           </div>
         </div>
@@ -288,7 +322,7 @@ function page(cb) {
 
           <p class="section-intro">
             Until the start of school, Swap & Play is available through a simple summer pass:
-            one week of flexible access, whenever it fits around your family.
+            one week of flexible access built around naps, weather, visitors and changing plans. Come as often as you like during your seven days—without booking another activity.
           </p>
 
           <div class="summer-offer-card price-card featured membership-card" id="summer-pass">
@@ -366,8 +400,12 @@ function page(cb) {
               <p>Buy your pass online. It can be activated from the next day onwards, and your 7 days start when you first visit.</p>
             </div>
             <div class="faq-item">
-              <h3>Is this soft play?</h3>
-              <p>No. Swap & Play is a calm members-style community space designed for low numbers, flexible access and a gentler atmosphere.</p>
+              <h3>Is this a playgroup, class or soft play?</h3>
+              <p>
+                No. There is no led activity, fixed programme or large soft-play structure.
+                Children play freely while their accompanying adults supervise them.
+                Your pass gives you flexible access during opening hours.
+              </p>
             </div>
             <div class="faq-item">
               <h3>Do I need to book?</h3>
@@ -387,7 +425,7 @@ function page(cb) {
             </div>
             <div class="faq-item">
               <h3>Can parents use a laptop there?</h3>
-              <p>This is not a coworking space, but parents can bring their laptop and reply to messages, read or do light catch-up while children play nearby.</p>
+              <p>Yes. You are welcome to bring a laptop and get some work done while your little one plays nearby. Parents and carers remain responsible for supervising their children at all times.</p>
             </div>
             <div class="faq-item">
               <h3>What happens after summer?</h3>
@@ -408,13 +446,18 @@ function page(cb) {
 
       <section class="section day-section">
         <div class="content center">
-          <p class="eyebrow dark">For the days that need somewhere else</p>
-          <h2>Not another activity. A place to land</h2>
+          <p class="eyebrow dark">For the gaps between organised activities</p>
+          <h2>Not another thing to fit into your week</h2>
+
           <p>
-            Some days everyone needs a change of scene.
+            Swap & Play is there when your family needs somewhere to go:
+            after breakfast, between errands, on a rainy afternoon,
+            or when home has started to feel too small.
           </p>
+
           <p>
-            Somewhere children can play. Somewhere parents can sit. Somewhere familiar, flexible and easy.
+            Come when your child is ready. Stay while it works.
+            Leave when it does not.
           </p>
         </div>
       </section>
@@ -445,16 +488,20 @@ function page(cb) {
           </div>
 
           <div class="visit-card secondary" id="open-play">
-            <div class="label quiet-label">Free weekly meetup</div>
+            <div class="label quiet-label">A good first visit</div>
             <h3>Wednesday Open Play</h3>
+
             <p>
-              Join us on Wednesdays, 10am–12pm, for a relaxed play session with tea, coffee and space to chat.
+              Prefer to meet us and see how the space works before buying a pass?
+              Join us on Wednesdays, 10am–12pm, for a relaxed first visit.
             </p>
+
             <ul>
-              <li>Children can play and explore</li>
-              <li>Grown-ups can sit, chat or make a drink</li>
+              <li>Explore the play rooms and Swap Room</li>
               <li>Meet other local families</li>
-              <li>No need to be a pass holder</li>
+              <li>Ask questions and see how access works</li>
+              <li>Stay for as much or as little of the morning as suits you</li>
+              <li>No pass required</li>
             </ul>
           </div>
 
