@@ -426,8 +426,8 @@ function page(cb) {
                   <button
                     class="week-event member-event social-event"
                     type="button"
-                    data-start="09:30"
-                    data-end="11:30"
+                    data-start="10:30"
+                    data-end="12:30"
                     data-title="Cowork & Play"
                     data-time="Monday, 9:30–11:30am"
                     data-access="Members and active pass holders"
