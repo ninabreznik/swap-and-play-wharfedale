@@ -386,7 +386,7 @@ function page(cb) {
                     data-end="17:00"
                     data-title="Afternoon Playdate"
                     data-time="Monday, 3–5pm"
-                    data-access="Members and active pass holders · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Tea and coffee included"
                     data-description="An informal afternoon playdate for families who would like to visit when other children and carers are likely to be around. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Afternoon Playdate, Monday from 3 to 5pm. Tea and coffee included. Open event details."
@@ -430,7 +430,7 @@ function page(cb) {
                     data-end="14:00"
                     data-title="Cowork & Play"
                     data-time="Tuesday, 11am–2pm"
-                    data-access="Members and active pass holders · Drop in anytime · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
                     data-description="A relaxed three-hour drop-in for parents who would like to do some light work while their child plays nearby. Come at any point between 11am and 2pm and stay for as long as it works for your family. This is not supervised childcare. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Cowork and Play, Tuesday from 11am to 2pm. Drop in anytime. Tea and coffee included. Open event details."
@@ -582,7 +582,7 @@ function page(cb) {
                     data-end="12:00"
                     data-title="Grandparents’ Morning"
                     data-time="Friday, 10am–12pm"
-                    data-access="Members and active pass holders · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Tea and coffee included"
                     data-description="A relaxed social morning for grandparents and little ones. Come for the full session or stay for as long as suits your family. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Grandparents’ Morning, Friday from 10am to 12pm. Tea and coffee included. Open event details."
@@ -603,7 +603,7 @@ function page(cb) {
                     data-end="18:00"
                     data-title="Afternoon Playdate"
                     data-time="Friday, 3–6pm"
-                    data-access="Members and active pass holders · Drop in anytime · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
                     data-description="A relaxed three-hour end-of-week playdate. Come at any point between 3pm and 6pm and stay for 30 minutes or the whole afternoon. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Afternoon Playdate, Friday from 3 to 6pm. Drop in anytime. Tea and coffee included. Open event details."
@@ -650,7 +650,7 @@ function page(cb) {
                     data-end="19:00"
                     data-title="Swap Event"
                     data-time="Saturday, 5–7pm"
-                    data-access="Members and active pass holders · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Tea and coffee included"
                     data-description="Bring along good-quality children’s clothes, books, toys or useful family items, browse what others have brought and take home anything your family can use. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Swap Event, Saturday from 5 to 7pm. Tea and coffee included. Open event details."
@@ -692,7 +692,7 @@ function page(cb) {
                     data-end="14:00"
                     data-title="Coffee & Cake"
                     data-time="Sunday, 11am–2pm"
-                    data-access="Members and active pass holders · Drop in anytime · Tea and coffee included"
+                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
                     data-description="A relaxed three-hour Sunday bring-and-share gathering. Bring a cake, biscuits or another sweet treat for the table, then help yourself to what everyone has brought. Come at any point between 11am and 2pm and stay for as long as suits you. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Coffee and Cake, Sunday from 11am to 2pm. Drop in anytime. Tea and coffee included. Open event details."
@@ -784,10 +784,6 @@ function page(cb) {
               data-event-modal-actions
               hidden
             >
-              <p class="event-modal-invitation">
-                Included with an active membership, free trial week
-                or Flexi Week Pass.
-              </p>
 
               <a
                 class="button event-modal-trial"
