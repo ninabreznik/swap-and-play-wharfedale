@@ -534,25 +534,6 @@ function page(cb) {
                       Tea &amp; coffee included
                     </span>
                   </button>
-
-                  <button
-                    class="week-event public-event social-event"
-                    type="button"
-                    data-start="16:00"
-                    data-end="18:00"
-                    data-title="Open Play"
-                    data-time="Wednesday, 4–6pm"
-                    data-access="Open to everyone · No pass required · Tea and coffee included"
-                    data-description="A relaxed late-afternoon public session for seeing the space, letting children play and meeting other local families. You do not need a pass to attend. Tea and coffee are included."
-                    data-member-only="false"
-                    aria-label="Open Play, Wednesday from 4 to 6pm. Open to everyone. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">4–6pm</span>
-                    <strong class="week-event-title">Open Play</strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
                 </div>
 
                 <!-- THURSDAY -->
