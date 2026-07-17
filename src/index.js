@@ -369,7 +369,7 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Monday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently at any point during opening hours. The Cowork & Play time is optional, and you can visit before, during or after it."
+                    data-description="Visit independently at any point during opening hours. The Afternoon Playdate is optional, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Monday from 6am to 9pm. Open event details."
                   >
@@ -380,17 +380,17 @@ function page(cb) {
                   <button
                     class="week-event member-event social-event"
                     type="button"
-                    data-start="10:30"
-                    data-end="12:30"
-                    data-title="Cowork & Play"
-                    data-time="Monday, 9:30–11:30am"
+                    data-start="15:00"
+                    data-end="18:00"
+                    data-title="Afternoon Playdate"
+                    data-time="Monday, 3–6pm"
                     data-access="Members and active pass holders"
-                    data-description="Bring a laptop for some light work while your child plays nearby. This is an informal shared time rather than supervised childcare or a structured coworking session."
+                    data-description="An informal afternoon playdate for families who would like to visit when other children and carers are likely to be around."
                     data-member-only="true"
-                    aria-label="Cowork and Play, Monday from 9:30 to 11:30am. Open event details."
+                    aria-label="Afternoon Playdate, Monday from 3 to 6pm. Open event details."
                   >
-                    <span class="week-event-time">9:30–11:30am</span>
-                    <strong class="week-event-title">Cowork &amp; Play</strong>
+                    <span class="week-event-time">3–6pm</span>
+                    <strong class="week-event-title">Afternoon Playdate</strong>
                   </button>
                 </div>
 
@@ -407,7 +407,7 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Tuesday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently at any point during opening hours. The afternoon playdate is optional, and you can visit before, during or after it."
+                    data-description="Visit independently at any point during opening hours. Cowork & Play is optional, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Tuesday from 6am to 9pm. Open event details."
                   >
@@ -418,17 +418,17 @@ function page(cb) {
                   <button
                     class="week-event member-event social-event"
                     type="button"
-                    data-start="14:00"
-                    data-end="16:00"
-                    data-title="Afternoon Playdate"
-                    data-time="Tuesday, 2–4pm"
+                    data-start="11:00"
+                    data-end="14:00"
+                    data-title="Cowork & Play"
+                    data-time="Tuesday, 11am–2pm"
                     data-access="Members and active pass holders"
-                    data-description="An informal afternoon playdate for families who would like to visit when other children and carers are likely to be around."
+                    data-description="Bring a laptop for some light work while your child plays nearby. This is an informal shared time rather than supervised childcare or a structured coworking session."
                     data-member-only="true"
-                    aria-label="Afternoon Playdate, Tuesday from 2 to 4pm. Open event details."
+                    aria-label="Cowork and Play, Tuesday from 11am to 2pm. Open event details."
                   >
-                    <span class="week-event-time">2–4pm</span>
-                    <strong class="week-event-title">Afternoon Playdate</strong>
+                    <span class="week-event-time">11am–2pm</span>
+                    <strong class="week-event-title">Cowork &amp; Play</strong>
                   </button>
                 </div>
 
@@ -445,7 +445,7 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Wednesday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Members and active pass holders can visit independently throughout the day. Open Play from 10am to 12pm is also open to families without a pass."
+                    data-description="Members and active pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
                     data-member-only="true"
                     aria-label="Flexible access, Wednesday from 6am to 9pm. Open event details."
                   >
@@ -483,7 +483,7 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Thursday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently at any point during opening hours. Grandparents Morning is an optional social time within the normal flexible-access day."
+                    data-description="Visit independently at any point during opening hours. The Under-1s Afternoon Playdate is optional, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Thursday from 6am to 9pm. Open event details."
                   >
@@ -494,17 +494,17 @@ function page(cb) {
                   <button
                     class="week-event member-event social-event"
                     type="button"
-                    data-start="10:00"
-                    data-end="12:00"
-                    data-title="Grandparents Morning"
-                    data-time="Thursday, 10am–12pm"
-                    data-access="Members and active pass holders"
-                    data-description="A relaxed social morning for grandparents and little ones. Come for the full morning or simply visit for as long as it suits you."
+                    data-start="15:00"
+                    data-end="18:00"
+                    data-title="Under-1s Afternoon Playdate"
+                    data-time="Thursday, 3–6pm"
+                    data-access="Members and active pass holders · For babies under 1"
+                    data-description="A calmer afternoon playdate for babies under one and their grown-ups, with space to chat, feed and let little ones explore at their own pace."
                     data-member-only="true"
-                    aria-label="Grandparents Morning, Thursday from 10am to 12pm. Open event details."
+                    aria-label="Under-1s Afternoon Playdate, Thursday from 3 to 6pm. Open event details."
                   >
-                    <span class="week-event-time">10am–12pm</span>
-                    <strong class="week-event-title">Grandparents Morning</strong>
+                    <span class="week-event-time">3–6pm</span>
+                    <strong class="week-event-title">Under-1s Playdate</strong>
                   </button>
                 </div>
 
@@ -521,7 +521,7 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Friday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently at any point during opening hours. The Friday Playdate is optional, and you can visit before, during or after it."
+                    data-description="Visit independently at any point during opening hours. Grandparents’ Morning and the Afternoon Playdate are optional social times."
                     data-member-only="true"
                     aria-label="Flexible access, Friday from 6am to 9pm. Open event details."
                   >
@@ -532,17 +532,33 @@ function page(cb) {
                   <button
                     class="week-event member-event social-event"
                     type="button"
-                    data-start="14:00"
-                    data-end="16:00"
-                    data-title="Friday Playdate"
-                    data-time="Friday, 2–4pm"
+                    data-start="10:00"
+                    data-end="13:00"
+                    data-title="Grandparents’ Morning"
+                    data-time="Friday, 10am–1pm"
                     data-access="Members and active pass holders"
-                    data-description="An easy end-of-week playdate with free play, tea and coffee. There is no formal programme, and families can arrive or leave at any point."
+                    data-description="A relaxed social morning for grandparents and little ones. Come for the full morning or simply visit for as long as it suits you."
                     data-member-only="true"
-                    aria-label="Friday Playdate, Friday from 2 to 4pm. Open event details."
+                    aria-label="Grandparents’ Morning, Friday from 10am to 1pm. Open event details."
                   >
-                    <span class="week-event-time">2–4pm</span>
-                    <strong class="week-event-title">Friday Playdate</strong>
+                    <span class="week-event-time">10am–1pm</span>
+                    <strong class="week-event-title">Grandparents’ Morning</strong>
+                  </button>
+
+                  <button
+                    class="week-event member-event social-event"
+                    type="button"
+                    data-start="15:00"
+                    data-end="18:00"
+                    data-title="Afternoon Playdate"
+                    data-time="Friday, 3–6pm"
+                    data-access="Members and active pass holders"
+                    data-description="An easy end-of-week playdate with free play, tea and coffee. Families can arrive or leave at any point."
+                    data-member-only="true"
+                    aria-label="Afternoon Playdate, Friday from 3 to 6pm. Open event details."
+                  >
+                    <span class="week-event-time">3–6pm</span>
+                    <strong class="week-event-title">Afternoon Playdate</strong>
                   </button>
                 </div>
 
@@ -559,12 +575,28 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Saturday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently whenever it works for your family, or arrange a playdate with another member. No booking slot is required."
+                    data-description="Visit independently whenever it works for your family. The Swap Event is an optional social time within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Saturday from 6am to 9pm. Open event details."
                   >
                     <span class="week-event-time">6am–9pm</span>
                     <strong class="week-event-title">Flexible access</strong>
+                  </button>
+
+                  <button
+                    class="week-event member-event social-event"
+                    type="button"
+                    data-start="17:00"
+                    data-end="20:00"
+                    data-title="Swap Event"
+                    data-time="Saturday, 5–8pm"
+                    data-access="Members and active pass holders"
+                    data-description="Bring along good-quality children’s clothes, books, toys or useful family items, browse what others have brought and take home anything your family can use."
+                    data-member-only="true"
+                    aria-label="Swap Event, Saturday from 5 to 8pm. Open event details."
+                  >
+                    <span class="week-event-time">5–8pm</span>
+                    <strong class="week-event-title">Swap Event</strong>
                   </button>
                 </div>
 
@@ -581,15 +613,33 @@ function page(cb) {
                     data-title="Flexible access"
                     data-time="Sunday, 6am–9pm"
                     data-access="Members and active pass holders"
-                    data-description="Visit independently whenever it works for your family, or arrange a playdate with another member. No booking slot is required."
+                    data-description="Visit independently whenever it works for your family. Coffee & Cake is an optional social time within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Sunday from 6am to 9pm. Open event details."
                   >
                     <span class="week-event-time">6am–9pm</span>
                     <strong class="week-event-title">Flexible access</strong>
                   </button>
+
+                  <button
+                    class="week-event member-event social-event"
+                    type="button"
+                    data-start="11:00"
+                    data-end="14:00"
+                    data-title="Coffee & Cake"
+                    data-time="Sunday, 11am–2pm"
+                    data-access="Members and active pass holders"
+                    data-description="A relaxed Sunday bring-and-share gathering with coffee, free play and something sweet. Bring a cake, biscuits or another treat to add to the table, then help yourself and share with everyone."
+                    data-member-only="true"
+                    aria-label="Coffee and Cake, Sunday from 11am to 2pm. Open event details."
+                  >
+                    <span class="week-event-time">11am–2pm</span>
+                    <strong class="week-event-title">Coffee &amp; Cake</strong>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
 
           <div class="calendar-summary">
             <p>
@@ -667,15 +717,15 @@ function page(cb) {
                 or Flexi Week Pass.
               </p>
 
-            <a
-              class="button event-modal-trial"
-              href="${FREE_TRIAL_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-event-modal-trial
-            >
-              New here? Apply for a free trial week
-            </a>
+              <a
+                class="button event-modal-trial"
+                href="${FREE_TRIAL_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-event-modal-trial
+              >
+                New here? Apply for a free trial week
+              </a>
 
               <button
                 class="button event-modal-pass"
