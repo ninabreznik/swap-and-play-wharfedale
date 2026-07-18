@@ -48,18 +48,19 @@ module.exports = page
 
 const get_theme = require('get_theme')
 
-const SUMMER_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
+const SINGLE_EVENT_PAYMENT_URL = 'https://buy.stripe.com/7sY00ifIC9jj4Fzag50Ba03'
+const FIVE_EVENT_PACK_PAYMENT_URL = 'https://buy.stripe.com/3cI7sK7c69jjb3X73T0Ba02'
+const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
-const FREE_TRIAL_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe3HZA6pof7I7m4diGGWerDKkNo0uKZVCql5Szl741bPu2aIg/viewform?usp=header'
 
 function page(cb) {
   const el = document.createElement('div')
   const shadow = el.attachShadow({ mode: 'closed' })
 
   const buy = document.createElement('button')
-  buy.innerText = 'Buy Summer Flexi Week Pass'
-  buy.onclick = scroll_to_summer_pass
+  buy.innerText = 'View pass options'
+  buy.onclick = scroll_to_passes
 
   shadow.innerHTML = `
     <div class="page">
@@ -68,17 +69,21 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Summer passes now available</p>
-            <h1>A calmer way to do play time</h1>
+            <p class="eyebrow">Three flexible ways to visit</p>
+            <h1>Play is ready when you are</h1>
             <p class="hero-subtitle">
-              A small members-style community space where children can play and parents can breathe.
+              A calm, ready-to-use play space for the moments when home feels difficult, other activities are finished, or you simply want an easier change of scene.
             </p>
             <div class="hero-actions">
+              <button type="button" data-scroll-to-calendar>
+                View this week’s events
+              </button>
+
               <buy-pass></buy-pass>
             </div>
           </div>
           <div class="hero-photo">
-            <img src="./assets/hero.png" alt="Parent relaxing while children play nearby" class="photo">
+            <img src="./assets/hero-families.jpg" alt="Parent relaxing while children play nearby" class="photo">
           </div>
         </div>
       </section>
@@ -152,42 +157,26 @@ function page(cb) {
       <section class="section small-purpose">
         <div class="content content-split">
           <div>
-            <p class="eyebrow dark">More than a playroom</p>
-            <h2>A shared resource for local families</h2>
+            <p class="eyebrow dark">Everything is already set up</p>
+            <h2>Leave the play preparation to us</h2>
           </div>
-
           <div>
-            <p>
-              Swap & Play is somewhere children can play, but it is also a place where families
-              can meet, share useful things and gradually become familiar faces.
-            </p>
-
-            <p>
-              Low numbers help it feel calmer than a conventional play centre.
-              Children can move between pretend play, books, focused toys and movement,
-              while adults supervise, sit, talk or make a drink.
-            </p>
-
-            <p>
-              There is also a Swap Room for passing on children’s clothes, books and useful items,
-              plus a changing space, kitchenette, toilets and a parent table for eating,
-              feeding or light work.
-            </p>
-
-            <p>
-              The aim is not to fill every visit with organised entertainment.
-              It is to give local families a comfortable place they can use as part of ordinary life.
-            </p>
+            <p>At home, play can mean finding the right toys, opening boxes, setting something up and tidying it all away again. Here, the rooms are ready when you arrive.</p>
+            <p>Children can move between pretend play, puzzles, books, building toys and movement, while adults supervise, sit down, make a drink or talk to another grown-up.</p>
+            <p>Come for a social session when you would like company, or visit outside event times when you prefer a quieter, calmer atmosphere.</p>
+            <p>We are open every day from 6am to 9pm, including the late-afternoon and early-evening hours when most children’s activities have already finished.</p>
           </div>
         </div>
       </section>
 
-      <section class="photo-story">
+      <section class="photo-story expanded-photo-story">
         <div class="content content-xl">
-          <div class="photo-grid">
-            <img src="./assets/room.jpg" alt="Photo of the main play room with toy shelves and play areas" class="story-photo">
-            <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
-            <img src="./assets/climbing.jpg" alt="Child climbing the wooden frame" class="story-photo">
+          <div class="photo-grid photo-grid-clean">
+            <img src="./assets/focused-play.jpg" alt="A child concentrating on a puzzle at a table" class="story-photo">
+            <img src="./assets/social-play.jpg" alt="Families meeting for a relaxed social play session" class="story-photo">            <img src="./assets/quiet-coffee.jpg" alt="A quiet play room with a cup of coffee in the foreground" class="story-photo">
+            <img src="./assets/role-play.jpg" alt="Two children playing together in the role-play shop" class="story-photo">
+            <img src="./assets/girls-playing.jpeg" alt="Two girls playing together on the floor" class="story-photo">
+            <img src="./assets/baby.jpg" alt="A baby sitting on a mat with toys around and looking into the camera" class="story-photo">
           </div>
         </div>
       </section>
@@ -201,129 +190,7 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft relief-section swap-section">
-        <div class="content center">
-          <p class="eyebrow dark">Give what you can. Take what you need</p>
-          <h2>Swap room</h2>
-
-          <p>
-            When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
-            You can also browse the Swap Room and take what your family can use.
-            It is not a one-for-one system — simply give when you can, and take when something is useful.
-          </p>
-
-          <img
-            src="./assets/swap.png"
-            alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
-            class="photo"
-          >
-
-          <p>
-            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
-            Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
-          </p>
-
-          <p>
-            We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
-          </p>
-        </div>
-      </section>
-
-      <div class="wave" style="background:#d1ece6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#f4efe6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section included-section">
-        <div class="content center">
-        <p class="eyebrow dark">A pass built around real life</p>
-        <h2>Flexible access, without another timetable</h2>
-
-        <p class="included-intro">
-          A calm play-and-swap space you can use as part of ordinary family life.
-        </p>
-
-          <div class="included-grid calm-cards">
-            <div class="included-card">
-              <h3>No fixed sessions</h3>
-              <p>
-                Come during opening hours without planning your day around a timetable.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Stay as long as it works</h3>
-              <p>
-                Pop in for 30 minutes or settle in for a longer morning or afternoon.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Open every day</h3>
-              <p>
-                Available from 6am to 9pm, 365 days a year.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Unlimited visits</h3>
-              <p>
-                Use the space regularly without treating every visit as a separate purchase.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Self check-in</h3>
-              <p>
-                Come and go independently once you have access.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Tea and coffee included</h3>
-              <p>
-                Make a drink without needing to buy something every time you visit.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Bring your own food</h3>
-              <p>
-                Pack what your child actually eats and stay while the day is going well.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Space for adults too</h3>
-              <p>
-                Sit, talk, read, feed your child or do a little light laptop catch-up.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>A familiar local space</h3>
-              <p>
-                Visit regularly and begin to recognise other families without joining another formal class.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="wave" style="background:#f4efe6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section weekly-calendar-section" id="calendar">
+      <section class="section weekly-calendar-section soft-calendar" id="calendar">
         <div class="content content-wide center">
           <p class="eyebrow dark">Our weekly rhythm</p>
 
@@ -338,17 +205,17 @@ function page(cb) {
           <div class="calendar-legend" aria-label="Calendar key">
             <span class="calendar-key">
               <span class="calendar-key-dot public-dot"></span>
-              Open to everyone
+              Free event
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot member-dot"></span>
-              Members and active pass holders
+              Paid events / free for members
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot flexible-dot"></span>
-              Flexible visits
+              Flexible visits / members only
             </span>
           </div>
 
@@ -416,7 +283,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Monday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. The Afternoon Playdate is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Monday from 6am to 9pm. Open event details."
@@ -460,7 +327,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Tuesday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. Cowork & Play is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Tuesday from 6am to 9pm. Open event details."
@@ -507,8 +374,8 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Wednesday, 6am–9pm"
-                    data-access="Members and active pass holders"
-                    data-description="Members and active pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
+                    data-access="Members and valid pass holders"
+                    data-description="Members and valid pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
                     data-member-only="true"
                     aria-label="Flexible access, Wednesday from 6am to 9pm. Open event details."
                   >
@@ -549,7 +416,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Thursday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. The Under-1s Playdate is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Thursday from 6am to 9pm. Open event details."
@@ -565,7 +432,7 @@ function page(cb) {
                     data-end="17:00"
                     data-title="Under-1s Afternoon Playdate"
                     data-time="Thursday, 3–5pm"
-                    data-access="Members and active pass holders · For babies under 1 · Tea and coffee included"
+                    data-access="Members and valid pass holders · For babies under 1 · Tea and coffee included"
                     data-description="A calm afternoon playdate for babies under one and their grown-ups, with space to chat, feed and let little ones explore at their own pace. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Under-1s Afternoon Playdate, Thursday from 3 to 5pm. Tea and coffee included. Open event details."
@@ -593,7 +460,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Friday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. Grandparents’ Morning and the Afternoon Playdate are optional social sessions."
                     data-member-only="true"
                     aria-label="Flexible access, Friday from 6am to 9pm. Open event details."
@@ -661,7 +528,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Saturday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently whenever it works for your family. The Swap Event is an optional social session within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Saturday from 6am to 9pm. Open event details."
@@ -703,7 +570,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Sunday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently whenever it works for your family. Coffee & Cake is an optional social session within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Sunday from 6am to 9pm. Open event details."
@@ -743,16 +610,16 @@ function page(cb) {
           <div class="calendar-summary">
             <p>
               <strong>Social sessions are optional.</strong>
-              Members and active pass holders can also visit independently
+              Members and valid pass holders can also visit independently
               from 6am to 9pm every day. Select a session to see more details.
             </p>
 
             <a
               class="calendar-pass-link"
-              href="#summer-pass"
-              data-scroll-to-summer-pass
+              href="#passes"
+              data-scroll-to-passes
             >
-              View the Summer Flexi Week Pass →
+              View pass options →
             </a>
           </div>
         </div>
@@ -811,30 +678,141 @@ function page(cb) {
               data-event-modal-actions
               hidden
             >
-
-              <a
-                class="button event-modal-trial"
-                href="${FREE_TRIAL_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-event-modal-trial
-              >
-                New here? Apply for a free trial week
+              <a class="button event-modal-single" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer" data-event-modal-single>
+                Buy a Single Event Pass
               </a>
-
-              <button
-                class="button event-modal-pass"
-                type="button"
-                data-event-modal-pass
-              >
-                Buy a Flexi Week Pass
+              <button class="button event-modal-pass" type="button" data-event-modal-pass>
+                Compare all pass options
               </button>
             </div>
           </div>
         </div>
       </section>
 
+      <div class="wave" style="background:#d1ece6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#fbfaf6;">
+          </path>
+        </svg>
+      </div>
+
+
+      <section class="section soft relief-section swap-section">
+        <div class="content center">
+          <p class="eyebrow dark">Give what you can. Take what you need</p>
+          <h2>Swap room</h2>
+
+          <p>
+            When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
+            You can also browse the Swap Room and take what your family can use.
+            It is not a one-for-one system — simply give when you can, and take when something is useful.
+          </p>
+
+          <img
+            src="./assets/swap-room.jpg"
+            alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
+            class="photo"
+          >
+
+          <p>
+            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
+            Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
+          </p>
+
+          <p>
+            We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
+          </p>
+        </div>
+      </section>
+
       <div class="wave" style="background:#fbfaf6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#f4efe6;">
+          </path>
+        </svg>
+      </div>
+
+      <section class="section included-section">
+        <div class="content center">
+        <p class="eyebrow dark">Designed for ordinary family days</p>
+        <h2>Come for company, calm, or simply somewhere ready</h2>
+
+        <p class="included-intro">
+          A ready-to-use play-and-swap space for spontaneous visits, social sessions and the gaps between other plans.
+        </p>
+
+          <div class="included-grid calm-cards">
+            <div class="included-card">
+              <h3>No preparation needed</h3>
+              <p>
+                The toys, books, play areas and movement room are ready when you arrive.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Stay as long as it works</h3>
+              <p>
+                Pop in for 30 minutes or settle in for a longer morning or afternoon.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Open every day</h3>
+              <p>
+                Available from 6am to 9pm, 365 days a year.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Social or quiet</h3>
+              <p>
+                Join a listed event or visit outside event times when you prefer a calmer atmosphere.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Self check-in</h3>
+              <p>
+                Come and go independently once you have access.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Tea and coffee included</h3>
+              <p>
+                Make a drink without needing to buy something every time you visit.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Bring your own food</h3>
+              <p>
+                Pack what your child actually eats and stay while the day is going well.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Space for adults too</h3>
+              <p>
+                Sit, talk, read, feed your child or do a little light laptop catch-up.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Open when others are not</h3>
+              <p>
+                Use the space from 6am to 9pm, including late afternoons and early evenings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave" style="background:#f4efe6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -922,69 +900,47 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft pricing-section summer-pricing-section">
+      <section class="section soft pricing-section visit-options-section" id="passes">
         <div class="content content-wide center">
-          <p class="eyebrow dark">Summer offer</p>
-          <h2>Summer Flexi Week Pass</h2>
+          <p class="eyebrow dark">Choose what fits your plans</p>
+          <h2>Three flexible ways to visit</h2>
+          <p class="section-intro">Come for one social session, keep a small pack for occasional events, or make the space available to your family for a full week. Every option covers one household.</p>
 
-          <p class="section-intro">
-            Until the start of school, Swap & Play is available through a simple summer pass:
-            one week of flexible access built around naps, weather, visitors and changing plans. Come as often as you like during your seven days—without booking another activity.
-          </p>
+          <div class="pass-options-grid">
+            <article class="price-card visit-pass-card">
+              <div class="label">One event</div>
+              <h3>Single Event Pass</h3>
+              <p class="small">For one scheduled social session without committing to a full week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£7.50</strong><div class="membership-weekly-price">One event</div></div>
+              <ul class="membership-benefits-list">
+                <li>Entry to one scheduled event</li><li>Play rooms and Swap Room during the event</li><li>Tea and coffee included</li><li>Drop in anytime during longer sessions</li>
+              </ul>
+              <a class="button" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy Single Event Pass</a>
+            </article>
 
-          <div class="summer-offer-card price-card featured membership-card" id="summer-pass">
-            <span class="summer-shape summer-sun" aria-hidden="true"></span>
-            <span class="summer-shape summer-strawberry-one" aria-hidden="true"></span>
-            <span class="summer-shape summer-strawberry-two" aria-hidden="true"></span>
+            <article class="price-card visit-pass-card">
+              <div class="label">Five visits</div>
+              <h3>5-Event Pack</h3>
+              <p class="small">For families who want to join events regularly without using all visits in one week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£30</strong><div class="membership-weekly-price">£6 per event</div></div>
+              <ul class="membership-benefits-list">
+                <li>Five scheduled event visits</li><li>Use across different weeks</li><li>Play rooms and Swap Room during each event</li><li>Tea and coffee included</li>
+              </ul>
+              <p class="small-note">Valid for 6 weeks from the first event you attend.</p>
+              <a class="button" href="${FIVE_EVENT_PACK_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 5-Event Pack</a>
+            </article>
 
-            <div class="label popular">Summer offer</div>
-            <h3>Summer Flexi Week Pass</h3>
-
-            <p class="small summer-card-intro">
-              A flexible 7-day pass for families who want a calm place to land during the summer holidays.
-            </p>
-
-            <div class="membership-total summer-total">
-              <span class="membership-total-label">Per household</span>
-              <strong class="membership-total-price">£15</strong>
-              <div class="membership-weekly-price">7 days of unlimited visits</div>
-              <p class="membership-cancel-note">
-                Buy now. Activate anytime.
-              </p>
-            </div>
-
-            <ul class="membership-benefits-list">
-              <li>Unlimited visits for your household for 7 days</li>
-              <li>No booking slots</li>
-              <li>Join any social session</li>
-              <li>Use of the play rooms and Swap Room</li>
-              <li>Tea and coffee included</li>
-              <li>Bring your own snacks</li>
-              <li>Your 7 days start when you first visit</li>
-            </ul>
-
-            <p class="small-note summer-activation-note">
-              Passes can be activated from the day after purchase and no later than 31 August 2026.
-              After your first visit, your pass is valid for 7 consecutive days.
-            </p>
-
-            <a
-              class="button summer-button"
-              href="${SUMMER_PASS_PAYMENT_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Buy Summer Flexi Week Pass
-            </a>
-
-            <p class="small-note membership-link-note">
-              You will be taken to Stripe to pay securely by card.
-            </p>
+            <article class="price-card featured membership-card visit-pass-card">
+              <div class="label popular">Most flexible</div>
+              <h3>7-Day Flexi Pass</h3>
+              <p class="small">Keep a calm, ready-to-use play space available to your family for a full week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£15</strong><div class="membership-weekly-price">7 days of unlimited visits</div><p class="membership-cancel-note">Your week starts with your first visit.</p></div>
+              <ul class="membership-benefits-list">
+                <li>Unlimited visits for 7 consecutive days</li><li>Independent access every day from 6am to 9pm</li><li>All scheduled events during your active week</li><li>Play rooms and Swap Room</li><li>Tea and coffee included</li><li>Bring your own food and snacks</li>
+              </ul>
+              <a class="button summer-button" href="${WEEKLY_PASS_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 7-Day Flexi Pass</a>
+            </article>
           </div>
-
-          <p class="summer-after-note">
-            Available until the start of school. Autumn membership options will be announced later.
-          </p>
         </div>
       </section>
 
@@ -999,46 +955,16 @@ function page(cb) {
 
       <section class="section light faq-section">
         <div class="content center">
-          <p class="eyebrow dark">Good to know</p>
-          <h2>A few useful details</h2>
-
+          <p class="eyebrow dark">Good to know</p><h2>A few useful details</h2>
           <div class="faq-list">
-            <div class="faq-item">
-              <h3>How does the Summer Flexi Week Pass work?</h3>
-              <p>Buy your pass online. It can be activated from the next day onwards, and your 7 days start when you first visit.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Is this a playgroup, class or soft play?</h3>
-              <p>
-                No. There is no led activity, fixed programme or large soft-play structure.
-                Children play freely while their accompanying adults supervise them.
-                Your pass gives you flexible access during opening hours.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>Do I need to book?</h3>
-              <p>No. Summer Flexi Week Pass holders can come during opening hours without booking a slot.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can I visit before buying a pass?</h3>
-              <p>Yes. Wednesday Open Play is there for families who would like to see the space before buying a summer pass.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can I bring food?</h3>
-              <p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p>
-            </div>
-            <div class="faq-item">
-              <h3>What if it gets busy?</h3>
-              <p>We will use gentle occupancy updates so families can make informed choices and the space can stay calm.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can parents use a laptop there?</h3>
-              <p>Yes. You are welcome to bring a laptop and get some work done while your little one plays nearby. Parents and carers remain responsible for supervising their children at all times.</p>
-            </div>
-            <div class="faq-item">
-              <h3>What happens after summer?</h3>
-              <p>The Summer Flexi Week Pass is a seasonal offer available until the start of school. Autumn membership options will be announced later.</p>
-            </div>
+            <div class="faq-item"><h3>What is included with a Single Event Pass?</h3><p>It covers your household for one scheduled social session, including the play rooms, Swap Room, and tea and coffee during the event.</p></div>
+            <div class="faq-item"><h3>How does the 5-Event Pack work?</h3><p>The pack gives your household entry to five separate scheduled events and is valid for 6 weeks from the first event you attend.</p></div>
+            <div class="faq-item"><h3>How does the 7-Day Flexi Pass work?</h3><p>Your seven days begin with your first visit. During that week you can visit independently from 6am to 9pm every day and join any scheduled events.</p></div>
+            <div class="faq-item"><h3>Are the events led classes?</h3><p>No. They are informal social sessions rather than singing, story or activity classes. Children play freely while adults supervise and socialise.</p></div>
+            <div class="faq-item"><h3>Can I come when no event is running?</h3><p>Yes, with an active 7-Day Flexi Pass. Single Event Passes and 5-Event Packs are for scheduled events only.</p></div>
+            <div class="faq-item"><h3>Can I see the space before buying?</h3><p>Yes. Wednesday Open Play is open to everyone and does not require a pass.</p></div>
+            <div class="faq-item"><h3>Can I bring food?</h3><p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p></div>
+            <div class="faq-item"><h3>Can parents use a laptop?</h3><p>Yes. You may do some light work while your child plays nearby. Parents and carers remain responsible for supervision.</p></div>
           </div>
         </div>
       </section>
@@ -1071,7 +997,7 @@ function page(cb) {
       </section>
 
       <section class="photo-strip">
-        <img src="./assets/main-room.jpg" alt="Parents drawing with their children" class="photo">
+        <img src="./assets/shoes-at-door.jpg" alt="Small children’s shoes lined up at the entrance" class="photo">
       </section>
 
       <div class="wave" style="background:#e9e6e1;">
@@ -1136,7 +1062,7 @@ function page(cb) {
     const pass = shadow.querySelector('[data-event-modal-pass]')
     const close_buttons = shadow.querySelectorAll('[data-close-event-modal]')
     const actions = shadow.querySelector('[data-event-modal-actions]')
-    const trial = shadow.querySelector('[data-event-modal-trial]')
+    const single = shadow.querySelector('[data-event-modal-single]')
 
     if (!modal) return
 
@@ -1154,15 +1080,22 @@ function page(cb) {
       })
     })
 
+    shadow.querySelectorAll('[data-scroll-to-calendar]').forEach(button => {
+      button.addEventListener('click', () => {
+        history.replaceState(null, '', '#calendar')
+        scroll_to_target('#calendar')
+      })
+    })
+
     close_buttons.forEach(button => {
       button.addEventListener('click', close_modal)
     })
 
-    trial.addEventListener('click', close_modal)
+    single?.addEventListener('click', close_modal)
 
     pass.addEventListener('click', () => {
       close_modal()
-      scroll_to_summer_pass()
+      scroll_to_passes()
     })
 
     modal.addEventListener('keydown', event => {
@@ -1239,14 +1172,14 @@ function page(cb) {
 
   shadow.querySelectorAll('buy-pass').forEach(node => {
     const btn = buy.cloneNode(true)
-    btn.onclick = scroll_to_summer_pass
+    btn.onclick = scroll_to_passes
     node.replaceWith(btn)
   })
 
-  shadow.querySelectorAll('[data-scroll-to-summer-pass]').forEach(link => {
+  shadow.querySelectorAll('[data-scroll-to-passes]').forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault()
-      scroll_to_summer_pass()
+      scroll_to_passes()
     })
   })
 
@@ -1271,14 +1204,14 @@ function page(cb) {
 
     if (
       path.endsWith('/trial') ||
-      path.endsWith('/summer') ||
+      path.endsWith('/passes') ||
       hash === '#trial' ||
       hash === '#apply' ||
       hash === '#membership' ||
       hash === '#pricing' ||
-      hash === '#summer-pass'
+      hash === '#passes'
     ) {
-      scroll_to_target('#summer-pass')
+      scroll_to_target('#passes')
       return
     }
 
@@ -1287,9 +1220,9 @@ function page(cb) {
     }
   }
 
-  function scroll_to_summer_pass() {
-    history.replaceState(null, '', '#summer-pass')
-    scroll_to_target('#summer-pass')
+  function scroll_to_passes() {
+    history.replaceState(null, '', '#passes')
+    scroll_to_target('#passes')
   }
 
   function scroll_to_target(selector) {
@@ -1308,7 +1241,7 @@ module.exports = get_theme
 
 function get_theme() {
   return `
-    :host {
+    :host{
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -1320,38 +1253,35 @@ function get_theme() {
       --cream: #fbfaf6;
       --beige: #e9e6e1;
       --heather-dark: #8f64a4;
-      --summer-yellow: #f7d879;
+      
       --summer-strawberry: #e85f73;
-      --summer-leaf: #7fbf8f;
+      
       --ink: #2f4f4f;
       --muted: #6f8079;
       --line-soft: rgba(47, 79, 79, 0.1);
       --shadow-card: 0 16px 44px rgba(47, 79, 79, 0.075);
     }
 
-    * {
+    *{
       box-sizing: border-box;
     }
 
-    [hidden] {
+    [hidden]{
       display: none !important;
     }
 
-    .page {
+    .page{
       overflow-x: hidden;
       background: var(--cream);
       color: var(--ink);
       line-height: 1.7;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
+    h1, h2, h3, p{
       margin-top: 0;
     }
 
-    h1 {
+    h1{
       max-width: 720px;
       margin: 0 0 1.25rem;
       color: var(--cream);
@@ -1361,14 +1291,14 @@ function get_theme() {
       letter-spacing: -0.06em;
     }
 
-    h2 {
+    h2{
       margin: 0 0 1.5rem;
       font-size: clamp(2rem, 4vw, 3.4rem);
       line-height: 1.05;
       letter-spacing: -0.045em;
     }
 
-    h3 {
+    h3{
       margin: 0 0 0.55rem;
       color: var(--ink);
       font-size: 1.22rem;
@@ -1376,18 +1306,18 @@ function get_theme() {
       letter-spacing: -0.02em;
     }
 
-    p {
+    p{
       margin-bottom: 1.15rem;
       font-size: 1.08rem;
       line-height: 1.72;
     }
 
-    a {
+    a{
       color: var(--heather-dark);
       text-underline-offset: 0.18em;
     }
 
-    .eyebrow {
+    .eyebrow{
       margin-bottom: 0.9rem;
       color: rgba(255, 255, 255, 0.86);
       font-size: 0.76rem;
@@ -1396,12 +1326,11 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .eyebrow.dark {
+    .eyebrow.dark{
       color: var(--heather-dark);
     }
 
-    button,
-    .button {
+    button, .button{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1424,32 +1353,28 @@ function get_theme() {
         transform 0.25s ease;
     }
 
-    button:hover,
-    .button:hover {
+    button:hover, .button:hover{
       background: var(--heather-dark);
       transform: translateY(-1px);
     }
 
-    button:focus-visible,
-    .button:focus-visible,
-    a:focus-visible {
+    button:focus-visible, .button:focus-visible, a:focus-visible{
       outline: 3px solid rgba(143, 100, 164, 0.4);
       outline-offset: 3px;
     }
 
-    .hero-actions {
+    .hero-actions{
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.85rem;
     }
 
-    .hero-actions button,
-    .hero-actions .button {
+    .hero-actions button, .hero-actions .button{
       margin-right: 0;
     }
 
-    .wave {
+    .wave{
       display: block;
       width: 100%;
       height: 118px;
@@ -1457,45 +1382,45 @@ function get_theme() {
       line-height: 0;
     }
 
-    .wave svg {
+    .wave svg{
       display: block;
       width: 100%;
       height: 100%;
     }
 
-    .section {
+    .section{
       padding: 5rem 1.5rem;
     }
 
-    .light {
+    .light{
       background: var(--sand);
     }
 
-    .soft {
+    .soft{
       background: var(--pale-green);
     }
 
-    .content {
+    .content{
       max-width: 960px;
       margin: 0 auto;
       letter-spacing: 0.1px;
     }
 
-    .content p + p {
+    .content p + p{
       margin-top: -0.35rem;
     }
 
-    .content-wide {
+    .content-wide{
       max-width: 1320px;
       margin: 0 auto;
     }
 
-    .content-xl {
+    .content-xl{
       max-width: 1480px;
       margin: 0 auto;
     }
 
-    .content-split {
+    .content-split{
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
       align-items: start;
@@ -1503,24 +1428,24 @@ function get_theme() {
       max-width: 1180px;
     }
 
-    .center {
+    .center{
       text-align: center;
     }
 
-    .center p {
+    .center p{
       max-width: 720px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .section-intro {
+    .section-intro{
       max-width: 720px;
       margin: 0 auto 2.2rem;
       font-size: 1.08rem;
       line-height: 1.62;
     }
 
-    .photo {
+    .photo{
       display: block;
       width: 100%;
       max-width: 820px;
@@ -1534,30 +1459,30 @@ function get_theme() {
       object-position: center 30%;
     }
 
-    .swap-section .photo {
+    .swap-section .photo{
       width: auto;
       object-fit: contain;
     }
 
-    .photo-strip {
+    .photo-strip{
       padding: 0 1.5rem 4rem;
       background: var(--beige);
     }
 
-    .photo-strip .photo {
+    .photo-strip .photo{
       margin: 0 auto;
       border-color: var(--cream);
     }
 
     /* Hero */
 
-    .hero {
+    .hero{
       padding: 3rem 1.5rem 1rem;
       background: var(--pale-blue);
       text-align: left;
     }
 
-    .hero-inner {
+    .hero-inner{
       display: grid;
       grid-template-columns: minmax(0, 680px) minmax(320px, 540px);
       align-items: center;
@@ -1567,17 +1492,17 @@ function get_theme() {
       margin: 0 auto;
     }
 
-    .hero-copy {
+    .hero-copy{
       padding: 2rem 0 4rem;
     }
 
-    .logo img {
+    .logo img{
       height: 340px;
       margin-bottom: 2rem;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
     }
 
-    .hero .logo img {
+    .hero .logo img{
       opacity: 0.96;
       filter:
         brightness(0)
@@ -1585,7 +1510,7 @@ function get_theme() {
         drop-shadow(0 2px 10px rgba(0, 0, 0, 0.08));
     }
 
-    .hero-subtitle {
+    .hero-subtitle{
       max-width: 600px;
       margin-bottom: 1rem;
       color: var(--cream);
@@ -1593,7 +1518,7 @@ function get_theme() {
       line-height: 1.45;
     }
 
-    .hero-photo {
+    .hero-photo{
       width: 100%;
       max-width: 540px;
       margin: 0 auto;
@@ -1606,7 +1531,7 @@ function get_theme() {
       transform: rotate(-1deg);
     }
 
-    .hero-photo .photo {
+    .hero-photo .photo{
       display: block;
       width: 100%;
       max-width: none;
@@ -1620,30 +1545,30 @@ function get_theme() {
 
     /* Location */
 
-    .location-section {
+    .location-section{
       background: var(--sand);
     }
 
-    .location-section h2 {
+    .location-section h2{
       max-width: 760px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .location-intro {
+    .location-intro{
       max-width: 760px;
       margin: 0 auto 1rem;
       font-size: 1.18rem;
     }
 
-    .location-tagline {
+    .location-tagline{
       max-width: 720px;
       margin: 0 auto 3rem;
       font-size: 1.18rem;
       font-weight: 500;
     }
 
-    .location-visuals {
+    .location-visuals{
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
       align-items: center;
@@ -1652,7 +1577,7 @@ function get_theme() {
       margin: 0 auto 2.25rem;
     }
 
-    .location-card {
+    .location-card{
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1664,7 +1589,7 @@ function get_theme() {
       box-shadow: 0 20px 55px rgba(47, 79, 79, 0.09);
     }
 
-    .location-card img {
+    .location-card img{
       display: block;
       width: 100%;
       height: 100%;
@@ -1672,22 +1597,21 @@ function get_theme() {
       object-position: center;
     }
 
-    .building-card,
-    .map-card {
+    .building-card, .map-card{
       padding: 0;
       background: #f8f2e8;
     }
 
-    .map-card {
+    .map-card{
       aspect-ratio: 4 / 5;
     }
 
-    .map-card img {
+    .map-card img{
       object-fit: contain;
       object-position: center;
     }
 
-    .location-line {
+    .location-line{
       max-width: 720px;
       margin: 0 auto;
       color: var(--muted);
@@ -1696,22 +1620,22 @@ function get_theme() {
 
     /* Purpose and photo sections */
 
-    .small-purpose {
+    .small-purpose{
       background: var(--cream);
     }
 
-    .photo-story {
+    .photo-story{
       padding: 1rem 1.5rem 3.5rem;
       background: var(--cream);
     }
 
-    .photo-grid {
+    .photo-grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
-    .story-photo {
+    .story-photo{
       display: block;
       width: 100%;
       height: 420px;
@@ -1722,39 +1646,38 @@ function get_theme() {
       transition: transform 0.25s ease;
     }
 
-    .story-photo:hover {
+    .story-photo:hover{
       transform: translateY(-3px);
     }
 
-    .relief-section,
-    .swap-section {
-      background: var(--pale-green);
+    .relief-section, .swap-section{
+      background: var(--cream);
     }
 
-    .relief-section p:not(.eyebrow) {
+    .relief-section p:not(.eyebrow){
       max-width: 820px;
       font-size: 1.2rem;
     }
 
     /* Included cards */
 
-    .included-section {
+    .included-section{
       background: var(--sand);
     }
 
-    .included-intro {
+    .included-intro{
       max-width: 700px;
       margin: 0 auto 2rem;
     }
 
-    .included-grid {
+    .included-grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
-    .included-card {
+    .included-card{
       padding: 1.65rem;
       border: 1px solid rgba(47, 79, 79, 0.1);
       border-radius: 24px;
@@ -1763,12 +1686,12 @@ function get_theme() {
       text-align: left;
     }
 
-    .included-card h3 {
+    .included-card h3{
       margin-bottom: 0.65rem;
       font-size: 1.12rem;
     }
 
-    .included-card p {
+    .included-card p{
       margin: 0;
       color: var(--muted);
       font-size: 0.98rem;
@@ -1777,29 +1700,29 @@ function get_theme() {
 
     /* Weekly calendar */
 
-    .weekly-calendar-section {
+    .weekly-calendar-section{
       position: relative;
       padding-right: 1rem;
       padding-left: 1rem;
-      background: var(--cream);
+      background: var(--pale-green);
     }
 
-    .weekly-calendar-section .content-wide {
+    .weekly-calendar-section .content-wide{
       max-width: 1600px;
     }
 
-    .weekly-calendar-section h2 {
+    .weekly-calendar-section h2{
       max-width: 820px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .weekly-calendar-section .section-intro {
+    .weekly-calendar-section .section-intro{
       max-width: 790px;
       margin-bottom: 1.5rem;
     }
 
-    .calendar-legend {
+    .calendar-legend{
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -1809,7 +1732,7 @@ function get_theme() {
       color: var(--muted);
     }
 
-    .calendar-key {
+    .calendar-key{
       display: inline-flex;
       align-items: center;
       gap: 0.48rem;
@@ -1818,27 +1741,27 @@ function get_theme() {
       line-height: 1.3;
     }
 
-    .calendar-key-dot {
+    .calendar-key-dot{
       width: 11px;
       height: 11px;
       flex: 0 0 11px;
       border-radius: 50%;
     }
 
-    .public-dot {
+    .public-dot{
       background: var(--pale-blue);
     }
 
-    .member-dot {
+    .member-dot{
       background: var(--pale-pink);
     }
 
-    .flexible-dot {
+    .flexible-dot{
       border: 1px solid rgba(47, 79, 79, 0.16);
       background: var(--pale-green);
     }
 
-    .calendar-scroll {
+    .calendar-scroll{
       width: 100%;
       padding-bottom: 0.8rem;
       overflow-x: auto;
@@ -1849,27 +1772,27 @@ function get_theme() {
       -webkit-overflow-scrolling: touch;
     }
 
-    .calendar-scroll:focus-visible {
+    .calendar-scroll:focus-visible{
       outline: 3px solid rgba(143, 100, 164, 0.3);
       outline-offset: 5px;
       border-radius: 24px;
     }
 
-    .calendar-scroll::-webkit-scrollbar {
+    .calendar-scroll::-webkit-scrollbar{
       height: 8px;
     }
 
-    .calendar-scroll::-webkit-scrollbar-track {
+    .calendar-scroll::-webkit-scrollbar-track{
       border-radius: 999px;
       background: rgba(47, 79, 79, 0.06);
     }
 
-    .calendar-scroll::-webkit-scrollbar-thumb {
+    .calendar-scroll::-webkit-scrollbar-thumb{
       border-radius: 999px;
       background: rgba(47, 79, 79, 0.24);
     }
 
-    .week-calendar {
+    .week-calendar{
       width: 100%;
       min-width: 1435px;
       max-width: 1600px;
@@ -1882,18 +1805,17 @@ function get_theme() {
       text-align: left;
     }
 
-    .calendar-header-row,
-    .calendar-body-row {
+    .calendar-header-row, .calendar-body-row{
       display: grid;
       grid-template-columns: repeat(7, minmax(205px, 1fr));
     }
 
-    .calendar-header-row {
+    .calendar-header-row{
       border-bottom: 1px solid rgba(47, 79, 79, 0.13);
       background: var(--sand);
     }
 
-    .calendar-day-heading {
+    .calendar-day-heading{
       padding: 1rem 1.1rem;
       border-right: 1px solid rgba(47, 79, 79, 0.12);
       color: var(--ink);
@@ -1904,25 +1826,25 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .calendar-day-heading:last-child {
+    .calendar-day-heading:last-child{
       border-right: none;
     }
 
-    .public-heading {
+    .public-heading{
       background: rgba(111, 168, 220, 0.15);
       color: #456f92;
     }
 
-    .weekend-heading {
+    .weekend-heading{
       background: rgba(209, 236, 230, 0.34);
     }
 
-    .calendar-body-row {
+    .calendar-body-row{
       min-height: 0;
       align-items: stretch;
     }
 
-    .calendar-day-cell {
+    .calendar-day-cell{
       position: relative;
       isolation: isolate;
       display: grid;
@@ -1944,15 +1866,15 @@ function get_theme() {
         );
     }
 
-    .calendar-day-cell:last-child {
+    .calendar-day-cell:last-child{
       border-right: none;
     }
 
-    .public-cell {
+    .public-cell{
       background-color: rgba(111, 168, 220, 0.035);
     }
 
-    .weekend-cell {
+    .weekend-cell{
       background-color: rgba(244, 239, 230, 0.42);
     }
 
@@ -1961,7 +1883,7 @@ function get_theme() {
      * The full-day access event sits behind timed social events.
      */
 
-    .week-event {
+    .week-event{
       position: relative;
       z-index: 1;
       display: block;
@@ -1986,49 +1908,49 @@ function get_theme() {
       -webkit-appearance: none;
     }
 
-    .week-event:hover {
+    .week-event:hover{
       box-shadow: none;
       transform: none;
       filter: brightness(0.98);
     }
 
-    .week-event:focus-visible {
+    .week-event:focus-visible{
       z-index: 4;
       outline: 3px solid rgba(143, 100, 164, 0.44);
       outline-offset: 2px;
     }
 
-    .member-event {
+    .member-event{
       border: 1px solid rgba(244, 166, 192, 0.76);
       background: rgba(244, 166, 192, 0.94);
     }
 
-    .member-event:hover {
+    .member-event:hover{
       background: var(--pale-pink);
     }
 
-    .public-event {
+    .public-event{
       border: 1px solid rgba(77, 128, 173, 0.35);
       background: var(--pale-blue);
       color: white;
     }
 
-    .public-event:hover {
+    .public-event:hover{
       background: #639ed3;
     }
 
-    .flexible-event {
+    .flexible-event{
       border: 1px dashed rgba(47, 79, 79, 0.18);
       background: rgba(209, 236, 230, 0.28);
     }
 
-    .flexible-event:hover {
+    .flexible-event:hover{
       background: rgba(209, 236, 230, 0.42);
     }
 
     /* Full-day flexible-access layer */
 
-    .availability-event {
+    .availability-event{
       z-index: 0;
       grid-column: 1;
       display: flex;
@@ -2044,19 +1966,19 @@ function get_theme() {
       box-shadow: none;
     }
 
-    .availability-event:hover {
+    .availability-event:hover{
       background: rgba(209, 236, 230, 0.38);
       box-shadow: none;
       filter: none;
     }
 
-    .availability-event .week-event-time {
+    .availability-event .week-event-time{
       margin-bottom: 0.12rem;
       color: var(--muted);
       font-size: 0.61rem;
     }
 
-    .availability-event .week-event-title {
+    .availability-event .week-event-title{
       color: var(--ink);
       font-size: 0.72rem;
       line-height: 1.1;
@@ -2064,7 +1986,7 @@ function get_theme() {
 
     /* Timed event layer */
 
-    .social-event {
+    .social-event{
       z-index: 2;
       grid-column: 1;
       width: auto;
@@ -2072,20 +1994,19 @@ function get_theme() {
       box-shadow: 0 6px 18px rgba(47, 79, 79, 0.14);
     }
 
-
-    .social-event:hover {
+    .social-event:hover{
       box-shadow: 0 8px 22px rgba(47, 79, 79, 0.18);
     }
 
-    .weekend-cell .availability-event {
+    .weekend-cell .availability-event{
       background: rgba(209, 236, 230, 0.54);
     }
 
-    .weekend-cell .availability-event:hover {
+    .weekend-cell .availability-event:hover{
       background: rgba(209, 236, 230, 0.72);
     }
 
-    .week-event-time {
+    .week-event-time{
       display: block;
       margin-bottom: 0.1rem;
       color: var(--heather-dark);
@@ -2095,7 +2016,7 @@ function get_theme() {
       letter-spacing: 0.01em;
     }
 
-    .week-event-extra {
+    .week-event-extra{
       display: block;
       margin-top: 0.12rem;
       font-size: 0.52rem;
@@ -2104,11 +2025,11 @@ function get_theme() {
       opacity: 0.82;
     }
 
-    .week-event-extra + .week-event-extra {
+    .week-event-extra + .week-event-extra{
       margin-top: 0.05rem;
     }
 
-    .week-event-title {
+    .week-event-title{
       display: block;
       margin: 0;
       color: var(--ink);
@@ -2119,13 +2040,11 @@ function get_theme() {
       overflow-wrap: break-word;
     }
 
-    .public-event .week-event-time,
-    .public-event .week-event-title,
-    .public-event .week-event-extra {
+    .public-event .week-event-time, .public-event .week-event-title, .public-event .week-event-extra{
       color: white;
     }
 
-    .calendar-summary {
+    .calendar-summary{
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
@@ -2135,11 +2054,11 @@ function get_theme() {
       padding: 1.25rem 1.35rem;
       border: 1px solid rgba(47, 79, 79, 0.08);
       border-radius: 20px;
-      background: rgba(209, 236, 230, 0.48);
+      background: var(--cream);
       text-align: left;
     }
 
-    .calendar-summary p {
+    .calendar-summary p{
       max-width: none;
       margin: 0;
       color: var(--muted);
@@ -2147,11 +2066,11 @@ function get_theme() {
       line-height: 1.55;
     }
 
-    .calendar-summary strong {
+    .calendar-summary strong{
       color: var(--ink);
     }
 
-    .calendar-pass-link {
+    .calendar-pass-link{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -2163,7 +2082,7 @@ function get_theme() {
       color: var(--heather-dark);
       font-size: 0.88rem;
       font-weight: 850;
-      line-height: 1.25;
+      line-height: 1.25;  
       text-align: center;
       text-decoration: none;
       white-space: nowrap;
@@ -2173,7 +2092,7 @@ function get_theme() {
         transform 0.2s ease;
     }
 
-    .calendar-pass-link:hover {
+    .calendar-pass-link:hover{
       background: var(--heather-dark);
       color: white;
       transform: translateY(-1px);
@@ -2181,7 +2100,7 @@ function get_theme() {
 
   /* Event modal */
 
-  .event-modal {
+  .event-modal{
     position: fixed;
     z-index: 10000;
     inset: 0;
@@ -2191,7 +2110,7 @@ function get_theme() {
     text-align: left;
   }
 
-  .event-modal-backdrop {
+  .event-modal-backdrop{
     position: absolute;
     inset: 0;
     display: block;
@@ -2212,14 +2131,13 @@ function get_theme() {
     -webkit-backdrop-filter: blur(4px);
   }
 
-  .event-modal-backdrop:hover,
-  .event-modal-backdrop:focus {
+  .event-modal-backdrop:hover, .event-modal-backdrop:focus{
     background: rgba(30, 48, 48, 0.6);
     box-shadow: none;
     transform: none;
   }
 
-  .event-modal-panel {
+  .event-modal-panel{
     position: relative;
     z-index: 1;
     width: min(520px, 100%);
@@ -2236,7 +2154,7 @@ function get_theme() {
     scrollbar-width: thin;
   }
 
-  .event-modal-close {
+  .event-modal-close{
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
@@ -2262,19 +2180,19 @@ function get_theme() {
     -webkit-appearance: none;
   }
 
-  .event-modal-close:hover {
+  .event-modal-close:hover{
     background: rgba(47, 79, 79, 0.14);
     box-shadow: none;
     color: var(--ink);
     transform: none;
   }
 
-  .event-modal-close:focus-visible {
+  .event-modal-close:focus-visible{
     outline: 3px solid rgba(143, 100, 164, 0.4);
     outline-offset: 2px;
   }
 
-  .event-modal-time {
+  .event-modal-time{
     max-width: none;
     margin: 0 3.25rem 0.35rem 0;
     color: var(--heather-dark);
@@ -2283,14 +2201,14 @@ function get_theme() {
     line-height: 1.3;
   }
 
-  .event-modal-panel h3 {
+  .event-modal-panel h3{
     margin: 0 3.25rem 0.65rem 0;
     color: var(--ink);
     font-size: 1.55rem;
     line-height: 1.12;
   }
 
-  .event-modal-access {
+  .event-modal-access{
     display: flex;
     width: auto;
     max-width: none;
@@ -2306,7 +2224,7 @@ function get_theme() {
     line-height: 1.4;
   }
 
-  .event-modal-access::before {
+  .event-modal-access::before{
     content: "";
     width: 8px;
     height: 8px;
@@ -2317,7 +2235,7 @@ function get_theme() {
     background: var(--pale-pink);
   }
 
-  .event-modal-description {
+  .event-modal-description{
     max-width: none;
     margin: 0;
     color: var(--muted);
@@ -2325,25 +2243,17 @@ function get_theme() {
     line-height: 1.5;
   }
 
-  .event-modal-actions {
+  .event-modal-actions{
     display: grid;
     gap: 0.7rem;
     margin-top: 1rem;
   }
 
-  .event-modal-actions[hidden] {
+  .event-modal-actions[hidden]{
     display: none;
   }
 
-  .event-modal-invitation {
-    max-width: none;
-    margin: 0 0 0.1rem;
-    color: var(--ink);
-    font-size: 0.92rem;
-    line-height: 1.42;
-  }
-
-  .event-modal-actions .button {
+  .event-modal-actions .button{
     display: flex;
     width: 100%;
     max-width: none;
@@ -2355,33 +2265,33 @@ function get_theme() {
     text-align: center;
   }
 
-  .event-modal-pass {
+  .event-modal-pass{
     border: 2px solid var(--pale-pink);
     background: transparent;
     box-shadow: none;
     color: var(--heather-dark);
   }
 
-  .event-modal-pass:hover {
+  .event-modal-pass:hover{
     background: var(--pale-pink);
     color: white;
   }
 
     /* Reviews and press */
 
-    .reviews-section {
+    .reviews-section{
       background: var(--pale-blue);
       color: white;
     }
 
-    .reviews-grid {
+    .reviews-grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
-    .review-card {
+    .review-card{
       padding: 1.65rem;
       border: 1px solid rgba(47, 79, 79, 0.1);
       border-radius: 26px;
@@ -2390,7 +2300,7 @@ function get_theme() {
       text-align: left;
     }
 
-    .review-card p {
+    .review-card p{
       max-width: none;
       margin: 0 0 1rem;
       color: var(--ink);
@@ -2398,7 +2308,7 @@ function get_theme() {
       line-height: 1.6;
     }
 
-    .review-card span {
+    .review-card span{
       display: block;
       color: var(--muted);
       font-size: 0.82rem;
@@ -2407,14 +2317,14 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .press-mentions {
+    .press-mentions{
       max-width: 920px;
       margin: 3.5rem auto 0;
       padding-top: 2.75rem;
       border-top: 1px solid rgba(255, 255, 255, 0.32);
     }
 
-    .press-eyebrow {
+    .press-eyebrow{
       margin-bottom: 0.7rem;
       color: rgba(255, 255, 255, 0.88);
       font-size: 0.76rem;
@@ -2423,7 +2333,7 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .press-intro {
+    .press-intro{
       max-width: 690px;
       margin: 0 auto 1.75rem;
       color: white;
@@ -2431,13 +2341,13 @@ function get_theme() {
       line-height: 1.6;
     }
 
-    .press-links {
+    .press-links{
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
     }
 
-    .press-link {
+    .press-link{
       display: flex;
       min-height: 190px;
       flex-direction: column;
@@ -2455,12 +2365,12 @@ function get_theme() {
         transform 0.2s ease;
     }
 
-    .press-link:hover {
+    .press-link:hover{
       box-shadow: 0 20px 52px rgba(47, 79, 79, 0.14);
       transform: translateY(-2px);
     }
 
-    .press-publication {
+    .press-publication{
       display: block;
       margin-bottom: 0.8rem;
       color: var(--heather-dark);
@@ -2470,7 +2380,7 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .press-title {
+    .press-title{
       display: block;
       margin-bottom: 1.25rem;
       color: var(--ink);
@@ -2479,7 +2389,7 @@ function get_theme() {
       line-height: 1.35;
     }
 
-    .press-read {
+    .press-read{
       display: block;
       margin-top: auto;
       color: var(--heather-dark);
@@ -2489,28 +2399,11 @@ function get_theme() {
 
     /* Summer pass */
 
-    .pricing-section {
+    .pricing-section{
       background: var(--pale-green);
     }
 
-    .summer-pricing-section {
-      background:
-        radial-gradient(
-          circle at 14% 10%,
-          rgba(247, 216, 121, 0.4) 0,
-          rgba(247, 216, 121, 0.4) 110px,
-          transparent 112px
-        ),
-        radial-gradient(
-          circle at 87% 18%,
-          rgba(244, 166, 192, 0.28) 0,
-          rgba(244, 166, 192, 0.28) 96px,
-          transparent 98px
-        ),
-        linear-gradient(180deg, var(--pale-green), #dff3ee);
-    }
-
-    .pricing-section .section-intro {
+    .pricing-section .section-intro{
       max-width: 660px;
       margin: 0 auto 2rem;
       color: var(--ink);
@@ -2518,7 +2411,7 @@ function get_theme() {
       line-height: 1.62;
     }
 
-    .price-card {
+    .price-card{
       position: relative;
       padding: 1.8rem;
       border: 1px solid var(--line-soft);
@@ -2529,166 +2422,28 @@ function get_theme() {
       text-align: left;
     }
 
-    .price-card h3 {
+    .price-card h3{
       margin: 0.5rem 0 0.75rem;
       font-size: 1.32rem;
     }
 
-    .featured {
+    .featured{
       border: 3px solid var(--pale-pink);
       box-shadow: 0 22px 58px rgba(244, 166, 192, 0.18);
     }
 
-    .summer-offer-card {
-      isolation: isolate;
-      max-width: 660px;
-      margin: 2rem auto 1.2rem;
-      padding: 2.15rem;
-      overflow: hidden;
-      border: 3px solid rgba(244, 166, 192, 0.82);
-      border-radius: 34px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.96),
-          rgba(251, 250, 246, 0.96)
-        ),
-        var(--cream);
-      box-shadow: 0 26px 68px rgba(47, 79, 79, 0.13);
-      text-align: left;
-    }
-
-    .summer-offer-card::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background:
-        radial-gradient(
-          circle at 16% 18%,
-          rgba(247, 216, 121, 0.22) 0,
-          rgba(247, 216, 121, 0.22) 84px,
-          transparent 86px
-        ),
-        radial-gradient(
-          circle at 88% 82%,
-          rgba(209, 236, 230, 0.55) 0,
-          rgba(209, 236, 230, 0.55) 120px,
-          transparent 122px
-        );
-    }
-
-    .summer-offer-card h3 {
-      margin: 0.5rem 0 0.75rem;
-      font-size: 1.82rem;
-      line-height: 1.06;
-    }
-
-    .summer-card-intro {
-      max-width: none;
-      margin: 0 0 1rem;
-      color: var(--muted);
-    }
-
-    .summer-total {
-      margin: 1rem 0 0;
-      padding: 1.35rem;
-      border: 1px solid rgba(47, 79, 79, 0.08);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.72);
-      text-align: center;
-    }
-
-    .summer-activation-note {
-      margin-top: 1rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .summer-button {
+    .summer-button{
       width: 100%;
       margin: 0.75rem 0 0;
       background: var(--summer-strawberry);
       box-shadow: 0 15px 38px rgba(232, 95, 115, 0.24);
     }
 
-    .summer-button:hover {
+    .summer-button:hover{
       background: var(--heather-dark);
     }
 
-    .summer-after-note {
-      max-width: 620px;
-      margin: 1rem auto 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.55;
-    }
-
-    .summer-shape {
-      position: absolute;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .summer-sun {
-      top: 1.1rem;
-      right: 1.1rem;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--summer-yellow);
-      box-shadow: 0 0 0 12px rgba(247, 216, 121, 0.23);
-      opacity: 0.78;
-    }
-
-    .summer-strawberry-one,
-    .summer-strawberry-two {
-      width: 28px;
-      height: 34px;
-      border-radius: 55% 55% 60% 60%;
-      background: var(--summer-strawberry);
-      opacity: 0.78;
-      transform: rotate(-16deg);
-    }
-
-    .summer-strawberry-one::before,
-    .summer-strawberry-two::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 7px;
-      width: 14px;
-      height: 10px;
-      border-radius: 60% 60% 30% 30%;
-      background: var(--summer-leaf);
-    }
-
-    .summer-strawberry-one::after,
-    .summer-strawberry-two::after {
-      content: "";
-      position: absolute;
-      inset: 7px 8px;
-      background:
-        radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.65) 0 1.2px,
-          transparent 1.4px
-        );
-      background-size: 8px 8px;
-    }
-
-    .summer-strawberry-one {
-      bottom: 1.5rem;
-      left: 1.25rem;
-    }
-
-    .summer-strawberry-two {
-      right: 5.8rem;
-      bottom: 2.2rem;
-      opacity: 0.58;
-      transform: rotate(14deg) scale(0.82);
-    }
-
-    .membership-total {
+    .membership-total{
       margin: 1rem 0 0;
       padding: 1.25rem;
       border: 1px solid rgba(47, 79, 79, 0.08);
@@ -2697,7 +2452,7 @@ function get_theme() {
       text-align: center;
     }
 
-    .membership-total-label {
+    .membership-total-label{
       display: inline-block;
       margin: 0;
       color: var(--muted);
@@ -2708,7 +2463,7 @@ function get_theme() {
       text-transform: uppercase;
     }
 
-    .membership-total-price {
+    .membership-total-price{
       display: block;
       margin-top: 0.45rem;
       color: var(--ink);
@@ -2718,7 +2473,7 @@ function get_theme() {
       letter-spacing: -0.04em;
     }
 
-    .membership-weekly-price {
+    .membership-weekly-price{
       margin-top: 0.45rem;
       color: var(--heather-dark);
       font-size: 1.22rem;
@@ -2726,7 +2481,7 @@ function get_theme() {
       line-height: 1.2;
     }
 
-    .membership-cancel-note {
+    .membership-cancel-note{
       max-width: none;
       margin: 1rem auto 0;
       padding: 0.85rem 1rem;
@@ -2738,12 +2493,12 @@ function get_theme() {
       line-height: 1.45;
     }
 
-    .membership-benefits-list {
+    .membership-benefits-list{
       margin-top: 1.25rem;
       color: var(--muted);
     }
 
-    .label {
+    .label{
       display: inline-block;
       margin-bottom: 1rem;
       padding: 0.32rem 0.68rem;
@@ -2754,21 +2509,22 @@ function get_theme() {
       font-weight: 850;
       letter-spacing: 0.09em;
       text-transform: uppercase;
+      text-align: center;
     }
 
-    .popular {
+    .popular{
       background: rgba(247, 216, 121, 0.72);
       color: var(--heather-dark);
     }
 
-    .price-card ul {
+    .price-card ul{
       margin: 1.15rem 0 0;
       padding: 0;
       list-style: none;
       text-align: left;
     }
 
-    .price-card li {
+    .price-card li{
       position: relative;
       margin-bottom: 0.65rem;
       padding-left: 1.4rem;
@@ -2777,7 +2533,7 @@ function get_theme() {
       line-height: 1.5;
     }
 
-    .price-card li::before {
+    .price-card li::before{
       content: "•";
       position: absolute;
       top: 0;
@@ -2786,7 +2542,7 @@ function get_theme() {
       font-weight: bold;
     }
 
-    .small {
+    .small{
       padding: 0;
       color: var(--muted);
       font-size: 0.98rem;
@@ -2794,29 +2550,69 @@ function get_theme() {
       text-align: left;
     }
 
-    .small-note {
+    .small-note{
       margin: 0.9rem 0 0;
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.45;
     }
 
-    .membership-link-note {
-      margin-top: 0.65rem;
-      margin-bottom: 0;
-      font-size: 0.86rem;
-      line-height: 1.45;
+    #passes, #calendar{
+      scroll-margin-top: 2rem;
+    }
+
+    /* Pass options */
+
+    .pass-options-grid{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 36px;
+    }
+
+    .visit-pass-card{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .visit-pass-card .button{
+      width: 100%;
+      margin-top: auto;
       text-align: center;
     }
 
-    #summer-pass,
-    #calendar {
-      scroll-margin-top: 2rem;
+    .visit-pass-card .membership-total{
+      text-align: center;
+    }
+
+    /* Clean photo gallery */
+
+    .photo-grid-clean{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .photo-grid-clean .story-photo{
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3.5;
+      border: 8px solid rgba(255, 255, 255, 0.7);
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 12px 34px rgba(50, 61, 72, 0.08);
+      object-fit: cover;
+      object-position: center;
     }
 
     /* FAQ */
 
-    .faq-list {
+    .faq-list{
       display: grid;
       gap: 1rem;
       max-width: 850px;
@@ -2824,47 +2620,47 @@ function get_theme() {
       text-align: left;
     }
 
-    .faq-item {
+    .faq-item{
       padding: 1.45rem 1.6rem;
       border: 1px solid rgba(47, 79, 79, 0.08);
       border-radius: 22px;
       background: var(--cream);
     }
 
-    .faq-item p {
+    .faq-item p{
       margin: 0;
       color: var(--muted);
       font-size: 1rem;
       line-height: 1.58;
     }
 
-    .day-section {
+    .day-section{
       background: var(--beige);
     }
 
     /* Footer */
 
-    .footer {
+    .footer{
       padding: 4rem 1.5rem;
       background: var(--pale-blue);
       color: white;
     }
 
-    .footer p {
+    .footer p{
       margin-bottom: 0.8rem;
       font-size: 0.95rem;
       opacity: 0.88;
     }
 
-    .footer a {
+    .footer a{
       font-weight: 800;
     }
 
-    .footer-social {
+    .footer-social{
       margin-top: 1.4rem;
     }
 
-    .footer-logo {
+    .footer-logo{
       display: block;
       width: auto;
       max-width: 260px;
@@ -2874,77 +2670,90 @@ function get_theme() {
     }
 
     @media (max-width: 1000px) {
-      .hero-inner,
-      .content-split {
+      .hero-inner, .content-split{
         grid-template-columns: 1fr;
         gap: 2rem;
       }
 
-      .hero {
+      .hero{
         padding: 2.5rem 1.25rem 0;
         text-align: center;
       }
 
-      .hero-copy {
+      .hero-copy{
         padding: 1rem 0 2rem;
       }
 
-      h1,
-      .hero-subtitle {
+      h1, .hero-subtitle{
         margin-left: auto;
         margin-right: auto;
       }
 
-      .hero-actions {
+      .hero-actions{
         justify-content: center;
       }
 
-      .photo-grid {
+      .photo-grid{
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .content-split {
+      .content-split{
         text-align: center;
       }
 
-      .content-split > div,
-      .content-split p {
+      .content-split > div, .content-split p{
         max-width: 720px;
         margin-left: auto;
         margin-right: auto;
       }
     }
 
-    @media (max-width: 900px) {
-      .included-grid,
-      .reviews-grid {
+    @media (max-width: 980px) {
+      .pass-options-grid{
         grid-template-columns: 1fr;
       }
 
-      .location-visuals {
+      .visit-pass-card{
+        max-width: 680px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .photo-grid-clean{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 900px) {
+      .included-grid, .reviews-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .location-visuals{
         grid-template-columns: 1fr;
         max-width: 620px;
       }
 
-      .location-card {
+      .location-card{
         min-height: auto;
         aspect-ratio: 4 / 3;
       }
 
-      .map-card {
+      .map-card{
         aspect-ratio: 4 / 5;
       }
 
-      .calendar-summary {
+      .calendar-summary{
         grid-template-columns: 1fr;
         gap: 1rem;
       }
 
-      .calendar-pass-link {
+      .calendar-pass-link{
         justify-self: start;
       }
 
-      .footer-logo {
+      .footer-logo{
         max-width: 240px;
         height: 78px;
         margin: -12px auto 1.3rem;
@@ -2952,43 +2761,41 @@ function get_theme() {
     }
 
     @media (max-width: 768px) {
-      h1 {
+      h1{
         font-size: clamp(2.15rem, 11vw, 3.2rem);
         line-height: 1.02;
         letter-spacing: -0.055em;
       }
 
-      h2 {
+      h2{
         font-size: clamp(1.8rem, 8vw, 2.45rem);
         line-height: 1.08;
       }
 
-      h3 {
+      h3{
         font-size: 1.12rem;
       }
 
-      p {
+      p{
         font-size: 1rem;
         line-height: 1.62;
       }
 
-      .section,
-      .hero,
-      .photo-story {
+      .section, .hero, .photo-story{
         padding-left: 1rem;
         padding-right: 1rem;
       }
 
-      .section {
+      .section{
         padding-top: 3.2rem;
         padding-bottom: 3.2rem;
       }
 
-      .hero-inner {
+      .hero-inner{
         gap: 1.25rem;
       }
 
-      .logo img {
+      .logo img{
         display: block;
         width: 240px;
         max-width: 78vw;
@@ -2996,12 +2803,12 @@ function get_theme() {
         margin: 0 auto 1.8rem;
       }
 
-      .hero-subtitle {
+      .hero-subtitle{
         font-size: 1.12rem;
         line-height: 1.5;
       }
 
-      .hero-photo {
+      .hero-photo{
         max-width: 100%;
         padding: 10px;
         border-width: 9px;
@@ -3009,260 +2816,240 @@ function get_theme() {
         transform: none;
       }
 
-      .hero-photo .photo {
+      .hero-photo .photo{
         aspect-ratio: 4 / 5;
         height: auto;
         border-radius: 22px;
         object-fit: cover;
       }
 
-      .photo,
-      .story-photo {
+      .photo, .story-photo{
         width: 100%;
         max-width: 100%;
         height: auto;
       }
 
-      .photo {
+      .photo{
         aspect-ratio: 4 / 3;
         margin: 1rem auto;
         border-width: 9px;
       }
 
-      .story-photo {
-        aspect-ratio: 4 / 5;
+      .story-photo{
         border-width: 6px;
       }
 
-      .photo-grid {
+      .photo-grid-clean .story-photo {
+        aspect-ratio: 4 / 3.5;
+      }
+
+      .photo-grid{
         grid-template-columns: 1fr;
         gap: 1rem;
       }
 
-      .included-card,
-      .price-card,
-      .summer-offer-card,
-      .faq-item,
-      .review-card {
+      .included-card, .price-card, .faq-item, .review-card{
         padding: 1.35rem;
         border-radius: 22px;
       }
 
       /* Calendar */
 
-      .weekly-calendar-section {
+      .weekly-calendar-section{
         padding-right: 0.75rem;
         padding-left: 0.75rem;
       }
 
-      .calendar-legend {
+      .calendar-legend{
         gap: 0.55rem 0.9rem;
         margin-bottom: 1.75rem;
       }
 
-      .calendar-key {
+      .calendar-key{
         font-size: 0.78rem;
       }
 
-      .week-calendar {
+      .week-calendar{
         min-width: 1435px;
       }
 
-      .week-event {
+      .week-event{
         padding: 0.38rem 0.48rem;
       }
 
-      .social-event {
+      .social-event{
         margin: 2px 0.4rem;
       }
 
-      .availability-event {
+      .availability-event{
         padding: 0.5rem;
       }
 
-      .week-event-time {
+      .week-event-time{
         margin-bottom: 0.1rem;
         font-size: 0.62rem;
       }
 
-      .week-event-title {
+      .week-event-title{
         font-size: 0.76rem;
         line-height: 1.04;
       }
 
-      .week-event-extra {
+      .week-event-extra{
         margin-top: 0.12rem;
         font-size: 0.52rem;
         line-height: 1.1;
       }
 
-      .availability-event .week-event-time {
+      .availability-event .week-event-time{
         font-size: 0.56rem;
       }
 
-      .availability-event .week-event-title {
+      .availability-event .week-event-title{
         font-size: 0.64rem;
       }
 
       /* Modal */
 
-      .event-modal {
+      .event-modal{
         padding: 0.75rem;
       }
 
-      .event-modal-panel {
+      .event-modal-panel{
         width: min(520px, 100%);
         max-height: calc(100dvh - 1.5rem);
         padding: 1.4rem;
         border-radius: 22px;
       }
 
-      .event-modal-panel h3 {
+      .event-modal-panel h3{
         font-size: 1.4rem;
       }
 
-      .event-modal-description {
+      .event-modal-description{
         font-size: 0.93rem;
         line-height: 1.45;
       }
 
-      .event-modal-invitation {
-        font-size: 0.89rem;
-        line-height: 1.38;
-      }
-
-      .event-modal-actions .button {
+      .event-modal-actions .button{
         padding: 0.78rem 0.9rem;
         font-size: 0.88rem;
       }
 
       /* Press */
 
-      .press-mentions {
+      .press-mentions{
         margin-top: 2.5rem;
         padding-top: 2.25rem;
         text-align: left;
       }
 
-      .press-eyebrow,
-      .press-intro {
+      .press-eyebrow, .press-intro{
         margin-left: 0;
         margin-right: 0;
         text-align: left;
       }
 
-      .press-links {
+      .press-links{
         grid-template-columns: 1fr;
       }
 
-      .press-link {
+      .press-link{
         min-height: 0;
         padding: 1.35rem;
         border-radius: 22px;
       }
 
-      .press-title {
+      .press-title{
         font-size: 1.08rem;
       }
 
       /* Pricing */
 
-      .summer-offer-card {
-        max-width: 620px;
-      }
-
-      .reviews-section {
+      .reviews-section{
         padding-top: 3rem;
         padding-bottom: 3rem;
       }
 
-      .reviews-section .content-wide,
-      .pricing-section .content-wide {
+      .reviews-section .content-wide, .pricing-section .content-wide{
         max-width: 100%;
       }
 
-      .reviews-section h2,
-      .reviews-section p,
-      .reviews-section .eyebrow,
-      .pricing-section h2,
-      .pricing-section p,
-      .pricing-section .eyebrow {
+      .reviews-section h2, .reviews-section p, .reviews-section .eyebrow, .pricing-section h2, .pricing-section p, .pricing-section .eyebrow{
         margin-left: 0;
         margin-right: 0;
         text-align: left;
       }
 
-      .reviews-section .section-intro,
-      .pricing-section .section-intro {
+      .reviews-section .section-intro, .pricing-section .section-intro{
         max-width: none;
         margin-bottom: 1.5rem;
       }
 
-      .reviews-grid {
+      .reviews-grid{
         display: block;
         max-width: 100%;
         margin-top: 1.5rem;
       }
 
-      .review-card {
+      .review-card{
         width: 100%;
         margin: 0 0 1rem;
         padding: 1.25rem;
         border-radius: 22px;
       }
 
-      .review-card p {
+      .review-card p{
         margin-bottom: 0.9rem;
         font-size: 0.96rem;
         line-height: 1.55;
       }
 
-      .membership-total {
+      .membership-total{
         padding: 1rem;
         border-radius: 20px;
       }
 
-      .membership-total-label {
+      .membership-total-label{
         display: block;
         margin-bottom: 0.45rem;
         text-align: center;
       }
 
-      .membership-total-price {
+      .membership-total-price{
         font-size: 2.45rem;
         text-align: center;
       }
 
-      .membership-weekly-price {
+      .membership-weekly-price{
         font-size: 1.08rem;
         text-align: center;
       }
 
-      .membership-cancel-note {
+      .membership-cancel-note{
         padding: 0.8rem 0.85rem;
         font-size: 0.92rem;
         line-height: 1.42;
         text-align: center;
       }
 
-      .membership-benefits-list {
+      .membership-benefits-list{
         margin-top: 1rem;
       }
 
-      .membership-benefits-list li {
+      .membership-benefits-list li{
         font-size: 0.94rem;
         line-height: 1.45;
       }
 
-      button,
-      .button {
+      button, .button{
         display: flex;
         width: 100%;
         max-width: 340px;
         margin: 1rem auto;
       }
 
-      .week-event {
+      .week-event{
         display: block;
         width: auto;
         max-width: none;
@@ -3270,90 +3057,78 @@ function get_theme() {
         margin-bottom: 1px;
       }
 
-      .availability-event {
+      .availability-event{
         display: flex;
         width: 100%;
         margin: 0;
       }
 
-      .social-event {
+      .social-event{
         width: auto;
         margin-top: 2px;
         margin-bottom: 2px;
       }
 
-      .event-modal-backdrop {
+      .event-modal-backdrop{
         display: block;
         width: 100%;
         max-width: none;
         margin: 0;
       }
 
-      .event-modal-close {
+      .event-modal-close{
         display: grid;
         width: 42px;
         max-width: 42px;
         margin: 0;
       }
 
-      .hero-actions {
+      .hero-actions{
         width: 100%;
         gap: 0;
       }
 
-      .summer-button {
+      .summer-button{
         max-width: none;
         margin: 0.85rem 0 0;
       }
 
-      .summer-sun {
-        top: 1rem;
-        right: 1rem;
-        width: 48px;
-        height: 48px;
-      }
-
-      .summer-strawberry-one,
-      .summer-strawberry-two {
-        display: none;
-      }
-
-      .wave {
+      .wave{
         height: 72px;
         overflow: hidden;
       }
 
-      .wave svg {
+      .wave svg{
         width: 160%;
         margin-left: -30%;
       }
 
-      .photo-strip {
+      .photo-strip{
         padding-right: 1rem;
         padding-bottom: 3rem;
         padding-left: 1rem;
         overflow: hidden;
       }
 
-      .photo-strip .photo {
+      .photo-strip .photo{
         width: 100%;
         max-width: 100%;
         height: auto;
         margin: 0 auto;
       }
 
-      .footer {
+      .footer{
         padding: 3.5rem 1rem;
         text-align: center;
       }
 
-      .footer-logo {
+      .footer-logo{
         max-width: 240px;
         height: 78px;
         margin: -12px auto 1.4rem;
       }
 
-      .footer p {
+      .footer p{
         max-width: 320px;
         margin-right: auto;
         margin-left: auto;
@@ -3364,95 +3139,106 @@ function get_theme() {
       }
     }
 
+    @media (max-width: 640px) {
+      .pass-options-grid{
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .photo-grid-clean{
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+    }
+
     @media (max-width: 480px) {
-      h1 {
+      h1{
         font-size: 2.25rem;
       }
 
-      h2 {
+      h2{
         font-size: 1.9rem;
       }
 
-      .eyebrow {
+      .eyebrow{
         font-size: 0.68rem;
         letter-spacing: 0.12em;
       }
 
-      .logo img {
+      .logo img{
         width: 220px;
         max-width: 82vw;
         height: auto;
         margin: 0 auto 1.5rem;
       }
 
-      .photo,
-      .story-photo,
-      .hero-photo .photo {
+      .photo, .story-photo, .hero-photo .photo{
         aspect-ratio: auto;
       }
 
-      .location-tagline {
+      .location-tagline{
         margin-bottom: 2rem;
       }
 
-      .location-visuals {
+      .location-visuals{
         gap: 1rem;
       }
 
-      .location-card {
+      .location-card{
         border-width: 9px;
         border-radius: 22px;
       }
 
-      .map-card {
+      .map-card{
         aspect-ratio: 4 / 5;
       }
 
       /* Calendar */
 
-      .week-event {
+      .week-event{
         padding: 0.34rem 0.4rem;
         border-radius: 10px;
       }
 
-      .availability-event {
+      .availability-event{
         padding: 0.42rem;
         border-radius: 11px;
       }
 
-      .week-event-time {
+      .week-event-time{
         margin-bottom: 0.14rem;
         font-size: 0.6rem;
       }
 
-      .week-event-title {
+      .week-event-title{
         font-size: 0.72rem;
         line-height: 1.08;
       }
 
-      .availability-event .week-event-time {
+      .availability-event .week-event-time{
         font-size: 0.56rem;
       }
 
-      .availability-event .week-event-title {
+      .availability-event .week-event-title{
         font-size: 0.64rem;
       }
 
       /* Modal */
 
-      .event-modal {
+      .event-modal{
         align-items: end;
         padding: 0.65rem;
       }
 
-      .event-modal-panel {
+      .event-modal-panel{
         width: 100%;
         max-height: calc(100dvh - 1.3rem);
         padding: 1.25rem 1.1rem 1.1rem;
         border-radius: 22px;
       }
 
-      .event-modal-close {
+      .event-modal-close{
         top: 0.65rem;
         right: 0.65rem;
         width: 38px;
@@ -3462,158 +3248,134 @@ function get_theme() {
         font-size: 1.45rem;
       }
 
-      .event-modal-time {
+      .event-modal-time{
         margin-right: 2.8rem;
         font-size: 0.8rem;
       }
 
-      .event-modal-panel h3 {
+      .event-modal-panel h3{
         margin-right: 2.8rem;
         font-size: 1.3rem;
       }
 
-      .event-modal-access {
+      .event-modal-access{
         margin-bottom: 0.85rem;
         font-size: 0.7rem;
       }
 
-      .event-modal-description {
+      .event-modal-description{
         font-size: 0.9rem;
         line-height: 1.42;
       }
 
-      .event-modal-actions {
+      .event-modal-actions{
         gap: 0.6rem;
         margin-top: 0.85rem;
       }
 
-      .event-modal-invitation {
-        font-size: 0.86rem;
-        line-height: 1.35;
-      }
-
-      .event-modal-actions .button {
+      .event-modal-actions .button{
         padding: 0.72rem 0.8rem;
         font-size: 0.85rem;
       }
 
       /* Remaining sections */
 
-      .membership-total-price {
+      .membership-total-price{
         font-size: 2.35rem;
       }
 
-      .wave {
+      .wave{
         height: 54px;
       }
 
-      .wave svg {
+      .wave svg{
         width: 190%;
         margin-left: -45%;
       }
 
-      .photo-strip {
+      .photo-strip{
         padding-right: 0.75rem;
         padding-left: 0.75rem;
       }
 
-      .review-card {
+      .review-card{
         padding: 1.1rem;
         border-radius: 20px;
       }
 
-      .review-card p {
+      .review-card p{
         font-size: 0.92rem;
         line-height: 1.52;
       }
 
-      .review-card span {
+      .review-card span{
         font-size: 0.74rem;
       }
 
-      .summer-offer-card {
-        padding: 1.2rem;
-        border-radius: 22px;
-      }
-
-      .summer-offer-card h3 {
-        font-size: 1.45rem;
-      }
-
-      .membership-total {
+      .membership-total{
         padding: 0.95rem;
         border-radius: 18px;
       }
 
-      .membership-weekly-price {
+      .membership-weekly-price{
         font-size: 1rem;
       }
 
-      .membership-cancel-note {
+      .membership-cancel-note{
         padding: 0.75rem;
         font-size: 0.88rem;
       }
 
-      .membership-benefits-list li {
+      .membership-benefits-list li{
         font-size: 0.92rem;
       }
 
-      .footer {
+      .footer{
         padding: 3rem 1rem;
       }
 
-      .footer-logo {
+      .footer-logo{
         max-width: 220px;
         height: 72px;
         margin: -10px auto 1.3rem;
       }
 
-      .footer p {
+      .footer p{
         max-width: 300px;
         font-size: 0.92rem;
       }
     }
 
     @media (max-height: 700px) {
-      .event-modal-panel {
+      .event-modal-panel{
         padding-top: 1.1rem;
         padding-bottom: 1.1rem;
       }
 
-      .event-modal-description {
+      .event-modal-description{
         line-height: 1.4;
       }
 
-      .event-modal-actions {
+      .event-modal-actions{
         gap: 0.55rem;
         margin-top: 0.75rem;
       }
 
-      .event-modal-invitation {
-        line-height: 1.35;
-      }
-
-      .event-modal-actions .button {
+      .event-modal-actions .button{
         padding-top: 0.68rem;
         padding-bottom: 0.68rem;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after{
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
       }
 
-      .story-photo:hover,
-      .press-link:hover,
-      .calendar-pass-link:hover,
-      button:hover,
-      .button:hover {
+      .story-photo:hover, .press-link:hover, .calendar-pass-link:hover, button:hover, .button:hover{
         transform: none;
       }
     }

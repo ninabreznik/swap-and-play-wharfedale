@@ -2,18 +2,19 @@ module.exports = page
 
 const get_theme = require('get_theme')
 
-const SUMMER_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
+const SINGLE_EVENT_PAYMENT_URL = 'https://buy.stripe.com/7sY00ifIC9jj4Fzag50Ba03'
+const FIVE_EVENT_PACK_PAYMENT_URL = 'https://buy.stripe.com/3cI7sK7c69jjb3X73T0Ba02'
+const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
-const FREE_TRIAL_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe3HZA6pof7I7m4diGGWerDKkNo0uKZVCql5Szl741bPu2aIg/viewform?usp=header'
 
 function page(cb) {
   const el = document.createElement('div')
   const shadow = el.attachShadow({ mode: 'closed' })
 
   const buy = document.createElement('button')
-  buy.innerText = 'Buy Summer Flexi Week Pass'
-  buy.onclick = scroll_to_summer_pass
+  buy.innerText = 'View pass options'
+  buy.onclick = scroll_to_passes
 
   shadow.innerHTML = `
     <div class="page">
@@ -22,17 +23,21 @@ function page(cb) {
         <div class="hero-inner">
           <div class="logo hero-copy">
             <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Summer passes now available</p>
-            <h1>A calmer way to do play time</h1>
+            <p class="eyebrow">Three flexible ways to visit</p>
+            <h1>Play is ready when you are</h1>
             <p class="hero-subtitle">
-              A small members-style community space where children can play and parents can breathe.
+              A calm, ready-to-use play space for the moments when home feels difficult, other activities are finished, or you simply want an easier change of scene.
             </p>
             <div class="hero-actions">
+              <button type="button" data-scroll-to-calendar>
+                View this week’s events
+              </button>
+
               <buy-pass></buy-pass>
             </div>
           </div>
           <div class="hero-photo">
-            <img src="./assets/hero.png" alt="Parent relaxing while children play nearby" class="photo">
+            <img src="./assets/hero-families.jpg" alt="Parent relaxing while children play nearby" class="photo">
           </div>
         </div>
       </section>
@@ -106,42 +111,26 @@ function page(cb) {
       <section class="section small-purpose">
         <div class="content content-split">
           <div>
-            <p class="eyebrow dark">More than a playroom</p>
-            <h2>A shared resource for local families</h2>
+            <p class="eyebrow dark">Everything is already set up</p>
+            <h2>Leave the play preparation to us</h2>
           </div>
-
           <div>
-            <p>
-              Swap & Play is somewhere children can play, but it is also a place where families
-              can meet, share useful things and gradually become familiar faces.
-            </p>
-
-            <p>
-              Low numbers help it feel calmer than a conventional play centre.
-              Children can move between pretend play, books, focused toys and movement,
-              while adults supervise, sit, talk or make a drink.
-            </p>
-
-            <p>
-              There is also a Swap Room for passing on children’s clothes, books and useful items,
-              plus a changing space, kitchenette, toilets and a parent table for eating,
-              feeding or light work.
-            </p>
-
-            <p>
-              The aim is not to fill every visit with organised entertainment.
-              It is to give local families a comfortable place they can use as part of ordinary life.
-            </p>
+            <p>At home, play can mean finding the right toys, opening boxes, setting something up and tidying it all away again. Here, the rooms are ready when you arrive.</p>
+            <p>Children can move between pretend play, puzzles, books, building toys and movement, while adults supervise, sit down, make a drink or talk to another grown-up.</p>
+            <p>Come for a social session when you would like company, or visit outside event times when you prefer a quieter, calmer atmosphere.</p>
+            <p>We are open every day from 6am to 9pm, including the late-afternoon and early-evening hours when most children’s activities have already finished.</p>
           </div>
         </div>
       </section>
 
-      <section class="photo-story">
+      <section class="photo-story expanded-photo-story">
         <div class="content content-xl">
-          <div class="photo-grid">
-            <img src="./assets/room.jpg" alt="Photo of the main play room with toy shelves and play areas" class="story-photo">
-            <img src="./assets/children-playing.jpg" alt="Two children gently sharing a toy" class="story-photo">
-            <img src="./assets/climbing.jpg" alt="Child climbing the wooden frame" class="story-photo">
+          <div class="photo-grid photo-grid-clean">
+            <img src="./assets/focused-play.jpg" alt="A child concentrating on a puzzle at a table" class="story-photo">
+            <img src="./assets/social-play.jpg" alt="Families meeting for a relaxed social play session" class="story-photo">            <img src="./assets/quiet-coffee.jpg" alt="A quiet play room with a cup of coffee in the foreground" class="story-photo">
+            <img src="./assets/role-play.jpg" alt="Two children playing together in the role-play shop" class="story-photo">
+            <img src="./assets/girls-playing.jpeg" alt="Two girls playing together on the floor" class="story-photo">
+            <img src="./assets/baby.jpg" alt="A baby sitting on a mat with toys around and looking into the camera" class="story-photo">
           </div>
         </div>
       </section>
@@ -155,129 +144,7 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft relief-section swap-section">
-        <div class="content center">
-          <p class="eyebrow dark">Give what you can. Take what you need</p>
-          <h2>Swap room</h2>
-
-          <p>
-            When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
-            You can also browse the Swap Room and take what your family can use.
-            It is not a one-for-one system — simply give when you can, and take when something is useful.
-          </p>
-
-          <img
-            src="./assets/swap.png"
-            alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
-            class="photo"
-          >
-
-          <p>
-            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
-            Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
-          </p>
-
-          <p>
-            We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
-          </p>
-        </div>
-      </section>
-
-      <div class="wave" style="background:#d1ece6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#f4efe6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section included-section">
-        <div class="content center">
-        <p class="eyebrow dark">A pass built around real life</p>
-        <h2>Flexible access, without another timetable</h2>
-
-        <p class="included-intro">
-          A calm play-and-swap space you can use as part of ordinary family life.
-        </p>
-
-          <div class="included-grid calm-cards">
-            <div class="included-card">
-              <h3>No fixed sessions</h3>
-              <p>
-                Come during opening hours without planning your day around a timetable.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Stay as long as it works</h3>
-              <p>
-                Pop in for 30 minutes or settle in for a longer morning or afternoon.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Open every day</h3>
-              <p>
-                Available from 6am to 9pm, 365 days a year.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Unlimited visits</h3>
-              <p>
-                Use the space regularly without treating every visit as a separate purchase.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Self check-in</h3>
-              <p>
-                Come and go independently once you have access.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Tea and coffee included</h3>
-              <p>
-                Make a drink without needing to buy something every time you visit.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Bring your own food</h3>
-              <p>
-                Pack what your child actually eats and stay while the day is going well.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Space for adults too</h3>
-              <p>
-                Sit, talk, read, feed your child or do a little light laptop catch-up.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>A familiar local space</h3>
-              <p>
-                Visit regularly and begin to recognise other families without joining another formal class.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="wave" style="background:#f4efe6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section weekly-calendar-section" id="calendar">
+      <section class="section weekly-calendar-section soft-calendar" id="calendar">
         <div class="content content-wide center">
           <p class="eyebrow dark">Our weekly rhythm</p>
 
@@ -292,17 +159,17 @@ function page(cb) {
           <div class="calendar-legend" aria-label="Calendar key">
             <span class="calendar-key">
               <span class="calendar-key-dot public-dot"></span>
-              Open to everyone
+              Free event
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot member-dot"></span>
-              Members and active pass holders
+              Paid events / free for members
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot flexible-dot"></span>
-              Flexible visits
+              Flexible visits / members only
             </span>
           </div>
 
@@ -370,7 +237,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Monday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. The Afternoon Playdate is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Monday from 6am to 9pm. Open event details."
@@ -414,7 +281,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Tuesday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. Cowork & Play is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Tuesday from 6am to 9pm. Open event details."
@@ -461,8 +328,8 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Wednesday, 6am–9pm"
-                    data-access="Members and active pass holders"
-                    data-description="Members and active pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
+                    data-access="Members and valid pass holders"
+                    data-description="Members and valid pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
                     data-member-only="true"
                     aria-label="Flexible access, Wednesday from 6am to 9pm. Open event details."
                   >
@@ -503,7 +370,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Thursday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. The Under-1s Playdate is an optional social session, and you can visit before, during or after it."
                     data-member-only="true"
                     aria-label="Flexible access, Thursday from 6am to 9pm. Open event details."
@@ -519,7 +386,7 @@ function page(cb) {
                     data-end="17:00"
                     data-title="Under-1s Afternoon Playdate"
                     data-time="Thursday, 3–5pm"
-                    data-access="Members and active pass holders · For babies under 1 · Tea and coffee included"
+                    data-access="Members and valid pass holders · For babies under 1 · Tea and coffee included"
                     data-description="A calm afternoon playdate for babies under one and their grown-ups, with space to chat, feed and let little ones explore at their own pace. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Under-1s Afternoon Playdate, Thursday from 3 to 5pm. Tea and coffee included. Open event details."
@@ -547,7 +414,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Friday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently at any point during opening hours. Grandparents’ Morning and the Afternoon Playdate are optional social sessions."
                     data-member-only="true"
                     aria-label="Flexible access, Friday from 6am to 9pm. Open event details."
@@ -615,7 +482,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Saturday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently whenever it works for your family. The Swap Event is an optional social session within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Saturday from 6am to 9pm. Open event details."
@@ -657,7 +524,7 @@ function page(cb) {
                     data-end="21:00"
                     data-title="Flexible access"
                     data-time="Sunday, 6am–9pm"
-                    data-access="Members and active pass holders"
+                    data-access="Members and valid pass holders"
                     data-description="Visit independently whenever it works for your family. Coffee & Cake is an optional social session within the normal flexible-access day."
                     data-member-only="true"
                     aria-label="Flexible access, Sunday from 6am to 9pm. Open event details."
@@ -697,16 +564,16 @@ function page(cb) {
           <div class="calendar-summary">
             <p>
               <strong>Social sessions are optional.</strong>
-              Members and active pass holders can also visit independently
+              Members and valid pass holders can also visit independently
               from 6am to 9pm every day. Select a session to see more details.
             </p>
 
             <a
               class="calendar-pass-link"
-              href="#summer-pass"
-              data-scroll-to-summer-pass
+              href="#passes"
+              data-scroll-to-passes
             >
-              View the Summer Flexi Week Pass →
+              View pass options →
             </a>
           </div>
         </div>
@@ -765,30 +632,141 @@ function page(cb) {
               data-event-modal-actions
               hidden
             >
-
-              <a
-                class="button event-modal-trial"
-                href="${FREE_TRIAL_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-event-modal-trial
-              >
-                New here? Apply for a free trial week
+              <a class="button event-modal-single" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer" data-event-modal-single>
+                Buy a Single Event Pass
               </a>
-
-              <button
-                class="button event-modal-pass"
-                type="button"
-                data-event-modal-pass
-              >
-                Buy a Flexi Week Pass
+              <button class="button event-modal-pass" type="button" data-event-modal-pass>
+                Compare all pass options
               </button>
             </div>
           </div>
         </div>
       </section>
 
+      <div class="wave" style="background:#d1ece6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#fbfaf6;">
+          </path>
+        </svg>
+      </div>
+
+
+      <section class="section soft relief-section swap-section">
+        <div class="content center">
+          <p class="eyebrow dark">Give what you can. Take what you need</p>
+          <h2>Swap room</h2>
+
+          <p>
+            When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
+            You can also browse the Swap Room and take what your family can use.
+            It is not a one-for-one system — simply give when you can, and take when something is useful.
+          </p>
+
+          <img
+            src="./assets/swap-room.jpg"
+            alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
+            class="photo"
+          >
+
+          <p>
+            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
+            Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
+          </p>
+
+          <p>
+            We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
+          </p>
+        </div>
+      </section>
+
       <div class="wave" style="background:#fbfaf6;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#f4efe6;">
+          </path>
+        </svg>
+      </div>
+
+      <section class="section included-section">
+        <div class="content center">
+        <p class="eyebrow dark">Designed for ordinary family days</p>
+        <h2>Come for company, calm, or simply somewhere ready</h2>
+
+        <p class="included-intro">
+          A ready-to-use play-and-swap space for spontaneous visits, social sessions and the gaps between other plans.
+        </p>
+
+          <div class="included-grid calm-cards">
+            <div class="included-card">
+              <h3>No preparation needed</h3>
+              <p>
+                The toys, books, play areas and movement room are ready when you arrive.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Stay as long as it works</h3>
+              <p>
+                Pop in for 30 minutes or settle in for a longer morning or afternoon.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Open every day</h3>
+              <p>
+                Available from 6am to 9pm, 365 days a year.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Social or quiet</h3>
+              <p>
+                Join a listed event or visit outside event times when you prefer a calmer atmosphere.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Self check-in</h3>
+              <p>
+                Come and go independently once you have access.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Tea and coffee included</h3>
+              <p>
+                Make a drink without needing to buy something every time you visit.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Bring your own food</h3>
+              <p>
+                Pack what your child actually eats and stay while the day is going well.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Space for adults too</h3>
+              <p>
+                Sit, talk, read, feed your child or do a little light laptop catch-up.
+              </p>
+            </div>
+
+            <div class="included-card">
+              <h3>Open when others are not</h3>
+              <p>
+                Use the space from 6am to 9pm, including late afternoons and early evenings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave" style="background:#f4efe6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -876,69 +854,47 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft pricing-section summer-pricing-section">
+      <section class="section soft pricing-section visit-options-section" id="passes">
         <div class="content content-wide center">
-          <p class="eyebrow dark">Summer offer</p>
-          <h2>Summer Flexi Week Pass</h2>
+          <p class="eyebrow dark">Choose what fits your plans</p>
+          <h2>Three flexible ways to visit</h2>
+          <p class="section-intro">Come for one social session, keep a small pack for occasional events, or make the space available to your family for a full week. Every option covers one household.</p>
 
-          <p class="section-intro">
-            Until the start of school, Swap & Play is available through a simple summer pass:
-            one week of flexible access built around naps, weather, visitors and changing plans. Come as often as you like during your seven days—without booking another activity.
-          </p>
+          <div class="pass-options-grid">
+            <article class="price-card visit-pass-card">
+              <div class="label">One event</div>
+              <h3>Single Event Pass</h3>
+              <p class="small">For one scheduled social session without committing to a full week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£7.50</strong><div class="membership-weekly-price">One event</div></div>
+              <ul class="membership-benefits-list">
+                <li>Entry to one scheduled event</li><li>Play rooms and Swap Room during the event</li><li>Tea and coffee included</li><li>Drop in anytime during longer sessions</li>
+              </ul>
+              <a class="button" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy Single Event Pass</a>
+            </article>
 
-          <div class="summer-offer-card price-card featured membership-card" id="summer-pass">
-            <span class="summer-shape summer-sun" aria-hidden="true"></span>
-            <span class="summer-shape summer-strawberry-one" aria-hidden="true"></span>
-            <span class="summer-shape summer-strawberry-two" aria-hidden="true"></span>
+            <article class="price-card visit-pass-card">
+              <div class="label">Five visits</div>
+              <h3>5-Event Pack</h3>
+              <p class="small">For families who want to join events regularly without using all visits in one week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£30</strong><div class="membership-weekly-price">£6 per event</div></div>
+              <ul class="membership-benefits-list">
+                <li>Five scheduled event visits</li><li>Use across different weeks</li><li>Play rooms and Swap Room during each event</li><li>Tea and coffee included</li>
+              </ul>
+              <p class="small-note">Valid for 6 weeks from the first event you attend.</p>
+              <a class="button" href="${FIVE_EVENT_PACK_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 5-Event Pack</a>
+            </article>
 
-            <div class="label popular">Summer offer</div>
-            <h3>Summer Flexi Week Pass</h3>
-
-            <p class="small summer-card-intro">
-              A flexible 7-day pass for families who want a calm place to land during the summer holidays.
-            </p>
-
-            <div class="membership-total summer-total">
-              <span class="membership-total-label">Per household</span>
-              <strong class="membership-total-price">£15</strong>
-              <div class="membership-weekly-price">7 days of unlimited visits</div>
-              <p class="membership-cancel-note">
-                Buy now. Activate anytime.
-              </p>
-            </div>
-
-            <ul class="membership-benefits-list">
-              <li>Unlimited visits for your household for 7 days</li>
-              <li>No booking slots</li>
-              <li>Join any social session</li>
-              <li>Use of the play rooms and Swap Room</li>
-              <li>Tea and coffee included</li>
-              <li>Bring your own snacks</li>
-              <li>Your 7 days start when you first visit</li>
-            </ul>
-
-            <p class="small-note summer-activation-note">
-              Passes can be activated from the day after purchase and no later than 31 August 2026.
-              After your first visit, your pass is valid for 7 consecutive days.
-            </p>
-
-            <a
-              class="button summer-button"
-              href="${SUMMER_PASS_PAYMENT_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Buy Summer Flexi Week Pass
-            </a>
-
-            <p class="small-note membership-link-note">
-              You will be taken to Stripe to pay securely by card.
-            </p>
+            <article class="price-card featured membership-card visit-pass-card">
+              <div class="label popular">Most flexible</div>
+              <h3>7-Day Flexi Pass</h3>
+              <p class="small">Keep a calm, ready-to-use play space available to your family for a full week.</p>
+              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£15</strong><div class="membership-weekly-price">7 days of unlimited visits</div><p class="membership-cancel-note">Your week starts with your first visit.</p></div>
+              <ul class="membership-benefits-list">
+                <li>Unlimited visits for 7 consecutive days</li><li>Independent access every day from 6am to 9pm</li><li>All scheduled events during your active week</li><li>Play rooms and Swap Room</li><li>Tea and coffee included</li><li>Bring your own food and snacks</li>
+              </ul>
+              <a class="button summer-button" href="${WEEKLY_PASS_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 7-Day Flexi Pass</a>
+            </article>
           </div>
-
-          <p class="summer-after-note">
-            Available until the start of school. Autumn membership options will be announced later.
-          </p>
         </div>
       </section>
 
@@ -953,46 +909,16 @@ function page(cb) {
 
       <section class="section light faq-section">
         <div class="content center">
-          <p class="eyebrow dark">Good to know</p>
-          <h2>A few useful details</h2>
-
+          <p class="eyebrow dark">Good to know</p><h2>A few useful details</h2>
           <div class="faq-list">
-            <div class="faq-item">
-              <h3>How does the Summer Flexi Week Pass work?</h3>
-              <p>Buy your pass online. It can be activated from the next day onwards, and your 7 days start when you first visit.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Is this a playgroup, class or soft play?</h3>
-              <p>
-                No. There is no led activity, fixed programme or large soft-play structure.
-                Children play freely while their accompanying adults supervise them.
-                Your pass gives you flexible access during opening hours.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>Do I need to book?</h3>
-              <p>No. Summer Flexi Week Pass holders can come during opening hours without booking a slot.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can I visit before buying a pass?</h3>
-              <p>Yes. Wednesday Open Play is there for families who would like to see the space before buying a summer pass.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can I bring food?</h3>
-              <p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p>
-            </div>
-            <div class="faq-item">
-              <h3>What if it gets busy?</h3>
-              <p>We will use gentle occupancy updates so families can make informed choices and the space can stay calm.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Can parents use a laptop there?</h3>
-              <p>Yes. You are welcome to bring a laptop and get some work done while your little one plays nearby. Parents and carers remain responsible for supervising their children at all times.</p>
-            </div>
-            <div class="faq-item">
-              <h3>What happens after summer?</h3>
-              <p>The Summer Flexi Week Pass is a seasonal offer available until the start of school. Autumn membership options will be announced later.</p>
-            </div>
+            <div class="faq-item"><h3>What is included with a Single Event Pass?</h3><p>It covers your household for one scheduled social session, including the play rooms, Swap Room, and tea and coffee during the event.</p></div>
+            <div class="faq-item"><h3>How does the 5-Event Pack work?</h3><p>The pack gives your household entry to five separate scheduled events and is valid for 6 weeks from the first event you attend.</p></div>
+            <div class="faq-item"><h3>How does the 7-Day Flexi Pass work?</h3><p>Your seven days begin with your first visit. During that week you can visit independently from 6am to 9pm every day and join any scheduled events.</p></div>
+            <div class="faq-item"><h3>Are the events led classes?</h3><p>No. They are informal social sessions rather than singing, story or activity classes. Children play freely while adults supervise and socialise.</p></div>
+            <div class="faq-item"><h3>Can I come when no event is running?</h3><p>Yes, with an active 7-Day Flexi Pass. Single Event Passes and 5-Event Packs are for scheduled events only.</p></div>
+            <div class="faq-item"><h3>Can I see the space before buying?</h3><p>Yes. Wednesday Open Play is open to everyone and does not require a pass.</p></div>
+            <div class="faq-item"><h3>Can I bring food?</h3><p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p></div>
+            <div class="faq-item"><h3>Can parents use a laptop?</h3><p>Yes. You may do some light work while your child plays nearby. Parents and carers remain responsible for supervision.</p></div>
           </div>
         </div>
       </section>
@@ -1025,7 +951,7 @@ function page(cb) {
       </section>
 
       <section class="photo-strip">
-        <img src="./assets/main-room.jpg" alt="Parents drawing with their children" class="photo">
+        <img src="./assets/shoes-at-door.jpg" alt="Small children’s shoes lined up at the entrance" class="photo">
       </section>
 
       <div class="wave" style="background:#e9e6e1;">
@@ -1090,7 +1016,7 @@ function page(cb) {
     const pass = shadow.querySelector('[data-event-modal-pass]')
     const close_buttons = shadow.querySelectorAll('[data-close-event-modal]')
     const actions = shadow.querySelector('[data-event-modal-actions]')
-    const trial = shadow.querySelector('[data-event-modal-trial]')
+    const single = shadow.querySelector('[data-event-modal-single]')
 
     if (!modal) return
 
@@ -1108,15 +1034,22 @@ function page(cb) {
       })
     })
 
+    shadow.querySelectorAll('[data-scroll-to-calendar]').forEach(button => {
+      button.addEventListener('click', () => {
+        history.replaceState(null, '', '#calendar')
+        scroll_to_target('#calendar')
+      })
+    })
+
     close_buttons.forEach(button => {
       button.addEventListener('click', close_modal)
     })
 
-    trial.addEventListener('click', close_modal)
+    single?.addEventListener('click', close_modal)
 
     pass.addEventListener('click', () => {
       close_modal()
-      scroll_to_summer_pass()
+      scroll_to_passes()
     })
 
     modal.addEventListener('keydown', event => {
@@ -1193,14 +1126,14 @@ function page(cb) {
 
   shadow.querySelectorAll('buy-pass').forEach(node => {
     const btn = buy.cloneNode(true)
-    btn.onclick = scroll_to_summer_pass
+    btn.onclick = scroll_to_passes
     node.replaceWith(btn)
   })
 
-  shadow.querySelectorAll('[data-scroll-to-summer-pass]').forEach(link => {
+  shadow.querySelectorAll('[data-scroll-to-passes]').forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault()
-      scroll_to_summer_pass()
+      scroll_to_passes()
     })
   })
 
@@ -1225,14 +1158,14 @@ function page(cb) {
 
     if (
       path.endsWith('/trial') ||
-      path.endsWith('/summer') ||
+      path.endsWith('/passes') ||
       hash === '#trial' ||
       hash === '#apply' ||
       hash === '#membership' ||
       hash === '#pricing' ||
-      hash === '#summer-pass'
+      hash === '#passes'
     ) {
-      scroll_to_target('#summer-pass')
+      scroll_to_target('#passes')
       return
     }
 
@@ -1241,9 +1174,9 @@ function page(cb) {
     }
   }
 
-  function scroll_to_summer_pass() {
-    history.replaceState(null, '', '#summer-pass')
-    scroll_to_target('#summer-pass')
+  function scroll_to_passes() {
+    history.replaceState(null, '', '#passes')
+    scroll_to_target('#passes')
   }
 
   function scroll_to_target(selector) {
