@@ -2,11 +2,51 @@ module.exports = page
 
 const get_theme = require('get_theme')
 
-const SINGLE_EVENT_PAYMENT_URL = 'https://buy.stripe.com/7sY00ifIC9jj4Fzag50Ba03'
-const FIVE_EVENT_PACK_PAYMENT_URL = 'https://buy.stripe.com/3cI7sK7c69jjb3X73T0Ba02'
+const DAY_PASS_PAYMENT_URL = 'https://buy.stripe.com/5kQ14m8ga9jj0pjdsh0Ba05'
+const FIVE_VISIT_PACK_PAYMENT_URL = 'https://buy.stripe.com/cNieVcbsm0MNb3X5ZP0Ba06'
 const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
+const SWAP_ROOM_ITEMS = require('../data/swap-room-items.json')
+
+function render_swap_room_items() {
+  if (!SWAP_ROOM_ITEMS.length) {
+    return `
+      <div class="swap-preview-empty">
+        <img
+          src="./assets/swap-room.jpg"
+          alt="Clothes, books and toys in the Swap Room"
+          class="swap-preview-room-photo"
+        >
+        <div class="swap-preview-empty-copy">
+          <span class="swap-preview-kicker">The rails and shelves change all the time</span>
+          <h3>Fresh finds are arriving now</h3>
+          <p>
+            We are starting to photograph recent arrivals so you can have a quick look before you visit.
+            Clothes, books, toys and useful little family items are all first come, first swapped.
+          </p>
+        </div>
+      </div>
+    `
+  }
+
+  return `
+    <div class="swap-items-scroll" aria-label="Recently added Swap Room items">
+      ${SWAP_ROOM_ITEMS.map(item => `
+        <article class="swap-item-card">
+          <div class="swap-item-image-wrap">
+            <img src="${item.image}" alt="${item.title}" class="swap-item-image">
+          </div>
+          <div class="swap-item-copy">
+            <h3>${item.title}</h3>
+            ${item.details ? `<p class="swap-item-details">${item.details}</p>` : ''}
+            ${item.added ? `<p class="swap-item-added">${item.added}</p>` : ''}
+          </div>
+        </article>
+      `).join('')}
+    </div>
+  `
+}
 
 function page(cb) {
   const el = document.createElement('div')
@@ -14,35 +54,93 @@ function page(cb) {
 
   const buy = document.createElement('button')
   buy.innerText = 'View pass options'
+  buy.className = 'hero-pass-button'
   buy.onclick = scroll_to_passes
 
   shadow.innerHTML = `
     <div class="page">
 
-      <section class="hero">
-        <div class="hero-inner">
-          <div class="logo hero-copy">
-            <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
-            <p class="eyebrow">Three flexible ways to visit</p>
-            <h1>Play is ready when you are</h1>
-            <p class="hero-subtitle">
-              A calm, ready-to-use play space for the moments when home feels difficult, other activities are finished, or you simply want an easier change of scene.
-            </p>
-            <div class="hero-actions">
-              <button type="button" data-scroll-to-calendar>
-                View this week’s events
-              </button>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="logo hero-copy">
+          <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
 
-              <buy-pass></buy-pass>
-            </div>
+          <p class="eyebrow">Play · swap · belong</p>
+
+          <h1>A calm place to play, whenever you need it</h1>
+
+          <p class="hero-subtitle">
+            Come when your child is ready. Play, have a coffee, meet other families and browse the Swap Room — open every day from 6am to 9pm.
+          </p>
+
+          <div class="hero-actions">
+            <button
+              type="button"
+              class="hero-swap-button"
+              data-scroll-to-swap
+            >
+              See what’s new in the Swap Room
+            </button>
+
+            <buy-pass></buy-pass>
           </div>
-          <div class="hero-photo">
-            <img src="./assets/hero-families.jpg" alt="Parent relaxing while children play nearby" class="photo">
+        </div>
+
+        <div class="hero-photo">
+          <img
+            src="./assets/hero-families.jpg"
+            alt="Parent relaxing while children play nearby"
+            class="photo"
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="wave" style="background:#6fa8dc;">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+          d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+          style="fill:#fbfaf6;">
+        </path>
+      </svg>
+    </div>
+
+    <section class="section swap-preview-section" id="swap-new">
+      <div class="content content-wide">
+
+        <div class="swap-preview-heading">
+          <div>
+            <p class="eyebrow dark">New in the Swap Room</p>
+            <h2>Have a look before you come</h2>
           </div>
+
+          <p class="swap-preview-intro">
+            The Swap Room changes every week as local families bring in good things their children have outgrown.
+            Here is a peek at some of the most recent arrivals.
+          </p>
+        </div>
+
+        ${render_swap_room_items()}
+
+        <div class="swap-preview-footer">
+          <p>
+            No credits and no one-for-one swapping. Give when you can, take what your family can use.
+            This is a peek at recent arrivals rather than live stock, so items may already have found a new home.
+          </p>
+
+          <button
+            type="button"
+            class="swap-preview-link"
+            data-scroll-to-swap-room
+          >
+            How the Swap Room works →
+          </button>
+        </div>
+
         </div>
       </section>
 
-      <div class="wave" style="background:#6fa8dc;">
+      <div class="wave" style="background:#fbfaf6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -146,30 +244,34 @@ function page(cb) {
 
       <section class="section weekly-calendar-section soft-calendar" id="calendar">
         <div class="content content-wide center">
-          <p class="eyebrow dark">Our weekly rhythm</p>
+        <p class="eyebrow dark">Optional social times</p>
 
-          <h2>Come when it suits you — or join a social time</h2>
+        <h2>Want company? Come at a social time</h2>
 
-          <p class="section-intro">
-            Swap &amp; Play remains open for flexible visits throughout the week.
-            These optional social sessions make it easier to visit when other
-            local families are likely to be here.
-          </p>
+        <p class="section-intro">
+          You never need an event to use Swap & Play. Members and active pass holders can visit
+          independently from 6am to 9pm every day. These regular times simply make it easier to
+          come when other local families are likely to be here.
+        </p>
 
+        <details class="calendar-details" data-calendar-details open>
+          <summary>Weekly social schedule</summary>
+
+          <div class="calendar-details-body">
           <div class="calendar-legend" aria-label="Calendar key">
             <span class="calendar-key">
               <span class="calendar-key-dot public-dot"></span>
-              Free event
+              Open to everyone
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot member-dot"></span>
-              Paid events / free for members
+              Social time
             </span>
 
             <span class="calendar-key">
               <span class="calendar-key-dot flexible-dot"></span>
-              Flexible visits / members only
+              Flexible access
             </span>
           </div>
 
@@ -253,7 +355,7 @@ function page(cb) {
                     data-end="17:00"
                     data-title="Afternoon Playdate"
                     data-time="Monday, 3–5pm"
-                    data-access="Free for members and active pass holders · Tea and coffee included"
+                    data-access="Open to everyone · No pass required · Tea and coffee included"
                     data-description="An informal afternoon playdate for families who would like to visit when other children and carers are likely to be around. Tea and coffee are included."
                     data-member-only="true"
                     aria-label="Afternoon Playdate, Monday from 3 to 5pm. Tea and coffee included. Open event details."
@@ -576,6 +678,8 @@ function page(cb) {
               View pass options →
             </a>
           </div>
+          </div>
+        </details>
         </div>
 
         <div
@@ -632,9 +736,15 @@ function page(cb) {
               data-event-modal-actions
               hidden
             >
-              <a class="button event-modal-single" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer" data-event-modal-single>
-                Buy a Single Event Pass
-              </a>
+            <a
+              class="button event-modal-single"
+              href="${DAY_PASS_PAYMENT_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-event-modal-single
+            >
+              Get a Day Pass — £10
+            </a>
               <button class="button event-modal-pass" type="button" data-event-modal-pass>
                 Compare all pass options
               </button>
@@ -653,15 +763,19 @@ function page(cb) {
       </div>
 
 
-      <section class="section soft relief-section swap-section">
+      <section
+        class="section soft relief-section swap-section"
+        id="swap-room"
+      >
         <div class="content center">
+
           <p class="eyebrow dark">Give what you can. Take what you need</p>
-          <h2>Swap room</h2>
+
+          <h2>The Swap Room is part of every visit</h2>
 
           <p>
-            When you visit, you are welcome to bring gently used children’s clothing, books, toys and small bits of family gear.
-            You can also browse the Swap Room and take what your family can use.
-            It is not a one-for-one system — simply give when you can, and take when something is useful.
+            Browse children’s clothing, books, toys and useful little bits of family gear whenever you visit.
+            Things come and go all the time, so there is usually something different to discover.
           </p>
 
           <img
@@ -671,13 +785,15 @@ function page(cb) {
           >
 
           <p>
-            Donations can be placed in the designated bins, and a community member will sort and shelve them later.
-            Please keep children in the play rooms rather than the Swap Room, as it is not a play area.
+            You are welcome to bring good things your family has outgrown. It is not a one-for-one system:
+            simply give when you can and take what your family can genuinely use.
           </p>
 
           <p>
-            We ask that donations are new or like-new, stain-free, and items you would be happy to give to a friend.
+            Donations can be left in the designated bins for sorting. We ask that they are new or like-new,
+            stain-free, and items you would be happy to give to a friend.
           </p>
+
         </div>
       </section>
 
@@ -724,7 +840,7 @@ function page(cb) {
             <div class="included-card">
               <h3>Social or quiet</h3>
               <p>
-                Join a listed event or visit outside event times when you prefer a calmer atmosphere.
+                Visit independently when it suits you, or use the optional social times when you would like company.
               </p>
             </div>
 
@@ -854,47 +970,173 @@ function page(cb) {
         </svg>
       </div>
 
-      <section class="section soft pricing-section visit-options-section" id="passes">
+      <section
+        class="section soft pricing-section visit-options-section"
+        id="passes"
+      >
         <div class="content content-wide center">
-          <p class="eyebrow dark">Choose what fits your plans</p>
-          <h2>Three flexible ways to visit</h2>
-          <p class="section-intro">Come for one social session, keep a small pack for occasional events, or make the space available to your family for a full week. Every option covers one household.</p>
+
+          <p class="eyebrow dark">Choose what works for your family</p>
+
+          <h2>Come once, come a few times, or make a week of it</h2>
+
+          <p class="section-intro">
+            All passes give you access to the play spaces and Swap Room.
+            Come whenever suits you between 6am and 9pm — and if a social time is happening while you are here, simply join in.
+          </p>
 
           <div class="pass-options-grid">
-            <article class="price-card visit-pass-card">
-              <div class="label">One event</div>
-              <h3>Single Event Pass</h3>
-              <p class="small">For one scheduled social session without committing to a full week.</p>
-              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£7.50</strong><div class="membership-weekly-price">One event</div></div>
+
+            <!-- DAY PASS -->
+
+            <article class="price-card visit-pass-card secondary-pass-card">
+
+              <div class="label">One day</div>
+
+              <h3>Day Pass</h3>
+
+              <p class="small">
+                Perfect when you just want somewhere easy to go for the day.
+                Come when it suits you and stay for as long as it works.
+              </p>
+
+              <div class="membership-total">
+                <span class="membership-total-label">Per household</span>
+
+                <strong class="membership-total-price">£10</strong>
+
+                <div class="membership-weekly-price">
+                  Flexible access for one day
+                </div>
+
+                <p class="membership-cancel-note">
+                  Activates on your first visit and is valid until 9pm that day.
+                </p>
+              </div>
+
               <ul class="membership-benefits-list">
-                <li>Entry to one scheduled event</li><li>Play rooms and Swap Room during the event</li><li>Tea and coffee included</li><li>Drop in anytime during longer sessions</li>
+                <li>Come anytime from 6am to 9pm</li>
+                <li>Stay for as long as you like</li>
+                <li>Play rooms and Swap Room included</li>
+                <li>Join any social time happening that day</li>
+                <li>Tea and coffee included</li>
+                <li>Bring your own food and snacks</li>
               </ul>
-              <a class="button" href="${SINGLE_EVENT_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy Single Event Pass</a>
+
+              <a
+                class="button"
+                href="${DAY_PASS_PAYMENT_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy Day Pass
+              </a>
+
             </article>
 
-            <article class="price-card visit-pass-card">
-              <div class="label">Five visits</div>
-              <h3>5-Event Pack</h3>
-              <p class="small">For families who want to join events regularly without using all visits in one week.</p>
-              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£30</strong><div class="membership-weekly-price">£6 per event</div></div>
-              <ul class="membership-benefits-list">
-                <li>Five scheduled event visits</li><li>Use across different weeks</li><li>Play rooms and Swap Room during each event</li><li>Tea and coffee included</li>
-              </ul>
-              <p class="small-note">Valid for 6 weeks from the first event you attend.</p>
-              <a class="button" href="${FIVE_EVENT_PACK_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 5-Event Pack</a>
-            </article>
+
+            <!-- 7-DAY FLEXI PASS -->
 
             <article class="price-card featured membership-card visit-pass-card">
-              <div class="label popular">Most flexible</div>
-              <h3>7-Day Flexi Pass</h3>
-              <p class="small">Keep a calm, ready-to-use play space available to your family for a full week.</p>
-              <div class="membership-total"><span class="membership-total-label">Per household</span><strong class="membership-total-price">£15</strong><div class="membership-weekly-price">7 days of unlimited visits</div><p class="membership-cancel-note">Your week starts with your first visit.</p></div>
+
+              <div class="label popular">Best value</div>
+
+              <div class="label popular">Summer offer</div>
+
+              <h3>Summer Flexi Week Pass</h3>
+
+              <p class="small">
+                Keep Swap &amp; Play available to your family for a full week this summer.
+                Come whenever it suits you and return as often as you like.
+              </p>
+
+              <div class="membership-total">
+                <span class="membership-total-label">Per household</span>
+
+                <strong class="membership-total-price">£15</strong>
+
+                <div class="membership-weekly-price">
+                  Flexible visits of swap and play room for a week
+                </div>
+
+                <p class="membership-cancel-note">
+                  Your seven days start with your first visit.
+                </p>
+              </div>
+
               <ul class="membership-benefits-list">
-                <li>Unlimited visits for 7 consecutive days</li><li>Independent access every day from 6am to 9pm</li><li>All scheduled events during your active week</li><li>Play rooms and Swap Room</li><li>Tea and coffee included</li><li>Bring your own food and snacks</li>
+                <li>Flexible access for 7 consecutive days</li>
+                <li>Come anytime from 6am to 9pm</li>
+                <li>Play rooms and Swap Room included</li>
+                <li>All social times during your active week</li>
+                <li>Tea and coffee included</li>
+                <li>Bring your own food and snacks</li>
               </ul>
-              <a class="button summer-button" href="${WEEKLY_PASS_PAYMENT_URL}" target="_blank" rel="noopener noreferrer">Buy 7-Day Flexi Pass</a>
+
+              <a
+                class="button summer-button"
+                href="${WEEKLY_PASS_PAYMENT_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy 7-Day Flexi Pass
+              </a>
+
             </article>
+
+
+            <!-- 5-VISIT PACK -->
+
+            <article class="price-card visit-pass-card secondary-pass-card">
+
+              <div class="label">Flexible</div>
+
+              <h3>5-Visit Pack</h3>
+
+              <p class="small">
+                Five visits to use when you need them, without having to fit them into one week.
+              </p>
+
+              <div class="membership-total">
+                <span class="membership-total-label">Per household</span>
+
+                <strong class="membership-total-price">£40</strong>
+
+                <div class="membership-weekly-price">
+                  £8 per visit
+                </div>
+
+                <p class="membership-cancel-note">
+                  Your pack starts with your first visit.
+                </p>
+              </div>
+
+              <ul class="membership-benefits-list">
+                <li>Five flexible visits</li>
+                <li>Come anytime from 6am to 9pm</li>
+                <li>Stay for as long as you like each visit</li>
+                <li>Play rooms and Swap Room included</li>
+                <li>Join a social time if one is happening</li>
+                <li>Tea and coffee included</li>
+              </ul>
+
+              <p class="small-note">
+                Valid for 6 weeks from your first visit.
+              </p>
+
+              <a
+                class="button"
+                href="${FIVE_VISIT_PACK_PAYMENT_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy 5-Visit Pack
+              </a>
+
+            </article>
+
           </div>
+
         </div>
       </section>
 
@@ -911,15 +1153,55 @@ function page(cb) {
         <div class="content center">
           <p class="eyebrow dark">Good to know</p><h2>A few useful details</h2>
           <div class="faq-list">
-            <div class="faq-item"><h3>What is included with a Single Event Pass?</h3><p>It covers your household for one scheduled social session, including the play rooms, Swap Room, and tea and coffee during the event.</p></div>
-            <div class="faq-item"><h3>How does the 5-Event Pack work?</h3><p>The pack gives your household entry to five separate scheduled events and is valid for 6 weeks from the first event you attend.</p></div>
-            <div class="faq-item"><h3>How does the 7-Day Flexi Pass work?</h3><p>Your seven days begin with your first visit. During that week you can visit independently from 6am to 9pm every day and join any scheduled events.</p></div>
-            <div class="faq-item"><h3>Are the events led classes?</h3><p>No. They are informal social sessions rather than singing, story or activity classes. Children play freely while adults supervise and socialise.</p></div>
-            <div class="faq-item"><h3>Can I come when no event is running?</h3><p>Yes, with an active 7-Day Flexi Pass. Single Event Passes and 5-Event Packs are for scheduled events only.</p></div>
-            <div class="faq-item"><h3>Can I see the space before buying?</h3><p>Yes. Wednesday Open Play is open to everyone and does not require a pass.</p></div>
-            <div class="faq-item"><h3>Can I bring food?</h3><p>Yes. Bring your own food and drinks. Tea and coffee are included for grown-ups.</p></div>
-            <div class="faq-item"><h3>Can parents use a laptop?</h3><p>Yes. You may do some light work while your child plays nearby. Parents and carers remain responsible for supervision.</p></div>
-          </div>
+            <div class="faq-item">
+              <h3>How does the 7-Day Flexi Pass work?</h3>
+              <p>
+                Your seven days begin with your first visit. During that week you can visit independently from 6am to 9pm every day and join any scheduled events.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Can I come when no event is running?</h3>
+              <p>
+                Yes, with an active 7-Day Flexi Pass. Single Event Passes and 5-Event Packs are for scheduled events only.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>How does the Swap Room work?</h3>
+              <p>
+                Browse whenever you visit, bring good-quality things your family has outgrown, and take what your family can use. It is not a one-for-one exchange.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Can I see the space before buying?</h3>
+              <p>
+                Yes. Wednesday Open Play is open to everyone and does not require a pass.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>What is included with a Single Event Pass?</h3>
+              <p>
+                It covers your household for one scheduled social session, including the play rooms, Swap Room, and tea and coffee during the event.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>How does the 5-Event Pack work?</h3>
+              <p>
+                The pack gives your household entry to five separate scheduled events and is valid for 6 weeks from the first event you attend.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Are the social times led classes?</h3>
+              <p>
+                No. They are informal gatherings rather than singing, story or activity classes. Children play freely while adults supervise and socialise.
+              </p>
+            </div>          
+            </div>
         </div>
       </section>
 
@@ -1037,7 +1319,22 @@ function page(cb) {
     shadow.querySelectorAll('[data-scroll-to-calendar]').forEach(button => {
       button.addEventListener('click', () => {
         history.replaceState(null, '', '#calendar')
+        open_calendar_details()
         scroll_to_target('#calendar')
+      })
+    })
+
+    shadow.querySelectorAll('[data-scroll-to-swap]').forEach(button => {
+      button.addEventListener('click', () => {
+        history.replaceState(null, '', '#swap-new')
+        scroll_to_target('#swap-new')
+      })
+    })
+
+    shadow.querySelectorAll('[data-scroll-to-swap-room]').forEach(button => {
+      button.addEventListener('click', () => {
+        history.replaceState(null, '', '#swap-room')
+        scroll_to_target('#swap-room')
       })
     })
 
@@ -1170,7 +1467,29 @@ function page(cb) {
     }
 
     if (hash === '#calendar' || hash === '#events') {
+      open_calendar_details()
       scroll_to_target('#calendar')
+      return
+    }
+
+    if (
+      hash === '#swap' ||
+      hash === '#swap-new' ||
+      hash === '#swap-room'
+    ) {
+      scroll_to_target(
+        hash === '#swap-room'
+          ? '#swap-room'
+          : '#swap-new'
+      )
+    }
+  }
+
+  function open_calendar_details() {
+    const details = shadow.querySelector('[data-calendar-details]')
+
+    if (details) {
+      details.open = true
     }
   }
 

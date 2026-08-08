@@ -1,0 +1,56 @@
+[
+  {
+    "image": "./assets/swap-items/animal-print-dungarees.jpg",
+    "title": "Animal Print Dungarees",
+    "details": "3-4 years",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/star-jacket.jpg",
+    "title": "Star jacket",
+    "details": "12-18 months",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/blade.jpg",
+    "title": "Blade & Rose knitted leggins",
+    "details": "9-12 months",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/suumer-long-pants-blue.jpg",
+    "title": "Light long summer trousers",
+    "details": "2-3 years",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/tracksuit-set-grey.jpg",
+    "title": "Cotton tracksuit set",
+    "details": "3-4 years",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/skirt-and-jumper.jpg",
+    "title": "Skirt and jumper with peace sign",
+    "details": "3-4 years",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/baby-polo-shirt.jpg",
+    "title": "Baby Polo Shirt",
+    "details": "9-12 months",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/linen-dungarees-with-elephant.jpg",
+    "title": "Linen dungarees with elephant",
+    "details": "9-12 months",
+    "added": "2026-08-08"
+  },
+  {
+    "image": "./assets/swap-items/3-pairs-of-shorts.jpg",
+    "title": "Girls shorts",
+    "details": "2-3 years",
+    "added": "2026-08-08"
+  }
+]
