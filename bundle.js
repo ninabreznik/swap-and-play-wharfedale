@@ -108,6 +108,8 @@ const get_theme = require('get_theme')
 const DAY_PASS_PAYMENT_URL = 'https://buy.stripe.com/5kQ14m8ga9jj0pjdsh0Ba05'
 const FIVE_VISIT_PACK_PAYMENT_URL = 'https://buy.stripe.com/cNieVcbsm0MNb3X5ZP0Ba06'
 const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
+const PLAYDATE_PASS_PAYMENT_URL = 'https://buy.stripe.com/dRmeVc2VQeDD2xr9c10Ba07'
+
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const SWAP_ROOM_ITEMS = require('../data/swap-room-items.json')
@@ -1063,8 +1065,84 @@ function page(cb) {
           </div>
         </div>
       </section>
+      
 
       <div class="wave" style="background:#6fa8dc;">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            style="fill:#d1ece6;">
+          </path>
+        </svg>
+      </div>
+
+            <section
+        class="section playdate-section"
+        id="playdate"
+      >
+        <div class="content content-wide">
+
+          <div class="playdate-card">
+
+            <div class="playdate-copy">
+
+              <p class="eyebrow dark">
+                Special August offer
+              </p>
+
+              <h2>
+                Bring a friend to Swap &amp; Play 💜
+              </h2>
+
+              <p class="playdate-lead">
+                <strong>One £10 Playdate Pass = one visit for two families.</strong>
+              </p>
+
+              <p>
+                Fancy a playdate without having to host at home?
+                Pick a friend, choose a time and come to Swap &amp; Play together.
+              </p>
+
+              <div class="playdate-price">
+                <strong>£10</strong>
+                <span>total for both families</span>
+              </div>
+
+              <ul class="membership-benefits-list playdate-benefits">
+                <li>One visit for two families</li>
+                <li>Come anytime from 6am to 9pm</li>
+                <li>Stay for as long as you like</li>
+                <li>Play rooms and Swap Room included</li>
+                <li>Tea and coffee included</li>
+                <li>Bring your own food and snacks</li>
+              </ul>
+
+              <p class="playdate-note">
+                Only one family needs to buy the pass.
+                Your friend does not need to buy a separate pass.
+              </p>
+
+              <a
+                class="button playdate-button"
+                href="${PLAYDATE_PASS_PAYMENT_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get a Playdate Pass — £10
+              </a>
+
+              <p class="small-note">
+                Available until the end of August.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <div class="wave" style="background:#d1ece6;">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
@@ -1087,6 +1165,19 @@ function page(cb) {
             All passes give you access to the play spaces and Swap Room.
             Come whenever suits you between 6am and 9pm — and if a social time is happening while you are here, simply join in.
           </p>
+
+          <div class="playdate-pricing-callout">
+            <div>
+              <strong>Coming with a friend?</strong>
+              <span>
+                Our August Playdate Pass gives two families one visit together for £10 total.
+              </span>
+            </div>
+
+            <a href="/#playdate">
+              See Playdate Pass →
+            </a>
+          </div>
 
           <div class="pass-options-grid">
 
@@ -1555,6 +1646,14 @@ function page(cb) {
   function scroll_to_hash_target() {
     const path = window.location.pathname.replace(/\/$/, '')
     const hash = window.location.hash
+
+    if (
+      path.endsWith('/playdate') ||
+      hash === '#playdate'
+    ) {
+      scroll_to_target('#playdate')
+      return
+    }
 
     if (
       path.endsWith('/trial') ||
@@ -3003,6 +3102,111 @@ function get_theme() {
       color: var(--heather-dark);
       font-size: 0.94rem;
       font-weight: 800;
+    }
+
+    /* Playdate */
+
+    .playdate-section {
+      background: #d1ece6;
+    }
+
+    .playdate-card {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px;
+      border-radius: 28px;
+      background: #fbfaf6;
+      text-align: center;
+    }
+
+    .playdate-copy {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .playdate-copy h2 {
+      margin-bottom: 18px;
+    }
+
+    .playdate-lead {
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+    }
+
+    .playdate-price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      margin: 28px 0 20px;
+    }
+
+    .playdate-price strong {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .playdate-price span {
+      font-size: 0.95rem;
+    }
+
+    .playdate-benefits {
+      max-width: 430px;
+      margin: 24px auto;
+      text-align: left;
+    }
+
+    .playdate-note {
+      margin: 22px auto;
+      max-width: 520px;
+      font-weight: 600;
+    }
+
+    .playdate-button {
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .playdate-pricing-callout {
+      max-width: 900px;
+      margin: 0 auto 28px;
+      padding: 18px 22px;
+      border-radius: 16px;
+      background: #fbfaf6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .playdate-pricing-callout div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .playdate-pricing-callout a {
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .playdate-pricing-callout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .playdate-card {
+        padding: 32px 22px;
+        border-radius: 20px;
+      }
+
+      .playdate-price strong {
+        font-size: 2.5rem;
+      }
     }
 
     /* Summer pass */
