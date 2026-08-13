@@ -153,930 +153,846 @@ function render_swap_room_items() {
   `
 }
 
-function page(cb) {
+function page (cb) {
   const el = document.createElement('div')
   const shadow = el.attachShadow({ mode: 'closed' })
-
-  const buy = document.createElement('button')
-  buy.innerText = 'View pass options'
-  buy.className = 'hero-pass-button'
-  buy.onclick = scroll_to_passes
 
   shadow.innerHTML = `
     <div class="page">
 
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="logo hero-copy">
-          <img src="./assets/logo.png" alt="Swap & Play Wharfedale logo">
+      <!-- AUGUST ANNOUNCEMENT -->
 
-          <p class="eyebrow">Play · swap · belong</p>
+      <section class="announcement-bar">
+        <button
+          type="button"
+          class="announcement-link"
+          data-scroll-to="#playdate"
+        >
+          August: Bring a friend — one visit for two families for £10 →
+        </button>
+      </section>
 
-          <h1>A calm place to play, whenever you need it</h1>
 
-          <p class="hero-subtitle">
-            Come when your child is ready. Play, have a coffee, meet other families and browse the Swap Room — open every day from 6am to 9pm.
-          </p>
+      <!-- HERO -->
 
-          <div class="hero-actions">
-            <button
-              type="button"
-              class="hero-swap-button"
-              data-scroll-to-swap
+      <section class="hero">
+        <div class="hero-inner">
+
+          <div class="hero-copy">
+            <img
+              src="./assets/logo.png"
+              alt="Swap & Play Wharfedale"
+              class="hero-logo"
             >
-              See what’s new in the Swap Room
-            </button>
 
-            <buy-pass></buy-pass>
+            <p class="eyebrow">
+              Play · swap · belong
+            </p>
+
+            <h1>
+              A shared space for family life in Ilkley
+            </h1>
+
+            <p class="hero-subtitle">
+              Play rooms for little ones, a Community Wardrobe for everything
+              they outgrow, and a place for local families to meet, share and belong.
+            </p>
+
+            <div class="hero-details">
+              <span>Open every day</span>
+              <span>6am–9pm</span>
+              <span>Just behind Booths, Ilkley</span>
+            </div>
+
+            <div class="hero-actions">
+              <button
+                type="button"
+                class="button primary-button"
+                data-scroll-to="#passes"
+              >
+                View Pass Options
+              </button>
+
+              <button
+                type="button"
+                class="button secondary-button"
+                data-scroll-to="#location"
+              >
+                Find us
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div class="hero-photo">
-          <img
-            src="./assets/hero-families.jpg"
-            alt="Parent relaxing while children play nearby"
-            class="photo"
-          >
-        </div>
-      </div>
-    </section>
-
-    <div class="wave" style="background:#6fa8dc;">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path
-          d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-          style="fill:#fbfaf6;">
-        </path>
-      </svg>
-    </div>
-
-    <section class="section swap-preview-section" id="swap-new">
-      <div class="content content-wide">
-
-        <div class="swap-preview-heading">
-          <div>
-            <p class="eyebrow dark">New in the Swap Room</p>
-            <h2>Have a look before you come</h2>
+          <div class="hero-photo">
+            <img
+              src="./assets/hero-families.jpg"
+              alt="Local families spending time together at Swap & Play"
+              class="photo"
+            >
           </div>
-
-          <p class="swap-preview-intro">
-            The Swap Room changes every week as local families bring in good things their children have outgrown.
-            Here is a peek at some of the most recent arrivals.
-          </p>
-        </div>
-
-        ${render_swap_room_items()}
-
-        <div class="swap-preview-footer">
-          <p>
-            No credits and no one-for-one swapping. Give when you can, take what your family can use.
-            This is a peek at recent arrivals rather than live stock, so items may already have found a new home.
-          </p>
-
-          <button
-            type="button"
-            class="swap-preview-link"
-            data-scroll-to-swap-room
-          >
-            How the Swap Room works →
-          </button>
-        </div>
 
         </div>
       </section>
 
-      <div class="wave" style="background:#fbfaf6;">
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#6fa8dc">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#f4efe6;">
+            fill="#fbfaf6">
           </path>
         </svg>
       </div>
 
-      <section class="section light location-section">
-        <div class="content content-wide center">
-          <p class="eyebrow dark">Built around real family life</p>
-            <h2>A place that works around your day</h2>
 
-            <p class="location-intro">
-              Most children’s activities happen at a fixed time. Young children often do not.
-              Naps shift, meals run late, the weather changes, and some days simply do not go to plan.
+      <!-- WHAT SWAP & PLAY IS -->
+
+      <section class="section identity-section">
+        <div class="content content-wide">
+
+          <div class="section-heading center">
+            <p class="eyebrow dark">
+              More than somewhere to pass an hour
             </p>
 
-            <p class="location-intro">
-              Swap & Play works differently. Once you have access, you can come when your child is ready,
-              without booking a session or rushing to arrive on time.
+            <h2>
+              A little piece of family infrastructure
+            </h2>
+
+            <p class="section-intro">
+              Swap & Play is a shared local space designed around ordinary life
+              with babies and young children.
+            </p>
+          </div>
+
+          <div class="identity-grid">
+
+            <article class="identity-card">
+
+              <h3>Play</h3>
+
+              <p>
+                Calm, thoughtfully prepared rooms where babies and young children
+                can explore, move, pretend, build, read and play.
+              </p>
+            </article>
+
+            <article class="identity-card">
+
+              <h3>Share</h3>
+
+              <p>
+                Bring the good clothes, books and toys your children have outgrown,
+                and take home things another local family no longer needs.
+              </p>
+            </article>
+
+            <article class="identity-card">
+
+              <h3>Belong</h3>
+
+              <p>
+                Come independently when you want somewhere calm, or overlap with
+                other local families when you would like company.
+              </p>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WAVE -->
+
+      <div class="wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            fill="#f4efe6">
+          </path>
+        </svg>
+      </div>
+
+      <!-- LOCATION -->
+
+      <section
+        class="section location-section"
+        id="location"
+      >
+        <div class="content content-wide">
+
+          <div class="section-heading center">
+
+            <p class="eyebrow dark">
+              Right in the middle of Ilkley
             </p>
 
-            <p class="location-tagline">
-              Come for 30 minutes or stay for three hours.<br>
-              No booking. No rushing. Just arrive.
+            <h2>
+              Easy to find. Easy to drop into.
+            </h2>
+
+            <p class="section-intro">
+              We are on Leeds Road, just behind Booths — close to Riverside,
+              the playground and the centre of town.
             </p>
+
+          </div>
+
           <div class="location-visuals">
+
             <div class="location-card building-card">
               <img
                 src="./assets/building.png"
-                alt="Swap & Play entrance on Leeds Road"
+                alt="The entrance to Swap & Play on Leeds Road in Ilkley"
+                class="photo"
               >
             </div>
 
             <div class="location-card map-card">
               <img
                 src="./assets/map.png"
-                alt="Map showing the pedestrian path from Booths car park to Swap & Play"
+                alt="Map showing Swap & Play behind Booths in Ilkley"
+                class="photo"
               >
             </div>
+
           </div>
 
-          <p class="location-line">
-            Just behind Booths on Leeds Road — easy to reach from Booths car park, the playground and Riverside.<br>
+          <div class="location-details">
+
+            <div class="location-detail">
+              <strong>Swap & Play Wharfedale</strong>
+              <span>Leeds Road, Ilkley</span>
+            </div>
+
+            <div class="location-detail">
+              <strong>Parking</strong>
+              <span>Booths car park is just around the corner</span>
+            </div>
+
+            <div class="location-detail">
+              <strong>Opening hours</strong>
+              <span>Every day, 6am–9pm</span>
+            </div>
+
+          </div>
+
+          <div class="center">
             <a
+              class="button primary-button"
               href="https://maps.app.goo.gl/xPGPfSGdbXFYjEog6"
               target="_blank"
               rel="noopener noreferrer"
             >
               Open in Google Maps
             </a>
-          </p>
+          </div>
+
         </div>
       </section>
 
-      <div class="wave" style="background:#f4efe6;">
+
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#f4efe6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
+            fill="#fbfaf6">
           </path>
         </svg>
-      </div>
+      </div>      
 
-      <section class="section small-purpose">
-        <div class="content content-split">
-          <div>
-            <p class="eyebrow dark">Everything is already set up</p>
-            <h2>Leave the play preparation to us</h2>
-          </div>
-          <div>
-            <p>At home, play can mean finding the right toys, opening boxes, setting something up and tidying it all away again. Here, the rooms are ready when you arrive.</p>
-            <p>Children can move between pretend play, puzzles, books, building toys and movement, while adults supervise, sit down, make a drink or talk to another grown-up.</p>
-            <p>Come for a social session when you would like company, or visit outside event times when you prefer a quieter, calmer atmosphere.</p>
-            <p>We are open every day from 6am to 9pm, including the late-afternoon and early-evening hours when most children’s activities have already finished.</p>
-          </div>
-        </div>
-      </section>
+      <!-- HOW IT WORKS -->
 
-      <section class="photo-story expanded-photo-story">
-        <div class="content content-xl">
-          <div class="photo-grid photo-grid-clean">
-            <img src="./assets/focused-play.jpg" alt="A child concentrating on a puzzle at a table" class="story-photo">
-            <img src="./assets/social-play.jpg" alt="Families meeting for a relaxed social play session" class="story-photo">            <img src="./assets/quiet-coffee.jpg" alt="A quiet play room with a cup of coffee in the foreground" class="story-photo">
-            <img src="./assets/role-play.jpg" alt="Two children playing together in the role-play shop" class="story-photo">
-            <img src="./assets/girls-playing.jpeg" alt="Two girls playing together on the floor" class="story-photo">
-            <img src="./assets/baby.jpg" alt="A baby sitting on a mat with toys around and looking into the camera" class="story-photo">
-          </div>
-        </div>
-      </section>
+      <section class="section how-it-works-section">
+        <div class="content content-wide">
 
-      <div class="wave" style="background:#fbfaf6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#d1ece6;">
-          </path>
-        </svg>
-      </div>
+          <div class="section-heading center">
 
-      <section class="section weekly-calendar-section soft-calendar" id="calendar">
-        <div class="content content-wide center">
-        <p class="eyebrow dark">Optional social times</p>
-
-        <h2>Want company? Come at a social time</h2>
-
-        <p class="section-intro">
-          You never need an event to use Swap & Play. Members and active pass holders can visit
-          independently from 6am to 9pm every day. These regular times simply make it easier to
-          come when other local families are likely to be here.
-        </p>
-
-        <details class="calendar-details" data-calendar-details open>
-          <summary>Weekly social schedule</summary>
-
-          <div class="calendar-details-body">
-          <div class="calendar-legend" aria-label="Calendar key">
-            <span class="calendar-key">
-              <span class="calendar-key-dot public-dot"></span>
-              Open to everyone
-            </span>
-
-            <span class="calendar-key">
-              <span class="calendar-key-dot member-dot"></span>
-              Social time
-            </span>
-
-            <span class="calendar-key">
-              <span class="calendar-key-dot flexible-dot"></span>
-              Flexible access
-            </span>
-          </div>
-
-          <div
-            class="calendar-scroll"
-            tabindex="0"
-            aria-label="Weekly events calendar. Scroll horizontally to see all days."
-          >
-            <div
-              class="week-calendar"
-              role="table"
-              aria-label="Weekly schedule"
-            >
-              <div class="calendar-header-row" role="row">
-                <div class="calendar-day-heading" role="columnheader">
-                  Monday
-                </div>
-
-                <div class="calendar-day-heading" role="columnheader">
-                  Tuesday
-                </div>
-
-                <div
-                  class="calendar-day-heading public-heading"
-                  role="columnheader"
-                >
-                  Wednesday
-                </div>
-
-                <div class="calendar-day-heading" role="columnheader">
-                  Thursday
-                </div>
-
-                <div class="calendar-day-heading" role="columnheader">
-                  Friday
-                </div>
-
-                <div
-                  class="calendar-day-heading weekend-heading"
-                  role="columnheader"
-                >
-                  Saturday
-                </div>
-
-                <div
-                  class="calendar-day-heading weekend-heading"
-                  role="columnheader"
-                >
-                  Sunday
-                </div>
-              </div>
-
-              <div class="calendar-body-row" role="row">
-
-                <!-- MONDAY -->
-                <div
-                  class="calendar-day-cell"
-                  role="cell"
-                  aria-label="Monday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Monday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently at any point during opening hours. The Afternoon Playdate is an optional social session, and you can visit before, during or after it."
-                    data-member-only="true"
-                    aria-label="Flexible access, Monday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="15:00"
-                    data-end="17:00"
-                    data-title="Afternoon Playdate"
-                    data-time="Monday, 3–5pm"
-                    data-access="Open to everyone · No pass required · Tea and coffee included"
-                    data-description="An informal afternoon playdate for families who would like to visit when other children and carers are likely to be around. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Afternoon Playdate, Monday from 3 to 5pm. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">3–5pm</span>
-                    <strong class="week-event-title">
-                      Afternoon Playdate
-                    </strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- TUESDAY -->
-                <div
-                  class="calendar-day-cell"
-                  role="cell"
-                  aria-label="Tuesday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Tuesday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently at any point during opening hours. Cowork & Play is an optional social session, and you can visit before, during or after it."
-                    data-member-only="true"
-                    aria-label="Flexible access, Tuesday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="11:00"
-                    data-end="14:00"
-                    data-title="Cowork & Play"
-                    data-time="Tuesday, 11am–2pm"
-                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
-                    data-description="A relaxed three-hour drop-in for parents who would like to do some light work while their child plays nearby. Come at any point between 11am and 2pm and stay for as long as it works for your family. This is not supervised childcare. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Cowork and Play, Tuesday from 11am to 2pm. Drop in anytime. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">11am–2pm</span>
-                    <strong class="week-event-title">
-                      Cowork &amp; Play
-                    </strong>
-                    <span class="week-event-extra">
-                      Drop in anytime
-                    </span>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- WEDNESDAY -->
-                <div
-                  class="calendar-day-cell public-cell"
-                  role="cell"
-                  aria-label="Wednesday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Wednesday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Members and valid pass holders can visit independently throughout the day. Both Open Play sessions are also open to families without a pass."
-                    data-member-only="true"
-                    aria-label="Flexible access, Wednesday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event public-event social-event"
-                    type="button"
-                    data-start="10:00"
-                    data-end="12:00"
-                    data-title="Open Play"
-                    data-time="Wednesday, 10am–12pm"
-                    data-access="Open to everyone · No pass required · Tea and coffee included"
-                    data-description="A relaxed public session for seeing the space, letting children play and meeting other local families. You do not need a pass to attend. Tea and coffee are included."
-                    data-member-only="false"
-                    aria-label="Open Play, Wednesday from 10am to 12pm. Open to everyone. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">10am–12pm</span>
-                    <strong class="week-event-title">Open Play</strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- THURSDAY -->
-                <div
-                  class="calendar-day-cell"
-                  role="cell"
-                  aria-label="Thursday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Thursday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently at any point during opening hours. The Under-1s Playdate is an optional social session, and you can visit before, during or after it."
-                    data-member-only="true"
-                    aria-label="Flexible access, Thursday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="15:00"
-                    data-end="17:00"
-                    data-title="Under-1s Afternoon Playdate"
-                    data-time="Thursday, 3–5pm"
-                    data-access="Members and valid pass holders · For babies under 1 · Tea and coffee included"
-                    data-description="A calm afternoon playdate for babies under one and their grown-ups, with space to chat, feed and let little ones explore at their own pace. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Under-1s Afternoon Playdate, Thursday from 3 to 5pm. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">3–5pm</span>
-                    <strong class="week-event-title">
-                      Under-1s Playdate
-                    </strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- FRIDAY -->
-                <div
-                  class="calendar-day-cell"
-                  role="cell"
-                  aria-label="Friday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Friday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently at any point during opening hours. Grandparents’ Morning and the Afternoon Playdate are optional social sessions."
-                    data-member-only="true"
-                    aria-label="Flexible access, Friday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="10:00"
-                    data-end="12:00"
-                    data-title="Grandparents’ Morning"
-                    data-time="Friday, 10am–12pm"
-                    data-access="Free for members and active pass holders · Tea and coffee included"
-                    data-description="A relaxed social morning for grandparents and little ones. Come for the full session or stay for as long as suits your family. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Grandparents’ Morning, Friday from 10am to 12pm. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">10am–12pm</span>
-                    <strong class="week-event-title">
-                      Grandparents’ Morning
-                    </strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="15:00"
-                    data-end="18:00"
-                    data-title="Afternoon Playdate"
-                    data-time="Friday, 3–6pm"
-                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
-                    data-description="A relaxed three-hour end-of-week playdate. Come at any point between 3pm and 6pm and stay for 30 minutes or the whole afternoon. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Afternoon Playdate, Friday from 3 to 6pm. Drop in anytime. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">3–6pm</span>
-                    <strong class="week-event-title">
-                      Afternoon Playdate
-                    </strong>
-                    <span class="week-event-extra">
-                      Drop in anytime
-                    </span>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- SATURDAY -->
-                <div
-                  class="calendar-day-cell weekend-cell"
-                  role="cell"
-                  aria-label="Saturday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Saturday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently whenever it works for your family. The Swap Event is an optional social session within the normal flexible-access day."
-                    data-member-only="true"
-                    aria-label="Flexible access, Saturday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="17:00"
-                    data-end="19:00"
-                    data-title="Swap Event"
-                    data-time="Saturday, 5–7pm"
-                    data-access="Free for members and active pass holders · Tea and coffee included"
-                    data-description="Bring along good-quality children’s clothes, books, toys or useful family items, browse what others have brought and take home anything your family can use. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Swap Event, Saturday from 5 to 7pm. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">5–7pm</span>
-                    <strong class="week-event-title">Swap Event</strong>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-
-                <!-- SUNDAY -->
-                <div
-                  class="calendar-day-cell weekend-cell"
-                  role="cell"
-                  aria-label="Sunday"
-                >
-                  <button
-                    class="week-event flexible-event availability-event"
-                    type="button"
-                    data-start="06:00"
-                    data-end="21:00"
-                    data-title="Flexible access"
-                    data-time="Sunday, 6am–9pm"
-                    data-access="Members and valid pass holders"
-                    data-description="Visit independently whenever it works for your family. Coffee & Cake is an optional social session within the normal flexible-access day."
-                    data-member-only="true"
-                    aria-label="Flexible access, Sunday from 6am to 9pm. Open event details."
-                  >
-                    <span class="week-event-time">6am–9pm</span>
-                    <strong class="week-event-title">Flexible access</strong>
-                  </button>
-
-                  <button
-                    class="week-event member-event social-event"
-                    type="button"
-                    data-start="11:00"
-                    data-end="14:00"
-                    data-title="Coffee & Cake"
-                    data-time="Sunday, 11am–2pm"
-                    data-access="Free for members and active pass holders · Drop in anytime · Tea and coffee included"
-                    data-description="A relaxed three-hour Sunday bring-and-share gathering. Bring a cake, biscuits or another sweet treat for the table, then help yourself to what everyone has brought. Come at any point between 11am and 2pm and stay for as long as suits you. Tea and coffee are included."
-                    data-member-only="true"
-                    aria-label="Coffee and Cake, Sunday from 11am to 2pm. Drop in anytime. Tea and coffee included. Open event details."
-                  >
-                    <span class="week-event-time">11am–2pm</span>
-                    <strong class="week-event-title">
-                      Coffee &amp; Cake
-                    </strong>
-                    <span class="week-event-extra">
-                      Drop in anytime
-                    </span>
-                    <span class="week-event-extra">
-                      Tea &amp; coffee included
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="calendar-summary">
-            <p>
-              <strong>Social sessions are optional.</strong>
-              Members and valid pass holders can also visit independently
-              from 6am to 9pm every day. Select a session to see more details.
+            <p class="eyebrow dark">
+              No booking. No timetable to organise around.
             </p>
 
-            <a
-              class="calendar-pass-link"
-              href="#passes"
-              data-scroll-to-passes
-            >
-              View pass options →
-            </a>
+            <h2>
+              Come when your family is ready
+            </h2>
+
           </div>
+
+          <div class="steps-grid">
+
+            <article class="step-card">
+              <span class="step-number">1</span>
+
+              <h3>Choose your access</h3>
+
+              <p>
+                Pick the visit option that works for your family.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <span class="step-number">2</span>
+
+              <h3>Get your own door code</h3>
+
+              <p>
+                There is no reception or formal check-in. Your household gets
+                its own access code.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <span class="step-number">3</span>
+
+              <h3>Just arrive</h3>
+
+              <p>
+                Come anytime between 6am and 9pm while your access is active.
+              </p>
+            </article>
+
           </div>
-        </details>
-        </div>
 
-        <div
-          class="event-modal"
-          data-event-modal
-          hidden
-        >
-          <button
-            class="event-modal-backdrop"
-            type="button"
-            data-close-event-modal
-            aria-label="Close event details"
-          ></button>
+          <p class="big-statement center">
+            Come for 30 minutes or stay for three hours.<br>
+            No booking. No rushing. Just arrive.
+          </p>
 
-          <div
-            class="event-modal-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="event-modal-title"
-            aria-describedby="event-modal-description"
-          >
-            <button
-              class="event-modal-close"
-              type="button"
-              data-close-event-modal
-              aria-label="Close event details"
-            >
-              ×
-            </button>
-
-            <p
-              class="event-modal-time"
-              data-event-modal-time
-            ></p>
-
-            <h3
-              id="event-modal-title"
-              data-event-modal-title
-            ></h3>
-
-            <p
-              class="event-modal-access"
-              data-event-modal-access
-            ></p>
-
-            <p
-              class="event-modal-description"
-              id="event-modal-description"
-              data-event-modal-description
-            ></p>
-
-            <div
-              class="event-modal-actions"
-              data-event-modal-actions
-              hidden
-            >
-            <a
-              class="button event-modal-single"
-              href="${DAY_PASS_PAYMENT_URL}"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-event-modal-single
-            >
-              Get a Day Pass — £10
-            </a>
-              <button class="button event-modal-pass" type="button" data-event-modal-pass>
-                Compare all pass options
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
-      <div class="wave" style="background:#d1ece6;">
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#fbfaf6;">
+            fill="#d1ece6">
           </path>
         </svg>
-      </div>
+      </div>      
 
+      <!-- COMMUNITY WARDROBE -->
 
       <section
-        class="section soft relief-section swap-section"
+        class="section swap-section"
         id="swap-room"
       >
-        <div class="content center">
+        <div class="content content-wide">
 
-          <p class="eyebrow dark">Give what you can. Take what you need</p>
+          <div class="swap-story-grid">
 
-          <h2>The Swap Room is part of every visit</h2>
+            <div class="swap-story-copy">
 
-          <p>
-            Browse children’s clothing, books, toys and useful little bits of family gear whenever you visit.
-            Things come and go all the time, so there is usually something different to discover.
-          </p>
-
-          <img
-            src="./assets/swap-room.jpg"
-            alt="Children’s clothes, books and toys being shared and reused through the Swap Room"
-            class="photo"
-          >
-
-          <p>
-            You are welcome to bring good things your family has outgrown. It is not a one-for-one system:
-            simply give when you can and take what your family can genuinely use.
-          </p>
-
-          <p>
-            Donations can be left in the designated bins for sorting. We ask that they are new or like-new,
-            stain-free, and items you would be happy to give to a friend.
-          </p>
-
-        </div>
-      </section>
-
-      <div class="wave" style="background:#fbfaf6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#f4efe6;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section included-section">
-        <div class="content center">
-        <p class="eyebrow dark">Designed for ordinary family days</p>
-        <h2>Come for company, calm, or simply somewhere ready</h2>
-
-        <p class="included-intro">
-          A ready-to-use play-and-swap space for spontaneous visits, social sessions and the gaps between other plans.
-        </p>
-
-          <div class="included-grid calm-cards">
-            <div class="included-card">
-              <h3>No preparation needed</h3>
-              <p>
-                The toys, books, play areas and movement room are ready when you arrive.
+              <p class="eyebrow dark">
+                The Community Wardrobe
               </p>
+
+              <h2>
+                What do you do with everything they outgrow?
+              </h2>
+
+              <p class="large-copy">
+                Babies and young children move through clothes, books and toys
+                astonishingly quickly.
+              </p>
+
+              <p>
+                Instead of every family buying, storing, photographing and
+                reselling the same things separately, we can keep useful things
+                moving through our local community.
+              </p>
+
+              <p>
+                Bring good-quality clothes, books, toys and useful family items
+                that you no longer need. Browse what other families have brought.
+                Take home something your family can genuinely use.
+              </p>
+
+              <p class="swap-principle">
+                <strong>
+                  No credits. No selling. No one-for-one exchange.
+                </strong>
+              </p>
+
+              <p class="swap-principle-large">
+                Give when you can.<br>
+                Take what you need.
+              </p>
+
             </div>
 
-            <div class="included-card">
-              <h3>Stay as long as it works</h3>
-              <p>
-                Pop in for 30 minutes or settle in for a longer morning or afternoon.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Open every day</h3>
-              <p>
-                Available from 6am to 9pm, 365 days a year.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Social or quiet</h3>
-              <p>
-                Visit independently when it suits you, or use the optional social times when you would like company.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Self check-in</h3>
-              <p>
-                Come and go independently once you have access.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Tea and coffee included</h3>
-              <p>
-                Make a drink without needing to buy something every time you visit.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Bring your own food</h3>
-              <p>
-                Pack what your child actually eats and stay while the day is going well.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Space for adults too</h3>
-              <p>
-                Sit, talk, read, feed your child or do a little light laptop catch-up.
-              </p>
-            </div>
-
-            <div class="included-card">
-              <h3>Open when others are not</h3>
-              <p>
-                Use the space from 6am to 9pm, including late afternoons and early evenings.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="wave" style="background:#f4efe6;">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#6fa8dc;">
-          </path>
-        </svg>
-      </div>
-
-      <section class="section reviews-section">
-        <div class="content content-wide center">
-          <p class="eyebrow dark">Early reviews</p>
-          <h2>What local families are saying</h2>
-
-          <p class="section-intro">
-            Families who have visited describe Swap & Play as clean, thoughtful, flexible and easy to use — a place where children can play happily and grown-ups can breathe a little.
-          </p>
-
-          <div class="reviews-grid">
-            <div class="review-card">
-              <p>
-                “Amazing set up, absolutely everything has been thought about. The space is clean and well equipped with great resources for all ages.”
-              </p>
-              <span>Mel A</span>
-            </div>
-
-            <div class="review-card">
-              <p>
-               “I loved the toys, the space is clean and fresh, and you have thought of nearly everything. We brought the girls dinner and had a play session before bed — it was brilliant.”
-              </p>
-              <span>Nancy M</span>
-            </div>
-
-            <div class="review-card">
-              <p>
-                “The flexibility and the fact that you don’t have to pre-book make it so convenient to use. Our little ones love it here and always ask to come back.”
-              </p>
-              <span>Julia R</span>
-            </div>
-          </div>
-          <div class="press-mentions">
-            <p class="press-eyebrow">Featured in the local press</p>
-
-            <p class="press-intro">
-              Local newspapers described Swap & Play as a flexible alternative
-              to traditional playgroups and organised activities.
-            </p>
-
-            <div class="press-links">
-              <a
-                class="press-link"
-                href="${ILKLEY_GAZETTE_ARTICLE_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
+            <div class="swap-story-photo">
+              <img
+                src="./assets/swap-room.jpg"
+                alt="Children's clothes, books and toys in the Swap Room"
+                class="photo"
               >
-                <span class="press-publication">Ilkley Gazette</span>
-                <span class="press-title">
-                  Read about the opening of Swap & Play Wharfedale
-                </span>
-                <span class="press-read">Read the article →</span>
-              </a>
-
-              <a
-                class="press-link"
-                href="${WHARFEDALE_OBSERVER_ARTICLE_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="press-publication">Wharfedale Observer</span>
-                <span class="press-title">
-                  Read about our new flexible play-and-swap space
-                </span>
-                <span class="press-read">Read the article →</span>
-              </a>
             </div>
+
           </div>
+
         </div>
       </section>
       
+      <!-- WAVE -->
 
-      <div class="wave" style="background:#6fa8dc;">
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#d1ece6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#d1ece6;">
+            fill="#fbfaf6">
           </path>
         </svg>
       </div>
 
-            <section
+
+      <!-- RECENT SWAP ITEMS -->
+
+      <section
+        class="section swap-preview-section"
+        id="swap-new"
+      >
+        <div class="content content-wide">
+
+          <div class="swap-preview-heading">
+
+            <div>
+              <p class="eyebrow dark">
+                Recently added
+              </p>
+
+              <h2>
+                Have a look before you come
+              </h2>
+            </div>
+
+            <p class="swap-preview-intro">
+              The Community Wardrobe changes constantly as local families bring
+              in good things their children have outgrown.
+            </p>
+
+          </div>
+
+          ${render_swap_room_items()}
+
+          <p class="swap-stock-note">
+            These are recent arrivals rather than live stock, so some items may
+            already have found a new home.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- WAVE -->
+
+      <div class="wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            fill="#f4efe6">
+          </path>
+        </svg>
+      </div>
+      
+      <!-- LIFE AT SWAP & PLAY -->
+
+      <section class="section life-section">
+        <div class="content content-xl">
+
+          <div class="section-heading center">
+
+            <p class="eyebrow dark">
+              Life at Swap & Play
+            </p>
+
+            <h2>
+              Somewhere that can become part of your week
+            </h2>
+
+            <p class="section-intro">
+              Come after breakfast, between errands, after nursery, on a rainy
+              afternoon or when home has simply started to feel too small.
+            </p>
+
+          </div>
+
+          <div class="life-photo-grid">
+
+            <img
+              src="./assets/focused-play.jpg"
+              alt="A child concentrating on a puzzle"
+              class="photo"
+            >
+
+            <img
+              src="./assets/social-play.jpg"
+              alt="Families meeting at Swap & Play"
+              class="photo"
+            >
+
+            <img
+              src="./assets/quiet-coffee.jpg"
+              alt="A cup of coffee beside the play space"
+              class="photo"
+            >
+
+            <img
+              src="./assets/role-play.jpg"
+              alt="Children playing together in the role play room"
+              class="photo"
+            >
+
+            <img
+              src="./assets/girls-playing.jpeg"
+              alt="Children playing together on the floor"
+              class="photo"
+            >
+
+            <img
+              src="./assets/baby.jpg"
+              alt="A baby exploring the baby play area"
+              class="photo"
+            >
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WAVE -->
+
+      <div class="wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#f4efe6">
+          </rect>
+
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            fill="#fbfaf6">
+          </path>
+        </svg>
+      </div>
+
+      <!-- REVIEWS -->
+
+      <section class="section reviews-section">
+        <div class="content content-wide">
+
+          <div class="section-heading center">
+
+            <p class="eyebrow dark">
+              From local families
+            </p>
+
+            <h2>
+              What it feels like to use the space
+            </h2>
+
+          </div>
+
+          <div class="reviews-grid">
+
+            <blockquote class="review-card">
+              <p>
+                “Amazing set up, absolutely everything has been thought about.
+                The space is clean and well equipped with great resources for
+                all ages.”
+              </p>
+
+              <footer>Mel A</footer>
+            </blockquote>
+
+            <blockquote class="review-card">
+              <p>
+                “I loved the toys, the space is clean and fresh, and you have
+                thought of nearly everything. We brought the girls dinner and
+                had a play session before bed — it was brilliant.”
+              </p>
+
+              <footer>Nancy M</footer>
+            </blockquote>
+
+            <blockquote class="review-card">
+              <p>
+                “The flexibility and the fact that you don’t have to pre-book
+                make it so convenient to use. Our little ones love it here and
+                always ask to come back.”
+              </p>
+
+              <footer>Julia R</footer>
+            </blockquote>
+
+          </div>
+
+          <div class="press-links">
+
+            <a
+              class="press-link"
+              href="${ILKLEY_GAZETTE_ARTICLE_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="press-publication">
+                Ilkley Gazette
+              </span>
+
+              <span class="press-read">
+                Read about Swap & Play →
+              </span>
+            </a>
+
+            <a
+              class="press-link"
+              href="${WHARFEDALE_OBSERVER_ARTICLE_URL}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="press-publication">
+                Wharfedale Observer
+              </span>
+
+              <span class="press-read">
+                Read about Swap & Play →
+              </span>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WAVE -->
+
+      <div class="wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            fill="#d1ece6">
+          </path>
+        </svg>
+      </div>
+
+      <!-- SOCIAL TIMES -->
+
+      <section
+        class="section social-section"
+        id="calendar"
+      >
+        <div class="content content-wide">
+
+          <div class="section-heading center">
+
+            <p class="eyebrow dark">
+              Want some company?
+            </p>
+
+            <h2>
+              Come at a social time
+            </h2>
+
+            <p class="section-intro">
+              You never need an event to use Swap & Play. These are simply
+              regular times when other local families are more likely to be here.
+            </p>
+
+          </div>
+
+          <div class="social-times-grid">
+
+            <article class="social-time">
+              <span class="social-day">
+                Monday
+              </span>
+
+              <strong>
+                Afternoon Playdate
+              </strong>
+
+              <span>
+                3–5pm
+              </span>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Tuesday
+              </span>
+
+              <strong>
+                Cowork & Play
+              </strong>
+
+              <span>
+                11am–2pm
+              </span>
+            </article>
+
+            <article class="social-time public-social-time">
+              <span class="social-day">
+                Wednesday
+              </span>
+
+              <strong>
+                Open Play
+              </strong>
+
+              <span>
+                10am–12pm
+              </span>
+
+              <small>
+                Open to everyone
+              </small>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Thursday
+              </span>
+
+              <strong>
+                Under-1s Playdate
+              </strong>
+
+              <span>
+                3–5pm
+              </span>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Friday
+              </span>
+
+              <strong>
+                Grandparents' Morning
+              </strong>
+
+              <span>
+                10am–12pm
+              </span>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Friday
+              </span>
+
+              <strong>
+                Afternoon Playdate
+              </strong>
+
+              <span>
+                3–6pm
+              </span>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Saturday
+              </span>
+
+              <strong>
+                Swap & Social
+              </strong>
+
+              <span>
+                5–7pm
+              </span>
+            </article>
+
+            <article class="social-time">
+              <span class="social-day">
+                Sunday
+              </span>
+
+              <strong>
+                Coffee & Cake
+              </strong>
+
+              <span>
+                11am–2pm
+              </span>
+            </article>
+
+          </div>
+
+          <p class="social-note center">
+            Outside these times, the space is often much quieter.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- WAVE -->
+
+      <div class="wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#d1ece6">
+          </rect>
+
+          <path
+            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
+            fill="#fbfaf6">
+          </path>
+        </svg>
+      </div>
+
+      <!-- PLAYDATE CAMPAIGN -->
+
+      <section
         class="section playdate-section"
         id="playdate"
       >
@@ -1091,16 +1007,16 @@ function page(cb) {
               </p>
 
               <h2>
-                Bring a friend to Swap &amp; Play 💜
+                Bring a friend to Swap & Play
               </h2>
 
               <p class="playdate-lead">
-                <strong>One £10 Playdate Pass = one visit for two families.</strong>
+                One £10 Playdate Pass = one visit for two families.
               </p>
 
               <p>
-                Fancy a playdate without having to host at home?
-                Pick a friend, choose a time and come to Swap &amp; Play together.
+                Pick a friend, choose a time and enjoy a playdate without
+                having to host it at home.
               </p>
 
               <div class="playdate-price">
@@ -1108,22 +1024,17 @@ function page(cb) {
                 <span>total for both families</span>
               </div>
 
-              <ul class="membership-benefits-list playdate-benefits">
+              <ul class="playdate-benefits">
                 <li>One visit for two families</li>
                 <li>Come anytime from 6am to 9pm</li>
                 <li>Stay for as long as you like</li>
-                <li>Play rooms and Swap Room included</li>
+                <li>Play spaces and Community Wardrobe included</li>
                 <li>Tea and coffee included</li>
                 <li>Bring your own food and snacks</li>
               </ul>
 
-              <p class="playdate-note">
-                Only one family needs to buy the pass.
-                Your friend does not need to buy a separate pass.
-              </p>
-
               <a
-                class="button playdate-button"
+                class="button primary-button"
                 href="${PLAYDATE_PASS_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1132,6 +1043,7 @@ function page(cb) {
               </a>
 
               <p class="small-note">
+                Only one family needs to buy the pass.
                 Available until the end of August.
               </p>
 
@@ -1142,83 +1054,83 @@ function page(cb) {
         </div>
       </section>
 
-      <div class="wave" style="background:#d1ece6;">
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#d1ece6;">
+            fill="#f4efe6">
           </path>
         </svg>
-      </div>
+      </div>      
+
+      <!-- VISIT OPTIONS -->
 
       <section
-        class="section soft pricing-section visit-options-section"
+        class="section pricing-section"
         id="passes"
       >
-        <div class="content content-wide center">
+        <div class="content content-wide">
 
-          <p class="eyebrow dark">Choose what works for your family</p>
+          <div class="section-heading center">
 
-          <h2>Come once, come a few times, or make a week of it</h2>
+            <p class="eyebrow dark">
+              Visit Swap & Play
+            </p>
 
-          <p class="section-intro">
-            All passes give you access to the play spaces and Swap Room.
-            Come whenever suits you between 6am and 9pm — and if a social time is happening while you are here, simply join in.
-          </p>
+            <h2>
+              Choose what works for your family
+            </h2>
 
-          <div class="playdate-pricing-callout">
-            <div>
-              <strong>Coming with a friend?</strong>
-              <span>
-                Our August Playdate Pass gives two families one visit together for £10 total.
-              </span>
-            </div>
+            <p class="section-intro">
+              Every option includes the play spaces, Community Wardrobe,
+              tea and coffee, and access to any social time happening while
+              your pass is active.
+            </p>
 
-            <a href="/#playdate">
-              See Playdate Pass →
-            </a>
           </div>
 
           <div class="pass-options-grid">
 
+
             <!-- DAY PASS -->
 
-            <article class="price-card visit-pass-card secondary-pass-card">
+            <article class="price-card">
 
-              <div class="label">One day</div>
-
-              <h3>Day Pass</h3>
-
-              <p class="small">
-                Perfect when you just want somewhere easy to go for the day.
-                Come when it suits you and stay for as long as it works.
+              <p class="price-card-label">
+                One visit
               </p>
 
-              <div class="membership-total">
-                <span class="membership-total-label">Per household</span>
+              <h3>
+                Day Pass
+              </h3>
 
-                <strong class="membership-total-price">£10</strong>
-
-                <div class="membership-weekly-price">
-                  Flexible access for one day
-                </div>
-
-                <p class="membership-cancel-note">
-                  Activates on your first visit and is valid until 9pm that day.
-                </p>
+              <div class="price">
+                <strong>£10</strong>
+                <span>per household</span>
               </div>
 
-              <ul class="membership-benefits-list">
-                <li>Come anytime from 6am to 9pm</li>
-                <li>Stay for as long as you like</li>
-                <li>Play rooms and Swap Room included</li>
-                <li>Join any social time happening that day</li>
+              <p>
+                For a spontaneous day when you simply need somewhere easy to go.
+              </p>
+
+              <ul>
+                <li>Access from 6am–9pm</li>
+                <li>Stay as long as you like</li>
+                <li>Play spaces included</li>
+                <li>Community Wardrobe included</li>
                 <li>Tea and coffee included</li>
-                <li>Bring your own food and snacks</li>
               </ul>
 
               <a
-                class="button"
+                class="button secondary-button"
                 href="${DAY_PASS_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1229,46 +1141,37 @@ function page(cb) {
             </article>
 
 
-            <!-- 7-DAY FLEXI PASS -->
+            <!-- WEEK PASS -->
 
-            <article class="price-card featured membership-card visit-pass-card">
+            <article class="price-card featured">
 
-              <div class="label popular">Best value</div>
-
-              <div class="label popular">Summer offer</div>
-
-              <h3>Summer Flexi Week Pass</h3>
-
-              <p class="small">
-                Keep Swap &amp; Play available to your family for a full week this summer.
-                Come whenever it suits you and return as often as you like.
+              <p class="price-card-label">
+                Summer favourite
               </p>
 
-              <div class="membership-total">
-                <span class="membership-total-label">Per household</span>
+              <h3>
+                7-Day Flexi Pass
+              </h3>
 
-                <strong class="membership-total-price">£15</strong>
-
-                <div class="membership-weekly-price">
-                  Flexible visits of swap and play room for a week
-                </div>
-
-                <p class="membership-cancel-note">
-                  Your seven days start with your first visit.
-                </p>
+              <div class="price">
+                <strong>£15</strong>
+                <span>per household</span>
               </div>
 
-              <ul class="membership-benefits-list">
-                <li>Flexible access for 7 consecutive days</li>
-                <li>Come anytime from 6am to 9pm</li>
-                <li>Play rooms and Swap Room included</li>
-                <li>All social times during your active week</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food and snacks</li>
+              <p>
+                Keep Swap & Play available to your family for a whole week.
+              </p>
+
+              <ul>
+                <li>Unlimited visits for 7 consecutive days</li>
+                <li>Your week starts with your first visit</li>
+                <li>Come anytime from 6am–9pm</li>
+                <li>All social times included</li>
+                <li>Community Wardrobe included</li>
               </ul>
 
               <a
-                class="button summer-button"
+                class="button primary-button"
                 href="${WEEKLY_PASS_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1279,47 +1182,38 @@ function page(cb) {
             </article>
 
 
-            <!-- 5-VISIT PACK -->
+            <!-- 5 VISITS -->
 
-            <article class="price-card visit-pass-card secondary-pass-card">
+            <article class="price-card">
 
-              <div class="label">Flexible</div>
-
-              <h3>5-Visit Pack</h3>
-
-              <p class="small">
-                Five visits to use when you need them, without having to fit them into one week.
+              <p class="price-card-label">
+                Flexible
               </p>
 
-              <div class="membership-total">
-                <span class="membership-total-label">Per household</span>
+              <h3>
+                5-Visit Pack
+              </h3>
 
-                <strong class="membership-total-price">£40</strong>
-
-                <div class="membership-weekly-price">
-                  £8 per visit
-                </div>
-
-                <p class="membership-cancel-note">
-                  Your pack starts with your first visit.
-                </p>
+              <div class="price">
+                <strong>£40</strong>
+                <span>£8 per visit</span>
               </div>
 
-              <ul class="membership-benefits-list">
-                <li>Five flexible visits</li>
-                <li>Come anytime from 6am to 9pm</li>
-                <li>Stay for as long as you like each visit</li>
-                <li>Play rooms and Swap Room included</li>
-                <li>Join a social time if one is happening</li>
-                <li>Tea and coffee included</li>
-              </ul>
-
-              <p class="small-note">
-                Valid for 6 weeks from your first visit.
+              <p>
+                Five visits to use when you need them without fitting everything
+                into one week.
               </p>
 
+              <ul>
+                <li>Five flexible visits</li>
+                <li>Come anytime from 6am–9pm</li>
+                <li>Stay as long as you like</li>
+                <li>Community Wardrobe included</li>
+                <li>Valid for 6 weeks from first visit</li>
+              </ul>
+
               <a
-                class="button"
+                class="button secondary-button"
                 href="${FIVE_VISIT_PACK_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1334,131 +1228,149 @@ function page(cb) {
         </div>
       </section>
 
-      <div class="wave" style="background:#d1ece6;">
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#f4efe6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#f4efe6;">
+            fill="#6fa8dc">
           </path>
         </svg>
-      </div>
+      </div>      
 
-      <section class="section light faq-section">
+
+      <!-- FIRST VISIT -->
+
+      <section class="section first-visit-section">
         <div class="content center">
-          <p class="eyebrow dark">Good to know</p><h2>A few useful details</h2>
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>How does the 7-Day Flexi Pass work?</h3>
-              <p>
-                Your seven days begin with your first visit. During that week you can visit independently from 6am to 9pm every day and join any scheduled events.
-              </p>
-            </div>
 
-            <div class="faq-item">
-              <h3>Can I come when no event is running?</h3>
-              <p>
-                Yes, with an active 7-Day Flexi Pass. Single Event Passes and 5-Event Packs are for scheduled events only.
-              </p>
-            </div>
+          <p class="eyebrow dark">
+            Never been before?
+          </p>
 
-            <div class="faq-item">
-              <h3>How does the Swap Room work?</h3>
-              <p>
-                Browse whenever you visit, bring good-quality things your family has outgrown, and take what your family can use. It is not a one-for-one exchange.
-              </p>
-            </div>
+          <h2>
+            Come and have a look on Wednesday
+          </h2>
 
-            <div class="faq-item">
-              <h3>Can I see the space before buying?</h3>
-              <p>
-                Yes. Wednesday Open Play is open to everyone and does not require a pass.
-              </p>
-            </div>
+          <p>
+            Wednesday Open Play from 10am–12pm is open to everyone.
+            No pass is required, so you can see the space, let your child
+            explore and get a feel for how Swap & Play works.
+          </p>
 
-            <div class="faq-item">
-              <h3>What is included with a Single Event Pass?</h3>
-              <p>
-                It covers your household for one scheduled social session, including the play rooms, Swap Room, and tea and coffee during the event.
-              </p>
-            </div>
+          <button
+            type="button"
+            class="button secondary-button"
+            data-scroll-to="#location"
+          >
+            Find us
+          </button>
 
-            <div class="faq-item">
-              <h3>How does the 5-Event Pack work?</h3>
-              <p>
-                The pack gives your household entry to five separate scheduled events and is valid for 6 weeks from the first event you attend.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Are the social times led classes?</h3>
-              <p>
-                No. They are informal gatherings rather than singing, story or activity classes. Children play freely while adults supervise and socialise.
-              </p>
-            </div>          
-            </div>
         </div>
       </section>
 
-      <div class="wave" style="background:#f4efe6;">
+
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#6fa8dc">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#e9e6e1;">
+            fill="#fbfaf6">
           </path>
         </svg>
-      </div>
+      </div>   
 
-      <section class="section day-section">
+      <!-- FINAL STATEMENT -->
+
+      <section class="section closing-section">
         <div class="content center">
-          <p class="eyebrow dark">For the gaps between organised activities</p>
-          <h2>Not another thing to fit into your week</h2>
 
-          <p>
-            Swap & Play is there when your family needs somewhere to go:
-            after breakfast, between errands, on a rainy afternoon,
-            or when home has started to feel too small.
+          <img
+            src="./assets/shoes-at-door.jpg"
+            alt="Children's shoes at the entrance to Swap & Play"
+            class="closing-photo photo"
+          >
+
+          <p class="eyebrow dark">
+            A place to keep coming back to
           </p>
 
-          <p>
-            Come when your child is ready. Stay while it works.
-            Leave when it does not.
-          </p>
+          <h2>
+            Come when your child is ready.<br>
+            Stay while it works.<br>
+            Leave when it doesn't.
+          </h2>
+
+          <button
+            type="button"
+            class="button primary-button"
+            data-scroll-to="#passes"
+          >
+            Visit Swap & Play
+          </button>
+
         </div>
       </section>
 
-      <section class="photo-strip">
-        <img src="./assets/shoes-at-door.jpg" alt="Small children’s shoes lined up at the entrance" class="photo">
-      </section>
 
-      <div class="wave" style="background:#e9e6e1;">
+      <!-- WAVE -->
+
+      <div class="wave">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <rect
+            width="1200"
+            height="120"
+            fill="#fbfaf6">
+          </rect>
+
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            style="fill:#6fa8dc;">
+            fill="#2f4f4f">
           </path>
         </svg>
-      </div>
+      </div>  
+
+      <!-- FOOTER -->
 
       <footer class="footer">
         <div class="content center">
+
           <img
             src="./assets/logo.png"
+            alt="Swap & Play Wharfedale"
             class="footer-logo"
-            alt="Swap & Play"
           >
 
           <p>
             Swap & Play Wharfedale<br>
-            A calm community play space for Ilkley and the wider Wharfedale area
+            A shared space for family life in Ilkley
           </p>
 
           <p>
-            Questions or ideas?<br>
-            <a href="mailto:nina@swapandplaywharfedale.co.uk">nina@swapandplaywharfedale.co.uk</a>
+            Open every day · 6am–9pm
           </p>
 
-          <p class="footer-social">
-            Follow us on Instagram<br>
+          <p>
+            <a href="mailto:nina@swapandplaywharfedale.co.uk">
+              nina@swapandplaywharfedale.co.uk
+            </a>
+          </p>
+
+          <p>
             <a
               href="https://www.instagram.com/swap_and_play_wharfedale/"
               target="_blank"
@@ -1469,170 +1381,45 @@ function page(cb) {
           </p>
 
           <p>
-            Find us:<br>
             <a
               href="https://maps.app.goo.gl/xPGPfSGdbXFYjEog6"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Swap & Play Wharfedale on Google Maps
+              Find us on Google Maps
             </a>
           </p>
+
         </div>
       </footer>
 
     </div>
   `
-  function setup_calendar_event_modal() {
-    const modal = shadow.querySelector('[data-event-modal]')
-    const title = shadow.querySelector('[data-event-modal-title]')
-    const time = shadow.querySelector('[data-event-modal-time]')
-    const access = shadow.querySelector('[data-event-modal-access]')
-    const description = shadow.querySelector('[data-event-modal-description]')
-    const pass = shadow.querySelector('[data-event-modal-pass]')
-    const close_buttons = shadow.querySelectorAll('[data-close-event-modal]')
-    const actions = shadow.querySelector('[data-event-modal-actions]')
-    const single = shadow.querySelector('[data-event-modal-single]')
 
-    if (!modal) return
 
-    shadow.querySelectorAll('.week-event').forEach(event => {
-      event.addEventListener('click', () => {
-        title.textContent = event.dataset.title || ''
-        time.textContent = event.dataset.time || ''
-        access.textContent = event.dataset.access || ''
-        description.textContent = event.dataset.description || ''
+  // INTERNAL PAGE LINKS
 
-        actions.hidden = event.dataset.memberOnly !== 'true'
-        modal.hidden = false
+  shadow.querySelectorAll('[data-scroll-to]').forEach(button => {
+    button.addEventListener('click', () => {
+      const selector = button.dataset.scrollTo
 
-        shadow.querySelector('.event-modal-close')?.focus()
-      })
-    })
+      if (!selector) return
 
-    shadow.querySelectorAll('[data-scroll-to-calendar]').forEach(button => {
-      button.addEventListener('click', () => {
-        history.replaceState(null, '', '#calendar')
-        open_calendar_details()
-        scroll_to_target('#calendar')
-      })
-    })
-
-    shadow.querySelectorAll('[data-scroll-to-swap]').forEach(button => {
-      button.addEventListener('click', () => {
-        history.replaceState(null, '', '#swap-new')
-        scroll_to_target('#swap-new')
-      })
-    })
-
-    shadow.querySelectorAll('[data-scroll-to-swap-room]').forEach(button => {
-      button.addEventListener('click', () => {
-        history.replaceState(null, '', '#swap-room')
-        scroll_to_target('#swap-room')
-      })
-    })
-
-    close_buttons.forEach(button => {
-      button.addEventListener('click', close_modal)
-    })
-
-    single?.addEventListener('click', close_modal)
-
-    pass.addEventListener('click', () => {
-      close_modal()
-      scroll_to_passes()
-    })
-
-    modal.addEventListener('keydown', event => {
-      if (event.key === 'Escape') close_modal()
-    })
-
-    function close_modal() {
-      modal.hidden = true
-    }
-  }
-
-  function position_calendar_events() {
-    const calendar_start = to_minutes('06:00')
-    const calendar_end = to_minutes('21:00')
-    const slot_minutes = 15
-
-    shadow
-      .querySelectorAll('.week-event[data-start][data-end]')
-      .forEach(event => {
-        const start = to_minutes(event.dataset.start)
-        const end = to_minutes(event.dataset.end)
-
-        if (
-          !Number.isFinite(start) ||
-          !Number.isFinite(end) ||
-          end <= start
-        ) {
-          console.warn('Invalid calendar event time', event)
-          return
-        }
-
-        const visible_start = Math.max(calendar_start, start)
-        const visible_end = Math.min(calendar_end, end)
-
-        if (visible_start >= visible_end) {
-          event.hidden = true
-          return
-        }
-
-        const row_start =
-          Math.floor(
-            (visible_start - calendar_start) / slot_minutes
-          ) + 1
-
-        const row_end =
-          Math.ceil(
-            (visible_end - calendar_start) / slot_minutes
-          ) + 1
-
-        event.style.setProperty('--row-start', row_start)
-        event.style.setProperty('--row-end', row_end)
-      })
-  }
-
-  function to_minutes(value) {
-    const parts = String(value).split(':')
-    const hour = Number(parts[0])
-    const minute = Number(parts[1])
-
-    if (
-      parts.length !== 2 ||
-      !Number.isInteger(hour) ||
-      !Number.isInteger(minute) ||
-      hour < 0 ||
-      hour > 23 ||
-      minute < 0 ||
-      minute > 59
-    ) {
-      return NaN
-    }
-
-    return hour * 60 + minute
-  }
-
-  shadow.querySelectorAll('buy-pass').forEach(node => {
-    const btn = buy.cloneNode(true)
-    btn.onclick = scroll_to_passes
-    node.replaceWith(btn)
-  })
-
-  shadow.querySelectorAll('[data-scroll-to-passes]').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault()
-      scroll_to_passes()
+      history.replaceState(null, '', selector)
+      scroll_to_target(selector)
     })
   })
+
+
+  // EXTERNAL THEME / CSS
 
   const style = document.createElement('style')
   style.textContent = get_theme()
   shadow.append(style)
-  position_calendar_events()
-  setup_calendar_event_modal()
+
+
+  // SHAREABLE URLS
+
   window.addEventListener('hashchange', scroll_to_hash_target)
   window.addEventListener('load', scroll_to_hash_target)
 
@@ -1640,10 +1427,13 @@ function page(cb) {
   setTimeout(scroll_to_hash_target, 100)
   setTimeout(scroll_to_hash_target, 600)
 
+
   if (cb) cb()
+
   return el
 
-  function scroll_to_hash_target() {
+
+  function scroll_to_hash_target () {
     const path = window.location.pathname.replace(/\/$/, '')
     const hash = window.location.hash
 
@@ -1668,40 +1458,44 @@ function page(cb) {
       return
     }
 
-    if (hash === '#calendar' || hash === '#events') {
-      open_calendar_details()
+    if (
+      hash === '#calendar' ||
+      hash === '#events' ||
+      hash === '#social'
+    ) {
       scroll_to_target('#calendar')
       return
     }
 
     if (
       hash === '#swap' ||
-      hash === '#swap-new' ||
-      hash === '#swap-room'
+      hash === '#swap-new'
     ) {
-      scroll_to_target(
-        hash === '#swap-room'
-          ? '#swap-room'
-          : '#swap-new'
-      )
+      scroll_to_target('#swap-new')
+      return
+    }
+
+    if (
+      hash === '#swap-room' ||
+      hash === '#wardrobe' ||
+      hash === '#community-wardrobe'
+    ) {
+      scroll_to_target('#swap-room')
+      return
+    }
+
+    if (
+      hash === '#location' ||
+      hash === '#find-us'
+    ) {
+      scroll_to_target('#location')
     }
   }
 
-  function open_calendar_details() {
-    const details = shadow.querySelector('[data-calendar-details]')
 
-    if (details) {
-      details.open = true
-    }
-  }
-
-  function scroll_to_passes() {
-    history.replaceState(null, '', '#passes')
-    scroll_to_target('#passes')
-  }
-
-  function scroll_to_target(selector) {
+  function scroll_to_target (selector) {
     const target = shadow.querySelector(selector)
+
     if (!target) return
 
     target.scrollIntoView({
@@ -1710,70 +1504,93 @@ function page(cb) {
     })
   }
 }
-
 },{"../data/swap-room-items.json":1,"get_theme":4}],4:[function(require,module,exports){
 module.exports = get_theme
 
-function get_theme() {
+function get_theme () {
   return `
-    :host{
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    :host {
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Inter,
+        sans-serif;
+
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
 
-      --pale-blue: #6fa8dc;
-      --pale-pink: #f4a6c0;
-      --pale-green: #d1ece6;
+      --blue: #6fa8dc;
+      --blue-dark: #4f82ae;
+
+      --pink: #f4a6c0;
+      --green: #d1ece6;
+
       --sand: #f4efe6;
       --cream: #fbfaf6;
       --beige: #e9e6e1;
-      --heather-dark: #8f64a4;
 
-      --summer-strawberry: #e85f73;
+      --heather: #8f64a4;
 
       --ink: #2f4f4f;
       --muted: #6f8079;
-      --line-soft: rgba(47, 79, 79, 0.1);
-      --shadow-card: 0 16px 44px rgba(47, 79, 79, 0.075);
+
+      --white: #ffffff;
+
+      --line: rgba(47, 79, 79, 0.12);
+      --line-light: rgba(47, 79, 79, 0.07);
+
+      --shadow-small:
+        0 10px 30px rgba(47, 79, 79, 0.06);
+
+      --shadow:
+        0 20px 55px rgba(47, 79, 79, 0.09);
+
+      --shadow-large:
+        0 32px 90px rgba(47, 79, 79, 0.13);
     }
 
-    *{
+
+    * {
       box-sizing: border-box;
     }
 
-    [hidden]{
-      display: none !important;
-    }
 
-    .page{
+    .page {
       overflow-x: hidden;
       background: var(--cream);
       color: var(--ink);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
-    h1, h2, h3, p{
+
+    h1,
+    h2,
+    h3,
+    p {
       margin-top: 0;
     }
 
-    h1{
+    h1 {
       max-width: 720px;
       margin: 0 0 1.25rem;
-      color: var(--cream);
+      color: var(--white);
       font-size: clamp(2.35rem, 5vw, 4.6rem);
       font-weight: 750;
       line-height: 0.98;
       letter-spacing: -0.06em;
     }
 
-    h2{
+    h2 {
       margin: 0 0 1.5rem;
       font-size: clamp(2rem, 4vw, 3.4rem);
       line-height: 1.05;
       letter-spacing: -0.045em;
     }
 
-    h3{
+    h3 {
       margin: 0 0 0.55rem;
       color: var(--ink);
       font-size: 1.22rem;
@@ -1781,2508 +1598,2271 @@ function get_theme() {
       letter-spacing: -0.02em;
     }
 
-    p{
+
+    p {
       margin-bottom: 1.15rem;
-      font-size: 1.08rem;
-      line-height: 1.72;
+
+      font-size: 1.06rem;
+      line-height: 1.7;
     }
 
-    a{
-      color: var(--heather-dark);
-      text-underline-offset: 0.18em;
+
+    a {
+      color: var(--heather);
+      text-underline-offset: 0.2em;
     }
 
-    .eyebrow{
-      margin-bottom: 0.9rem;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
 
-    .eyebrow.dark{
-      color: var(--heather-dark);
-    }
-
-    button, .button{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 1rem 0;
-      padding: 1rem 2.1rem;
-      border: none;
-      border-radius: 999px;
-      background: var(--pale-pink);
-      box-shadow: 0 14px 35px rgba(143, 100, 164, 0.22);
-      color: white;
-      cursor: pointer;
+    button {
       font: inherit;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.1;
-      text-decoration: none;
-      transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
     }
 
-    button:hover, .button:hover{
-      background: var(--heather-dark);
-      transform: translateY(-1px);
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    button:focus-visible, .button:focus-visible, a:focus-visible{
-      outline: 3px solid rgba(143, 100, 164, 0.4);
-      outline-offset: 3px;
+
+    button:focus-visible,
+    .button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(143, 100, 164, 0.36);
+      outline-offset: 4px;
     }
 
-    .hero-actions{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.85rem;
-    }
 
-    .hero-actions button, .hero-actions .button{
-      margin-right: 0;
-    }
+    /* ---------------------------------------------------------
+       LAYOUT
+       --------------------------------------------------------- */
 
-    .wave{
+    .wave {
       display: block;
       width: 100%;
-      height: 118px;
       margin: -1px 0;
+      padding: 0;
+      font-size: 0;
       line-height: 0;
     }
 
-    .wave svg{
+    .wave svg {
       display: block;
       width: 100%;
-      height: 100%;
+      height: 70px;
     }
 
-    .section{
-      padding: 5rem 1.5rem;
+    .section {
+      padding: 7rem 1.5rem;
     }
 
-    .light{
-      background: var(--sand);
-    }
 
-    .soft{
-      background: var(--pale-green);
-    }
-
-    .content{
-      max-width: 960px;
-      margin: 0 auto;
-      letter-spacing: 0.1px;
-    }
-
-    .content p + p{
-      margin-top: -0.35rem;
-    }
-
-    .content-wide{
-      max-width: 1320px;
+    .content {
+      width: 100%;
+      max-width: 940px;
       margin: 0 auto;
     }
 
-    .content-xl{
-      max-width: 1480px;
+
+    .content-wide {
+      width: 100%;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
-    .content-split{
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      align-items: start;
-      gap: 4rem;
-      max-width: 1180px;
+
+    .content-xl {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .center{
+
+    .center {
       text-align: center;
     }
 
-    .center p{
+
+    .center p {
       max-width: 720px;
-      margin-left: auto;
       margin-right: auto;
+      margin-left: auto;
     }
 
-    .section-intro{
-      max-width: 720px;
-      margin: 0 auto 2.2rem;
-      font-size: 1.08rem;
-      line-height: 1.62;
+
+    .section-heading {
+      max-width: 860px;
+      margin: 0 auto 3.6rem;
     }
 
-    .photo{
-      display: block;
-      width: 100%;
+
+    .section-heading h2 {
       max-width: 820px;
-      height: 560px;
-      margin: 2rem auto;
-      border: 14px solid rgba(255, 255, 255, 0.72);
-      border-radius: 28px;
-      background: white;
-      box-shadow: 0 24px 70px rgba(47, 79, 79, 0.12);
-      object-fit: cover;
-      object-position: center 30%;
+      margin-right: auto;
+      margin-left: auto;
     }
 
-    .swap-section .photo{
-      width: auto;
-      object-fit: contain;
-    }
 
-    .photo-strip{
-      padding: 0 1.5rem 4rem;
-      background: var(--beige);
-    }
-
-    .photo-strip .photo{
-      margin: 0 auto;
-      border-color: var(--cream);
-    }
-
-    /* Hero */
-
-    .hero{
-      padding: 3rem 1.5rem 1rem;
-      background: var(--pale-blue);
-      text-align: left;
-    }
-
-    .hero-inner{
-      display: grid;
-      grid-template-columns: minmax(0, 680px) minmax(320px, 540px);
-      align-items: center;
-      justify-content: center;
-      gap: 4rem;
-      max-width: 1320px;
-      margin: 0 auto;
-    }
-
-    .hero-copy{
-      padding: 2rem 0 4rem;
-    }
-
-    .logo img{
-      height: 340px;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
-    }
-
-    .hero .logo img{
-      opacity: 0.96;
-      filter:
-        brightness(0)
-        invert(1)
-        drop-shadow(0 2px 10px rgba(0, 0, 0, 0.08));
-    }
-
-    .hero-subtitle{
-      max-width: 600px;
-      margin-bottom: 1rem;
-      color: var(--cream);
-      font-size: clamp(1.18rem, 2vw, 1.5rem);
-      line-height: 1.45;
-    }
-
-    .hero-photo{
-      width: 100%;
-      max-width: 540px;
-      margin: 0 auto;
-      padding: 16px;
-      overflow: hidden;
-      border: 14px solid rgba(255, 255, 255, 0.75);
-      border-radius: 44px;
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 28px 80px rgba(47, 79, 79, 0.16);
-      transform: rotate(-1deg);
-    }
-
-    .hero-photo .photo{
-      display: block;
-      width: 100%;
-      max-width: none;
-      height: 560px;
-      margin: 0;
-      border: none;
-      border-radius: 28px;
-      box-shadow: none;
-      object-fit: cover;
-    }
-
-    .hero-swap-button{
-      border: 2px solid rgba(255, 255, 255, 0.78);
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: none;
-      color: var(--ink);
-    }
-
-    .hero-swap-button:hover{
-      border-color: white;
-      background: white;
-      color: var(--heather-dark);
-    }
-
-    .hero-pass-button{
-      border: 2px solid var(--pale-pink);
-    }
-
-    /* Swap Room preview */
-
-    .swap-preview-section{
-      background: var(--cream);
-    }
-
-    .swap-preview-heading{
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
-      align-items: end;
-      justify-content: space-between;
-      gap: 3rem;
-      margin-bottom: 2.25rem;
-    }
-
-    .swap-preview-heading h2{
-      max-width: 650px;
+    .section-intro {
+      max-width: 720px;
+      margin-right: auto;
       margin-bottom: 0;
-    }
-
-    .swap-preview-intro{
-      max-width: 620px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.62;
-    }
-
-    .swap-items-scroll{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 1.15rem;
-    }
-
-    .swap-item-card{
-      overflow: hidden;
-      border: 1px solid var(--line-soft);
-      border-radius: 22px;
-      background: white;
-      box-shadow: var(--shadow-card);
-    }
-
-    .swap-item-image-wrap{
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--sand);
-    }
-
-    .swap-item-image{
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .swap-item-copy{
-      padding: 1rem;
-    }
-
-    .swap-item-copy h3{
-      margin-bottom: 0.35rem;
-      font-size: 1rem;
-    }
-
-    .swap-item-details, .swap-item-added{
-      max-width: none;
-      margin: 0;
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .swap-item-details{
-      color: var(--ink);
-    }
-
-    .swap-item-added{
-      margin-top: 0.35rem;
-      color: var(--muted);
-    }
-
-    .swap-preview-empty{
-      display: grid;
-      grid-template-columns: minmax(300px, 1.2fr) minmax(280px, 0.8fr);
-      align-items: stretch;
-      overflow: hidden;
-      border: 1px solid var(--line-soft);
-      border-radius: 30px;
-      background: var(--sand);
-      box-shadow: var(--shadow-card);
-    }
-
-    .swap-preview-room-photo{
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 430px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .swap-preview-empty-copy{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2.5rem;
-    }
-
-    .swap-preview-kicker{
-      margin-bottom: 0.8rem;
-      color: var(--heather-dark);
-      font-size: 0.72rem;
-      font-weight: 850;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .swap-preview-empty-copy h3{
-      margin-bottom: 0.9rem;
-      font-size: 1.7rem;
-    }
-
-    .swap-preview-empty-copy p{
-      max-width: 520px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .swap-preview-footer{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1.35rem;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    .swap-preview-footer p{
-      max-width: 720px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .swap-preview-link{
-      flex: 0 0 auto;
-      margin: 0;
-      padding: 0.75rem 1rem;
-      border: 1px solid rgba(143, 100, 164, 0.22);
-      background: white;
-      box-shadow: none;
-      color: var(--heather-dark);
-      font-size: 0.9rem;
-    }
-
-    .swap-preview-link:hover{
-      background: var(--heather-dark);
-      color: white;
-    }
-
-    /* Location */
-
-    .location-section{
-      background: var(--sand);
-    }
-
-    .location-section h2{
-      max-width: 760px;
       margin-left: auto;
-      margin-right: auto;
-    }
 
-    .location-intro{
-      max-width: 760px;
-      margin: 0 auto 1rem;
-      font-size: 1.18rem;
-    }
-
-    .location-tagline{
-      max-width: 720px;
-      margin: 0 auto 3rem;
-      font-size: 1.18rem;
-      font-weight: 500;
-    }
-
-    .location-visuals{
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
-      align-items: center;
-      gap: 2rem;
-      max-width: 1040px;
-      margin: 0 auto 2.25rem;
-    }
-
-    .location-card{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      border: 10px solid rgba(255, 255, 255, 0.82);
-      border-radius: 28px;
-      background: #f8f2e8;
-      box-shadow: 0 20px 55px rgba(47, 79, 79, 0.09);
-    }
-
-    .location-card img{
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .building-card, .map-card{
-      padding: 0;
-      background: #f8f2e8;
-    }
-
-    .map-card{
-      aspect-ratio: 4 / 5;
-    }
-
-    .map-card img{
-      object-fit: contain;
-      object-position: center;
-    }
-
-    .location-line{
-      max-width: 720px;
-      margin: 0 auto;
       color: var(--muted);
-      font-size: 1.12rem;
-    }
-
-    /* Purpose and photo sections */
-
-    .small-purpose{
-      background: var(--cream);
-    }
-
-    .photo-story{
-      padding: 1rem 1.5rem 3.5rem;
-      background: var(--cream);
-    }
-
-    .photo-grid{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .story-photo{
-      display: block;
-      width: 100%;
-      height: 420px;
-      border: 8px solid rgba(255, 255, 255, 0.7);
-      border-radius: 26px;
-      box-shadow: 0 18px 50px rgba(47, 79, 79, 0.1);
-      object-fit: cover;
-      transition: transform 0.25s ease;
-    }
-
-    .story-photo:hover{
-      transform: translateY(-3px);
-    }
-
-    .relief-section, .swap-section{
-      background: var(--cream);
-    }
-
-    .relief-section p:not(.eyebrow){
-      max-width: 820px;
-      font-size: 1.2rem;
-    }
-
-    /* Included cards */
-
-    .included-section{
-      background: var(--sand);
-    }
-
-    .included-intro{
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .included-grid{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .included-card{
-      padding: 1.65rem;
-      border: 1px solid rgba(47, 79, 79, 0.1);
-      border-radius: 24px;
-      background: white;
-      box-shadow: var(--shadow-card);
-      text-align: left;
-    }
-
-    .included-card h3{
-      margin-bottom: 0.65rem;
-      font-size: 1.12rem;
-    }
-
-    .included-card p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.58;
-    }
-
-    /* Weekly calendar */
-
-    .weekly-calendar-section{
-      position: relative;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      background: var(--pale-green);
-    }
-
-    .weekly-calendar-section .content-wide{
-      max-width: 1600px;
-    }
-
-    .weekly-calendar-section h2{
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .weekly-calendar-section .section-intro{
-      max-width: 790px;
-      margin-bottom: 1.5rem;
-    }
-
-    .calendar-details{
-      max-width: 1600px;
-      margin: 2rem auto 0;
-      border: 1px solid rgba(47, 79, 79, 0.1);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.58);
-      text-align: left;
-    }
-
-    .calendar-details summary{
-      display: flex;
-      min-height: 58px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.3rem;
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 850;
-      list-style: none;
-    }
-
-    .calendar-details summary::-webkit-details-marker{
-      display: none;
-    }
-
-    .calendar-details summary::after{
-      content: "+";
-      display: grid;
-      width: 32px;
-      height: 32px;
-      flex: 0 0 32px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--cream);
-      color: var(--heather-dark);
-      font-size: 1.35rem;
-      line-height: 1;
-    }
-
-    .calendar-details[open] summary::after{
-      content: "−";
-    }
-
-    .calendar-details-body{
-      padding: 0 1rem 0.25rem;
-      border-top: 1px solid rgba(47, 79, 79, 0.08);
-    }
-
-    .calendar-legend{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem 1.35rem;
-      margin: 1.8rem auto 2.5rem;
-      color: var(--muted);
-    }
-
-    .calendar-key{
-      display: inline-flex;
-      align-items: center;
-      gap: 0.48rem;
-      font-size: 0.86rem;
-      font-weight: 750;
-      line-height: 1.3;
-    }
-
-    .calendar-key-dot{
-      width: 11px;
-      height: 11px;
-      flex: 0 0 11px;
-      border-radius: 50%;
-    }
-
-    .public-dot{
-      background: var(--pale-blue);
-    }
-
-    .member-dot{
-      background: var(--pale-pink);
-    }
-
-    .flexible-dot{
-      border: 1px solid rgba(47, 79, 79, 0.16);
-      background: var(--pale-green);
-    }
-
-    .calendar-scroll{
-      width: 100%;
-      padding-bottom: 0.8rem;
-      overflow-x: auto;
-      scrollbar-width: thin;
-      scrollbar-color:
-        rgba(47, 79, 79, 0.24)
-        rgba(47, 79, 79, 0.06);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .calendar-scroll:focus-visible{
-      outline: 3px solid rgba(143, 100, 164, 0.3);
-      outline-offset: 5px;
-      border-radius: 24px;
-    }
-
-    .calendar-scroll::-webkit-scrollbar{
-      height: 8px;
-    }
-
-    .calendar-scroll::-webkit-scrollbar-track{
-      border-radius: 999px;
-      background: rgba(47, 79, 79, 0.06);
-    }
-
-    .calendar-scroll::-webkit-scrollbar-thumb{
-      border-radius: 999px;
-      background: rgba(47, 79, 79, 0.24);
-    }
 
-    .week-calendar{
-      width: 100%;
-      min-width: 1435px;
-      max-width: 1600px;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 1px solid rgba(47, 79, 79, 0.14);
-      border-radius: 24px;
-      background: white;
-      box-shadow: 0 16px 42px rgba(47, 79, 79, 0.07);
-      text-align: left;
+      font-size: 1.14rem;
+      line-height: 1.65;
     }
 
-    .calendar-header-row, .calendar-body-row{
-      display: grid;
-      grid-template-columns: repeat(7, minmax(205px, 1fr));
-    }
-
-    .calendar-header-row{
-      border-bottom: 1px solid rgba(47, 79, 79, 0.13);
-      background: var(--sand);
-    }
-
-    .calendar-day-heading{
-      padding: 1rem 1.1rem;
-      border-right: 1px solid rgba(47, 79, 79, 0.12);
-      color: var(--ink);
-      font-size: 0.78rem;
-      font-weight: 850;
-      line-height: 1;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .calendar-day-heading:last-child{
-      border-right: none;
-    }
-
-    .public-heading{
-      background: rgba(111, 168, 220, 0.15);
-      color: #456f92;
-    }
-
-    .weekend-heading{
-      background: rgba(209, 236, 230, 0.34);
-    }
-
-    .calendar-body-row{
-      min-height: 0;
-      align-items: stretch;
-    }
-
-    .calendar-day-cell{
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: repeat(60, 11px);
-      grid-auto-rows: 11px;
-      align-content: start;
-      min-height: 660px;
-      padding: 0.65rem;
-      border-right: 1px solid rgba(47, 79, 79, 0.11);
-      background-color: rgba(255, 255, 255, 0.94);
-      background-image:
-        repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent 43px,
-          rgba(47, 79, 79, 0.07) 43px,
-          rgba(47, 79, 79, 0.07) 44px
-        );
-    }
-
-    .calendar-day-cell:last-child{
-      border-right: none;
-    }
-
-    .public-cell{
-      background-color: rgba(111, 168, 220, 0.035);
-    }
-
-    .weekend-cell{
-      background-color: rgba(244, 239, 230, 0.42);
-    }
-
-    /*
-     * Every event occupies the same grid column.
-     * The full-day access event sits behind timed social events.
-     */
-
-    .week-event{
-      position: relative;
-      z-index: 1;
-      display: block;
-      grid-column: 1;
-      grid-row: var(--row-start, 1) / var(--row-end, 2);
-      align-self: stretch;
-      width: auto;
-      min-width: 0;
-      max-width: none;
-      min-height: 0;
-      margin: 1px 0;
-      padding: 0.34rem 0.46rem;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: none;
-      color: var(--ink);
-      cursor: pointer;
-      font: inherit;
-      text-align: left;
-      transform: none;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-
-    .week-event:hover{
-      box-shadow: none;
-      transform: none;
-      filter: brightness(0.98);
-    }
-
-    .week-event:focus-visible{
-      z-index: 4;
-      outline: 3px solid rgba(143, 100, 164, 0.44);
-      outline-offset: 2px;
-    }
-
-    .member-event{
-      border: 1px solid rgba(244, 166, 192, 0.76);
-      background: rgba(244, 166, 192, 0.94);
-    }
-
-    .member-event:hover{
-      background: var(--pale-pink);
-    }
-
-    .public-event{
-      border: 1px solid rgba(77, 128, 173, 0.35);
-      background: var(--pale-blue);
-      color: white;
-    }
-
-    .public-event:hover{
-      background: #639ed3;
-    }
 
-    .flexible-event{
-      border: 1px dashed rgba(47, 79, 79, 0.18);
-      background: rgba(209, 236, 230, 0.28);
-    }
-
-    .flexible-event:hover{
-      background: rgba(209, 236, 230, 0.42);
-    }
-
-    /* Full-day flexible-access layer */
-
-    .availability-event{
-      z-index: 0;
-      grid-column: 1;
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin: 0;
-      padding: 0.7rem 0.75rem;
-      border: 1px dashed rgba(47, 79, 79, 0.16);
-      border-radius: 14px;
-      background: rgba(209, 236, 230, 0.24);
-      box-shadow: none;
-    }
-
-    .availability-event:hover{
-      background: rgba(209, 236, 230, 0.38);
-      box-shadow: none;
-      filter: none;
-    }
-
-    .availability-event .week-event-time{
-      margin-bottom: 0.12rem;
-      color: var(--muted);
-      font-size: 0.61rem;
-    }
-
-    .availability-event .week-event-title{
-      color: var(--ink);
-      font-size: 0.72rem;
-      line-height: 1.1;
-    }
-
-    /* Timed event layer */
-
-    .social-event{
-      z-index: 2;
-      grid-column: 1;
-      width: auto;
-      margin: 2px 0.42rem;
-      box-shadow: 0 6px 18px rgba(47, 79, 79, 0.14);
-    }
-
-    .social-event:hover{
-      box-shadow: 0 8px 22px rgba(47, 79, 79, 0.18);
-    }
-
-    .weekend-cell .availability-event{
-      background: rgba(209, 236, 230, 0.54);
-    }
-
-    .weekend-cell .availability-event:hover{
-      background: rgba(209, 236, 230, 0.72);
-    }
-
-    .week-event-time{
-      display: block;
-      margin-bottom: 0.1rem;
-      color: var(--heather-dark);
-      font-size: 0.62rem;
-      font-weight: 850;
-      line-height: 1.05;
-      letter-spacing: 0.01em;
-    }
-
-    .week-event-extra{
-      display: block;
-      margin-top: 0.12rem;
-      font-size: 0.52rem;
-      font-weight: 700;
-      line-height: 1.08;
-      opacity: 0.82;
-    }
-
-    .week-event-extra + .week-event-extra{
-      margin-top: 0.05rem;
-    }
+    .eyebrow {
+      margin-bottom: 1rem;
 
-    .week-event-title{
-      display: block;
-      margin: 0;
-      color: var(--ink);
-      font-size: 0.76rem;
-      font-weight: 800;
-      line-height: 1.03;
-      letter-spacing: -0.01em;
-      overflow-wrap: break-word;
-    }
-
-    .public-event .week-event-time,
-    .public-event .week-event-title,
-    .public-event .week-event-extra{
-      color: white;
-    }
-
-    .calendar-summary{
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 2rem auto 2rem;
-      padding: 1.25rem 1.35rem;
-      border: 1px solid rgba(47, 79, 79, 0.08);
-      border-radius: 20px;
-      background: var(--cream);
-      text-align: left;
-    }
-
-    .calendar-summary p{
-      max-width: none;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
-
-    .calendar-summary strong{
-      color: var(--ink);
-    }
+      color: rgba(255, 255, 255, 0.84);
 
-    .calendar-pass-link{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0.7rem 1rem;
-      border: 1px solid rgba(143, 100, 164, 0.2);
-      border-radius: 999px;
-      background: white;
-      color: var(--heather-dark);
-      font-size: 0.88rem;
+      font-size: 0.73rem;
       font-weight: 850;
       line-height: 1.25;
-      text-align: center;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .calendar-pass-link:hover{
-      background: var(--heather-dark);
-      color: white;
-      transform: translateY(-1px);
+
+    .eyebrow.dark {
+      color: var(--heather);
     }
 
-    /* Event modal */
 
-    .event-modal{
-      position: fixed;
-      z-index: 10000;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      text-align: left;
-    }
+    /* ---------------------------------------------------------
+       BUTTONS
+       --------------------------------------------------------- */
 
-    .event-modal-backdrop{
-      position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-width: none;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: rgba(30, 48, 48, 0.6);
-      box-shadow: none;
-      cursor: default;
-      transform: none;
-      appearance: none;
-      -webkit-appearance: none;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
 
-    .event-modal-backdrop:hover,
-    .event-modal-backdrop:focus{
-      background: rgba(30, 48, 48, 0.6);
-      box-shadow: none;
-      transform: none;
-    }
+    .button {
+      display: inline-flex;
+      min-height: 54px;
 
-    .event-modal-panel{
-      position: relative;
-      z-index: 1;
-      width: min(520px, 100%);
-      max-height: calc(100dvh - 2rem);
-      padding: 1.75rem;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      border: 1px solid rgba(47, 79, 79, 0.1);
-      border-radius: 26px;
-      background: var(--cream);
-      box-shadow: 0 30px 90px rgba(22, 42, 42, 0.34);
-      color: var(--ink);
-      text-align: left;
-      scrollbar-width: thin;
-    }
+      align-items: center;
+      justify-content: center;
 
-    .event-modal-close{
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      display: grid;
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      max-width: 40px;
-      margin: 0;
-      padding: 0;
-      place-items: center;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(47, 79, 79, 0.07);
-      box-shadow: none;
-      color: var(--ink);
+      padding: 0.92rem 1.75rem;
+
+      border: 1px solid transparent;
+      border-radius: 999px;
+
       cursor: pointer;
-      font-size: 1.55rem;
-      font-weight: 500;
-      line-height: 1;
-      transform: none;
-      appearance: none;
-      -webkit-appearance: none;
-    }
 
-    .event-modal-close:hover{
-      background: rgba(47, 79, 79, 0.14);
-      box-shadow: none;
-      color: var(--ink);
-      transform: none;
-    }
-
-    .event-modal-close:focus-visible{
-      outline: 3px solid rgba(143, 100, 164, 0.4);
-      outline-offset: 2px;
-    }
-
-    .event-modal-time{
-      max-width: none;
-      margin: 0 3.25rem 0.35rem 0;
-      color: var(--heather-dark);
-      font-size: 0.86rem;
-      font-weight: 850;
-      line-height: 1.3;
-    }
-
-    .event-modal-panel h3{
-      margin: 0 3.25rem 0.65rem 0;
-      color: var(--ink);
-      font-size: 1.55rem;
-      line-height: 1.12;
-    }
-
-    .event-modal-access{
-      display: flex;
-      width: auto;
-      max-width: none;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin: 0 0 1.15rem;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 750;
-      line-height: 1.4;
-    }
-
-    .event-modal-access::before{
-      content: "";
-      width: 8px;
-      height: 8px;
-      flex: 0 0 8px;
-      align-self: center;
-      margin-top: 0;
-      border-radius: 50%;
-      background: var(--pale-pink);
-    }
-
-    .event-modal-description{
-      max-width: none;
-      margin: 0;
-      color: var(--muted);
       font-size: 0.96rem;
-      line-height: 1.5;
-    }
-
-    .event-modal-actions{
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 1rem;
-    }
-
-    .event-modal-actions[hidden]{
-      display: none;
-    }
-
-    .event-modal-actions .button{
-      display: flex;
-      width: 100%;
-      max-width: none;
-      min-height: 0;
-      margin: 0;
-      padding: 0.82rem 1rem;
-      font-size: 0.92rem;
+      font-weight: 800;
       line-height: 1.2;
       text-align: center;
-    }
-
-    .event-modal-pass{
-      border: 2px solid var(--pale-pink);
-      background: transparent;
-      box-shadow: none;
-      color: var(--heather-dark);
-    }
-
-    .event-modal-pass:hover{
-      background: var(--pale-pink);
-      color: white;
-    }
-
-    /* Reviews and press */
-
-    .reviews-section{
-      background: var(--pale-blue);
-      color: white;
-    }
-
-    .reviews-grid{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .review-card{
-      padding: 1.65rem;
-      border: 1px solid rgba(47, 79, 79, 0.1);
-      border-radius: 26px;
-      background: var(--sand);
-      box-shadow: var(--shadow-card);
-      text-align: left;
-    }
-
-    .review-card p{
-      max-width: none;
-      margin: 0 0 1rem;
-      color: var(--ink);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .review-card span{
-      display: block;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .press-mentions{
-      max-width: 920px;
-      margin: 3.5rem auto 0;
-      padding-top: 2.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.32);
-    }
-
-    .press-eyebrow{
-      margin-bottom: 0.7rem;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .press-intro{
-      max-width: 690px;
-      margin: 0 auto 1.75rem;
-      color: white;
-      font-size: 1.08rem;
-      line-height: 1.6;
-    }
-
-    .press-links{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .press-link{
-      display: flex;
-      min-height: 190px;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.65rem;
-      border: 1px solid rgba(47, 79, 79, 0.1);
-      border-radius: 24px;
-      background: var(--sand);
-      box-shadow: var(--shadow-card);
-      color: var(--ink);
-      text-align: left;
       text-decoration: none;
+
       transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
     }
 
-    .press-link:hover{
-      box-shadow: 0 20px 52px rgba(47, 79, 79, 0.14);
+
+    .button:hover {
       transform: translateY(-2px);
     }
 
-    .press-publication{
-      display: block;
-      margin-bottom: 0.8rem;
-      color: var(--heather-dark);
-      font-size: 0.76rem;
-      font-weight: 850;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+
+    .primary-button {
+      border-color: var(--heather);
+
+      background: var(--heather);
+      box-shadow: 0 12px 28px rgba(143, 100, 164, 0.18);
+
+      color: white;
     }
 
-    .press-title{
-      display: block;
-      margin-bottom: 1.25rem;
+
+    .primary-button:hover {
+      border-color: #79518d;
+      background: #79518d;
+
+      color: white;
+    }
+
+
+    .secondary-button {
+      border-color: rgba(47, 79, 79, 0.2);
+
+      background: transparent;
+      box-shadow: none;
+
       color: var(--ink);
-      font-size: 1.18rem;
+    }
+
+
+    .secondary-button:hover {
+      border-color: var(--ink);
+      background: var(--ink);
+
+      color: white;
+    }
+
+
+    /* ---------------------------------------------------------
+       ANNOUNCEMENT
+       --------------------------------------------------------- */
+
+
+    .announcement-bar {
+      padding: 0.7rem 1rem;
+
+      background: var(--green);
+
+      text-align: center;
+    }
+
+
+    .announcement-link {
+      margin: 0;
+      padding: 0.35rem 0.5rem;
+
+      border: 0;
+      background: transparent;
+
+      color: var(--ink);
+
+      cursor: pointer;
+
+      font-size: 0.87rem;
       font-weight: 750;
       line-height: 1.35;
     }
 
-    .press-read{
-      display: block;
-      margin-top: auto;
-      color: var(--heather-dark);
-      font-size: 0.94rem;
-      font-weight: 800;
+
+    .announcement-link:hover {
+      color: var(--heather);
     }
 
-    /* Playdate */
 
-    .playdate-section {
-      background: #d1ece6;
+    /* ---------------------------------------------------------
+       HERO
+       --------------------------------------------------------- */
+
+
+    .hero {
+      padding: 5rem 1.5rem 6rem;
+
+      background: var(--blue);
     }
 
-    .playdate-card {
-      max-width: 860px;
+
+    .hero-inner {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.12fr)
+        minmax(340px, 0.88fr);
+
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 48px;
-      border-radius: 28px;
-      background: #fbfaf6;
-      text-align: center;
+
+      align-items: center;
+      gap: clamp(3rem, 6vw, 6rem);
     }
 
-    .playdate-copy {
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+
+    .hero-logo {
+      display: block;
+
+      width: 230px;
+      max-width: 55%;
+      height: auto;
+
+      margin-bottom: 2.5rem;
+
+      filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+    }
+
+
+    .hero-subtitle {
       max-width: 680px;
-      margin: 0 auto;
+      margin-bottom: 1.7rem;
+
+      color: rgba(255, 255, 255, 0.93);
+
+      font-size: clamp(1.18rem, 2vw, 1.42rem);
+      line-height: 1.55;
     }
 
-    .playdate-copy h2 {
-      margin-bottom: 18px;
-    }
 
-    .playdate-lead {
-      font-size: 1.25rem;
-      margin-bottom: 18px;
-    }
-
-    .playdate-price {
+    .hero-details {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      margin: 28px 0 20px;
+      flex-wrap: wrap;
+
+      gap: 0.55rem 1.5rem;
+
+      margin: 1.7rem 0 1.2rem;
+
+      color: rgba(255, 255, 255, 0.9);
+
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
-    .playdate-price strong {
-      font-size: 3rem;
-      line-height: 1;
-    }
 
-    .playdate-price span {
-      font-size: 0.95rem;
-    }
-
-    .playdate-benefits {
-      max-width: 430px;
-      margin: 24px auto;
-      text-align: left;
-    }
-
-    .playdate-note {
-      margin: 22px auto;
-      max-width: 520px;
-      font-weight: 600;
-    }
-
-    .playdate-button {
-      display: inline-block;
-      margin-top: 8px;
-    }
-
-    .playdate-pricing-callout {
-      max-width: 900px;
-      margin: 0 auto 28px;
-      padding: 18px 22px;
-      border-radius: 16px;
-      background: #fbfaf6;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      text-align: left;
-    }
-
-    .playdate-pricing-callout div {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .playdate-pricing-callout a {
-      white-space: nowrap;
-      font-weight: 600;
-    }
-
-    @media (max-width: 700px) {
-      .playdate-pricing-callout {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .playdate-card {
-        padding: 32px 22px;
-        border-radius: 20px;
-      }
-
-      .playdate-price strong {
-        font-size: 2.5rem;
-      }
-    }
-
-    /* Summer pass */
-
-    .pricing-section{
-      background: var(--pale-green);
-    }
-
-    .pricing-section .section-intro{
-      max-width: 660px;
-      margin: 0 auto 2rem;
-      color: var(--ink);
-      font-size: 1.05rem;
-      line-height: 1.62;
-    }
-
-    .price-card{
+    .hero-details span {
       position: relative;
-      padding: 1.8rem;
-      border: 1px solid var(--line-soft);
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: var(--shadow-card);
-      font-size: 1rem;
-      text-align: left;
     }
 
-    .price-card h3{
-      margin: 0.5rem 0 0.75rem;
-      font-size: 1.32rem;
+
+    .hero-details span + span::before {
+      position: absolute;
+      top: 50%;
+      left: -0.85rem;
+
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.58);
+
+      content: "";
+      transform: translateY(-50%);
     }
 
-    .featured{
-      border: 3px solid var(--pale-pink);
-      box-shadow: 0 22px 58px rgba(244, 166, 192, 0.18);
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      align-items: center;
+      gap: 0.8rem;
+
+      margin-top: 1.1rem;
     }
 
-    .summer-button{
-      width: 100%;
-      margin: 0.75rem 0 0;
-      background: var(--summer-strawberry);
-      box-shadow: 0 15px 38px rgba(232, 95, 115, 0.24);
+
+    .hero .primary-button {
+      border-color: white;
+
+      background: white;
+      box-shadow: none;
+
+      color: var(--ink);
     }
 
-    .summer-button:hover{
-      background: var(--heather-dark);
-    }
 
-    .membership-total{
-      margin: 1rem 0 0;
-      padding: 1.25rem;
-      border: 1px solid rgba(47, 79, 79, 0.08);
-      border-radius: 22px;
+    .hero .primary-button:hover {
       background: var(--cream);
+
+      color: var(--heather);
+    }
+
+
+    .hero .secondary-button {
+      border-color: rgba(255, 255, 255, 0.58);
+
+      color: white;
+    }
+
+
+    .hero .secondary-button:hover {
+      border-color: white;
+      background: white;
+
+      color: var(--ink);
+    }
+
+
+    .hero-photo {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 4px 70px 4px 70px;
+
+      box-shadow: var(--shadow-large);
+    }
+
+
+    .hero-photo .photo {
+      display: block;
+
+      width: 100%;
+      height: clamp(480px, 52vw, 650px);
+
+      margin: 0;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform 0.8s ease;
+    }
+
+
+    .hero-photo:hover .photo {
+      transform: scale(1.015);
+    }
+
+
+    /* ---------------------------------------------------------
+       IDENTITY — PLAY / SHARE / BELONG
+       --------------------------------------------------------- */
+
+
+    .identity-section {
+      background: var(--cream);
+      padding-top: 2rem;
+    }
+
+
+    .identity-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+
+    .identity-card {
+      position: relative;
+
+      min-height: 290px;
+
+      padding: 2.6rem 2.5rem 2.8rem;
+
+      border-right: 1px solid var(--line);
+    }
+
+
+    .identity-card:last-child {
+      border-right: 0;
+    }
+
+
+    .identity-number {
+      display: block;
+
+      margin-bottom: 2.2rem;
+
+      color: var(--heather);
+
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .identity-card h3 {
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .identity-card p {
+      max-width: 330px;
+      margin-bottom: 0;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+    }
+
+
+    /* ---------------------------------------------------------
+       LOCATION
+       --------------------------------------------------------- */
+
+
+    .location-section {
+      background: var(--sand);
+    }
+
+
+    .location-visuals {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.3fr)
+        minmax(300px, 0.7fr);
+
+      max-width: 1040px;
+      margin: 0 auto 3rem;
+
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+
+    .location-card {
+      overflow: hidden;
+
+      border: 1px solid rgba(47, 79, 79, 0.08);
+      border-radius: 18px;
+
+      background: white;
+      box-shadow: var(--shadow-small);
+    }
+
+
+    .location-card .photo {
+      display: block;
+
+      width: 100%;
+      max-width: none;
+      height: auto;
+
+      margin: 0;
+
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+
+    .building-card {
+      aspect-ratio: 4 / 3;
+    }
+
+
+    .building-card img {
+      width: 100%;
+      height: 100% !important;
+
+      object-fit: cover;
+    }
+
+
+    .map-card {
+      aspect-ratio: 4 / 4.2;
+    }
+
+
+    .map-card img {
+      width: 100%;
+      height: 100% !important;
+
+      object-fit: contain;
+
+      background: #f9f6ef;
+    }
+
+
+    .location-details {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      max-width: 960px;
+      margin: 0 auto 2.4rem;
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+
+    .location-detail {
+      display: flex;
+
+      min-height: 110px;
+
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 1.4rem 1.8rem;
+
+      border-right: 1px solid var(--line);
+
       text-align: center;
     }
 
-    .membership-total-label{
-      display: inline-block;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 850;
-      line-height: 1.1;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+
+    .location-detail:last-child {
+      border-right: 0;
     }
 
-    .membership-total-price{
+
+    .location-detail strong {
       display: block;
-      margin-top: 0.45rem;
-      color: var(--ink);
-      font-size: 3.4rem;
-      font-weight: 850;
-      line-height: 1;
-      letter-spacing: -0.04em;
+
+      margin-bottom: 0.3rem;
+
+      font-size: 0.93rem;
     }
 
-    .membership-weekly-price{
-      margin-top: 0.45rem;
-      color: var(--heather-dark);
-      font-size: 1.22rem;
-      font-weight: 850;
-      line-height: 1.2;
-    }
 
-    .membership-cancel-note{
-      max-width: none;
-      margin: 1rem auto 0;
-      padding: 0.85rem 1rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--ink);
-      font-size: 0.96rem;
-      font-weight: 750;
+    .location-detail span {
+      color: var(--muted);
+
+      font-size: 0.9rem;
       line-height: 1.45;
     }
 
-    .membership-benefits-list{
-      margin-top: 1.25rem;
+
+    /* ---------------------------------------------------------
+       HOW IT WORKS
+       --------------------------------------------------------- */
+
+
+    .how-it-works-section {
+      background: var(--cream);
+    }
+
+
+    .steps-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      max-width: 1040px;
+      margin: 0 auto;
+
+      gap: 1rem;
+    }
+
+
+    .step-card {
+      padding: 2rem;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+
+      background: white;
+    }
+
+
+    .step-number {
+      display: inline-flex;
+
+      width: 34px;
+      height: 34px;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 1.5rem;
+
+      border: 1px solid var(--line);
+      border-radius: 50%;
+
+      color: var(--heather);
+
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .step-card p {
+      margin-bottom: 0;
+
+      color: var(--muted);
+
+      font-size: 0.98rem;
+    }
+
+
+    .big-statement {
+      max-width: 820px;
+
+      margin: 4rem auto 0 !important;
+
+      color: var(--ink);
+
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    /* ---------------------------------------------------------
+       COMMUNITY WARDROBE
+       --------------------------------------------------------- */
+
+
+    .swap-section {
+      background: var(--green);
+    }
+
+
+    .swap-story-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(360px, 1.05fr);
+
+      align-items: center;
+      gap: clamp(3rem, 7vw, 6rem);
+    }
+
+
+    .swap-story-copy {
+      max-width: 590px;
+    }
+
+
+    .swap-story-copy h2 {
+      max-width: 580px;
+    }
+
+
+    .swap-story-copy p {
+      max-width: 570px;
+    }
+
+
+    .large-copy {
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .swap-principle {
+      margin-top: 2rem;
+
+      font-size: 0.98rem !important;
+    }
+
+
+    .swap-principle-large {
+      margin-top: 1.5rem;
+
+      color: var(--heather);
+
+      font-family: inherit;
+      font-weight: 750;
+
+      font-size: clamp(2rem, 4vw, 3.2rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.035em;
+    }
+
+
+    .swap-story-photo {
+      overflow: hidden;
+
+      border-radius: 60px 4px 60px 4px;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .swap-story-photo .photo {
+      display: block;
+
+      width: 100%;
+      max-width: none;
+      height: 600px;
+
+      margin: 0;
+
+      object-fit: cover;
+      object-position: center;
+
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+
+    /* ---------------------------------------------------------
+       RECENTLY ADDED SWAP ITEMS
+       --------------------------------------------------------- */
+
+
+    .swap-preview-section {
+      background: var(--cream);
+    }
+
+
+    .swap-preview-heading {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(320px, 0.65fr);
+
+      align-items: end;
+      justify-content: space-between;
+
+      gap: 3rem;
+
+      margin-bottom: 2.5rem;
+    }
+
+
+    .swap-preview-heading h2 {
+      max-width: 620px;
+      margin-bottom: 0;
+    }
+
+
+    .swap-preview-intro {
+      max-width: 550px;
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+
+    .swap-items-scroll {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 1rem;
+    }
+
+
+    .swap-item-card {
+      overflow: hidden;
+
+      border: 1px solid var(--line-light);
+      border-radius: 12px;
+
+      background: white;
+    }
+
+
+    .swap-item-image-wrap {
+      aspect-ratio: 4 / 5;
+
+      overflow: hidden;
+
+      background: var(--sand);
+    }
+
+
+    .swap-item-image {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.35s ease;
+    }
+
+
+    .swap-item-card:hover .swap-item-image {
+      transform: scale(1.025);
+    }
+
+
+    .swap-item-copy {
+      padding: 1rem 1rem 1.1rem;
+    }
+
+
+    .swap-item-copy h3 {
+      margin-bottom: 0.3rem;
+
+      font-size: 1rem;
+    }
+
+
+    .swap-item-details,
+    .swap-item-added {
+      margin: 0;
+
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+
+    .swap-item-details {
+      color: var(--ink);
+    }
+
+
+    .swap-item-added {
+      margin-top: 0.3rem;
+
       color: var(--muted);
     }
 
-    .label{
-      display: inline-block;
-      margin-bottom: 1rem;
-      padding: 0.32rem 0.68rem;
-      border-radius: 999px;
-      background: rgba(244, 166, 192, 0.72);
-      color: white;
-      font-size: 0.68rem;
+
+    .swap-stock-note {
+      max-width: 700px;
+
+      margin: 1.5rem 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.84rem;
+    }
+
+
+    /* Empty dynamic swap state */
+
+
+    .swap-preview-empty {
+      display: grid;
+
+      grid-template-columns:
+        minmax(300px, 1.15fr)
+        minmax(280px, 0.85fr);
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      background: var(--sand);
+    }
+
+
+    .swap-preview-room-photo {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+
+      object-fit: cover;
+    }
+
+
+    .swap-preview-empty-copy {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 3rem;
+    }
+
+
+    .swap-preview-kicker {
+      display: block;
+
+      margin-bottom: 0.8rem;
+
+      color: var(--heather);
+
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+
+    .swap-preview-empty-copy h3 {
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .swap-preview-empty-copy p {
+      margin-bottom: 0;
+
+      color: var(--muted);
+
+      font-size: 0.98rem;
+    }
+
+
+    /* ---------------------------------------------------------
+       LIFE AT SWAP & PLAY
+       --------------------------------------------------------- */
+
+
+    .life-section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+
+      background: var(--sand);
+    }
+
+
+    .life-photo-grid {
+      display: grid;
+
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 140px;
+
+      gap: 1rem;
+    }
+
+
+    .life-photo-grid .photo {
+      display: block;
+
+      width: 100%;
+      max-width: none;
+      height: 100%;
+
+      margin: 0;
+
+      border: 0;
+      border-radius: 8px;
+
+      box-shadow: none;
+
+      object-fit: cover;
+    }
+
+
+    .life-photo-grid .photo:nth-child(1) {
+      grid-column: 1 / 6;
+      grid-row: span 3;
+    }
+
+
+    .life-photo-grid .photo:nth-child(2) {
+      grid-column: 6 / 13;
+      grid-row: span 2;
+    }
+
+
+    .life-photo-grid .photo:nth-child(3) {
+      grid-column: 6 / 10;
+      grid-row: span 2;
+    }
+
+
+    .life-photo-grid .photo:nth-child(4) {
+      grid-column: 10 / 13;
+      grid-row: span 2;
+    }
+
+
+    .life-photo-grid .photo:nth-child(5) {
+      grid-column: 1 / 7;
+      grid-row: span 2;
+    }
+
+
+    .life-photo-grid .photo:nth-child(6) {
+      grid-column: 7 / 13;
+      grid-row: span 2;
+    }
+
+
+    /* ---------------------------------------------------------
+       REVIEWS
+       --------------------------------------------------------- */
+
+
+    .reviews-section {
+      background: var(--cream);
+    }
+
+
+    .reviews-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      gap: 1px;
+
+      margin-top: 1rem;
+
+      background: var(--line);
+    }
+
+
+    .review-card {
+      min-width: 0;
+      margin: 0;
+
+      padding: 2.7rem 2.4rem;
+
+      border: 0;
+
+      background: var(--cream);
+    }
+
+
+    .review-card p {
+      margin-bottom: 2rem;
+
+      color: var(--ink);
+
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .review-card footer {
+      color: var(--muted);
+
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    .press-links {
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      max-width: 850px;
+      margin: 3.5rem auto 0;
+
+      gap: 1rem;
+    }
+
+
+    .press-link {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 1.5rem;
+
+      padding: 1.2rem 1.4rem;
+
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
+      color: var(--ink);
+
+      text-decoration: none;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .press-link:hover {
+      border-color: rgba(143, 100, 164, 0.35);
+
+      background: white;
+
+      transform: translateY(-1px);
+    }
+
+
+    .press-publication {
+      font-size: 0.77rem;
       font-weight: 850;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      text-align: center;
     }
 
-    .popular{
-      background: rgba(247, 216, 121, 0.72);
-      color: var(--heather-dark);
+
+    .press-read {
+      color: var(--heather);
+
+      font-size: 0.87rem;
+      font-weight: 750;
     }
 
-    .price-card ul{
-      margin: 1.15rem 0 0;
-      padding: 0;
-      list-style: none;
-      text-align: left;
+
+    /* ---------------------------------------------------------
+       SOCIAL TIMES
+       --------------------------------------------------------- */
+
+
+    .social-section {
+      background: var(--green);
     }
 
-    .price-card li{
-      position: relative;
-      margin-bottom: 0.65rem;
-      padding-left: 1.4rem;
-      color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.5;
-    }
 
-    .price-card li::before{
-      content: "•";
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: var(--summer-strawberry);
-      font-weight: bold;
-    }
-
-    .small{
-      padding: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.55;
-      text-align: left;
-    }
-
-    .small-note{
-      margin: 0.9rem 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    #passes, #calendar, #swap-new, #swap-room{
-      scroll-margin-top: 2rem;
-    }
-
-    /* Pass options */
-
-    .pass-options-grid{
+    .social-times-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 36px;
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      max-width: 1080px;
+      margin: 0 auto;
+
+      border-top: 1px solid rgba(47, 79, 79, 0.16);
+      border-left: 1px solid rgba(47, 79, 79, 0.16);
     }
 
-    .visit-pass-card{
+
+    .social-time {
       display: flex;
-      height: 100%;
+
+      min-height: 175px;
+
       flex-direction: column;
-      text-align: left;
+
+      padding: 1.7rem;
+
+      border-right: 1px solid rgba(47, 79, 79, 0.16);
+      border-bottom: 1px solid rgba(47, 79, 79, 0.16);
+
+      background: rgba(255, 255, 255, 0.2);
     }
 
-    .visit-pass-card .button{
-      width: 100%;
-      margin-top: auto;
-      text-align: center;
+
+    .social-day {
+      margin-bottom: auto;
+
+      color: var(--muted);
+
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .visit-pass-card .membership-total{
-      text-align: center;
-    }
 
-    /* Clean photo gallery */
-
-    .photo-grid-clean{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 10px;
-    }
-
-    .photo-grid-clean .story-photo{
+    .social-time strong {
       display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 3.5;
-      border: 8px solid rgba(255, 255, 255, 0.7);
-      border-radius: 22px;
-      background: white;
-      box-shadow: 0 12px 34px rgba(50, 61, 72, 0.08);
-      object-fit: cover;
-      object-position: center;
+
+      margin-top: 1.8rem;
+      margin-bottom: 0.2rem;
+
+      font-size: 1.02rem;
+      line-height: 1.3;
     }
 
-    /* FAQ */
 
-    .faq-list{
-      display: grid;
-      gap: 1rem;
-      max-width: 850px;
-      margin: 2.4rem auto 0;
-      text-align: left;
+    .social-time > span:not(.social-day) {
+      color: var(--muted);
+
+      font-size: 0.9rem;
     }
 
-    .faq-item{
-      padding: 1.45rem 1.6rem;
-      border: 1px solid rgba(47, 79, 79, 0.08);
-      border-radius: 22px;
+
+    .social-time small {
+      display: inline-block;
+
+      margin-top: 0.7rem;
+
+      color: var(--blue-dark);
+
+      font-size: 0.72rem;
+      font-weight: 750;
+    }
+
+
+    .public-social-time {
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+
+    .social-note {
+      margin-top: 2rem !important;
+      margin-bottom: 0 !important;
+
+      color: var(--muted);
+
+      font-size: 0.92rem;
+    }
+
+
+    /* ---------------------------------------------------------
+       PLAYDATE
+       --------------------------------------------------------- */
+
+
+    .playdate-section {
       background: var(--cream);
     }
 
-    .faq-item p{
-      margin: 0;
+
+    .playdate-card {
+      max-width: 840px;
+      margin: 0 auto;
+
+      padding: 4.5rem;
+
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      background: white;
+      box-shadow: var(--shadow-small);
+
+      text-align: center;
+    }
+
+
+    .playdate-copy {
+      max-width: 630px;
+      margin: 0 auto;
+    }
+
+
+    .playdate-copy h2 {
+      max-width: 600px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+
+    .playdate-lead {
+      font-family: inherit;
+      font-weight: 750;
+    }
+
+
+    .playdate-price {
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+
+      margin: 2rem 0 1.5rem;
+
+      gap: 0.25rem;
+    }
+
+
+    .playdate-price strong {
+      font-family: inherit;
+      font-weight: 500;
+
+      font-size: 4.2rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+
+    .playdate-price span {
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.58;
+
+      font-size: 0.9rem;
     }
 
-    .day-section{
-      background: var(--beige);
+
+    .playdate-benefits {
+      max-width: 430px;
+      margin: 2rem auto;
+
+      padding: 0;
+
+      list-style: none;
+
+      text-align: left;
     }
 
-    /* Footer */
 
-    .footer{
-      padding: 4rem 1.5rem;
-      background: var(--pale-blue);
+    .playdate-benefits li {
+      position: relative;
+
+      margin-bottom: 0.7rem;
+
+      padding-left: 1.4rem;
+
+      color: var(--muted);
+
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+
+    .playdate-benefits li::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      color: var(--heather);
+
+      content: "•";
+    }
+
+
+    .small-note {
+      max-width: 550px;
+      margin: 1rem auto 0;
+
+      color: var(--muted);
+
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+
+    /* ---------------------------------------------------------
+       PRICING
+       --------------------------------------------------------- */
+
+
+    .pricing-section {
+      background: var(--sand);
+    }
+
+
+    .pass-options-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      align-items: stretch;
+
+      gap: 1rem;
+    }
+
+
+    .price-card {
+      display: flex;
+
+      min-width: 0;
+      min-height: 520px;
+
+      flex-direction: column;
+
+      padding: 2.3rem;
+
+      border: 1px solid var(--line);
+      border-radius: 14px;
+
+      background: var(--cream);
+    }
+
+
+    .price-card.featured {
+      border-color: rgba(143, 100, 164, 0.45);
+
+      background: white;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .price-card-label {
+      margin-bottom: 1.2rem;
+
+      color: var(--heather);
+
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+
+    .price-card h3 {
+      margin-bottom: 1.2rem;
+
+      font-family: inherit;
+      font-weight: 750;
+
+      font-size: 1.8rem;
+    }
+
+
+    .price {
+      display: flex;
+
+      min-height: 88px;
+
+      flex-direction: column;
+
+      margin-bottom: 1.5rem;
+    }
+
+
+    .price strong {
+      font-family: inherit;
+      font-weight: 750;
+
+      font-size: 3.3rem;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+
+    .price span {
+      margin-top: 0.3rem;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+    }
+
+
+    .price-card > p:not(.price-card-label) {
+      color: var(--muted);
+
+      font-size: 0.96rem;
+    }
+
+
+    .price-card ul {
+      margin: 1.1rem 0 2rem;
+
+      padding: 0;
+
+      list-style: none;
+    }
+
+
+    .price-card li {
+      position: relative;
+
+      margin-bottom: 0.65rem;
+
+      padding-left: 1.35rem;
+
+      color: var(--ink);
+
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+
+    .price-card li::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      color: var(--heather);
+
+      content: "•";
+    }
+
+
+    .price-card .button {
+      width: 100%;
+
+      margin-top: auto;
+    }
+
+
+    /* ---------------------------------------------------------
+       FIRST VISIT
+       --------------------------------------------------------- */
+
+
+    .first-visit-section {
+      background: var(--blue);
+
       color: white;
     }
 
-    .footer p{
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-      opacity: 0.88;
+
+    .first-visit-section h2 {
+      color: white;
     }
 
-    .footer a{
-      font-weight: 800;
+
+    .first-visit-section .eyebrow {
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    .footer-social{
-      margin-top: 1.4rem;
+
+    .first-visit-section p {
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    .footer-logo{
+
+    .first-visit-section .secondary-button {
+      border-color: rgba(255, 255, 255, 0.65);
+
+      color: white;
+    }
+
+
+    .first-visit-section .secondary-button:hover {
+      border-color: white;
+
+      background: white;
+
+      color: var(--ink);
+    }
+
+
+    /* ---------------------------------------------------------
+       CLOSING
+       --------------------------------------------------------- */
+
+
+    .closing-section {
+      padding-top: 7rem;
+      padding-bottom: 8rem;
+
+      background: var(--cream);
+    }
+
+
+    .closing-photo {
       display: block;
-      width: auto;
-      max-width: 260px;
-      height: 88px;
-      margin: -14px auto 1.2rem;
-      object-fit: contain;
+
+      width: min(740px, 100%);
+      height: auto;
+
+      margin: 0 auto 5rem;
+
+      border-radius: 4px;
+
+      box-shadow: none;
+
+      object-fit: cover;
     }
 
-    @media (max-width: 1000px) {
-      .hero-inner, .content-split{
+
+    .closing-section h2 {
+      max-width: 790px;
+
+      margin-right: auto;
+      margin-left: auto;
+
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.08;
+    }
+
+
+    /* ---------------------------------------------------------
+       FOOTER
+       --------------------------------------------------------- */
+
+
+    .footer {
+      padding: 5rem 1.5rem;
+
+      background: var(--ink);
+
+      color: white;
+    }
+
+
+    .footer-logo {
+      display: block;
+
+      width: 230px;
+      max-width: 70%;
+      height: auto;
+
+      margin: 0 auto 2rem;
+
+      filter:
+        brightness(0)
+        invert(1);
+    }
+
+
+    .footer p {
+      margin-bottom: 0.75rem;
+
+      color: rgba(255, 255, 255, 0.75);
+
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+
+    .footer a {
+      color: white;
+
+      font-weight: 700;
+    }
+
+
+    /* ---------------------------------------------------------
+       SHAREABLE HASH TARGETS
+       --------------------------------------------------------- */
+
+
+    #location,
+    #swap-room,
+    #swap-new,
+    #calendar,
+    #playdate,
+    #passes {
+      scroll-margin-top: 2rem;
+    }
+
+
+    /* ---------------------------------------------------------
+       TABLET
+       --------------------------------------------------------- */
+
+
+    @media (max-width: 1050px) {
+
+      .hero-inner,
+      .swap-story-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
       }
 
-      .swap-preview-heading, .swap-preview-empty{
-        grid-template-columns: 1fr;
-      }
 
-      .swap-preview-heading{
-        gap: 1rem;
-      }
+      .hero {
+        padding-top: 4rem;
 
-      .swap-preview-room-photo{
-        min-height: 0;
-        aspect-ratio: 16 / 9;
-      }
-
-      .hero{
-        padding: 2.5rem 1.25rem 0;
         text-align: center;
       }
 
-      .hero-copy{
-        padding: 1rem 0 2rem;
-      }
 
-      h1, .hero-subtitle{
-        margin-left: auto;
+      .hero-logo {
         margin-right: auto;
+        margin-left: auto;
       }
 
-      .hero-actions{
+
+      h1,
+      .hero-subtitle {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+
+      .hero-details,
+      .hero-actions {
         justify-content: center;
       }
 
-      .photo-grid{
-        grid-template-columns: repeat(2, 1fr);
+
+      .hero-photo {
+        width: min(640px, 100%);
+
+        margin: 1rem auto 0;
       }
 
-      .content-split{
+
+      .hero-photo .photo {
+        height: auto;
+        aspect-ratio: 4 / 4.3;
+      }
+
+
+      .swap-story-copy {
+        max-width: 760px;
+
+        margin: 0 auto;
+
         text-align: center;
       }
 
-      .content-split > div, .content-split p{
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
 
-    @media (max-width: 980px) {
-      .pass-options-grid{
+      .swap-story-copy h2,
+      .swap-story-copy p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+
+      .swap-story-photo {
+        max-width: 700px;
+
+        margin: 0 auto;
+      }
+
+
+      .swap-story-photo .photo {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+
+      .pass-options-grid {
         grid-template-columns: 1fr;
       }
 
-      .visit-pass-card{
-        max-width: 680px;
+
+      .price-card {
         width: 100%;
-        margin-inline: auto;
+        max-width: 680px;
+        min-height: 0;
+
+        margin-right: auto;
+        margin-left: auto;
       }
 
-      .photo-grid-clean{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      .price-card .button {
+        max-width: 300px;
       }
+
     }
+
 
     @media (max-width: 900px) {
-      .included-grid, .reviews-grid{
+
+      .section {
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
+      }
+
+
+      .identity-grid,
+      .steps-grid {
         grid-template-columns: 1fr;
       }
 
-      .location-visuals{
-        grid-template-columns: 1fr;
+
+      .identity-card {
+        min-height: 0;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+
+      .identity-card:last-child {
+        border-bottom: 0;
+      }
+
+
+      .identity-card p {
         max-width: 620px;
       }
 
-      .location-card{
-        min-height: auto;
+
+      .location-visuals {
+        grid-template-columns: 1fr;
+
+        max-width: 620px;
+      }
+
+
+      .location-details {
+        grid-template-columns: 1fr;
+
+        max-width: 620px;
+      }
+
+
+      .location-detail {
+        min-height: 0;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+
+      .location-detail:last-child {
+        border-bottom: 0;
+      }
+
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .review-card {
+        border-bottom: 1px solid var(--line);
+      }
+
+
+      .review-card:last-child {
+        border-bottom: 0;
+      }
+
+
+      .social-times-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+
+      .life-photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+      }
+
+
+      .life-photo-grid .photo:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+
         aspect-ratio: 4 / 3;
       }
 
-      .map-card{
-        aspect-ratio: 4 / 5;
-      }
-
-      .calendar-summary{
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .calendar-pass-link{
-        justify-self: start;
-      }
-
-      .footer-logo{
-        max-width: 240px;
-        height: 78px;
-        margin: -12px auto 1.3rem;
-      }
     }
 
-    @media (max-width: 768px) {
-      h1{
-        font-size: clamp(2.15rem, 11vw, 3.2rem);
-        line-height: 1.02;
-        letter-spacing: -0.055em;
+
+    /* ---------------------------------------------------------
+       MOBILE
+       --------------------------------------------------------- */
+
+
+    @media (max-width: 700px) {
+
+      .section {
+        padding: 4.25rem 1rem;
       }
 
-      h2{
-        font-size: clamp(1.8rem, 8vw, 2.45rem);
-        line-height: 1.08;
+
+      h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+        line-height: 0.98;
       }
 
-      h3{
-        font-size: 1.12rem;
+
+      h2 {
+        font-size: clamp(2.1rem, 10vw, 3rem);
       }
 
-      p{
+
+      p {
         font-size: 1rem;
-        line-height: 1.62;
       }
 
-      .section, .hero, .photo-story{
-        padding-left: 1rem;
-        padding-right: 1rem;
+
+      .section-heading {
+        margin-bottom: 2.6rem;
       }
 
-      .section{
-        padding-top: 3.2rem;
-        padding-bottom: 3.2rem;
+
+      .section-intro {
+        font-size: 1.02rem;
       }
 
-      .hero-inner{
-        gap: 1.25rem;
+
+      .hero {
+        padding: 3.2rem 1rem 4.2rem;
       }
 
-      .logo img{
-        display: block;
-        width: 240px;
-        max-width: 78vw;
-        height: auto;
-        margin: 0 auto 1.8rem;
+
+      .hero-inner {
+        gap: 2.5rem;
       }
 
-      .hero-subtitle{
-        font-size: 1.12rem;
-        line-height: 1.5;
+
+      .hero-logo {
+        width: 200px;
+
+        margin-bottom: 2rem;
       }
 
-      .hero-photo{
-        max-width: 100%;
-        padding: 10px;
-        border-width: 9px;
-        border-radius: 30px;
-        transform: none;
+
+      .hero-subtitle {
+        font-size: 1.1rem;
       }
 
-      .hero-photo .photo{
-        aspect-ratio: 4 / 5;
-        height: auto;
-        border-radius: 22px;
-        object-fit: cover;
+
+      .hero-details {
+        display: grid;
+
+        gap: 0.35rem;
+
+        font-size: 0.83rem;
       }
 
-      .photo, .story-photo{
+
+      .hero-details span + span::before {
+        display: none;
+      }
+
+
+      .hero-actions {
+        display: grid;
+
+        width: min(360px, 100%);
+
+        margin-right: auto;
+        margin-left: auto;
+
+        gap: 0.65rem;
+      }
+
+
+      .hero-actions .button {
         width: 100%;
-        max-width: 100%;
-        height: auto;
       }
 
-      .photo{
-        aspect-ratio: 4 / 3;
-        margin: 1rem auto;
-        border-width: 9px;
+
+      .hero-photo {
+        border-radius: 3px 38px 3px 38px;
       }
 
-      .story-photo{
-        border-width: 6px;
+
+      .identity-card {
+        padding: 2rem 0.5rem;
       }
 
-      .photo-grid-clean .story-photo {
-        aspect-ratio: 4 / 3.5;
+
+      .identity-number {
+        margin-bottom: 1.2rem;
       }
 
-      .photo-grid{
-        grid-template-columns: 1fr;
+
+      .location-visuals {
         gap: 1rem;
       }
 
-      .included-card, .price-card, .faq-item, .review-card{
-        padding: 1.35rem;
-        border-radius: 22px;
+
+      .location-card {
+        border-radius: 10px;
       }
 
-      .swap-preview-section{
+
+      .map-card {
+        aspect-ratio: 4 / 4.5;
+      }
+
+
+      .location-detail {
+        padding: 1.2rem;
+      }
+
+
+      .step-card {
+        padding: 1.5rem;
+      }
+
+
+      .big-statement {
+        margin-top: 3rem !important;
+
+        font-size: 1.55rem;
+      }
+
+
+      .swap-story-grid {
+        gap: 2.7rem;
+      }
+
+
+      .swap-story-photo {
+        border-radius: 32px 3px 32px 3px;
+      }
+
+
+      .swap-preview-heading {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+      }
+
+
+      .swap-preview-heading h2 {
+        margin-bottom: 0.5rem;
+      }
+
+
+      /*
+       * Swap arrivals become a horizontal shelf on phones.
+       */
+
+      .swap-preview-section {
         padding-right: 0;
         padding-left: 0;
       }
 
+
       .swap-preview-heading,
-      .swap-preview-footer,
-      .swap-preview-empty{
+      .swap-stock-note {
         margin-right: 1rem;
         margin-left: 1rem;
       }
 
-      .swap-preview-heading{
-        margin-bottom: 1.5rem;
-      }
 
-      .swap-preview-empty{
-        border-radius: 24px;
-      }
-
-      .swap-preview-empty-copy{
-        padding: 1.5rem;
-      }
-
-      .swap-preview-empty-copy h3{
-        font-size: 1.4rem;
-      }
-
-      .swap-items-scroll{
+      .swap-items-scroll {
         display: flex;
-        gap: 0.9rem;
-        padding: 0 1rem 0.5rem;
+
+        gap: 0.8rem;
+
+        padding: 0 1rem 0.7rem;
+
         overflow-x: auto;
+
         scroll-snap-type: x proximity;
-        scrollbar-width: thin;
+
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
       }
 
-      .swap-item-card{
-        width: min(68vw, 250px);
-        flex: 0 0 min(68vw, 250px);
+
+      .swap-item-card {
+        width: min(68vw, 245px);
+
+        flex: 0 0 min(68vw, 245px);
+
         scroll-snap-align: start;
       }
 
-      .swap-preview-footer{
-        align-items: stretch;
-        flex-direction: column;
+
+      .swap-preview-empty {
+        grid-template-columns: 1fr;
+
+        margin-right: 1rem;
+        margin-left: 1rem;
       }
 
-      .swap-preview-link{
-        width: 100%;
-        max-width: none;
+
+      .swap-preview-room-photo {
+        min-height: 0;
+
+        aspect-ratio: 4 / 3;
       }
 
-      /* Calendar */
 
-      .weekly-calendar-section{
-        padding-right: 0.75rem;
-        padding-left: 0.75rem;
+      .swap-preview-empty-copy {
+        padding: 1.5rem;
       }
 
-      .calendar-legend{
-        gap: 0.55rem 0.9rem;
-        margin-bottom: 1.75rem;
+
+      .life-photo-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 0.75rem;
       }
 
-      .calendar-key{
-        font-size: 0.78rem;
+
+      .life-photo-grid .photo:nth-child(n) {
+        aspect-ratio: 4 / 3;
       }
 
-      .calendar-details{
-        margin-top: 1.5rem;
-        border-radius: 20px;
+
+      .review-card {
+        padding: 2rem 0.2rem;
       }
 
-      .calendar-details summary{
-        min-height: 54px;
-        padding: 0.9rem 1rem;
-        font-size: 0.94rem;
+
+      .review-card p {
+        font-size: 1.12rem;
       }
 
-      .calendar-details-body{
-        padding-right: 0.35rem;
-        padding-left: 0.35rem;
-      }
 
-      .week-calendar{
-        min-width: 1435px;
-      }
+      .press-links {
+        grid-template-columns: 1fr;
 
-      .week-event{
-        padding: 0.38rem 0.48rem;
-      }
-
-      .social-event{
-        margin: 2px 0.4rem;
-      }
-
-      .availability-event{
-        padding: 0.5rem;
-      }
-
-      .week-event-time{
-        margin-bottom: 0.1rem;
-        font-size: 0.62rem;
-      }
-
-      .week-event-title{
-        font-size: 0.76rem;
-        line-height: 1.04;
-      }
-
-      .week-event-extra{
-        margin-top: 0.12rem;
-        font-size: 0.52rem;
-        line-height: 1.1;
-      }
-
-      .availability-event .week-event-time{
-        font-size: 0.56rem;
-      }
-
-      .availability-event .week-event-title{
-        font-size: 0.64rem;
-      }
-
-      /* Modal */
-
-      .event-modal{
-        padding: 0.75rem;
-      }
-
-      .event-modal-panel{
-        width: min(520px, 100%);
-        max-height: calc(100dvh - 1.5rem);
-        padding: 1.4rem;
-        border-radius: 22px;
-      }
-
-      .event-modal-panel h3{
-        font-size: 1.4rem;
-      }
-
-      .event-modal-description{
-        font-size: 0.93rem;
-        line-height: 1.45;
-      }
-
-      .event-modal-actions .button{
-        padding: 0.78rem 0.9rem;
-        font-size: 0.88rem;
-      }
-
-      /* Press */
-
-      .press-mentions{
         margin-top: 2.5rem;
-        padding-top: 2.25rem;
-        text-align: left;
       }
 
-      .press-eyebrow, .press-intro{
-        margin-left: 0;
-        margin-right: 0;
-        text-align: left;
-      }
 
-      .press-links{
+      .social-times-grid {
         grid-template-columns: 1fr;
       }
 
-      .press-link{
-        min-height: 0;
-        padding: 1.35rem;
-        border-radius: 22px;
+
+      .social-time {
+        min-height: 125px;
+
+        padding: 1.3rem;
       }
 
-      .press-title{
-        font-size: 1.08rem;
-      }
 
-      /* Pricing */
-
-      .reviews-section{
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-
-      .reviews-section .content-wide,
-      .pricing-section .content-wide{
-        max-width: 100%;
-      }
-
-      .reviews-section h2,
-      .reviews-section p,
-      .reviews-section .eyebrow,
-      .pricing-section h2,
-      .pricing-section p,
-      .pricing-section .eyebrow{
-        margin-left: 0;
-        margin-right: 0;
-        text-align: left;
-      }
-
-      .reviews-section .section-intro,
-      .pricing-section .section-intro{
-        max-width: none;
-        margin-bottom: 1.5rem;
-      }
-
-      .reviews-grid{
-        display: block;
-        max-width: 100%;
-        margin-top: 1.5rem;
-      }
-
-      .review-card{
-        width: 100%;
-        margin: 0 0 1rem;
-        padding: 1.25rem;
-        border-radius: 22px;
-      }
-
-      .review-card p{
-        margin-bottom: 0.9rem;
-        font-size: 0.96rem;
-        line-height: 1.55;
-      }
-
-      .membership-total{
-        padding: 1rem;
-        border-radius: 20px;
-      }
-
-      .membership-total-label{
-        display: block;
-        margin-bottom: 0.45rem;
-        text-align: center;
-      }
-
-      .membership-total-price{
-        font-size: 2.45rem;
-        text-align: center;
-      }
-
-      .membership-weekly-price{
-        font-size: 1.08rem;
-        text-align: center;
-      }
-
-      .membership-cancel-note{
-        padding: 0.8rem 0.85rem;
-        font-size: 0.92rem;
-        line-height: 1.42;
-        text-align: center;
-      }
-
-      .membership-benefits-list{
+      .social-time strong {
         margin-top: 1rem;
       }
 
-      .membership-benefits-list li{
-        font-size: 0.94rem;
-        line-height: 1.45;
+
+      .playdate-card {
+        padding: 2.5rem 1.3rem;
+
+        border-radius: 12px;
       }
 
-      button, .button{
-        display: flex;
+
+      .playdate-price strong {
+        font-size: 3.5rem;
+      }
+
+
+      .price-card {
+        padding: 1.7rem;
+      }
+
+
+      .price strong {
+        font-size: 3rem;
+      }
+
+
+      .price-card .button,
+      .first-visit-section .button,
+      .closing-section .button {
         width: 100%;
         max-width: 340px;
-        margin: 1rem auto;
       }
 
-      .week-event{
-        display: block;
-        width: auto;
-        max-width: none;
-        margin-top: 1px;
-        margin-bottom: 1px;
+
+      .closing-photo {
+        margin-bottom: 3.5rem;
       }
 
-      .availability-event{
-        display: flex;
-        width: 100%;
-        margin: 0;
+
+      .closing-section h2 {
+        font-size: 2.5rem;
       }
 
-      .social-event{
-        width: auto;
-        margin-top: 2px;
-        margin-bottom: 2px;
+
+      .footer {
+        padding: 4rem 1rem;
       }
 
-      .event-modal-backdrop{
-        display: block;
-        width: 100%;
-        max-width: none;
-        margin: 0;
-      }
 
-      .event-modal-close{
-        display: grid;
-        width: 42px;
-        max-width: 42px;
-        margin: 0;
-      }
+      .footer p {
+        max-width: 330px;
 
-      .hero-actions{
-        width: 100%;
-        gap: 0;
-      }
-
-      .summer-button{
-        max-width: none;
-        margin: 0.85rem 0 0;
-      }
-
-      .wave{
-        height: 72px;
-        overflow: hidden;
-      }
-
-      .wave svg{
-        width: 160%;
-        margin-left: -30%;
-      }
-
-      .photo-strip{
-        padding-right: 1rem;
-        padding-bottom: 3rem;
-        padding-left: 1rem;
-        overflow: hidden;
-      }
-
-      .photo-strip .photo{
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-
-      .footer{
-        padding: 3.5rem 1rem;
-        text-align: center;
-      }
-
-      .footer-logo{
-        max-width: 240px;
-        height: 78px;
-        margin: -12px auto 1.4rem;
-      }
-
-      .footer p{
-        max-width: 320px;
         margin-right: auto;
         margin-left: auto;
+
         overflow-wrap: anywhere;
-        font-size: 0.95rem;
-        line-height: 1.55;
-        word-break: break-word;
       }
+
     }
 
-    @media (max-width: 640px) {
-      .pass-options-grid{
-        gap: 16px;
-        margin-top: 24px;
-      }
+@media (max-width: 440px) {
 
-      .photo-grid-clean{
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-    }
+  h1 {
+    font-size: 2.75rem;
+  }
 
-    @media (max-width: 480px) {
-      h1{
-        font-size: 2.25rem;
-      }
+  h2 {
+    font-size: 2.15rem;
+  }
 
-      h2{
-        font-size: 1.9rem;
-      }
+  .eyebrow {
+    font-size: 0.67rem;
+  }
 
-      .eyebrow{
-        font-size: 0.68rem;
-        letter-spacing: 0.12em;
-      }
+  .hero-logo {
+    width: 185px;
+  }
 
-      .logo img{
-        width: 220px;
-        max-width: 82vw;
-        height: auto;
-        margin: 0 auto 1.5rem;
-      }
+  .hero-photo .photo {
+    aspect-ratio: 4 / 4.8;
+  }
 
-      .photo, .story-photo, .hero-photo .photo{
-        aspect-ratio: auto;
-      }
+  .swap-principle-large {
+    font-size: 2.25rem !important;
+  }
 
-      .location-tagline{
-        margin-bottom: 2rem;
-      }
+  .playdate-price strong {
+    font-size: 3.1rem;
+  }
 
-      .location-visuals{
-        gap: 1rem;
-      }
+  .price strong {
+    font-size: 2.8rem;
+  }
 
-      .location-card{
-        border-width: 9px;
-        border-radius: 22px;
-      }
+  .closing-section h2 {
+    font-size: 2.15rem;
+  }
 
-      .map-card{
-        aspect-ratio: 4 / 5;
-      }
+}
 
-      /* Calendar */
 
-      .week-event{
-        padding: 0.34rem 0.4rem;
-        border-radius: 10px;
-      }
+/* WAVE — OUTSIDE THE MEDIA QUERY */
 
-      .availability-event{
-        padding: 0.42rem;
-        border-radius: 11px;
-      }
+.wave {
+  display: block;
+  width: 100%;
+  margin: -1px 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
 
-      .week-event-time{
-        margin-bottom: 0.14rem;
-        font-size: 0.6rem;
-      }
-
-      .week-event-title{
-        font-size: 0.72rem;
-        line-height: 1.08;
-      }
-
-      .availability-event .week-event-time{
-        font-size: 0.56rem;
-      }
-
-      .availability-event .week-event-title{
-        font-size: 0.64rem;
-      }
-
-      /* Modal */
-
-      .event-modal{
-        align-items: end;
-        padding: 0.65rem;
-      }
-
-      .event-modal-panel{
-        width: 100%;
-        max-height: calc(100dvh - 1.3rem);
-        padding: 1.25rem 1.1rem 1.1rem;
-        border-radius: 22px;
-      }
-
-      .event-modal-close{
-        top: 0.65rem;
-        right: 0.65rem;
-        width: 38px;
-        height: 38px;
-        min-width: 38px;
-        max-width: 38px;
-        font-size: 1.45rem;
-      }
-
-      .event-modal-time{
-        margin-right: 2.8rem;
-        font-size: 0.8rem;
-      }
-
-      .event-modal-panel h3{
-        margin-right: 2.8rem;
-        font-size: 1.3rem;
-      }
-
-      .event-modal-access{
-        margin-bottom: 0.85rem;
-        font-size: 0.7rem;
-      }
-
-      .event-modal-description{
-        font-size: 0.9rem;
-        line-height: 1.42;
-      }
-
-      .event-modal-actions{
-        gap: 0.6rem;
-        margin-top: 0.85rem;
-      }
-
-      .event-modal-actions .button{
-        padding: 0.72rem 0.8rem;
-        font-size: 0.85rem;
-      }
-
-      /* Remaining sections */
-
-      .membership-total-price{
-        font-size: 2.35rem;
-      }
-
-      .wave{
-        height: 54px;
-      }
-
-      .wave svg{
-        width: 190%;
-        margin-left: -45%;
-      }
-
-      .photo-strip{
-        padding-right: 0.75rem;
-        padding-left: 0.75rem;
-      }
-
-      .review-card{
-        padding: 1.1rem;
-        border-radius: 20px;
-      }
-
-      .review-card p{
-        font-size: 0.92rem;
-        line-height: 1.52;
-      }
-
-      .review-card span{
-        font-size: 0.74rem;
-      }
-
-      .membership-total{
-        padding: 0.95rem;
-        border-radius: 18px;
-      }
-
-      .membership-weekly-price{
-        font-size: 1rem;
-      }
-
-      .membership-cancel-note{
-        padding: 0.75rem;
-        font-size: 0.88rem;
-      }
-
-      .membership-benefits-list li{
-        font-size: 0.92rem;
-      }
-
-      .footer{
-        padding: 3rem 1rem;
-      }
-
-      .footer-logo{
-        max-width: 220px;
-        height: 72px;
-        margin: -10px auto 1.3rem;
-      }
-
-      .footer p{
-        max-width: 300px;
-        font-size: 0.92rem;
-      }
-    }
-
-    @media (max-height: 700px) {
-      .event-modal-panel{
-        padding-top: 1.1rem;
-        padding-bottom: 1.1rem;
-      }
-
-      .event-modal-description{
-        line-height: 1.4;
-      }
-
-      .event-modal-actions{
-        gap: 0.55rem;
-        margin-top: 0.75rem;
-      }
-
-      .event-modal-actions .button{
-        padding-top: 0.68rem;
-        padding-bottom: 0.68rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after{
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-
-      .story-photo:hover,
-      .press-link:hover,
-      .calendar-pass-link:hover,
-      button:hover,
-      .button:hover{
-        transform: none;
-      }
-    }
+.wave svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+}
   `
 }
 },{}]},{},[2]);
