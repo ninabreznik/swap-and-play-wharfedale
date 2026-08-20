@@ -1,5 +1,17 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports=[
+    {
+    "image": "./assets/swap-items/purple-soft-jacket.jpg",
+    "title": "Purple soft bear jacket",
+    "details": "6-12 months",
+    "added": "2026-08-18"
+  },
+  {
+    "image": "./assets/swap-items/complet-trousers-blouse.jpg",
+    "title": "Overalls with a butterfly",
+    "details": "6-12 months",
+    "added": "2026-08-18"
+  },
   {
     "image": "./assets/swap-items/animal-print-dungarees.jpg",
     "title": "Animal Print Dungarees",
@@ -106,9 +118,8 @@ module.exports = page
 const get_theme = require('get_theme')
 
 const DAY_PASS_PAYMENT_URL = 'https://buy.stripe.com/5kQ14m8ga9jj0pjdsh0Ba05'
-const FIVE_VISIT_PACK_PAYMENT_URL = 'https://buy.stripe.com/cNieVcbsm0MNb3X5ZP0Ba06'
-const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
-const PLAYDATE_PASS_PAYMENT_URL = 'https://buy.stripe.com/dRmeVc2VQeDD2xr9c10Ba07'
+const MEMBERSHIP_PAYMENT_URL = 'https://buy.stripe.com/cNi9AS3ZU9jj4Fzewl0Ba08'
+const GIFT_MONTH_PAYMENT_URL = 'https://buy.stripe.com/cNifZg0NI7bb0pjag50Ba09'
 
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
@@ -166,7 +177,7 @@ function page (cb) {
         <button
           type="button"
           class="announcement-link"
-          data-scroll-to="#playdate"
+          data-scroll-to="#passes"
         >
           August: Bring a friend — one visit for two families for £10 →
         </button>
@@ -420,7 +431,8 @@ function page (cb) {
             fill="#fbfaf6">
           </path>
         </svg>
-      </div>      
+      </div>
+
 
       <!-- HOW IT WORKS -->
 
@@ -482,6 +494,7 @@ function page (cb) {
         </div>
       </section>
 
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -497,7 +510,8 @@ function page (cb) {
             fill="#d1ece6">
           </path>
         </svg>
-      </div>      
+      </div>
+
 
       <!-- COMMUNITY WARDROBE -->
 
@@ -561,7 +575,8 @@ function page (cb) {
 
         </div>
       </section>
-      
+
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -610,12 +625,13 @@ function page (cb) {
           ${render_swap_room_items()}
 
           <p class="swap-stock-note">
-            These are recent arrivals rather than live stock, so some items may
+            These are some of the recent arrivals rather than live stock, so some items may
             already have found a new home.
           </p>
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -633,7 +649,8 @@ function page (cb) {
           </path>
         </svg>
       </div>
-      
+
+
       <!-- LIFE AT SWAP & PLAY -->
 
       <section class="section life-section">
@@ -657,25 +674,6 @@ function page (cb) {
           </div>
 
           <div class="life-photo-grid">
-
-            <img
-              src="./assets/focused-play.jpg"
-              alt="A child concentrating on a puzzle"
-              class="photo"
-            >
-
-            <img
-              src="./assets/social-play.jpg"
-              alt="Families meeting at Swap & Play"
-              class="photo"
-            >
-
-            <img
-              src="./assets/quiet-coffee.jpg"
-              alt="A cup of coffee beside the play space"
-              class="photo"
-            >
-
             <img
               src="./assets/role-play.jpg"
               alt="Children playing together in the role play room"
@@ -683,21 +681,42 @@ function page (cb) {
             >
 
             <img
+              src="./assets/mum-and-son.jpg"
+              alt="Mother and son playing together"
+              class="photo"
+            >
+            <img
               src="./assets/girls-playing.jpeg"
               alt="Children playing together on the floor"
               class="photo"
             >
 
             <img
-              src="./assets/baby.jpg"
-              alt="A baby exploring the baby play area"
+              src="./assets/focused-play.jpg"
+              alt="A child concentrating on a puzzle"
               class="photo"
             >
+            <img
+              src="./assets/children-playing.jpg"
+              alt="A child playing"
+              class="photo"
+            >            
+
+            <img
+              src="./assets/quiet-coffee.jpg"
+              alt="A cup of coffee beside the play space"
+              class="photo"
+            >
+
+
+
+
 
           </div>
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -715,6 +734,7 @@ function page (cb) {
           </path>
         </svg>
       </div>
+
 
       <!-- REVIEWS -->
 
@@ -804,6 +824,7 @@ function page (cb) {
         </div>
       </section>
 
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -820,6 +841,7 @@ function page (cb) {
           </path>
         </svg>
       </div>
+
 
       <!-- SOCIAL TIMES -->
 
@@ -853,13 +875,6 @@ function page (cb) {
                 Monday
               </span>
 
-              <strong>
-                Afternoon Playdate
-              </strong>
-
-              <span>
-                3–5pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -867,13 +882,6 @@ function page (cb) {
                 Tuesday
               </span>
 
-              <strong>
-                Cowork & Play
-              </strong>
-
-              <span>
-                11am–2pm
-              </span>
             </article>
 
             <article class="social-time public-social-time">
@@ -898,28 +906,6 @@ function page (cb) {
               <span class="social-day">
                 Thursday
               </span>
-
-              <strong>
-                Under-1s Playdate
-              </strong>
-
-              <span>
-                3–5pm
-              </span>
-            </article>
-
-            <article class="social-time">
-              <span class="social-day">
-                Friday
-              </span>
-
-              <strong>
-                Grandparents' Morning
-              </strong>
-
-              <span>
-                10am–12pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -932,7 +918,7 @@ function page (cb) {
               </strong>
 
               <span>
-                3–6pm
+                2–5pm
               </span>
             </article>
 
@@ -941,13 +927,6 @@ function page (cb) {
                 Saturday
               </span>
 
-              <strong>
-                Swap & Social
-              </strong>
-
-              <span>
-                5–7pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -960,7 +939,7 @@ function page (cb) {
               </strong>
 
               <span>
-                11am–2pm
+                2-4pm
               </span>
             </article>
 
@@ -972,6 +951,7 @@ function page (cb) {
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -985,91 +965,11 @@ function page (cb) {
 
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            fill="#fbfaf6">
+            fill="#f4efe6">
           </path>
         </svg>
       </div>
 
-      <!-- PLAYDATE CAMPAIGN -->
-
-      <section
-        class="section playdate-section"
-        id="playdate"
-      >
-        <div class="content content-wide">
-
-          <div class="playdate-card">
-
-            <div class="playdate-copy">
-
-              <p class="eyebrow dark">
-                Special August offer
-              </p>
-
-              <h2>
-                Bring a friend to Swap & Play
-              </h2>
-
-              <p class="playdate-lead">
-                One £10 Playdate Pass = one visit for two families.
-              </p>
-
-              <p>
-                Pick a friend, choose a time and enjoy a playdate without
-                having to host it at home.
-              </p>
-
-              <div class="playdate-price">
-                <strong>£10</strong>
-                <span>total for both families</span>
-              </div>
-
-              <ul class="playdate-benefits">
-                <li>One visit for two families</li>
-                <li>Come anytime from 6am to 9pm</li>
-                <li>Stay for as long as you like</li>
-                <li>Play spaces and Community Wardrobe included</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food and snacks</li>
-              </ul>
-
-              <a
-                class="button primary-button"
-                href="${PLAYDATE_PASS_PAYMENT_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get a Playdate Pass — £10
-              </a>
-
-              <p class="small-note">
-                Only one family needs to buy the pass.
-                Available until the end of August.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- WAVE -->
-
-      <div class="wave">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <rect
-            width="1200"
-            height="120"
-            fill="#fbfaf6">
-          </rect>
-
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            fill="#f4efe6">
-          </path>
-        </svg>
-      </div>      
 
       <!-- VISIT OPTIONS -->
 
@@ -1090,9 +990,8 @@ function page (cb) {
             </h2>
 
             <p class="section-intro">
-              Every option includes the play spaces, Community Wardrobe,
-              tea and coffee, and access to any social time happening while
-              your pass is active.
+              Come for a single day or make Swap & Play part of your routine
+              with unlimited monthly access.
             </p>
 
           </div>
@@ -1129,6 +1028,13 @@ function page (cb) {
                 <li>Tea and coffee included</li>
               </ul>
 
+              <div class="summer-offer">
+                <strong>Until Aug 31 - Summer Playdate Offer</strong>
+                <span>
+                  Bring another family and make it a playdate — one Day Pass covers two families for £10.
+                </span>
+              </div>
+
               <a
                 class="button secondary-button"
                 href="${DAY_PASS_PAYMENT_URL}"
@@ -1141,92 +1047,113 @@ function page (cb) {
             </article>
 
 
-            <!-- WEEK PASS -->
+            <!-- MEMBERSHIP -->
 
             <article class="price-card featured">
 
               <p class="price-card-label">
-                Summer favourite
+                UNLIMITED ACCESS
               </p>
 
               <h3>
-                7-Day Flexi Pass
+                Monthly Membership
               </h3>
 
               <div class="price">
-                <strong>£15</strong>
-                <span>per household</span>
+                <strong>£35</strong>
+                <span>per month</span>
               </div>
 
               <p>
-                Keep Swap & Play available to your family for a whole week.
+                Unlimited visits for your household, whenever it works for you.
               </p>
 
               <ul>
-                <li>Unlimited visits for 7 consecutive days</li>
-                <li>Your week starts with your first visit</li>
+                <li>Unlimited visits every month</li>
                 <li>Come anytime from 6am–9pm</li>
-                <li>All social times included</li>
-                <li>Community Wardrobe included</li>
+                <li>Stay as long as you like</li>
+                <li>Play spaces and Community Wardrobe included</li>
+                <li>Tea and coffee included</li>
+                <li>1 guest family per month included</li>
+                <li>Cancel anytime.</li>
               </ul>
+
+              <div class="membership-offer">
+                <strong>Be one of our first 10 member families</strong>
+                <span>
+                  Lock in the founding rate of £35/month for as long as you remain a member.
+                </span>
+              </div>
 
               <a
                 class="button primary-button"
-                href="${WEEKLY_PASS_PAYMENT_URL}"
+                href="${MEMBERSHIP_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Buy 7-Day Flexi Pass
-              </a>
-
-            </article>
-
-
-            <!-- 5 VISITS -->
-
-            <article class="price-card">
-
-              <p class="price-card-label">
-                Flexible
-              </p>
-
-              <h3>
-                5-Visit Pack
-              </h3>
-
-              <div class="price">
-                <strong>£40</strong>
-                <span>£8 per visit</span>
-              </div>
-
-              <p>
-                Five visits to use when you need them without fitting everything
-                into one week.
-              </p>
-
-              <ul>
-                <li>Five flexible visits</li>
-                <li>Come anytime from 6am–9pm</li>
-                <li>Stay as long as you like</li>
-                <li>Community Wardrobe included</li>
-                <li>Valid for 6 weeks from first visit</li>
-              </ul>
-
-              <a
-                class="button secondary-button"
-                href="${FIVE_VISIT_PACK_PAYMENT_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Buy 5-Visit Pack
+                Become a Founding Member
               </a>
 
             </article>
 
           </div>
 
-        </div>
+
+          <!-- GIFT -->
+
+          <div class="gift-card">
+
+            <div class="gift-decoration gift-decoration-top">
+              <span>✦</span>
+            </div>
+
+            <div class="gift-content">
+
+              <p class="gift-eyebrow">
+                Gift Voucher
+              </p>
+
+              <h2>
+                Give One Month of<br>
+                Swap &amp; Play
+              </h2>
+
+              <p class="gift-description">
+                Know a family who would love Swap &amp; Play?
+                Give them a whole month to play, swap, explore
+                and enjoy the space.
+              </p>
+
+              <div class="gift-price">
+                <strong>£35</strong>
+              </div>
+
+              <p class="gift-message">
+                A little gift for a family you love.
+              </p>
+
+              <p class="gift-validity">
+                This voucher is valid for one year
+              </p>
+
+              <a
+                href="${GIFT_MONTH_PAYMENT_URL}"
+                class="button primary-button gift-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gift a Month
+              </a>
+
+            </div>
+
+            <div class="gift-decoration gift-decoration-bottom">
+              <span>✦</span>
+            </div>
+
+          </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -1243,7 +1170,7 @@ function page (cb) {
             fill="#6fa8dc">
           </path>
         </svg>
-      </div>      
+      </div>
 
 
       <!-- FIRST VISIT -->
@@ -1292,7 +1219,8 @@ function page (cb) {
             fill="#fbfaf6">
           </path>
         </svg>
-      </div>   
+      </div>
+
 
       <!-- FINAL STATEMENT -->
 
@@ -1342,7 +1270,8 @@ function page (cb) {
             fill="#2f4f4f">
           </path>
         </svg>
-      </div>  
+      </div>
+
 
       <!-- FOOTER -->
 
@@ -1436,14 +1365,6 @@ function page (cb) {
   function scroll_to_hash_target () {
     const path = window.location.pathname.replace(/\/$/, '')
     const hash = window.location.hash
-
-    if (
-      path.endsWith('/playdate') ||
-      hash === '#playdate'
-    ) {
-      scroll_to_target('#playdate')
-      return
-    }
 
     if (
       path.endsWith('/trial') ||
@@ -1655,13 +1576,11 @@ function get_theme () {
       padding: 7rem 1.5rem;
     }
 
-
     .content {
       width: 100%;
       max-width: 940px;
       margin: 0 auto;
     }
-
 
     .content-wide {
       width: 100%;
@@ -1669,18 +1588,15 @@ function get_theme () {
       margin: 0 auto;
     }
 
-
     .content-xl {
       width: 100%;
       max-width: 1400px;
       margin: 0 auto;
     }
 
-
     .center {
       text-align: center;
     }
-
 
     .center p {
       max-width: 720px;
@@ -1688,19 +1604,16 @@ function get_theme () {
       margin-left: auto;
     }
 
-
     .section-heading {
       max-width: 860px;
       margin: 0 auto 3.6rem;
     }
-
 
     .section-heading h2 {
       max-width: 820px;
       margin-right: auto;
       margin-left: auto;
     }
-
 
     .section-intro {
       max-width: 720px;
@@ -1714,7 +1627,6 @@ function get_theme () {
       line-height: 1.65;
     }
 
-
     .eyebrow {
       margin-bottom: 1rem;
 
@@ -1727,7 +1639,6 @@ function get_theme () {
       text-transform: uppercase;
     }
 
-
     .eyebrow.dark {
       color: var(--heather);
     }
@@ -1736,7 +1647,6 @@ function get_theme () {
     /* ---------------------------------------------------------
        BUTTONS
        --------------------------------------------------------- */
-
 
     .button {
       display: inline-flex;
@@ -1766,11 +1676,9 @@ function get_theme () {
         transform 0.2s ease;
     }
 
-
     .button:hover {
       transform: translateY(-2px);
     }
-
 
     .primary-button {
       border-color: var(--heather);
@@ -1781,7 +1689,6 @@ function get_theme () {
       color: white;
     }
 
-
     .primary-button:hover {
       border-color: #79518d;
       background: #79518d;
@@ -1789,29 +1696,25 @@ function get_theme () {
       color: white;
     }
 
-
     .secondary-button {
-      border-color: rgba(47, 79, 79, 0.2);
-
-      background: transparent;
-      box-shadow: none;
-
-      color: var(--ink);
-    }
-
-
-    .secondary-button:hover {
       border-color: var(--ink);
       background: var(--ink);
-
       color: white;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .secondary-button:hover {
+      transform: translateY(-2px);
     }
 
 
     /* ---------------------------------------------------------
        ANNOUNCEMENT
        --------------------------------------------------------- */
-
 
     .announcement-bar {
       padding: 0.7rem 1rem;
@@ -1820,7 +1723,6 @@ function get_theme () {
 
       text-align: center;
     }
-
 
     .announcement-link {
       margin: 0;
@@ -1838,7 +1740,6 @@ function get_theme () {
       line-height: 1.35;
     }
 
-
     .announcement-link:hover {
       color: var(--heather);
     }
@@ -1848,13 +1749,11 @@ function get_theme () {
        HERO
        --------------------------------------------------------- */
 
-
     .hero {
       padding: 5rem 1.5rem 6rem;
 
       background: var(--blue);
     }
-
 
     .hero-inner {
       display: grid;
@@ -1870,11 +1769,9 @@ function get_theme () {
       gap: clamp(3rem, 6vw, 6rem);
     }
 
-
     .hero-copy {
       min-width: 0;
     }
-
 
     .hero-logo {
       display: block;
@@ -1891,7 +1788,6 @@ function get_theme () {
         drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
     }
 
-
     .hero-subtitle {
       max-width: 680px;
       margin-bottom: 1.7rem;
@@ -1901,7 +1797,6 @@ function get_theme () {
       font-size: clamp(1.18rem, 2vw, 1.42rem);
       line-height: 1.55;
     }
-
 
     .hero-details {
       display: flex;
@@ -1917,11 +1812,9 @@ function get_theme () {
       font-weight: 700;
     }
 
-
     .hero-details span {
       position: relative;
     }
-
 
     .hero-details span + span::before {
       position: absolute;
@@ -1939,7 +1832,6 @@ function get_theme () {
       transform: translateY(-50%);
     }
 
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1950,7 +1842,6 @@ function get_theme () {
       margin-top: 1.1rem;
     }
 
-
     .hero .primary-button {
       border-color: white;
 
@@ -1960,20 +1851,17 @@ function get_theme () {
       color: var(--ink);
     }
 
-
     .hero .primary-button:hover {
       background: var(--cream);
 
       color: var(--heather);
     }
 
-
     .hero .secondary-button {
       border-color: rgba(255, 255, 255, 0.58);
 
       color: white;
     }
-
 
     .hero .secondary-button:hover {
       border-color: white;
@@ -1982,17 +1870,12 @@ function get_theme () {
       color: var(--ink);
     }
 
-
     .hero-photo {
       position: relative;
-
       overflow: hidden;
-
-      border-radius: 4px 70px 4px 70px;
-
+      border-radius: 70px;
       box-shadow: var(--shadow-large);
     }
-
 
     .hero-photo .photo {
       display: block;
@@ -2008,7 +1891,6 @@ function get_theme () {
       transition: transform 0.8s ease;
     }
 
-
     .hero-photo:hover .photo {
       transform: scale(1.015);
     }
@@ -2018,12 +1900,10 @@ function get_theme () {
        IDENTITY — PLAY / SHARE / BELONG
        --------------------------------------------------------- */
 
-
     .identity-section {
       background: var(--cream);
       padding-top: 2rem;
     }
-
 
     .identity-grid {
       display: grid;
@@ -2033,7 +1913,6 @@ function get_theme () {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-
 
     .identity-card {
       position: relative;
@@ -2045,11 +1924,9 @@ function get_theme () {
       border-right: 1px solid var(--line);
     }
 
-
     .identity-card:last-child {
       border-right: 0;
     }
-
 
     .identity-number {
       display: block;
@@ -2062,12 +1939,10 @@ function get_theme () {
       font-weight: 750;
     }
 
-
     .identity-card h3 {
       font-family: inherit;
       font-weight: 750;
     }
-
 
     .identity-card p {
       max-width: 330px;
@@ -2083,11 +1958,9 @@ function get_theme () {
        LOCATION
        --------------------------------------------------------- */
 
-
     .location-section {
       background: var(--sand);
     }
-
 
     .location-visuals {
       display: grid;
@@ -2103,7 +1976,6 @@ function get_theme () {
       gap: 1.8rem;
     }
 
-
     .location-card {
       overflow: hidden;
 
@@ -2113,7 +1985,6 @@ function get_theme () {
       background: white;
       box-shadow: var(--shadow-small);
     }
-
 
     .location-card .photo {
       display: block;
@@ -2129,11 +2000,9 @@ function get_theme () {
       box-shadow: none;
     }
 
-
     .building-card {
       aspect-ratio: 4 / 3;
     }
-
 
     .building-card img {
       width: 100%;
@@ -2142,11 +2011,9 @@ function get_theme () {
       object-fit: cover;
     }
 
-
     .map-card {
       aspect-ratio: 4 / 4.2;
     }
-
 
     .map-card img {
       width: 100%;
@@ -2156,7 +2023,6 @@ function get_theme () {
 
       background: #f9f6ef;
     }
-
 
     .location-details {
       display: grid;
@@ -2169,7 +2035,6 @@ function get_theme () {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-
 
     .location-detail {
       display: flex;
@@ -2186,11 +2051,9 @@ function get_theme () {
       text-align: center;
     }
 
-
     .location-detail:last-child {
       border-right: 0;
     }
-
 
     .location-detail strong {
       display: block;
@@ -2199,7 +2062,6 @@ function get_theme () {
 
       font-size: 0.93rem;
     }
-
 
     .location-detail span {
       color: var(--muted);
@@ -2213,11 +2075,9 @@ function get_theme () {
        HOW IT WORKS
        --------------------------------------------------------- */
 
-
     .how-it-works-section {
       background: var(--cream);
     }
-
 
     .steps-grid {
       display: grid;
@@ -2230,7 +2090,6 @@ function get_theme () {
       gap: 1rem;
     }
 
-
     .step-card {
       padding: 2rem;
 
@@ -2239,7 +2098,6 @@ function get_theme () {
 
       background: white;
     }
-
 
     .step-number {
       display: inline-flex;
@@ -2261,7 +2119,6 @@ function get_theme () {
       font-weight: 750;
     }
 
-
     .step-card p {
       margin-bottom: 0;
 
@@ -2269,7 +2126,6 @@ function get_theme () {
 
       font-size: 0.98rem;
     }
-
 
     .big-statement {
       max-width: 820px;
@@ -2287,11 +2143,9 @@ function get_theme () {
        COMMUNITY WARDROBE
        --------------------------------------------------------- */
 
-
     .swap-section {
       background: var(--green);
     }
-
 
     .swap-story-grid {
       display: grid;
@@ -2304,34 +2158,28 @@ function get_theme () {
       gap: clamp(3rem, 7vw, 6rem);
     }
 
-
     .swap-story-copy {
       max-width: 590px;
     }
-
 
     .swap-story-copy h2 {
       max-width: 580px;
     }
 
-
     .swap-story-copy p {
       max-width: 570px;
     }
-
 
     .large-copy {
       font-family: inherit;
       font-weight: 750;
     }
 
-
     .swap-principle {
       margin-top: 2rem;
 
       font-size: 0.98rem !important;
     }
-
 
     .swap-principle-large {
       margin-top: 1.5rem;
@@ -2346,15 +2194,13 @@ function get_theme () {
       letter-spacing: -0.035em;
     }
 
-
     .swap-story-photo {
       overflow: hidden;
 
-      border-radius: 60px 4px 60px 4px;
+      border-radius: 60px;
 
       box-shadow: var(--shadow);
     }
-
 
     .swap-story-photo .photo {
       display: block;
@@ -2378,11 +2224,9 @@ function get_theme () {
        RECENTLY ADDED SWAP ITEMS
        --------------------------------------------------------- */
 
-
     .swap-preview-section {
       background: var(--cream);
     }
-
 
     .swap-preview-heading {
       display: grid;
@@ -2399,12 +2243,10 @@ function get_theme () {
       margin-bottom: 2.5rem;
     }
 
-
     .swap-preview-heading h2 {
       max-width: 620px;
       margin-bottom: 0;
     }
-
 
     .swap-preview-intro {
       max-width: 550px;
@@ -2416,7 +2258,6 @@ function get_theme () {
       line-height: 1.65;
     }
 
-
     .swap-items-scroll {
       display: grid;
 
@@ -2425,7 +2266,6 @@ function get_theme () {
 
       gap: 1rem;
     }
-
 
     .swap-item-card {
       overflow: hidden;
@@ -2436,7 +2276,6 @@ function get_theme () {
       background: white;
     }
 
-
     .swap-item-image-wrap {
       aspect-ratio: 4 / 5;
 
@@ -2444,7 +2283,6 @@ function get_theme () {
 
       background: var(--sand);
     }
-
 
     .swap-item-image {
       display: block;
@@ -2457,23 +2295,19 @@ function get_theme () {
       transition: transform 0.35s ease;
     }
 
-
     .swap-item-card:hover .swap-item-image {
       transform: scale(1.025);
     }
 
-
     .swap-item-copy {
       padding: 1rem 1rem 1.1rem;
     }
-
 
     .swap-item-copy h3 {
       margin-bottom: 0.3rem;
 
       font-size: 1rem;
     }
-
 
     .swap-item-details,
     .swap-item-added {
@@ -2483,18 +2317,15 @@ function get_theme () {
       line-height: 1.45;
     }
 
-
     .swap-item-details {
       color: var(--ink);
     }
-
 
     .swap-item-added {
       margin-top: 0.3rem;
 
       color: var(--muted);
     }
-
 
     .swap-stock-note {
       max-width: 700px;
@@ -2505,10 +2336,6 @@ function get_theme () {
 
       font-size: 0.84rem;
     }
-
-
-    /* Empty dynamic swap state */
-
 
     .swap-preview-empty {
       display: grid;
@@ -2525,7 +2352,6 @@ function get_theme () {
       background: var(--sand);
     }
 
-
     .swap-preview-room-photo {
       display: block;
 
@@ -2536,7 +2362,6 @@ function get_theme () {
       object-fit: cover;
     }
 
-
     .swap-preview-empty-copy {
       display: flex;
 
@@ -2545,7 +2370,6 @@ function get_theme () {
 
       padding: 3rem;
     }
-
 
     .swap-preview-kicker {
       display: block;
@@ -2560,12 +2384,10 @@ function get_theme () {
       text-transform: uppercase;
     }
 
-
     .swap-preview-empty-copy h3 {
       font-family: inherit;
       font-weight: 750;
     }
-
 
     .swap-preview-empty-copy p {
       margin-bottom: 0;
@@ -2580,7 +2402,6 @@ function get_theme () {
        LIFE AT SWAP & PLAY
        --------------------------------------------------------- */
 
-
     .life-section {
       padding-top: 7rem;
       padding-bottom: 7rem;
@@ -2588,16 +2409,14 @@ function get_theme () {
       background: var(--sand);
     }
 
-
     .life-photo-grid {
       display: grid;
 
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 140px;
+      grid-auto-rows: 180px;
 
       gap: 1rem;
     }
-
 
     .life-photo-grid .photo {
       display: block;
@@ -2616,40 +2435,39 @@ function get_theme () {
       object-fit: cover;
     }
 
-
     .life-photo-grid .photo:nth-child(1) {
       grid-column: 1 / 6;
       grid-row: span 3;
+      object-position: center 46%;
     }
-
 
     .life-photo-grid .photo:nth-child(2) {
       grid-column: 6 / 13;
       grid-row: span 2;
+      object-position: center 45%;
     }
-
 
     .life-photo-grid .photo:nth-child(3) {
       grid-column: 6 / 10;
       grid-row: span 2;
+      object-position: center 50%;
     }
-
 
     .life-photo-grid .photo:nth-child(4) {
       grid-column: 10 / 13;
       grid-row: span 2;
     }
 
-
     .life-photo-grid .photo:nth-child(5) {
       grid-column: 1 / 7;
       grid-row: span 2;
+      object-position: center 67%;
     }
-
 
     .life-photo-grid .photo:nth-child(6) {
       grid-column: 7 / 13;
       grid-row: span 2;
+      object-position: center 59%;
     }
 
 
@@ -2657,11 +2475,9 @@ function get_theme () {
        REVIEWS
        --------------------------------------------------------- */
 
-
     .reviews-section {
       background: var(--cream);
     }
-
 
     .reviews-grid {
       display: grid;
@@ -2675,7 +2491,6 @@ function get_theme () {
       background: var(--line);
     }
 
-
     .review-card {
       min-width: 0;
       margin: 0;
@@ -2687,7 +2502,6 @@ function get_theme () {
       background: var(--cream);
     }
 
-
     .review-card p {
       margin-bottom: 2rem;
 
@@ -2697,7 +2511,6 @@ function get_theme () {
       font-weight: 750;
     }
 
-
     .review-card footer {
       color: var(--muted);
 
@@ -2706,7 +2519,6 @@ function get_theme () {
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-
 
     .press-links {
       display: grid;
@@ -2718,7 +2530,6 @@ function get_theme () {
 
       gap: 1rem;
     }
-
 
     .press-link {
       display: flex;
@@ -2743,7 +2554,6 @@ function get_theme () {
         transform 0.2s ease;
     }
 
-
     .press-link:hover {
       border-color: rgba(143, 100, 164, 0.35);
 
@@ -2752,14 +2562,12 @@ function get_theme () {
       transform: translateY(-1px);
     }
 
-
     .press-publication {
       font-size: 0.77rem;
       font-weight: 850;
       letter-spacing: 0.09em;
       text-transform: uppercase;
     }
-
 
     .press-read {
       color: var(--heather);
@@ -2773,11 +2581,9 @@ function get_theme () {
        SOCIAL TIMES
        --------------------------------------------------------- */
 
-
     .social-section {
       background: var(--green);
     }
-
 
     .social-times-grid {
       display: grid;
@@ -2790,7 +2596,6 @@ function get_theme () {
       border-top: 1px solid rgba(47, 79, 79, 0.16);
       border-left: 1px solid rgba(47, 79, 79, 0.16);
     }
-
 
     .social-time {
       display: flex;
@@ -2807,7 +2612,6 @@ function get_theme () {
       background: rgba(255, 255, 255, 0.2);
     }
 
-
     .social-day {
       margin-bottom: auto;
 
@@ -2819,7 +2623,6 @@ function get_theme () {
       text-transform: uppercase;
     }
 
-
     .social-time strong {
       display: block;
 
@@ -2830,13 +2633,11 @@ function get_theme () {
       line-height: 1.3;
     }
 
-
     .social-time > span:not(.social-day) {
       color: var(--muted);
 
       font-size: 0.9rem;
     }
-
 
     .social-time small {
       display: inline-block;
@@ -2849,11 +2650,9 @@ function get_theme () {
       font-weight: 750;
     }
 
-
     .public-social-time {
       background: rgba(255, 255, 255, 0.52);
     }
-
 
     .social-note {
       margin-top: 2rem !important;
@@ -2869,11 +2668,9 @@ function get_theme () {
        PLAYDATE
        --------------------------------------------------------- */
 
-
     .playdate-section {
       background: var(--cream);
     }
-
 
     .playdate-card {
       max-width: 840px;
@@ -2890,12 +2687,10 @@ function get_theme () {
       text-align: center;
     }
 
-
     .playdate-copy {
       max-width: 630px;
       margin: 0 auto;
     }
-
 
     .playdate-copy h2 {
       max-width: 600px;
@@ -2903,12 +2698,10 @@ function get_theme () {
       margin-left: auto;
     }
 
-
     .playdate-lead {
       font-family: inherit;
       font-weight: 750;
     }
-
 
     .playdate-price {
       display: flex;
@@ -2921,24 +2714,20 @@ function get_theme () {
       gap: 0.25rem;
     }
 
-
     .playdate-price strong {
       font-family: inherit;
       font-weight: 500;
 
       font-size: 4.2rem;
-      font-weight: 500;
       line-height: 1;
       letter-spacing: -0.05em;
     }
-
 
     .playdate-price span {
       color: var(--muted);
 
       font-size: 0.9rem;
     }
-
 
     .playdate-benefits {
       max-width: 430px;
@@ -2950,7 +2739,6 @@ function get_theme () {
 
       text-align: left;
     }
-
 
     .playdate-benefits li {
       position: relative;
@@ -2965,7 +2753,6 @@ function get_theme () {
       line-height: 1.45;
     }
 
-
     .playdate-benefits li::before {
       position: absolute;
       top: 0;
@@ -2975,7 +2762,6 @@ function get_theme () {
 
       content: "•";
     }
-
 
     .small-note {
       max-width: 550px;
@@ -2992,41 +2778,42 @@ function get_theme () {
        PRICING
        --------------------------------------------------------- */
 
-
     .pricing-section {
       background: var(--sand);
     }
 
-
     .pass-options-grid {
       display: grid;
 
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
       align-items: stretch;
 
-      gap: 1rem;
-    }
+      max-width: 980px;
+      margin: 0 auto;
 
+      gap: 1.2rem;
+    }
 
     .price-card {
       display: flex;
 
       min-width: 0;
-      min-height: 520px;
+      min-height: 540px;
 
       flex-direction: column;
 
-      padding: 2.3rem;
+      padding: 2.5rem;
 
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 16px;
 
       background: var(--cream);
     }
 
-
     .price-card.featured {
+      position: relative;
+
       border-color: rgba(143, 100, 164, 0.45);
 
       background: white;
@@ -3034,6 +2821,20 @@ function get_theme () {
       box-shadow: var(--shadow);
     }
 
+    .price-card.featured::before {
+      position: absolute;
+      top: -1px;
+      left: 2rem;
+      right: 2rem;
+
+      height: 4px;
+
+      border-radius: 0 0 6px 6px;
+
+      background: var(--heather);
+
+      content: "";
+    }
 
     .price-card-label {
       margin-bottom: 1.2rem;
@@ -3046,7 +2847,6 @@ function get_theme () {
       text-transform: uppercase;
     }
 
-
     .price-card h3 {
       margin-bottom: 1.2rem;
 
@@ -3055,7 +2855,6 @@ function get_theme () {
 
       font-size: 1.8rem;
     }
-
 
     .price {
       display: flex;
@@ -3067,7 +2866,6 @@ function get_theme () {
       margin-bottom: 1.5rem;
     }
 
-
     .price strong {
       font-family: inherit;
       font-weight: 750;
@@ -3077,7 +2875,6 @@ function get_theme () {
       letter-spacing: -0.045em;
     }
 
-
     .price span {
       margin-top: 0.3rem;
 
@@ -3086,13 +2883,11 @@ function get_theme () {
       font-size: 0.82rem;
     }
 
-
     .price-card > p:not(.price-card-label) {
       color: var(--muted);
 
       font-size: 0.96rem;
     }
-
 
     .price-card ul {
       margin: 1.1rem 0 2rem;
@@ -3101,7 +2896,6 @@ function get_theme () {
 
       list-style: none;
     }
-
 
     .price-card li {
       position: relative;
@@ -3116,7 +2910,6 @@ function get_theme () {
       line-height: 1.5;
     }
 
-
     .price-card li::before {
       position: absolute;
       top: 0;
@@ -3127,7 +2920,6 @@ function get_theme () {
       content: "•";
     }
 
-
     .price-card .button {
       width: 100%;
 
@@ -3136,9 +2928,324 @@ function get_theme () {
 
 
     /* ---------------------------------------------------------
-       FIRST VISIT
+       SUMMER OFFER / MEMBERSHIP DETAILS
        --------------------------------------------------------- */
 
+    .summer-offer,
+    .membership-offer {
+      display: flex;
+
+      flex-direction: column;
+
+      margin: 0 0 1.8rem;
+      padding: 1rem 1.1rem;
+
+      border-radius: 10px;
+
+      background: rgba(209, 236, 230, 0.62);
+    }
+
+    .summer-offer strong,
+    .membership-offer strong {
+      display: block;
+
+      margin-bottom: 0.25rem;
+
+      color: var(--ink);
+
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .summer-offer span,
+    .membership-offer span {
+      color: var(--muted);
+
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .membership-offer {
+      background: rgba(143, 100, 164, 0.08);
+    }
+
+    .membership-offer strong {
+      color: var(--heather);
+    }
+
+    .price-card .small-note {
+      margin-top: 0.9rem;
+      margin-bottom: 0;
+
+      text-align: center;
+    }
+
+
+    /* ---------------------------------------------------------
+      GIFT VOUCHER
+      --------------------------------------------------------- */
+
+    .gift-card {
+      position: relative;
+
+      width: 100%;
+      max-width: 820px;
+
+      margin: 3rem auto 0;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(143, 100, 164, 0.16);
+      border-radius: 24px;
+
+      background:
+        radial-gradient(
+          circle at 8% 18%,
+          rgba(244, 166, 192, 0.22) 0,
+          rgba(244, 166, 192, 0) 28%
+        ),
+        radial-gradient(
+          circle at 92% 82%,
+          rgba(209, 236, 230, 0.65) 0,
+          rgba(209, 236, 230, 0) 30%
+        ),
+        #fff4f0;
+
+      box-shadow:
+        0 18px 50px rgba(47, 79, 79, 0.08);
+
+      text-align: center;
+    }
+
+
+    /* Main content */
+
+    .gift-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 650px;
+
+      margin: 0 auto;
+
+      padding: 3.5rem 2rem 3.2rem;
+    }
+
+
+    /* Eyebrow */
+
+    .gift-eyebrow {
+      margin: 0 0 1rem;
+
+      color: var(--heather);
+
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.2;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+
+    /* Heading */
+
+    .gift-card h2 {
+      max-width: 620px;
+
+      margin: 0 auto 1.25rem;
+
+      color: var(--ink);
+
+      font-family: inherit;
+      font-size: clamp(2.15rem, 5vw, 3.3rem);
+      font-weight: 750;
+      line-height: 1.02;
+
+      letter-spacing: -0.045em;
+    }
+
+
+    /* Description */
+
+    .gift-description {
+      max-width: 590px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+
+    /* Price */
+
+    .gift-price {
+      display: inline-flex;
+
+      align-items: baseline;
+      gap: 0.55rem;
+
+      margin: 2rem auto 1.4rem;
+      padding: 0.7rem 1.25rem;
+    }
+
+    .gift-price strong {
+      color: var(--ink);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .gift-price span {
+      color: var(--muted);
+
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+
+    /* Emotional line */
+
+    .gift-message {
+      margin: 0 auto 0.5rem;
+
+      color: var(--heather);
+
+      font-size: 1rem;
+      font-weight: 750;
+    }
+
+
+    /* Validity */
+
+    .gift-validity {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+    }
+
+
+    /* Button */
+
+    .gift-button {
+      display: inline-flex;
+
+      min-height: 54px;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 1.7rem;
+      padding: 0.95rem 2rem;
+
+      border: 1px solid var(--heather);
+      border-radius: 999px;
+
+      background: var(--heather);
+
+      color: white !important;
+
+      font-size: 0.96rem;
+      font-weight: 800;
+      line-height: 1.2;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 10px 24px rgba(143, 100, 164, 0.2);
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .gift-button:hover {
+      border-color: #79518d;
+
+      background: #79518d;
+
+      color: white !important;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 13px 28px rgba(143, 100, 164, 0.25);
+    }
+
+
+    /* Decorative stars */
+
+    .gift-decoration {
+      position: absolute;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      color: var(--pink);
+
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .gift-decoration-top {
+      top: 1.5rem;
+      left: 2rem;
+
+      transform: rotate(-12deg);
+    }
+
+    .gift-decoration-bottom {
+      right: 2rem;
+      bottom: 1.5rem;
+
+      color: var(--heather);
+
+      font-size: 1.35rem;
+
+      transform: rotate(14deg);
+    }
+
+
+    /* A couple of soft decorative circles */
+
+    .gift-card::before,
+    .gift-card::after {
+      position: absolute;
+
+      width: 90px;
+      height: 90px;
+
+      border-radius: 50%;
+
+      content: "";
+      pointer-events: none;
+    }
+
+    .gift-card::before {
+      top: -45px;
+      right: 15%;
+
+      background: rgba(244, 166, 192, 0.18);
+    }
+
+    .gift-card::after {
+      bottom: -50px;
+      left: 12%;
+
+      background: rgba(209, 236, 230, 0.5);
+    }
+
+    /* ---------------------------------------------------------
+       FIRST VISIT
+       --------------------------------------------------------- */
 
     .first-visit-section {
       background: var(--blue);
@@ -3146,28 +3253,23 @@ function get_theme () {
       color: white;
     }
 
-
     .first-visit-section h2 {
       color: white;
     }
-
 
     .first-visit-section .eyebrow {
       color: rgba(255, 255, 255, 0.78);
     }
 
-
     .first-visit-section p {
       color: rgba(255, 255, 255, 0.9);
     }
-
 
     .first-visit-section .secondary-button {
       border-color: rgba(255, 255, 255, 0.65);
 
       color: white;
     }
-
 
     .first-visit-section .secondary-button:hover {
       border-color: white;
@@ -3182,14 +3284,12 @@ function get_theme () {
        CLOSING
        --------------------------------------------------------- */
 
-
     .closing-section {
       padding-top: 7rem;
       padding-bottom: 8rem;
 
       background: var(--cream);
     }
-
 
     .closing-photo {
       display: block;
@@ -3206,7 +3306,6 @@ function get_theme () {
       object-fit: cover;
     }
 
-
     .closing-section h2 {
       max-width: 790px;
 
@@ -3222,7 +3321,6 @@ function get_theme () {
        FOOTER
        --------------------------------------------------------- */
 
-
     .footer {
       padding: 5rem 1.5rem;
 
@@ -3230,7 +3328,6 @@ function get_theme () {
 
       color: white;
     }
-
 
     .footer-logo {
       display: block;
@@ -3246,7 +3343,6 @@ function get_theme () {
         invert(1);
     }
 
-
     .footer p {
       margin-bottom: 0.75rem;
 
@@ -3255,7 +3351,6 @@ function get_theme () {
       font-size: 0.9rem;
       line-height: 1.55;
     }
-
 
     .footer a {
       color: white;
@@ -3267,7 +3362,6 @@ function get_theme () {
     /* ---------------------------------------------------------
        SHAREABLE HASH TARGETS
        --------------------------------------------------------- */
-
 
     #location,
     #swap-room,
@@ -3283,7 +3377,6 @@ function get_theme () {
        TABLET
        --------------------------------------------------------- */
 
-
     @media (max-width: 1050px) {
 
       .hero-inner,
@@ -3291,19 +3384,16 @@ function get_theme () {
         grid-template-columns: 1fr;
       }
 
-
       .hero {
         padding-top: 4rem;
 
         text-align: center;
       }
 
-
       .hero-logo {
         margin-right: auto;
         margin-left: auto;
       }
-
 
       h1,
       .hero-subtitle {
@@ -3311,25 +3401,20 @@ function get_theme () {
         margin-left: auto;
       }
 
-
       .hero-details,
       .hero-actions {
         justify-content: center;
       }
 
-
       .hero-photo {
         width: min(640px, 100%);
-
         margin: 1rem auto 0;
       }
-
 
       .hero-photo .photo {
         height: auto;
         aspect-ratio: 4 / 4.3;
       }
-
 
       .swap-story-copy {
         max-width: 760px;
@@ -3339,13 +3424,11 @@ function get_theme () {
         text-align: center;
       }
 
-
       .swap-story-copy h2,
       .swap-story-copy p {
         margin-right: auto;
         margin-left: auto;
       }
-
 
       .swap-story-photo {
         max-width: 700px;
@@ -3353,32 +3436,23 @@ function get_theme () {
         margin: 0 auto;
       }
 
-
       .swap-story-photo .photo {
         height: auto;
         aspect-ratio: 4 / 3;
       }
 
-
       .pass-options-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
 
       .price-card {
         width: 100%;
-        max-width: 680px;
         min-height: 0;
-
-        margin-right: auto;
-        margin-left: auto;
       }
-
 
       .price-card .button {
         max-width: 300px;
       }
-
     }
 
 
@@ -3389,12 +3463,10 @@ function get_theme () {
         padding-bottom: 5.5rem;
       }
 
-
       .identity-grid,
       .steps-grid {
         grid-template-columns: 1fr;
       }
-
 
       .identity-card {
         min-height: 0;
@@ -3403,16 +3475,13 @@ function get_theme () {
         border-bottom: 1px solid var(--line);
       }
 
-
       .identity-card:last-child {
         border-bottom: 0;
       }
 
-
       .identity-card p {
         max-width: 620px;
       }
-
 
       .location-visuals {
         grid-template-columns: 1fr;
@@ -3420,13 +3489,11 @@ function get_theme () {
         max-width: 620px;
       }
 
-
       .location-details {
         grid-template-columns: 1fr;
 
         max-width: 620px;
       }
-
 
       .location-detail {
         min-height: 0;
@@ -3435,37 +3502,30 @@ function get_theme () {
         border-bottom: 1px solid var(--line);
       }
 
-
       .location-detail:last-child {
         border-bottom: 0;
       }
-
 
       .reviews-grid {
         grid-template-columns: 1fr;
       }
 
-
       .review-card {
         border-bottom: 1px solid var(--line);
       }
-
 
       .review-card:last-child {
         border-bottom: 0;
       }
 
-
       .social-times-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
 
       .life-photo-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
       }
-
 
       .life-photo-grid .photo:nth-child(n) {
         grid-column: auto;
@@ -3473,7 +3533,6 @@ function get_theme () {
 
         aspect-ratio: 4 / 3;
       }
-
     }
 
 
@@ -3481,49 +3540,40 @@ function get_theme () {
        MOBILE
        --------------------------------------------------------- */
 
-
     @media (max-width: 700px) {
 
       .section {
         padding: 4.25rem 1rem;
       }
 
-
       h1 {
         font-size: clamp(2.8rem, 13vw, 4rem);
         line-height: 0.98;
       }
 
-
       h2 {
         font-size: clamp(2.1rem, 10vw, 3rem);
       }
-
 
       p {
         font-size: 1rem;
       }
 
-
       .section-heading {
         margin-bottom: 2.6rem;
       }
-
 
       .section-intro {
         font-size: 1.02rem;
       }
 
-
       .hero {
         padding: 3.2rem 1rem 4.2rem;
       }
 
-
       .hero-inner {
         gap: 2.5rem;
       }
-
 
       .hero-logo {
         width: 200px;
@@ -3531,11 +3581,9 @@ function get_theme () {
         margin-bottom: 2rem;
       }
 
-
       .hero-subtitle {
         font-size: 1.1rem;
       }
-
 
       .hero-details {
         display: grid;
@@ -3545,11 +3593,9 @@ function get_theme () {
         font-size: 0.83rem;
       }
 
-
       .hero-details span + span::before {
         display: none;
       }
-
 
       .hero-actions {
         display: grid;
@@ -3562,51 +3608,41 @@ function get_theme () {
         gap: 0.65rem;
       }
 
-
       .hero-actions .button {
         width: 100%;
       }
 
-
       .hero-photo {
-        border-radius: 3px 38px 3px 38px;
+        border-radius: 38px;
       }
-
 
       .identity-card {
         padding: 2rem 0.5rem;
       }
 
-
       .identity-number {
         margin-bottom: 1.2rem;
       }
-
 
       .location-visuals {
         gap: 1rem;
       }
 
-
       .location-card {
         border-radius: 10px;
       }
-
 
       .map-card {
         aspect-ratio: 4 / 4.5;
       }
 
-
       .location-detail {
         padding: 1.2rem;
       }
 
-
       .step-card {
         padding: 1.5rem;
       }
-
 
       .big-statement {
         margin-top: 3rem !important;
@@ -3614,16 +3650,13 @@ function get_theme () {
         font-size: 1.55rem;
       }
 
-
       .swap-story-grid {
         gap: 2.7rem;
       }
 
-
       .swap-story-photo {
-        border-radius: 32px 3px 32px 3px;
+        border-radius: 32px;
       }
-
 
       .swap-preview-heading {
         grid-template-columns: 1fr;
@@ -3631,11 +3664,9 @@ function get_theme () {
         gap: 1rem;
       }
 
-
       .swap-preview-heading h2 {
         margin-bottom: 0.5rem;
       }
-
 
       /*
        * Swap arrivals become a horizontal shelf on phones.
@@ -3646,13 +3677,11 @@ function get_theme () {
         padding-left: 0;
       }
 
-
       .swap-preview-heading,
       .swap-stock-note {
         margin-right: 1rem;
         margin-left: 1rem;
       }
-
 
       .swap-items-scroll {
         display: flex;
@@ -3669,7 +3698,6 @@ function get_theme () {
         scrollbar-width: thin;
       }
 
-
       .swap-item-card {
         width: min(68vw, 245px);
 
@@ -3678,7 +3706,6 @@ function get_theme () {
         scroll-snap-align: start;
       }
 
-
       .swap-preview-empty {
         grid-template-columns: 1fr;
 
@@ -3686,18 +3713,15 @@ function get_theme () {
         margin-left: 1rem;
       }
 
-
       .swap-preview-room-photo {
         min-height: 0;
 
         aspect-ratio: 4 / 3;
       }
 
-
       .swap-preview-empty-copy {
         padding: 1.5rem;
       }
-
 
       .life-photo-grid {
         display: grid;
@@ -3707,21 +3731,17 @@ function get_theme () {
         gap: 0.75rem;
       }
 
-
       .life-photo-grid .photo:nth-child(n) {
         aspect-ratio: 4 / 3;
       }
-
 
       .review-card {
         padding: 2rem 0.2rem;
       }
 
-
       .review-card p {
         font-size: 1.12rem;
       }
-
 
       .press-links {
         grid-template-columns: 1fr;
@@ -3729,11 +3749,9 @@ function get_theme () {
         margin-top: 2.5rem;
       }
 
-
       .social-times-grid {
         grid-template-columns: 1fr;
       }
-
 
       .social-time {
         min-height: 125px;
@@ -3741,11 +3759,9 @@ function get_theme () {
         padding: 1.3rem;
       }
 
-
       .social-time strong {
         margin-top: 1rem;
       }
-
 
       .playdate-card {
         padding: 2.5rem 1.3rem;
@@ -3753,44 +3769,87 @@ function get_theme () {
         border-radius: 12px;
       }
 
-
       .playdate-price strong {
         font-size: 3.5rem;
       }
 
+      .pass-options-grid {
+        grid-template-columns: 1fr;
+      }
 
       .price-card {
+        width: 100%;
         padding: 1.7rem;
       }
 
+      .price-card.featured::before {
+        left: 1.5rem;
+        right: 1.5rem;
+      }
 
       .price strong {
         font-size: 3rem;
       }
 
+      .summer-offer,
+      .membership-offer {
+        padding: 0.9rem 1rem;
+      }
+
+      .gift-card {
+        border-radius: 18px;
+      }
+
+      .gift-content {
+        padding: 2.7rem 1.25rem 2.5rem;
+      }
+
+      .gift-card h2 {
+        font-size: 2.25rem;
+      }
+
+      .gift-description {
+        font-size: 0.98rem;
+      }
+
+      .gift-price {
+        margin-top: 1.6rem;
+      }
+
+      .gift-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .gift-decoration-top {
+        top: 1rem;
+        left: 1rem;
+      }
+
+      .gift-decoration-bottom {
+        right: 1rem;
+        bottom: 1rem;
+      }
 
       .price-card .button,
+      .button,
       .first-visit-section .button,
       .closing-section .button {
         width: 100%;
         max-width: 340px;
       }
 
-
       .closing-photo {
         margin-bottom: 3.5rem;
       }
-
 
       .closing-section h2 {
         font-size: 2.5rem;
       }
 
-
       .footer {
         padding: 4rem 1rem;
       }
-
 
       .footer p {
         max-width: 330px;
@@ -3800,69 +3859,78 @@ function get_theme () {
 
         overflow-wrap: anywhere;
       }
-
     }
 
-@media (max-width: 440px) {
 
-  h1 {
-    font-size: 2.75rem;
-  }
+    @media (max-width: 440px) {
 
-  h2 {
-    font-size: 2.15rem;
-  }
+      h1 {
+        font-size: 2.75rem;
+      }
 
-  .eyebrow {
-    font-size: 0.67rem;
-  }
+      h2 {
+        font-size: 2.15rem;
+      }
 
-  .hero-logo {
-    width: 185px;
-  }
+      .eyebrow {
+        font-size: 0.67rem;
+      }
 
-  .hero-photo .photo {
-    aspect-ratio: 4 / 4.8;
-  }
+      .hero-logo {
+        width: 185px;
+      }
 
-  .swap-principle-large {
-    font-size: 2.25rem !important;
-  }
+      .hero-photo .photo {
+        aspect-ratio: 4 / 4.8;
+      }
 
-  .playdate-price strong {
-    font-size: 3.1rem;
-  }
+      .swap-principle-large {
+        font-size: 2.25rem !important;
+      }
 
-  .price strong {
-    font-size: 2.8rem;
-  }
+      .playdate-price strong {
+        font-size: 3.1rem;
+      }
 
-  .closing-section h2 {
-    font-size: 2.15rem;
-  }
+      .price strong {
+        font-size: 2.8rem;
+      }
 
-}
+      .closing-section h2 {
+        font-size: 2.15rem;
+      }
+
+      .price-card-label {
+        font-size: 0.62rem;
+      }
+
+      .gift-callout {
+        padding: 1.7rem 1rem;
+      }
+    }
 
 
-/* WAVE — OUTSIDE THE MEDIA QUERY */
+    /* ---------------------------------------------------------
+       WAVE — OUTSIDE THE MEDIA QUERY
+       --------------------------------------------------------- */
 
-.wave {
-  display: block;
-  width: 100%;
-  margin: -1px 0;
-  padding: 0;
-  overflow: hidden;
-  font-size: 0;
-  line-height: 0;
-}
+    .wave {
+      display: block;
+      width: 100%;
+      margin: -1px 0;
+      padding: 0;
+      overflow: hidden;
+      font-size: 0;
+      line-height: 0;
+    }
 
-.wave svg {
-  display: block;
-  width: 100%;
-  height: 70px;
-  margin: 0;
-  padding: 0;
-}
+    .wave svg {
+      display: block;
+      width: 100%;
+      height: 70px;
+      margin: 0;
+      padding: 0;
+    }
   `
 }
 },{}]},{},[2]);

@@ -1,4 +1,16 @@
 [
+    {
+    "image": "./assets/swap-items/purple-soft-jacket.jpg",
+    "title": "Purple soft bear jacket",
+    "details": "6-12 months",
+    "added": "2026-08-18"
+  },
+  {
+    "image": "./assets/swap-items/complet-trousers-blouse.jpg",
+    "title": "Overalls with a butterfly",
+    "details": "6-12 months",
+    "added": "2026-08-18"
+  },
   {
     "image": "./assets/swap-items/animal-print-dungarees.jpg",
     "title": "Animal Print Dungarees",

@@ -3,9 +3,8 @@ module.exports = page
 const get_theme = require('get_theme')
 
 const DAY_PASS_PAYMENT_URL = 'https://buy.stripe.com/5kQ14m8ga9jj0pjdsh0Ba05'
-const FIVE_VISIT_PACK_PAYMENT_URL = 'https://buy.stripe.com/cNieVcbsm0MNb3X5ZP0Ba06'
-const WEEKLY_PASS_PAYMENT_URL = 'https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00'
-const PLAYDATE_PASS_PAYMENT_URL = 'https://buy.stripe.com/dRmeVc2VQeDD2xr9c10Ba07'
+const MEMBERSHIP_PAYMENT_URL = 'https://buy.stripe.com/cNi9AS3ZU9jj4Fzewl0Ba08'
+const GIFT_MONTH_PAYMENT_URL = 'https://buy.stripe.com/cNifZg0NI7bb0pjag50Ba09'
 
 const ILKLEY_GAZETTE_ARTICLE_URL = 'https://www.ilkleygazette.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
 const WHARFEDALE_OBSERVER_ARTICLE_URL = 'https://www.wharfedaleobserver.co.uk/news/26265760.new-family-play-swap-space-opens-wharfedale'
@@ -63,7 +62,7 @@ function page (cb) {
         <button
           type="button"
           class="announcement-link"
-          data-scroll-to="#playdate"
+          data-scroll-to="#passes"
         >
           August: Bring a friend — one visit for two families for £10 →
         </button>
@@ -317,7 +316,8 @@ function page (cb) {
             fill="#fbfaf6">
           </path>
         </svg>
-      </div>      
+      </div>
+
 
       <!-- HOW IT WORKS -->
 
@@ -379,6 +379,7 @@ function page (cb) {
         </div>
       </section>
 
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -394,7 +395,8 @@ function page (cb) {
             fill="#d1ece6">
           </path>
         </svg>
-      </div>      
+      </div>
+
 
       <!-- COMMUNITY WARDROBE -->
 
@@ -458,7 +460,8 @@ function page (cb) {
 
         </div>
       </section>
-      
+
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -507,12 +510,13 @@ function page (cb) {
           ${render_swap_room_items()}
 
           <p class="swap-stock-note">
-            These are recent arrivals rather than live stock, so some items may
+            These are some of the recent arrivals rather than live stock, so some items may
             already have found a new home.
           </p>
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -530,7 +534,8 @@ function page (cb) {
           </path>
         </svg>
       </div>
-      
+
+
       <!-- LIFE AT SWAP & PLAY -->
 
       <section class="section life-section">
@@ -554,25 +559,6 @@ function page (cb) {
           </div>
 
           <div class="life-photo-grid">
-
-            <img
-              src="./assets/focused-play.jpg"
-              alt="A child concentrating on a puzzle"
-              class="photo"
-            >
-
-            <img
-              src="./assets/social-play.jpg"
-              alt="Families meeting at Swap & Play"
-              class="photo"
-            >
-
-            <img
-              src="./assets/quiet-coffee.jpg"
-              alt="A cup of coffee beside the play space"
-              class="photo"
-            >
-
             <img
               src="./assets/role-play.jpg"
               alt="Children playing together in the role play room"
@@ -580,21 +566,42 @@ function page (cb) {
             >
 
             <img
+              src="./assets/mum-and-son.jpg"
+              alt="Mother and son playing together"
+              class="photo"
+            >
+            <img
               src="./assets/girls-playing.jpeg"
               alt="Children playing together on the floor"
               class="photo"
             >
 
             <img
-              src="./assets/baby.jpg"
-              alt="A baby exploring the baby play area"
+              src="./assets/focused-play.jpg"
+              alt="A child concentrating on a puzzle"
               class="photo"
             >
+            <img
+              src="./assets/children-playing.jpg"
+              alt="A child playing"
+              class="photo"
+            >            
+
+            <img
+              src="./assets/quiet-coffee.jpg"
+              alt="A cup of coffee beside the play space"
+              class="photo"
+            >
+
+
+
+
 
           </div>
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -612,6 +619,7 @@ function page (cb) {
           </path>
         </svg>
       </div>
+
 
       <!-- REVIEWS -->
 
@@ -701,6 +709,7 @@ function page (cb) {
         </div>
       </section>
 
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -717,6 +726,7 @@ function page (cb) {
           </path>
         </svg>
       </div>
+
 
       <!-- SOCIAL TIMES -->
 
@@ -750,13 +760,6 @@ function page (cb) {
                 Monday
               </span>
 
-              <strong>
-                Afternoon Playdate
-              </strong>
-
-              <span>
-                3–5pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -764,13 +767,6 @@ function page (cb) {
                 Tuesday
               </span>
 
-              <strong>
-                Cowork & Play
-              </strong>
-
-              <span>
-                11am–2pm
-              </span>
             </article>
 
             <article class="social-time public-social-time">
@@ -795,28 +791,6 @@ function page (cb) {
               <span class="social-day">
                 Thursday
               </span>
-
-              <strong>
-                Under-1s Playdate
-              </strong>
-
-              <span>
-                3–5pm
-              </span>
-            </article>
-
-            <article class="social-time">
-              <span class="social-day">
-                Friday
-              </span>
-
-              <strong>
-                Grandparents' Morning
-              </strong>
-
-              <span>
-                10am–12pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -829,7 +803,7 @@ function page (cb) {
               </strong>
 
               <span>
-                3–6pm
+                2–5pm
               </span>
             </article>
 
@@ -838,13 +812,6 @@ function page (cb) {
                 Saturday
               </span>
 
-              <strong>
-                Swap & Social
-              </strong>
-
-              <span>
-                5–7pm
-              </span>
             </article>
 
             <article class="social-time">
@@ -857,7 +824,7 @@ function page (cb) {
               </strong>
 
               <span>
-                11am–2pm
+                2-4pm
               </span>
             </article>
 
@@ -869,6 +836,7 @@ function page (cb) {
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -882,91 +850,11 @@ function page (cb) {
 
           <path
             d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            fill="#fbfaf6">
+            fill="#f4efe6">
           </path>
         </svg>
       </div>
 
-      <!-- PLAYDATE CAMPAIGN -->
-
-      <section
-        class="section playdate-section"
-        id="playdate"
-      >
-        <div class="content content-wide">
-
-          <div class="playdate-card">
-
-            <div class="playdate-copy">
-
-              <p class="eyebrow dark">
-                Special August offer
-              </p>
-
-              <h2>
-                Bring a friend to Swap & Play
-              </h2>
-
-              <p class="playdate-lead">
-                One £10 Playdate Pass = one visit for two families.
-              </p>
-
-              <p>
-                Pick a friend, choose a time and enjoy a playdate without
-                having to host it at home.
-              </p>
-
-              <div class="playdate-price">
-                <strong>£10</strong>
-                <span>total for both families</span>
-              </div>
-
-              <ul class="playdate-benefits">
-                <li>One visit for two families</li>
-                <li>Come anytime from 6am to 9pm</li>
-                <li>Stay for as long as you like</li>
-                <li>Play spaces and Community Wardrobe included</li>
-                <li>Tea and coffee included</li>
-                <li>Bring your own food and snacks</li>
-              </ul>
-
-              <a
-                class="button primary-button"
-                href="${PLAYDATE_PASS_PAYMENT_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get a Playdate Pass — £10
-              </a>
-
-              <p class="small-note">
-                Only one family needs to buy the pass.
-                Available until the end of August.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- WAVE -->
-
-      <div class="wave">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <rect
-            width="1200"
-            height="120"
-            fill="#fbfaf6">
-          </rect>
-
-          <path
-            d="M0,75 C220,35 420,95 640,60 C860,25 1030,80 1200,55 L1200,120 L0,120 Z"
-            fill="#f4efe6">
-          </path>
-        </svg>
-      </div>      
 
       <!-- VISIT OPTIONS -->
 
@@ -987,9 +875,8 @@ function page (cb) {
             </h2>
 
             <p class="section-intro">
-              Every option includes the play spaces, Community Wardrobe,
-              tea and coffee, and access to any social time happening while
-              your pass is active.
+              Come for a single day or make Swap & Play part of your routine
+              with unlimited monthly access.
             </p>
 
           </div>
@@ -1026,6 +913,13 @@ function page (cb) {
                 <li>Tea and coffee included</li>
               </ul>
 
+              <div class="summer-offer">
+                <strong>Until Aug 31 - Summer Playdate Offer</strong>
+                <span>
+                  Bring another family and make it a playdate — one Day Pass covers two families for £10.
+                </span>
+              </div>
+
               <a
                 class="button secondary-button"
                 href="${DAY_PASS_PAYMENT_URL}"
@@ -1038,92 +932,113 @@ function page (cb) {
             </article>
 
 
-            <!-- WEEK PASS -->
+            <!-- MEMBERSHIP -->
 
             <article class="price-card featured">
 
               <p class="price-card-label">
-                Summer favourite
+                UNLIMITED ACCESS
               </p>
 
               <h3>
-                7-Day Flexi Pass
+                Monthly Membership
               </h3>
 
               <div class="price">
-                <strong>£15</strong>
-                <span>per household</span>
+                <strong>£35</strong>
+                <span>per month</span>
               </div>
 
               <p>
-                Keep Swap & Play available to your family for a whole week.
+                Unlimited visits for your household, whenever it works for you.
               </p>
 
               <ul>
-                <li>Unlimited visits for 7 consecutive days</li>
-                <li>Your week starts with your first visit</li>
+                <li>Unlimited visits every month</li>
                 <li>Come anytime from 6am–9pm</li>
-                <li>All social times included</li>
-                <li>Community Wardrobe included</li>
+                <li>Stay as long as you like</li>
+                <li>Play spaces and Community Wardrobe included</li>
+                <li>Tea and coffee included</li>
+                <li>1 guest family per month included</li>
+                <li>Cancel anytime.</li>
               </ul>
+
+              <div class="membership-offer">
+                <strong>Be one of our first 10 member families</strong>
+                <span>
+                  Lock in the founding rate of £35/month for as long as you remain a member.
+                </span>
+              </div>
 
               <a
                 class="button primary-button"
-                href="${WEEKLY_PASS_PAYMENT_URL}"
+                href="${MEMBERSHIP_PAYMENT_URL}"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Buy 7-Day Flexi Pass
-              </a>
-
-            </article>
-
-
-            <!-- 5 VISITS -->
-
-            <article class="price-card">
-
-              <p class="price-card-label">
-                Flexible
-              </p>
-
-              <h3>
-                5-Visit Pack
-              </h3>
-
-              <div class="price">
-                <strong>£40</strong>
-                <span>£8 per visit</span>
-              </div>
-
-              <p>
-                Five visits to use when you need them without fitting everything
-                into one week.
-              </p>
-
-              <ul>
-                <li>Five flexible visits</li>
-                <li>Come anytime from 6am–9pm</li>
-                <li>Stay as long as you like</li>
-                <li>Community Wardrobe included</li>
-                <li>Valid for 6 weeks from first visit</li>
-              </ul>
-
-              <a
-                class="button secondary-button"
-                href="${FIVE_VISIT_PACK_PAYMENT_URL}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Buy 5-Visit Pack
+                Become a Founding Member
               </a>
 
             </article>
 
           </div>
 
-        </div>
+
+          <!-- GIFT -->
+
+          <div class="gift-card">
+
+            <div class="gift-decoration gift-decoration-top">
+              <span>✦</span>
+            </div>
+
+            <div class="gift-content">
+
+              <p class="gift-eyebrow">
+                Gift Voucher
+              </p>
+
+              <h2>
+                Give One Month of<br>
+                Swap &amp; Play
+              </h2>
+
+              <p class="gift-description">
+                Know a family who would love Swap &amp; Play?
+                Give them a whole month to play, swap, explore
+                and enjoy the space.
+              </p>
+
+              <div class="gift-price">
+                <strong>£35</strong>
+              </div>
+
+              <p class="gift-message">
+                A little gift for a family you love.
+              </p>
+
+              <p class="gift-validity">
+                This voucher is valid for one year
+              </p>
+
+              <a
+                href="${GIFT_MONTH_PAYMENT_URL}"
+                class="button primary-button gift-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gift a Month
+              </a>
+
+            </div>
+
+            <div class="gift-decoration gift-decoration-bottom">
+              <span>✦</span>
+            </div>
+
+          </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -1140,7 +1055,7 @@ function page (cb) {
             fill="#6fa8dc">
           </path>
         </svg>
-      </div>      
+      </div>
 
 
       <!-- FIRST VISIT -->
@@ -1189,7 +1104,8 @@ function page (cb) {
             fill="#fbfaf6">
           </path>
         </svg>
-      </div>   
+      </div>
+
 
       <!-- FINAL STATEMENT -->
 
@@ -1239,7 +1155,8 @@ function page (cb) {
             fill="#2f4f4f">
           </path>
         </svg>
-      </div>  
+      </div>
+
 
       <!-- FOOTER -->
 
@@ -1333,14 +1250,6 @@ function page (cb) {
   function scroll_to_hash_target () {
     const path = window.location.pathname.replace(/\/$/, '')
     const hash = window.location.hash
-
-    if (
-      path.endsWith('/playdate') ||
-      hash === '#playdate'
-    ) {
-      scroll_to_target('#playdate')
-      return
-    }
 
     if (
       path.endsWith('/trial') ||
