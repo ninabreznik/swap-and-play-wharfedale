@@ -2439,6 +2439,7 @@ function get_theme () {
       grid-column: 1 / 6;
       grid-row: span 3;
       object-position: center 46%;
+      height: auto;
     }
 
     .life-photo-grid .photo:nth-child(2) {
