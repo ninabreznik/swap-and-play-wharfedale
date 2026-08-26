@@ -650,6 +650,18 @@ function page (cb) {
               <footer>Mel A</footer>
             </blockquote>
 
+
+            <blockquote class="review-card">
+              <p>
+                “We love the swap room. We can just take whatever clothes we need, 
+                and when they outgrow them, bring them back for someone else to use. 
+                It's perfect. Although it feels like a subscription to a play space, 
+                the best part is actually having a subscription to a community wardrobe."
+              </p>
+
+              <footer>Eleanor M</footer>
+            </blockquote>
+            
             <blockquote class="review-card">
               <p>
                 “I loved the toys, the space is clean and fresh, and you have
@@ -658,16 +670,6 @@ function page (cb) {
               </p>
 
               <footer>Nancy M</footer>
-            </blockquote>
-
-            <blockquote class="review-card">
-              <p>
-                “The flexibility and the fact that you don’t have to pre-book
-                make it so convenient to use. Our little ones love it here and
-                always ask to come back.”
-              </p>
-
-              <footer>Julia R</footer>
             </blockquote>
 
           </div>
