@@ -118,6 +118,7 @@ module.exports = page
 const get_theme = require('get_theme')
 
 const DAY_PASS_PAYMENT_URL = 'https://buy.stripe.com/5kQ14m8ga9jj0pjdsh0Ba05'
+const WEEK_PASS_PAYMENT_URL = "https://buy.stripe.com/4gM9ASbsmeDDeg95ZP0Ba00"
 const MEMBERSHIP_PAYMENT_URL = 'https://buy.stripe.com/cNi9AS3ZU9jj4Fzewl0Ba08'
 const GIFT_MONTH_PAYMENT_URL = 'https://buy.stripe.com/cNifZg0NI7bb0pjag50Ba09'
 
@@ -171,7 +172,7 @@ function page (cb) {
   shadow.innerHTML = `
     <div class="page">
 
-      <!-- AUGUST ANNOUNCEMENT -->
+      <!-- SEPTEMBER ANNOUNCEMENT -->
 
       <section class="announcement-bar">
         <button
@@ -179,7 +180,7 @@ function page (cb) {
           class="announcement-link"
           data-scroll-to="#passes"
         >
-          August: Bring a friend — one visit for two families for £10 →
+          September: Try Swap & Play for a whole week for £15 →
         </button>
       </section>
 
@@ -244,6 +245,7 @@ function page (cb) {
 
         </div>
       </section>
+
 
       <!-- WAVE -->
 
@@ -320,6 +322,7 @@ function page (cb) {
         </div>
       </section>
 
+
       <!-- WAVE -->
 
       <div class="wave">
@@ -336,6 +339,7 @@ function page (cb) {
           </path>
         </svg>
       </div>
+
 
       <!-- LOCATION -->
 
@@ -992,8 +996,8 @@ function page (cb) {
             </h2>
 
             <p class="section-intro">
-              Come for a single day or make Swap & Play part of your routine
-              with unlimited monthly access.
+              Come for a single day, try a whole week, or make Swap & Play part
+              of your routine with unlimited monthly access.
             </p>
 
           </div>
@@ -1030,13 +1034,6 @@ function page (cb) {
                 <li>Tea and coffee included</li>
               </ul>
 
-              <div class="summer-offer">
-                <strong>Until Aug 31 - Summer Playdate Offer</strong>
-                <span>
-                  Bring another family and make it a playdate — one Day Pass covers two families for £10.
-                </span>
-              </div>
-
               <a
                 class="button secondary-button"
                 href="${DAY_PASS_PAYMENT_URL}"
@@ -1044,6 +1041,48 @@ function page (cb) {
                 rel="noopener noreferrer"
               >
                 Buy Day Pass
+              </a>
+
+            </article>
+
+
+            <!-- WEEK PASS -->
+
+            <article class="price-card">
+
+              <p class="price-card-label">
+                Try a whole week
+              </p>
+
+              <h3>
+                7-Day Pass
+              </h3>
+
+              <div class="price">
+                <strong>£15</strong>
+                <span>per household</span>
+              </div>
+
+              <p>
+                Unlimited visits for 7 days — a simple way to see how Swap & Play fits into your week.
+              </p>
+
+              <ul>
+                <li>Unlimited visits for 7 days</li>
+                <li>Come anytime from 6am–9pm</li>
+                <li>Play spaces included</li>
+                <li>Community Wardrobe included</li>
+                <li>Tea and coffee included</li>
+                <li>No subscription</li>
+              </ul>
+
+              <a
+                class="button secondary-button"
+                href="${WEEK_PASS_PAYMENT_URL}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy 7-Day Pass
               </a>
 
             </article>
@@ -1080,10 +1119,10 @@ function page (cb) {
                 <li>Cancel anytime.</li>
               </ul>
 
-              <div class="membership-offer">
-                <strong>Be one of our first 10 member families</strong>
+              <div class="pricing-details">
+                <strong>Founding member rate</strong>
                 <span>
-                  Lock in the founding rate of £35/month for as long as you remain a member.
+                  £35/month for as long as you remain a member.
                 </span>
               </div>
 
@@ -2788,11 +2827,10 @@ function get_theme () {
     .pass-options-grid {
       display: grid;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 2fr));
 
       align-items: stretch;
 
-      max-width: 980px;
       margin: 0 auto;
 
       gap: 1.2rem;
@@ -2819,7 +2857,7 @@ function get_theme () {
 
       border-color: rgba(143, 100, 164, 0.45);
 
-      background: white;
+      background: var(--cream);
 
       box-shadow: var(--shadow);
     }
@@ -2931,11 +2969,10 @@ function get_theme () {
 
 
     /* ---------------------------------------------------------
-       SUMMER OFFER / MEMBERSHIP DETAILS
+       MEMBERSHIP DETAILS
        --------------------------------------------------------- */
 
-    .summer-offer,
-    .membership-offer {
+    .pricing-details {
       display: flex;
 
       flex-direction: column;
@@ -2948,8 +2985,7 @@ function get_theme () {
       background: rgba(209, 236, 230, 0.62);
     }
 
-    .summer-offer strong,
-    .membership-offer strong {
+    .pricing-details strong {
       display: block;
 
       margin-bottom: 0.25rem;
@@ -2960,19 +2996,18 @@ function get_theme () {
       font-weight: 850;
     }
 
-    .summer-offer span,
-    .membership-offer span {
+    .pricing-details span {
       color: var(--muted);
 
       font-size: 0.82rem;
       line-height: 1.45;
     }
 
-    .membership-offer {
+    .pricing-details {
       background: rgba(143, 100, 164, 0.08);
     }
 
-    .membership-offer strong {
+    .pricing-details strong {
       color: var(--heather);
     }
 
@@ -3794,8 +3829,7 @@ function get_theme () {
         font-size: 3rem;
       }
 
-      .summer-offer,
-      .membership-offer {
+      .pricing-details {
         padding: 0.9rem 1rem;
       }
 
