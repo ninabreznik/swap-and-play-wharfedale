@@ -13,38 +13,14 @@ module.exports=[
     "added": "2026-08-18"
   },
   {
-    "image": "./assets/swap-items/animal-print-dungarees.jpg",
-    "title": "Animal Print Dungarees",
-    "details": "3-4 years",
-    "added": "2026-08-08"
-  },
-  {
-    "image": "./assets/swap-items/star-jacket.jpg",
-    "title": "Star jacket",
-    "details": "12-18 months",
-    "added": "2026-08-08"
-  },
-  {
     "image": "./assets/swap-items/blade.jpg",
     "title": "Blade & Rose knitted leggins",
     "details": "9-12 months",
     "added": "2026-08-08"
   },
   {
-    "image": "./assets/swap-items/suumer-long-pants-blue.jpg",
-    "title": "Light long summer trousers",
-    "details": "2-3 years",
-    "added": "2026-08-08"
-  },
-  {
     "image": "./assets/swap-items/tracksuit-set-grey.jpg",
     "title": "Cotton tracksuit set",
-    "details": "3-4 years",
-    "added": "2026-08-08"
-  },
-  {
-    "image": "./assets/swap-items/skirt-and-jumper.jpg",
-    "title": "Skirt and jumper with peace sign",
     "details": "3-4 years",
     "added": "2026-08-08"
   },
@@ -61,10 +37,34 @@ module.exports=[
     "added": "2026-08-08"
   },
   {
-    "image": "./assets/swap-items/3-pairs-of-shorts.jpg",
-    "title": "Girls shorts",
+    "image": "./assets/swap-items/vest-blue.jpg",
+    "title": "Blue vest",
+    "details": "12-18 months",
+    "added": "2026-09-03"
+  },
+  {
+    "image": "./assets/swap-items/dress-dots-blue.jpg",
+    "title": "Blue dress with dots",
+    "details": "3-4 years months",
+    "added": "2026-09-03"
+  },
+  {
+    "image": "./assets/swap-items/yellow-thinkpink.jpg",
+    "title": "Yellow ThinkPink fleece",
     "details": "2-3 years",
-    "added": "2026-08-08"
+    "added": "2026-09-03"
+  },
+  {
+    "image": "./assets/swap-items/floral-sleepsuit.jpg",
+    "title": "Floral sleepsuit",
+    "details": "2-3 years",
+    "added": "2026-09-03"
+  },
+  {
+    "image": "./assets/swap-items/jumper-with-cars.jpg",
+    "title": "Jumper with cars",
+    "details": "2-3 years",
+    "added": "2026-09-03"
   }
 ]
 },{}],2:[function(require,module,exports){
@@ -237,7 +237,7 @@ function page (cb) {
 
           <div class="hero-photo">
             <img
-              src="./assets/hero-families.jpg"
+              src="./assets/swap.png"
               alt="Local families spending time together at Swap & Play"
               class="photo"
             >

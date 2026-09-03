@@ -122,7 +122,7 @@ function page (cb) {
 
           <div class="hero-photo">
             <img
-              src="./assets/hero-families.jpg"
+              src="./assets/swap.png"
               alt="Local families spending time together at Swap & Play"
               class="photo"
             >
